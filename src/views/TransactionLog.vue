@@ -13,120 +13,366 @@
       <div class="log-card">
         <div class="card-header">
           <h2 class="card-title">Recent Transactions</h2>
-          <input 
-            type="text" 
-            v-model="searchQuery" 
-            placeholder="Search transactions..."
-            class="search-input"
-          />
+          <div class="header-actions">
+            <button @click="openStatusModal" class="btn-edit-status">
+              Edit Status
+            </button>
+            <input 
+              type="text" 
+              v-model="searchQuery" 
+              placeholder="Search transactions..."
+              class="search-input"
+            />
+          </div>
         </div>
 
-        <div class="table-container">
+        <!-- Desktop Table View -->
+        <div class="table-container desktop-view">
           <table class="transactions-table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Customer</th>
-                <th>Service</th>
-                <th>Weight (kg)</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Status</th>
+                <th @click="sortBy('id')" class="sortable">
+                  ID
+                  <span class="sort-icon">{{ getSortIcon('id') }}</span>
+                </th>
+                <th @click="sortBy('customer')" class="sortable">
+                  Customer Name
+                  <span class="sort-icon">{{ getSortIcon('customer') }}</span>
+                </th>
+                <th @click="sortBy('service')" class="sortable">
+                  Service Type
+                  <span class="sort-icon">{{ getSortIcon('service') }}</span>
+                </th>
+                <th @click="sortBy('addons')" class="sortable">
+                  Add-ons
+                  <span class="sort-icon">{{ getSortIcon('addons') }}</span>
+                </th>
+                <th @click="sortBy('status')" class="sortable">
+                  Status
+                  <span class="sort-icon">{{ getSortIcon('status') }}</span>
+                </th>
+                <th @click="sortBy('date')" class="sortable">
+                  Date
+                  <span class="sort-icon">{{ getSortIcon('date') }}</span>
+                </th>
+                <th @click="sortBy('time')" class="sortable">
+                  Time Received
+                  <span class="sort-icon">{{ getSortIcon('time') }}</span>
+                </th>
+                <th @click="sortBy('amount')" class="sortable">
+                  Amount
+                  <span class="sort-icon">{{ getSortIcon('amount') }}</span>
+                </th>
                 <th v-if="isAdmin">Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="transaction in filteredTransactions" :key="transaction.id">
                 <td>{{ transaction.id }}</td>
+                <td>{{ transaction.customer }}</td>
+                <td>{{ transaction.service }}</td>
+                <td>{{ transaction.addons }}</td>
                 <td>
-                  <input
-                    v-if="editingId === transaction.id"
-                    v-model="editForm.customer"
-                    class="edit-input"
-                    type="text"
-                  />
-                  <span v-else>{{ transaction.customer }}</span>
-                </td>
-                <td>
-                  <select
-                    v-if="editingId === transaction.id"
-                    v-model="editForm.service"
-                    class="edit-select"
-                  >
-                    <option value="Wash & Dry">Wash & Dry</option>
-                    <option value="Full Service">Full Service</option>
-                    <option value="Wash Only">Wash Only</option>
-                    <option value="Iron Only">Iron Only</option>
-                    <option value="Dry Clean">Dry Clean</option>
-                  </select>
-                  <span v-else>{{ transaction.service }}</span>
-                </td>
-                <td>
-                  <input
-                    v-if="editingId === transaction.id"
-                    v-model="editForm.weight"
-                    class="edit-input small"
-                    type="number"
-                    step="0.1"
-                  />
-                  <span v-else>{{ transaction.weight }}</span>
-                </td>
-                <td>
-                  <input
-                    v-if="editingId === transaction.id"
-                    v-model="editForm.amount"
-                    class="edit-input small"
-                    type="number"
-                    step="0.01"
-                  />
-                  <span v-else>₱{{ transaction.amount }}</span>
-                </td>
-                <td>{{ transaction.date }}</td>
-                <td>
-                  <select
-                    v-if="editingId === transaction.id"
-                    v-model="editForm.status"
-                    class="edit-select"
-                  >
-                    <option value="completed">Completed</option>
-                    <option value="pending">Pending</option>
-                    <option value="processing">Processing</option>
-                  </select>
-                  <span v-else :class="['status-badge', transaction.status]">
-                    {{ transaction.status }}
+                  <span :class="['status-badge', transaction.status]">
+                    {{ transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1) }}
                   </span>
                 </td>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.time }}</td>
+                <td>₱{{ transaction.amount }}</td>
                 <td v-if="isAdmin">
-                  <div class="action-buttons">
-                    <button
-                      v-if="editingId === transaction.id"
-                      @click="saveEdit(transaction.id)"
-                      class="btn-save"
-                    >
-                      Save
-                    </button>
-                    <button
-                      v-if="editingId === transaction.id"
-                      @click="cancelEdit"
-                      class="btn-cancel"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      v-else
-                      @click="startEdit(transaction)"
-                      class="edit-btn"
-                    >
-                      Edit
-                    </button>
-                  </div>
+                  <button
+                    @click="openEditModal(transaction)"
+                    class="edit-btn"
+                  >
+                    Edit
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <!-- Tablet Card View -->
+        <div class="tablet-view">
+          <div v-for="transaction in filteredTransactions" :key="transaction.id" class="transaction-mobile-card">
+            <div class="mobile-card-header">
+              <span class="mobile-id">{{ transaction.id }}</span>
+              <span :class="['status-badge', transaction.status]">
+                {{ transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1) }}
+              </span>
+            </div>
+            <div class="mobile-card-body">
+              <div class="mobile-field">
+                <span class="mobile-label">Customer:</span>
+                <span class="mobile-value">{{ transaction.customer }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Service:</span>
+                <span class="mobile-value">{{ transaction.service }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Add-ons:</span>
+                <span class="mobile-value">{{ transaction.addons }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Date:</span>
+                <span class="mobile-value">{{ transaction.date }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Time:</span>
+                <span class="mobile-value">{{ transaction.time }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Amount:</span>
+                <span class="mobile-value amount">₱{{ transaction.amount }}</span>
+              </div>
+            </div>
+            <div v-if="isAdmin" class="mobile-card-footer">
+              <button @click="openEditModal(transaction)" class="edit-btn-mobile">Edit Transaction</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Card View -->
+        <div class="mobile-view">
+          <div v-for="transaction in filteredTransactions" :key="transaction.id" class="transaction-mobile-card">
+            <div class="mobile-card-header">
+              <span class="mobile-id">{{ transaction.id }}</span>
+              <span :class="['status-badge', transaction.status]">
+                {{ transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1) }}
+              </span>
+            </div>
+            <div class="mobile-card-body">
+              <div class="mobile-field">
+                <span class="mobile-label">Customer:</span>
+                <span class="mobile-value">{{ transaction.customer }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Service:</span>
+                <span class="mobile-value">{{ transaction.service }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Add-ons:</span>
+                <span class="mobile-value">{{ transaction.addons }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Date:</span>
+                <span class="mobile-value">{{ transaction.date }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Time:</span>
+                <span class="mobile-value">{{ transaction.time }}</span>
+              </div>
+              <div class="mobile-field">
+                <span class="mobile-label">Amount:</span>
+                <span class="mobile-value amount">₱{{ transaction.amount }}</span>
+              </div>
+            </div>
+            <div v-if="isAdmin" class="mobile-card-footer">
+              <button @click="openEditModal(transaction)" class="edit-btn-mobile">Edit Transaction</button>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
+
+    <!-- Edit Transaction Modal -->
+    <div v-if="showEditModal" class="modal-overlay" @click="closeEditModal">
+      <div class="modal-content" @click.stop>
+        <div class="modal-header">
+          <h3>Edit Transaction - {{ editForm.id }}</h3>
+          <button @click="closeEditModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="modal-label">Customer Name:</label>
+            <input 
+              v-model="editForm.customer" 
+              type="text" 
+              class="modal-input"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label class="modal-label">Service Type:</label>
+            <select v-model="editForm.service" class="modal-select">
+              <option value="Wash">Wash</option>
+              <option value="Wash & Dry">Wash & Dry</option>
+              <option value="Full Service">Full Service</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="modal-label">Add-ons:</label>
+            <select v-model="editForm.addons" class="modal-select">
+              <option value="None">None</option>
+              <option value="Detergent">Detergent</option>
+              <option value="Softener">Softener</option>
+              <option value="Softener & Detergent">Softener & Detergent</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="modal-label">Status:</label>
+            <select v-model="editForm.status" class="modal-select">
+              <option value="paid">Paid</option>
+              <option value="unpaid">Unpaid</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="modal-label">Date:</label>
+            <input 
+              v-model="editForm.date" 
+              type="date" 
+              class="modal-input"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="modal-label">Time:</label>
+            <input 
+              v-model="editForm.time" 
+              type="time" 
+              class="modal-input"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="modal-label">Amount:</label>
+            <input 
+              v-model="editForm.amount" 
+              type="number" 
+              step="0.01"
+              class="modal-input"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeEditModal" class="btn-modal-cancel">Cancel</button>
+          <button @click="confirmEdit" class="btn-modal-submit">Update Transaction</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirm Edit Modal -->
+    <div v-if="showConfirmEditModal" class="modal-overlay" @click="closeConfirmEditModal">
+      <div class="modal-content modal-confirm" @click.stop>
+        <div class="modal-header">
+          <h3>Confirm Update</h3>
+          <button @click="closeConfirmEditModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="confirm-message">
+            Are you sure you want to update transaction <strong>{{ editForm.id }}</strong>?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeConfirmEditModal" class="btn-modal-cancel">No, Cancel</button>
+          <button @click="saveEditTransaction" class="btn-modal-submit">Yes, Update</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div v-if="showSuccessModal" class="modal-overlay" @click="closeSuccessModal">
+      <div class="modal-content modal-confirm" @click.stop>
+        <div class="modal-header">
+          <h3>Success!</h3>
+          <button @click="closeSuccessModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="success-message">
+            Transaction log updated!
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeSuccessModal" class="btn-modal-submit">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Status Modal - Step 1: Enter Transaction ID -->
+    <div v-if="showStatusModal" class="modal-overlay" @click="closeStatusModal">
+      <div class="modal-content" @click.stop>
+        <div class="modal-header">
+          <h3>Edit Transaction Status</h3>
+          <button @click="closeStatusModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <label class="modal-label">Enter Transaction ID:</label>
+          <input 
+            v-model="statusModalTransactionId" 
+            type="text" 
+            class="modal-input"
+            placeholder="e.g., T001"
+            @keyup.enter="findTransaction"
+          />
+          <p v-if="transactionNotFound" class="error-message">Transaction not found!</p>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeStatusModal" class="btn-modal-cancel">Cancel</button>
+          <button @click="findTransaction" class="btn-modal-submit">Find</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Status Modal - Step 2: Show Transaction & Change Status -->
+    <div v-if="showEditStatusForm" class="modal-overlay" @click="closeEditStatusForm">
+      <div class="modal-content" @click.stop>
+        <div class="modal-header">
+          <h3>Edit Status - {{ selectedTransaction.id }}</h3>
+          <button @click="closeEditStatusForm" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="transaction-details">
+            <p><strong>Customer:</strong> {{ selectedTransaction.customer }}</p>
+            <p><strong>Service:</strong> {{ selectedTransaction.service }}</p>
+            <p><strong>Add-ons:</strong> {{ selectedTransaction.addons }}</p>
+            <p><strong>Date:</strong> {{ selectedTransaction.date }}</p>
+            <p><strong>Time:</strong> {{ selectedTransaction.time }}</p>
+            <p><strong>Amount:</strong> ₱{{ selectedTransaction.amount }}</p>
+            <p><strong>Current Status:</strong> 
+              <span :class="['status-badge', selectedTransaction.status]">
+                {{ selectedTransaction.status.charAt(0).toUpperCase() + selectedTransaction.status.slice(1) }}
+              </span>
+            </p>
+          </div>
+          <div class="status-change-section">
+            <label class="modal-label">Change Status To:</label>
+            <select v-model="newStatus" class="modal-select">
+              <option value="paid">Paid</option>
+              <option value="unpaid">Unpaid</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeEditStatusForm" class="btn-modal-cancel">Cancel</button>
+          <button @click="confirmStatusChange" class="btn-modal-submit">Update Status</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal - Step 3: Confirm Status Change -->
+    <div v-if="showConfirmModal" class="modal-overlay" @click="closeConfirmModal">
+      <div class="modal-content modal-confirm" @click.stop>
+        <div class="modal-header">
+          <h3>Confirm Status Change</h3>
+          <button @click="closeConfirmModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="confirm-message">
+            Are you sure you want to change the status of transaction? <strong>{{ selectedTransaction.id }}</strong> to 
+            <strong>{{ newStatus.charAt(0).toUpperCase() + newStatus.slice(1) }}</strong>?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeConfirmModal" class="btn-modal-cancel">No, Cancel</button>
+          <button @click="saveStatusChange" class="btn-modal-submit">Yes, Confirm</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -153,39 +399,267 @@ export default {
       searchQuery: '',
       editingId: null,
       editForm: {
+        id: '',
         customer: '',
         service: '',
-        weight: 0,
+        addons: '',
         amount: 0,
-        status: ''
+        status: '',
+        date: '',
+        time: ''
       },
+      showStatusModal: false,
+      showEditStatusForm: false,
+      showConfirmModal: false,
+      showEditModal: false,
+      showConfirmEditModal: false,
+      showSuccessModal: false,
+      statusModalTransactionId: '',
+      transactionNotFound: false,
+      selectedTransaction: null,
+      newStatus: '',
+      sortColumn: '',
+      sortDirection: 'asc',
       transactions: [
-        { id: 1, customer: 'John Doe', service: 'Wash & Dry', weight: 5, amount: 250, date: '2025-11-11', status: 'completed' },
-        { id: 2, customer: 'Jane Smith', service: 'Full Service', weight: 8, amount: 400, date: '2025-11-11', status: 'pending' },
-        { id: 3, customer: 'Mike Johnson', service: 'Wash Only', weight: 3, amount: 120, date: '2025-11-10', status: 'completed' },
-        { id: 4, customer: 'Sarah Williams', service: 'Iron Only', weight: 2, amount: 80, date: '2025-11-10', status: 'processing' },
-        { id: 5, customer: 'David Brown', service: 'Wash & Dry', weight: 6, amount: 300, date: '2025-11-09', status: 'completed' }
+        { id: 'TN1', customer: 'John Doe', service: 'Wash & Dry', addons: 'Softener', status: 'paid', date: '2025-11-11', time: '10:30', amount: 250 },
+        { id: 'TN2', customer: 'Jane Smith', service: 'Full Service', addons: 'Detergent', status: 'unpaid', date: '2025-11-11', time: '11:45', amount: 400 },
+        { id: 'TN3', customer: 'Mike Johnson', service: 'Full Service', addons: 'None', status: 'paid', date: '2025-11-10', time: '09:15', amount: 350 },
+        { id: 'TN4', customer: 'Sarah Williams', service: 'Wash', addons: 'Softener & Detergent', status: 'paid', date: '2025-11-10', time: '14:20', amount: 120 },
+        { id: 'TN5', customer: 'Zalora', service: 'Wash', addons: 'None', status: 'paid', date: '2025-11-10', time: '14:20', amount: 100 },
+        { id: 'TN6', customer: 'Rodel', service: 'Wash', addons: 'Detergent', status: 'unpaid', date: '2025-11-10', time: '14:20', amount: 120 },
+        { id: 'TN7', customer: 'Karen', service: 'Full Service', addons: 'None', status: 'unpaid', date: '2025-11-10', time: '14:20', amount: 380 },
+        { id: 'TN8', customer: 'Patrick', service: 'Wash & Dry', addons: 'Detergent', status: 'paid', date: '2025-11-10', time: '14:20', amount: 230 },
+        { id: 'TN9', customer: 'Koykoy', service: 'Wash & Dry', addons: 'Softener & Detergent', status: 'unpaid', date: '2025-11-10', time: '14:20', amount: 280 },
+        { id: 'TN10', customer: 'David Brown', service: 'Full Service', addons: 'Detergent', status: 'paid', date: '2025-11-09', time: '16:00', amount: 420 }
       ]
     }
   },
   computed: {
     filteredTransactions() {
-      if (!this.searchQuery) {
-        return this.transactions
+      let filtered = this.transactions
+      
+      // Apply search filter
+      if (this.searchQuery) {
+        filtered = filtered.filter(t => 
+          t.customer.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          t.service.toLowerCase().includes(this.searchQuery.toLowerCase())
+        )
       }
-      return this.transactions.filter(t => 
-        t.customer.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        t.service.toLowerCase().includes(this.searchQuery.toLowerCase())
-      )
+      
+      // Apply sorting
+      if (this.sortColumn) {
+        filtered = [...filtered].sort((a, b) => {
+          let aVal = a[this.sortColumn]
+          let bVal = b[this.sortColumn]
+          
+          // Custom sorting logic based on column
+          if (this.sortColumn === 'id') {
+            // Extract number from ID (e.g., "TN01" -> 1)
+            const aNum = parseInt(aVal.replace(/\D/g, ''))
+            const bNum = parseInt(bVal.replace(/\D/g, ''))
+            return this.sortDirection === 'asc' ? aNum - bNum : bNum - aNum
+          }
+          
+          if (this.sortColumn === 'customer') {
+            // Alphabetical sorting
+            return this.sortDirection === 'asc' 
+              ? aVal.localeCompare(bVal)
+              : bVal.localeCompare(aVal)
+          }
+          
+          if (this.sortColumn === 'service') {
+            // Custom order: Full Service, Wash & Dry, Wash
+            const order = {
+              'Full Service': 1,
+              'Wash & Dry': 2,
+              'Wash': 3
+            }
+            const aOrder = order[aVal] || 999
+            const bOrder = order[bVal] || 999
+            return this.sortDirection === 'asc' ? aOrder - bOrder : bOrder - aOrder
+          }
+          
+          if (this.sortColumn === 'addons') {
+            // Order: Detergent, Softener, Softener & Detergent, None
+            const order = { 'Detergent': 1, 'Softener': 2, 'Softener & Detergent': 3, 'None': 4 }
+            const aOrder = order[aVal] || 999
+            const bOrder = order[bVal] || 999
+            return this.sortDirection === 'asc' ? aOrder - bOrder : bOrder - aOrder
+          }
+          
+          if (this.sortColumn === 'status') {
+            // Order: Paid, Unpaid
+            const order = { 'paid': 1, 'unpaid': 2 }
+            const aOrder = order[aVal] || 999
+            const bOrder = order[bVal] || 999
+            return this.sortDirection === 'asc' ? aOrder - bOrder : bOrder - aOrder
+          }
+          
+          if (this.sortColumn === 'date') {
+            // Date sorting (recent to oldest by default)
+            const aDate = new Date(aVal)
+            const bDate = new Date(bVal)
+            return this.sortDirection === 'asc' ? bDate - aDate : aDate - bDate
+          }
+          
+          if (this.sortColumn === 'time') {
+            // Time sorting
+            const aTime = aVal.split(':').map(Number)
+            const bTime = bVal.split(':').map(Number)
+            const aMinutes = aTime[0] * 60 + aTime[1]
+            const bMinutes = bTime[0] * 60 + bTime[1]
+            return this.sortDirection === 'asc' ? aMinutes - bMinutes : bMinutes - aMinutes
+          }
+          
+          if (this.sortColumn === 'amount') {
+            // Numeric sorting
+            return this.sortDirection === 'asc' ? aVal - bVal : bVal - aVal
+          }
+          
+          return 0
+        })
+      }
+      
+      return filtered
     }
   },
   methods: {
+    sortBy(column) {
+      if (this.sortColumn === column) {
+        // Toggle direction if clicking same column
+        this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc'
+      } else {
+        // New column, set default direction
+        this.sortColumn = column
+        if (column === 'date') {
+          this.sortDirection = 'asc' // Recent to oldest by default
+        } else {
+          this.sortDirection = 'asc'
+        }
+      }
+    },
+    getSortIcon(column) {
+      if (this.sortColumn !== column) {
+        return '⇅' // Both arrows when not sorted
+      }
+      return this.sortDirection === 'asc' ? '↑' : '↓'
+    },
+    openStatusModal() {
+      this.showStatusModal = true
+      this.statusModalTransactionId = ''
+      this.transactionNotFound = false
+    },
+    closeStatusModal() {
+      this.showStatusModal = false
+      this.statusModalTransactionId = ''
+      this.transactionNotFound = false
+    },
+    findTransaction() {
+      const transaction = this.transactions.find(t => t.id === this.statusModalTransactionId.trim())
+      if (transaction) {
+        this.selectedTransaction = transaction
+        this.newStatus = transaction.status
+        this.showStatusModal = false
+        this.showEditStatusForm = true
+        this.transactionNotFound = false
+      } else {
+        this.transactionNotFound = true
+      }
+    },
+    closeEditStatusForm() {
+      this.showEditStatusForm = false
+      this.selectedTransaction = null
+      this.newStatus = ''
+    },
+    confirmStatusChange() {
+      this.showEditStatusForm = false
+      this.showConfirmModal = true
+    },
+    closeConfirmModal() {
+      this.showConfirmModal = false
+    },
+    saveStatusChange() {
+      const index = this.transactions.findIndex(t => t.id === this.selectedTransaction.id)
+      if (index !== -1) {
+        this.transactions[index].status = this.newStatus
+        
+        // Log the status change
+        const authStore = useAuthStore()
+        console.log(`Transaction ${this.selectedTransaction.id} status changed to ${this.newStatus} by ${authStore.user} at ${new Date().toLocaleString()}`)
+      }
+      
+      // Close all modals
+      this.showConfirmModal = false
+      this.selectedTransaction = null
+      this.newStatus = ''
+      this.statusModalTransactionId = ''
+    },
+    openEditModal(transaction) {
+      this.editForm = {
+        id: transaction.id,
+        customer: transaction.customer,
+        service: transaction.service,
+        addons: transaction.addons,
+        amount: transaction.amount,
+        status: transaction.status,
+        date: transaction.date,
+        time: transaction.time
+      }
+      this.showEditModal = true
+    },
+    closeEditModal() {
+      this.showEditModal = false
+      this.editForm = {
+        id: '',
+        customer: '',
+        service: '',
+        addons: '',
+        amount: 0,
+        status: '',
+        date: '',
+        time: ''
+      }
+    },
+    confirmEdit() {
+      this.showEditModal = false
+      this.showConfirmEditModal = true
+    },
+    closeConfirmEditModal() {
+      this.showConfirmEditModal = false
+    },
+    saveEditTransaction() {
+      const index = this.transactions.findIndex(t => t.id === this.editForm.id)
+      if (index !== -1) {
+        this.transactions[index] = { ...this.editForm }
+        
+        // Log the edit
+        const authStore = useAuthStore()
+        console.log(`Transaction ${this.editForm.id} updated by ${authStore.user} at ${new Date().toLocaleString()}`)
+      }
+      
+      // Close confirm modal and show success
+      this.showConfirmEditModal = false
+      this.showSuccessModal = true
+    },
+    closeSuccessModal() {
+      this.showSuccessModal = false
+      this.editForm = {
+        id: '',
+        customer: '',
+        service: '',
+        addons: '',
+        amount: 0,
+        status: '',
+        date: '',
+        time: ''
+      }
+    },
     startEdit(transaction) {
       this.editingId = transaction.id
       this.editForm = {
         customer: transaction.customer,
         service: transaction.service,
-        weight: transaction.weight,
+        addons: transaction.addons,
         amount: transaction.amount,
         status: transaction.status
       }
@@ -209,7 +683,7 @@ export default {
       this.editForm = {
         customer: '',
         service: '',
-        weight: 0,
+        addons: '',
         amount: 0,
         status: ''
       }
@@ -218,263 +692,5 @@ export default {
 }
 </script>
 
-<style scoped>
-@font-face {
-  font-family: 'Genty Sans';
-  src: url('/fonts/genty-sans-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+<style src="./transactionlog.css"></style>
 
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-.transaction-log-page {
-  display: flex;
-  min-height: 100vh;
-  background-color: #bef0fb;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-}
-
-.main-content {
-  flex: 1;
-  margin-left: 280px;
-  padding: 40px;
-}
-
-.content-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.page-title {
-  font-family: 'Genty Sans', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #17696d;
-  margin-bottom: 8px;
-}
-
-.page-subtitle {
-  font-size: 1.1rem;
-  color: #9aa6a6;
-  font-weight: 500;
-}
-
-.log-card {
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #333;
-}
-
-.search-input {
-  padding: 10px 16px;
-  border: 2px solid #e9ecef;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-family: 'Poppins', sans-serif;
-  width: 250px;
-  transition: border-color 0.3s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #17a2b8;
-}
-
-.table-container {
-  overflow-x: auto;
-}
-
-.transactions-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.transactions-table thead {
-  background: #f0f8fa;
-}
-
-.transactions-table th {
-  padding: 15px;
-  text-align: left;
-  font-weight: 700;
-  color: #333;
-  border-bottom: 2px solid #e9ecef;
-}
-
-.transactions-table td {
-  padding: 15px;
-  border-bottom: 1px solid #e9ecef;
-  color: #666;
-}
-
-.transactions-table tbody tr:hover {
-  background: #f8f9fa;
-}
-
-.status-badge {
-  padding: 6px 12px;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: capitalize;
-}
-
-.status-badge.completed {
-  background: #d4edda;
-  color: #155724;
-}
-
-.status-badge.pending {
-  background: #fff3cd;
-  color: #856404;
-}
-
-.status-badge.processing {
-  background: #d1ecf1;
-  color: #0c5460;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-.edit-input {
-  padding: 8px 12px;
-  border: 2px solid #17a2b8;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-family: 'Poppins', sans-serif;
-  width: 100%;
-  outline: none;
-}
-
-.edit-input.small {
-  width: 80px;
-}
-
-.edit-input:focus {
-  border-color: #004aad;
-}
-
-.edit-select {
-  padding: 8px 12px;
-  border: 2px solid #17a2b8;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-family: 'Poppins', sans-serif;
-  outline: none;
-  background: white;
-  cursor: pointer;
-}
-
-.edit-select:focus {
-  border-color: #004aad;
-}
-
-.edit-btn,
-.btn-save,
-.btn-cancel {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.edit-btn {
-  background: linear-gradient(90deg, #5de0e6 0%, #004aad 100%);
-  color: white;
-}
-
-.edit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(93, 224, 230, 0.4);
-}
-
-.btn-save {
-  background: #28a745;
-  color: white;
-}
-
-.btn-save:hover {
-  background: #218838;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
-}
-
-.btn-cancel {
-  background: #6c757d;
-  color: white;
-}
-
-.btn-cancel:hover {
-  background: #5a6268;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.4);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 80px;
-    padding: 20px;
-  }
-
-  .page-title {
-    font-size: 1.8rem;
-  }
-
-  .card-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-input {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-content {
-    margin-left: 60px;
-    padding: 15px;
-  }
-
-  .page-title {
-    font-size: 1.5rem;
-  }
-
-  .log-card {
-    padding: 20px 15px;
-  }
-}
-</style>
