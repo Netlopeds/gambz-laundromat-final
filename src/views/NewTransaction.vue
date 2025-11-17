@@ -11,8 +11,8 @@
       </div>
 
       <div class="transaction-card">
-        
           <form @submit.prevent="handleSubmit" class="transaction-form">
+            <div class="form-content">
             <!-- Row 1 -->
             <div class="form-row">
               <div class="form-group">
@@ -32,18 +32,52 @@
                   <option value="">Select service</option>
                   <option value="wash">Wash</option>
                   <option value="wash-dry">Wash & Dry</option>
+                  <option value="dry">Dry</option>
+                  <option value="spin-dry">Spin Dry</option>
                   <option value="full">Full Service</option>
                 </select>
               </div>
 
               <div class="form-group">
                 <label for="addons">Add-ons</label>
-                <select id="addons" v-model="form.addons">
-                  <option value="">None</option>
-                  <option value="detergent">Detergent</option>
-                  <option value="softener">Softener</option>
-                  <option value="softener-detergent">Softener & Detergent</option>
-                </select>
+                <div class="addons-container">
+                  <!-- Selected Add-ons List -->
+                  <div v-if="selectedAddons.length > 0" class="selected-addons">
+                    <div v-for="(addon, index) in selectedAddons" :key="index" class="addon-item">
+                      <span class="addon-name">{{ getAddonDisplayName(addon.type) }}</span>
+                      <div class="addon-controls">
+                        <div class="qty-controls">
+                          <button type="button" @click="decrementQty(index)" class="qty-btn minus-btn" :disabled="addon.qty <= 1">-</button>
+                          <span class="qty-display">{{ addon.qty }}</span>
+                          <button type="button" @click="incrementQty(index)" class="qty-btn plus-btn" :disabled="addon.qty >= 99">+</button>
+                        </div>
+                        <button type="button" @click="removeAddon(index)" class="remove-btn">&times;</button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Add New Add-on -->
+                  <div class="add-addon-section">
+                    <select v-model="newAddon" class="addon-select">
+                      <option value="">Select add-on to add</option>
+                      <option 
+                        v-for="addon in availableAddons" 
+                        :key="addon.value" 
+                        :value="addon.value"
+                      >
+                        {{ addon.label }}
+                      </option>
+                    </select>
+                    <button 
+                      type="button" 
+                      @click="addAddon" 
+                      :disabled="!newAddon"
+                      class="add-btn"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div class="form-group">
@@ -64,7 +98,16 @@
 
               <div class="form-group">
                 <label for="time">Time Received</label>
-                <input type="time" id="time" v-model="form.time" required />
+                <input 
+                  type="time" 
+                  id="time" 
+                  v-model="form.time" 
+                  step="60"
+                  pattern="[0-9]{2}:[0-9]{2}"
+                  title="Please use 24-hour format (HH:MM)"
+                  @blur="formatTime24Hour"
+                  required 
+                />
               </div>
 
               <div class="form-group">
@@ -78,6 +121,7 @@
                   required
                 />
               </div>
+            </div>
             </div>
 
             <div class="form-actions">
@@ -127,7 +171,7 @@
             </div>
             <div class="summary-item">
               <span class="summary-label">Add-ons:</span>
-              <span class="summary-value">{{ getAddonsName(form.addons) }}</span>
+              <span class="summary-value">{{ getAddonsName() }}</span>
             </div>
             <div class="summary-item">
               <span class="summary-label">Status:</span>
@@ -135,7 +179,7 @@
             </div>
             <div class="summary-item">
               <span class="summary-label">Date:</span>
-              <span class="summary-value">{{ form.date }}</span>
+              <span class="summary-value">{{ formatDate(form.date) }}</span>
             </div>
             <div class="summary-item">
               <span class="summary-label">Time Received:</span>
@@ -182,20 +226,41 @@ export default {
   components: {
     Navbar
   },
+  computed: {
+    today() {
+      return new Date().toISOString().split('T')[0]
+    }
+  },
   data() {
     return {
       showConfirmModal: false,
       showSuccessModal: false,
+      selectedAddons: [],
+      newAddon: '',
+      availableAddons: [
+        { value: 'ariel', label: 'Ariel' },
+        { value: 'Tide', label: 'Tide' },
+        { value: 'breeze', label: 'Breeze' },
+        { value: 'Downy', label: 'Downy' },
+        { value: 'Zonrox', label: 'Zonrox'},
+        { value: 'Surf', label: 'Surf' },
+        { value: 'Del', label: 'Del' }
+      ],
       form: {
         customerName: '',
         serviceType: '',
         weight: '',
         amount: '',
-        addons: '',
         status: 'pending',
         date: '',
         time: ''
       }
+    }
+  },
+  mounted() {
+    const timeInput = document.getElementById('time');
+    if (timeInput) {
+      timeInput.setAttribute('data-format', '24');
     }
   },
   methods: {
@@ -217,19 +282,15 @@ export default {
     getServiceTypeName(value) {
       const services = {
         'wash': 'Wash',
+        'dry': 'Dry',
         'wash-dry': 'Wash & Dry',
+        'spin-dry': 'Spin Dry',
         'full': 'Full Service'
       }
       return services[value] || value
     },
-    getAddonsName(value) {
-      const addons = {
-        'detergent': 'Detergent',
-        'softener': 'Softener',
-        'softener-detergent': 'Softener & Detergent',
-        '': 'None'
-      }
-      return addons[value] || 'None'
+    getAddonsName() {
+      return this.getAddonsForDisplay()
     },
     getStatusName(value) {
       const statuses = {
@@ -244,11 +305,80 @@ export default {
         serviceType: '',
         weight: '',
         amount: '',
-        addons: '',
         status: 'pending',
         date: '',
         time: ''
       }
+      this.selectedAddons = []
+      this.newAddon = ''
+    },
+    addAddon() {
+      if (this.newAddon) {
+        const existingIndex = this.selectedAddons.findIndex(addon => addon.type === this.newAddon)
+        if (existingIndex !== -1) {
+          this.selectedAddons[existingIndex].qty += 1
+        } else {
+          this.selectedAddons.push({
+            type: this.newAddon,
+            qty: 1
+          })
+        }
+        this.newAddon = ''
+      }
+    },
+    removeAddon(index) {
+      this.selectedAddons.splice(index, 1)
+    },
+    validateQty(index) {
+      const addon = this.selectedAddons[index]
+      if (addon.qty < 1) addon.qty = 1
+      if (addon.qty > 99) addon.qty = 99
+    },
+    incrementQty(index) {
+      if (this.selectedAddons[index].qty < 99) {
+        this.selectedAddons[index].qty++
+      }
+    },
+    decrementQty(index) {
+      if (this.selectedAddons[index].qty > 1) {
+        this.selectedAddons[index].qty--
+      }
+    },
+    getAddonDisplayName(type) {
+      const addon = this.availableAddons.find(a => a.value === type)
+      return addon ? addon.label : type
+    },
+    getAddonsForDisplay() {
+      if (this.selectedAddons.length === 0) return 'None'
+      return this.selectedAddons.map(addon => 
+        `${this.getAddonDisplayName(addon.type)} (${addon.qty})`
+      ).join(', ')
+    },
+    formatTime24Hour() {
+      if (this.form.time) {
+        const timeValue = this.form.time;
+        if (timeValue.includes('AM') || timeValue.includes('PM')) {
+          const [time, period] = timeValue.split(' ');
+          const [hours, minutes] = time.split(':');
+          let hour24 = parseInt(hours);
+          
+          if (period === 'AM' && hour24 === 12) {
+            hour24 = 0;
+          } else if (period === 'PM' && hour24 !== 12) {
+            hour24 += 12;
+          }
+          
+          this.form.time = `${hour24.toString().padStart(2, '0')}:${minutes}`;
+        }
+      }
+    },
+    formatDate(dateString) {
+      if (!dateString) return ''
+      const date = new Date(dateString)
+      const month = (date.getMonth() + 1).toString().padStart(2, '0')
+      const day = date.getDate().toString().padStart(2, '0')
+      const year = date.getFullYear()
+      return `${month}/${day}/${year}`
     },
     triggerFileImport() {
       this.$refs.fileInput.click()

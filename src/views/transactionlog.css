@@ -44,7 +44,7 @@
 .page-subtitle {
   font-size: 1.1rem;
   color: #9aa6a6;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .log-card {
@@ -52,6 +52,7 @@
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  min-height: 600px;
 }
 
 .card-header {
@@ -117,7 +118,7 @@
 .table-container {
   overflow-x: auto;
   overflow-y: auto;
-  max-height: 420px;
+  max-height: 520px;
 }
 
 /* Mobile/Desktop View Toggle */
@@ -453,7 +454,7 @@
 
   .tablet-view {
     display: block;
-    max-height: 500px;
+    max-height: 600px;
     overflow-y: auto;
   }
 
@@ -544,7 +545,7 @@
 
   .mobile-view {
     display: block;
-    max-height: 500px;
+    max-height: 600px;
     overflow-y: auto;
   }
 
@@ -600,7 +601,7 @@
 
   /* Mobile card adjustments */
   .mobile-view {
-    max-height: 450px;
+    max-height: 500px;
   }
 
   .transaction-mobile-card {
@@ -747,7 +748,7 @@
 
 .modal-body {
   padding: 30px;
-  max-height: 400px;
+  max-height: 500px;
   overflow-y: auto;
 }
 
@@ -870,4 +871,152 @@
   font-weight: 700;
   text-align: center;
   padding: 10px 0;
+}
+
+/* Add-ons system styles for edit modal */
+.addons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.selected-addons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.addon-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.addon-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.addon-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  background: white;
+}
+
+.qty-btn {
+  background: #f8f9fa;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+}
+
+.qty-btn:hover:not(:disabled) {
+  background: #e9ecef;
+}
+
+.qty-btn:disabled {
+  background: #f8f9fa;
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.minus-btn {
+  border-right: 1px solid #ddd;
+}
+
+.plus-btn {
+  border-left: 1px solid #ddd;
+}
+
+.qty-display {
+  padding: 6px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  background: white;
+  min-width: 32px;
+  text-align: center;
+}
+
+.remove-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background: #c82333;
+}
+
+.add-addon-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addon-select {
+  flex: 1;
+  min-width: 0;
+}
+
+.add-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.add-btn:hover:not(:disabled) {
+  background: #218838;
+}
+
+.add-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
 }

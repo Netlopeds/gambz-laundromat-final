@@ -191,17 +191,18 @@
 }
 
 .decor-1 {
-  left: 10px;
-  bottom: 10px;
-  width: 200px;
+  left: -55px;
+  bottom: -50px;
+  width: 300px;
   height: auto;
-  transform: rotate(-3deg);
+  transform: rotate(15deg);
+
 }
 
 .decor-2 {
-  left: 75px;
-  bottom: 75px;
-  width: 100px;
+  left: 180px;
+  bottom: -35px;
+  width: 150px;
   height: auto;
 }
 

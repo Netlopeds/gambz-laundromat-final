@@ -1,343 +1,312 @@
 <template>
   <div class="reports-page">
-    <!-- Sidebar Navigation -->
     <Navbar />
 
-    <!-- Main Content -->
     <main class="main-content">
-      <div class="content-header">
-        <h1 class="page-title">Reports</h1>
-        <p class="page-subtitle">View detailed analytics and reports</p>
-      </div>
 
-      <div class="reports-grid">
-        <!-- Revenue Report Card -->
-        <div class="report-card">
-          <div class="report-header">
-            <h3 class="report-title">Revenue Report</h3>
-            <select v-model="revenuePeriod" class="period-select">
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-          </div>
-          <div class="report-content">
-            <div class="report-value">₱{{ revenueData[revenuePeriod] }}</div>
-            <p class="report-label">Total Revenue</p>
-          </div>
+      <div v-if="isUserAdmin" class="admin-reports">
+        <div class="content-header">
+          <h1 class="page-title">Reports</h1>
+          <p class="page-subtitle">View detailed analytics and reports</p>
         </div>
 
-        <!-- Customer Report Card -->
-        <div class="report-card">
-          <div class="report-header">
-            <h3 class="report-title">Customer Report</h3>
-            <select v-model="customerPeriod" class="period-select">
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
+        <div class="reports-grid-kpi admin-kpi-grid-4">
+          <div class="report-card-kpi">
+            <div class="report-header-kpi">
+              <h3 class="report-title-kpi">Sales Report</h3>
+              <select v-model="adminSalesPeriod" class="period-select-kpi">
+                <option value="daily">Daily</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+            </div>
+            <div class="report-content-kpi">
+              <div class="report-value-kpi">₱{{ adminKpiData[adminSalesPeriod].sales }}</div>
+              <p class="report-label-kpi">Total Revenue</p>
+            </div>
           </div>
-          <div class="report-content">
-            <div class="report-value">{{ customerData[customerPeriod] }}</div>
-            <p class="report-label">Total Customers</p>
-          </div>
-        </div>
 
-        <!-- Service Report Card -->
-        <div class="report-card">
-          <div class="report-header">
-            <h3 class="report-title">Service Report</h3>
-            <select v-model="servicePeriod" class="period-select">
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
+          <div class="report-card-kpi">
+            <div class="report-header-kpi">
+              <h3 class="report-title-kpi">Customer Report</h3>
+              <select v-model="adminCustomerPeriod" class="period-select-kpi">
+                <option value="daily">Daily</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+            </div>
+            <div class="report-content-kpi">
+              <div class="report-value-kpi">{{ adminKpiData[adminCustomerPeriod].customers }}</div>
+              <p class="report-label-kpi">Total Customers</p>
+            </div>
           </div>
-          <div class="report-content">
-            <div class="report-value">{{ serviceData[servicePeriod] }}</div>
-            <p class="report-label">Services Completed</p>
-          </div>
-        </div>
 
-        <!-- Popular Services Card -->
-        <div class="report-card full-width">
-          <div class="report-header">
-            <h3 class="report-title">Popular Services</h3>
+          <div class="report-card-kpi">
+            <div class="report-header-kpi">
+              <h3 class="report-title-kpi">Service Report</h3>
+              <select v-model="adminServicePeriod" class="period-select-kpi">
+                <option value="daily">Daily</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+            </div>
+            <div class="report-content-kpi">
+              <div class="report-value-kpi">{{ adminKpiData[adminServicePeriod].orders }}</div>
+              <p class="report-label-kpi">Services Completed</p>
+            </div>
           </div>
-          <div class="services-list">
-            <div v-for="service in popularServices" :key="service.name" class="service-item">
-              <span class="service-name">{{ service.name }}</span>
-              <div class="service-bar-container">
-                <div class="service-bar" :style="{ width: service.percentage + '%' }"></div>
-              </div>
-              <span class="service-count">{{ service.count }}</span>
+
+          <div class="report-card-kpi">
+            <div class="report-header-kpi">
+              <h3 class="report-title-kpi">Unpaid Customers Total</h3>
+            </div>
+            <div class="report-content-kpi">
+              <div class="report-value-kpi">{{ adminKpiData.unpaidTotal }}</div>
+              <p class="report-label-kpi">Total Unpaid</p>
             </div>
           </div>
         </div>
+
+        <div class="staff-charts-grid">
+          
+          <div class="report-card-staff full-width">
+            <div class="report-header-staff">
+              <h3 class="report-title-staff">Popular Services</h3>
+            </div>
+            <div class="services-list-staff">
+              <div v-for="service in popularServices" :key="service.name" class="service-item-staff">
+                <span class="service-name-staff">{{ service.name }}</span>
+                <div class="service-bar-container-staff">
+                  <div class="service-bar-staff" :style="{ width: service.percentage + '%' }"></div>
+                </div>
+                <span class="service-count-staff">{{ service.count }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-card-staff">
+            <div class="report-header-staff">
+              <h3 class="report-title-staff">Payment Status</h3>
+            </div>
+            <div class="staff-pie-chart-container">
+              <Pie :data="paymentStatusData" :options="staffChartOptions" />
+            </div>
+          </div>
+
+          <div class="report-card-staff">
+            <div class="report-header-staff">
+              <h3 class="report-title-staff">Unpaid Customers</h3>
+            </div>
+            <div class="table-container-staff">
+              <table class="unpaid-table-staff">
+                <thead>
+                  <tr>
+                    <th>Customer Name</th>
+                    <th>Transaction #</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="customer in unpaidCustomers" :key="customer.id">
+                    <td>{{ customer.customer }}</td>
+                    <td>{{ customer.id }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="export-section-staff">
+          <button class="export-btn-staff">
+            <span>📊</span> Export Report
+          </button>
+        </div>
+
       </div>
 
-      <div class="export-section">
-        <button class="export-btn">
-          <span>📊</span> Export Report
-        </button>
+      <div v-else class="staff-reports">
+        
+        <div class="content-header-staff">
+          <h1 class="page-title-staff">Reports</h1>
+          <p class="page-subtitle-staff">View detailed analytics and reports</p>
+        </div>
+
+        <div class="reports-grid-kpi">
+          <div class="report-card-kpi">
+            <div class="report-header-kpi">
+              <h3 class="report-title-kpi">Today's Sales Report</h3>
+            </div>
+            <div class="report-content-kpi">
+              <div class="report-value-kpi">₱{{ staffKpiData.sales }}</div>
+              <p class="report-label-kpi">Total Revenue</p>
+            </div>
+          </div>
+
+          <div class="report-card-kpi">
+            <div class="report-header-kpi">
+              <h3 class="report-title-kpi">Today's Total Customers</h3>
+            </div>
+            <div class="report-content-kpi">
+              <div class="report-value-kpi">{{ staffKpiData.customers }}</div>
+              <p class="report-label-kpi">Total Customers</p>
+            </div>
+          </div>
+
+          <div class="report-card-kpi">
+            <div class="report-header-kpi">
+              <h3 class="report-title-kpi">Today's Service Report</h3>
+            </div>
+            <div class="report-content-kpi">
+              <div class="report-value-kpi">{{ staffKpiData.transactions }}</div>
+              <p class="report-label-kpi">Services Completed</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="staff-charts-grid">
+          
+          <div class="report-card-staff">
+            <div class="report-header-staff">
+              <h3 class="report-title-staff">Unpaid Customers</h3>
+            </div>
+            <div class="table-container-staff">
+              <table class="unpaid-table-staff">
+                <thead>
+                  <tr>
+                    <th>Customer Name</th>
+                    <th>Transaction #</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="customer in unpaidCustomers" :key="customer.id">
+                    <td>{{ customer.customer }}</td>
+                    <td>{{ customer.id }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="report-card-staff">
+            <div class="report-header-staff">
+              <h3 class="report-title-staff">Payment Status</h3>
+            </div>
+            <div class="staff-pie-chart-container">
+              <Pie :data="paymentStatusData" :options="staffChartOptions" />
+            </div>
+          </div>
+
+        </div>
+
+        <div class="export-section-staff">
+          <button class="export-btn-staff">
+            <span>📊</span> Export Report
+          </button>
+        </div>
+
       </div>
+
     </main>
   </div>
 </template>
 
 <script>
+// Import stores
+import { useAuthStore } from '../stores/auth.js'
+
+// Import charts
+import { Bar, Doughnut, Pie } from 'vue-chartjs'
+import {
+  Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement
+} from 'chart.js'
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement)
+
+// Import components
 import Navbar from '../components/Navbar.vue'
 
 export default {
   name: 'Reports',
   components: {
-    Navbar
+    Navbar,
+    Bar,
+    Doughnut,
+    Pie
   },
   data() {
     return {
-      revenuePeriod: 'daily',
-      customerPeriod: 'daily',
-      servicePeriod: 'daily',
-      revenueData: {
-        daily: '1,250',
-        weekly: '8,750',
-        monthly: '35,000'
+      // --- DATA FOR ADMIN VIEW (*** UPDATED ***) ---
+      adminSalesPeriod: 'monthly',
+      adminCustomerPeriod: 'monthly',
+      adminServicePeriod: 'monthly',
+      adminKpiData: {
+        daily: { sales: '550.00', orders: 8, customers: 5 },
+        monthly: { sales: '12,500.00', orders: 100, customers: 100 },
+        yearly: { sales: '150,000.00', orders: 1200, customers: 1200 },
+        unpaidTotal: 4 // Static total for the new card
       },
-      customerData: {
-        daily: 25,
-        weekly: 175,
-        monthly: 700
+      
+      // --- DATA FOR STAFF VIEW ---
+      staffKpiData: {
+        sales: '1,250', 
+        customers: 25, 
+        transactions: 30 
       },
-      serviceData: {
-        daily: 30,
-        weekly: 210,
-        monthly: 840
-      },
+      
+      // --- SHARED DATA (Used by Admin and Staff) ---
       popularServices: [
         { name: 'Wash & Dry', count: 150, percentage: 100 },
         { name: 'Full Service', count: 120, percentage: 80 },
         { name: 'Wash Only', count: 90, percentage: 60 },
         { name: 'Iron Only', count: 60, percentage: 40 },
         { name: 'Dry Only', count: 30, percentage: 20 }
-      ]
+      ],
+      unpaidCustomers: [
+        { id: 'TN2', customer: 'Jane Smith' },
+        { id: 'TN6', customer: 'Rodel' },
+        { id: 'TN7', customer: 'Karen' },
+        { id: 'TN9', customer: 'Koykoy' },
+      ],
+      paymentStatusData: {
+        labels: ['Paid', 'Unpaid'],
+        datasets: [
+          {
+            backgroundColor: ['#40E0D0', '#FF6384'],
+            data: [6, 4] 
+          }
+        ]
+      },
+      staffChartOptions: { // Used by both Admin and Staff pie charts
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'bottom'
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.label || '';
+                const value = context.raw;
+                const data = context.dataset.data;
+                const total = data.reduce((a, b) => a + b, 0);
+                const percentage = ((value / total) * 100).toFixed(0) + '%';
+                return `${label}: ${value} (${percentage})`;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  computed: {
+    isUserAdmin() {
+      const authStore = useAuthStore();
+      return authStore.isAdmin; 
     }
   }
 }
 </script>
 
-<style scoped>
-@font-face {
-  font-family: 'Genty Sans';
-  src: url('/fonts/genty-sans-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-.reports-page {
-  display: flex;
-  min-height: 100vh;
-  background-color: #bef0fb;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-}
-
-.main-content {
-  flex: 1;
-  margin-left: 280px;
-  padding: 40px;
-}
-
-.content-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.page-title {
-  font-family: 'Genty Sans', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #17696d;
-  margin-bottom: 8px;
-}
-
-.page-subtitle {
-  font-size: 1.1rem;
-  color: #9aa6a6;
-  font-weight: 500;
-}
-
-.reports-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  margin-bottom: 30px;
-}
-
-.report-card {
-  background: white;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.report-card.full-width {
-  grid-column: 1 / -1;
-}
-
-.report-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.report-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #333;
-}
-
-.period-select {
-  padding: 8px 12px;
-  border: 2px solid #e9ecef;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.period-select:focus {
-  outline: none;
-  border-color: #17a2b8;
-}
-
-.report-content {
-  text-align: center;
-  padding: 20px 0;
-}
-
-.report-value {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #17a2b8;
-  margin-bottom: 10px;
-}
-
-.report-label {
-  font-size: 1rem;
-  color: #666;
-}
-
-.services-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.service-item {
-  display: grid;
-  grid-template-columns: 150px 1fr 50px;
-  align-items: center;
-  gap: 15px;
-}
-
-.service-name {
-  font-weight: 600;
-  color: #333;
-}
-
-.service-bar-container {
-  height: 20px;
-  background: #e9ecef;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.service-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #5de0e6 0%, #004aad 100%);
-  transition: width 0.3s ease;
-}
-
-.service-count {
-  text-align: right;
-  font-weight: 600;
-  color: #17a2b8;
-}
-
-.export-section {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.export-btn {
-  background: linear-gradient(90deg, #5de0e6 0%, #004aad 100%);
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 12px 40px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.export-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3);
-  opacity: 0.9;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 80px;
-    padding: 20px;
-  }
-
-  .page-title {
-    font-size: 1.8rem;
-  }
-
-  .reports-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-item {
-    grid-template-columns: 120px 1fr 40px;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-content {
-    margin-left: 60px;
-    padding: 15px;
-  }
-
-  .page-title {
-    font-size: 1.5rem;
-  }
-
-  .report-card {
-    padding: 20px 15px;
-  }
-
-  .report-value {
-    font-size: 2rem;
-  }
-}
-</style>
+<style src="./reports.css"></style>

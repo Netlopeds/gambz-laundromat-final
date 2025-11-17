@@ -1,0 +1,267 @@
+@font-face {
+  font-family: 'Genty Sans';
+  src: url('/fonts/genty-sans-regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+}
+.reports-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #bef0fb;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 40px;
+}
+.admin-reports .content-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.admin-reports .page-title {
+  font-family: 'Genty Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #17696d;
+  margin-bottom: 8px;
+}
+.admin-reports .page-subtitle {
+  font-size: 1.1rem;
+  color: #9aa6a6;
+  font-weight: 500;
+}
+/* This is no longer used by admin, but kept for future */
+.admin-reports .charts-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 25px;
+}
+.admin-reports .chart-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  height: 400px;
+}
+/* NEW: Rule for 4 admin KPI cards */
+.admin-reports .admin-kpi-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.staff-reports .content-header-staff {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.staff-reports .page-title-staff {
+  font-family: 'Genty Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #17696d;
+  margin-bottom: 8px;
+}
+.staff-reports .page-subtitle-staff {
+  font-size: 1.1rem;
+  color: #9aa6a6;
+  font-weight: 500;
+}
+
+/* SHARED: Chart/Table Grid (Used by Admin + Staff) */
+.staff-charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-top: 25px;
+}
+.report-card-staff {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+/* NEW: Rule to make a card span full width */
+.report-card-staff.full-width {
+  grid-column: 1 / -1;
+}
+.report-header-staff {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.report-title-staff {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+}
+.staff-pie-chart-container {
+  height: 350px; 
+}
+.table-container-staff {
+  max-height: 350px;
+  overflow-y: auto;
+}
+.unpaid-table-staff {
+  width: 100%;
+  border-collapse: collapse;
+}
+.unpaid-table-staff th,
+.unpaid-table-staff td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.unpaid-table-staff th {
+  background-color: #f8f9fa;
+  font-weight: 700;
+  color: #333;
+  position: sticky;
+  top: 0;
+}
+.no-data {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-style: italic;
+}
+/* SHARED: Popular Services Bar Chart Styles */
+.services-list-staff {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.service-item-staff {
+  display: grid;
+  grid-template-columns: 150px 1fr 50px;
+  align-items: center;
+  gap: 15px;
+}
+.service-name-staff {
+  font-weight: 600;
+  color: #333;
+}
+.service-bar-container-staff {
+  height: 20px;
+  background: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.service-bar-staff {
+  height: 100%;
+  background: linear-gradient(90deg, #5de0e6 0%, #004aad 100%);
+  transition: width 0.3s ease;
+}
+.service-count-staff {
+  text-align: right;
+  font-weight: 600;
+  color: #17a2b8;
+}
+
+/* Staff-Only Export Button */
+.export-section-staff {
+  text-align: center;
+  margin-top: 30px;
+}
+.export-btn-staff {
+  background: linear-gradient(90deg, #5de0e6 0%, #004aad 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.export-btn-staff:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3);
+  opacity: 0.9;
+}
+
+/* SHARED: KPI Card Styles */
+.reports-grid-kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+.report-card-kpi {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+.report-header-kpi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  min-height: 2.2rem; 
+}
+.report-title-kpi {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+}
+.period-select-kpi {
+  padding: 8px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+.report-content-kpi {
+  text-align: center;
+  padding: 20px 0;
+}
+.report-value-kpi {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #17a2b8;
+  margin-bottom: 10px;
+}
+.report-label-kpi {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* SHARED: Responsive Media Queries */
+@media (max-width: 1200px) {
+  .admin-reports .admin-kpi-grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .staff-charts-grid {
+    grid-template-columns: 1fr; /* Stack charts */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 80px;
+    padding: 20px;
+  }
+  .reports-grid-kpi {
+    grid-template-columns: 1fr;
+  }
+  .service-item-staff {
+    grid-template-columns: 100px 1fr 40px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin-left: 60px;
+    padding: 15px;
+  }
+}

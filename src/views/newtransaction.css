@@ -51,8 +51,8 @@
 
 .page-subtitle {
   font-size: 1.1rem;
-  color: #9aa6a6;
-  font-weight: 500;
+  color:  #9aa6a6;
+  font-weight: 600;
 }
 
 .transaction-card {
@@ -123,6 +123,166 @@
 .form-group select:focus {
   outline: none;
   border-color: #17a2b8;
+}
+
+/* Add-ons Styling */
+.addons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.selected-addons {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.addon-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.addon-item:last-child {
+  border-bottom: none;
+}
+
+.addon-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.addon-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  background: white;
+}
+
+.qty-btn {
+  background: #f8f9fa;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+}
+
+.qty-btn:hover:not(:disabled) {
+  background: #e9ecef;
+}
+
+.qty-btn:disabled {
+  background: #f8f9fa;
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.minus-btn {
+  border-right: 1px solid #ddd;
+}
+
+.plus-btn {
+  border-left: 1px solid #ddd;
+}
+
+.qty-display {
+  padding: 6px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  background: white;
+  min-width: 32px;
+  text-align: center;
+}
+
+.remove-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background: #c82333;
+}
+
+.add-addon-section {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.addon-select {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  background: white;
+}
+
+.addon-select:focus {
+  outline: none;
+  border-color: #17a2b8;
+}
+
+.add-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover:not(:disabled) {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.add-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
 }
 
 .form-actions {
@@ -282,6 +442,33 @@ input[type=number]::-webkit-outer-spin-button {
   .form-group select {
     padding: 12px 14px;
     font-size: 0.95rem;
+  }
+
+  .addon-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .addon-controls {
+    align-self: flex-end;
+  }
+
+  .qty-controls {
+    flex-shrink: 0;
+  }
+
+  .qty-btn {
+    padding: 8px 12px;
+    font-size: 1rem;
+    min-width: 32px;
+    height: 32px;
+  }
+
+  .qty-display {
+    padding: 8px 14px;
+    font-size: 1rem;
+    min-width: 36px;
   }
 }
 

@@ -20,7 +20,7 @@
             <input 
               type="text" 
               v-model="searchQuery" 
-              placeholder="Search transactions..."
+              placeholder="Search by ID or Name"
               class="search-input"
             />
           </div>
@@ -205,12 +205,44 @@
 
           <div class="form-group">
             <label class="modal-label">Add-ons:</label>
-            <select v-model="editForm.addons" class="modal-select">
-              <option value="None">None</option>
-              <option value="Detergent">Detergent</option>
-              <option value="Softener">Softener</option>
-              <option value="Softener & Detergent">Softener & Detergent</option>
-            </select>
+            <div class="addons-container">
+              <!-- Selected Add-ons List -->
+              <div v-if="selectedAddons.length > 0" class="selected-addons">
+                <div v-for="(addon, index) in selectedAddons" :key="index" class="addon-item">
+                  <span class="addon-name">{{ getAddonDisplayName(addon.type) }}</span>
+                  <div class="addon-controls">
+                    <div class="qty-controls">
+                      <button type="button" @click="decrementQty(index)" class="qty-btn minus-btn" :disabled="addon.qty <= 1">-</button>
+                      <span class="qty-display">{{ addon.qty }}</span>
+                      <button type="button" @click="incrementQty(index)" class="qty-btn plus-btn" :disabled="addon.qty >= 99">+</button>
+                    </div>
+                    <button type="button" @click="removeAddon(index)" class="remove-btn">&times;</button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Add New Add-on -->
+              <div class="add-addon-section">
+                <select v-model="newAddon" class="addon-select modal-select">
+                  <option value="">Select add-on to add</option>
+                  <option 
+                    v-for="addon in availableAddons" 
+                    :key="addon.value" 
+                    :value="addon.value"
+                  >
+                    {{ addon.label }}
+                  </option>
+                </select>
+                <button 
+                  type="button" 
+                  @click="addAddon" 
+                  :disabled="!newAddon"
+                  class="add-btn"
+                >
+                  +
+                </button>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -306,7 +338,7 @@
             v-model="statusModalTransactionId" 
             type="text" 
             class="modal-input"
-            placeholder="e.g., T001"
+            placeholder="e.g., TN1"
             @keyup.enter="findTransaction"
           />
           <p v-if="transactionNotFound" class="error-message">Transaction not found!</p>
@@ -408,6 +440,17 @@ export default {
         date: '',
         time: ''
       },
+      selectedAddons: [],
+      newAddon: '',
+      availableAddons: [
+        { value: 'ariel', label: 'Ariel' },
+        { value: 'Tide', label: 'Tide' },
+        { value: 'breeze', label: 'Breeze' },
+        { value: 'Downy', label: 'Downy' },
+        { value: 'Zonrox', label: 'Zonrox'},
+        { value: 'Surf', label: 'Surf' },
+        { value: 'Del', label: 'Del' }
+      ],
       showStatusModal: false,
       showEditStatusForm: false,
       showConfirmModal: false,
@@ -421,8 +464,8 @@ export default {
       sortColumn: '',
       sortDirection: 'asc',
       transactions: [
-        { id: 'TN1', customer: 'John Doe', service: 'Wash & Dry', addons: 'Softener', status: 'paid', date: '2025-11-11', time: '10:30', amount: 250 },
-        { id: 'TN2', customer: 'Jane Smith', service: 'Full Service', addons: 'Detergent', status: 'unpaid', date: '2025-11-11', time: '11:45', amount: 400 },
+        { id: 'TN1', customer: 'John Doe', service: 'Wash & Dry', addons: 'Ariel', status: 'paid', date: '2025-11-11', time: '10:30', amount: 250 },
+        { id: 'TN2', customer: 'Jane Smith', service: 'Full Service', addons: 'Surf', status: 'unpaid', date: '2025-11-11', time: '11:45', amount: 400 },
         { id: 'TN3', customer: 'Mike Johnson', service: 'Full Service', addons: 'None', status: 'paid', date: '2025-11-10', time: '09:15', amount: 350 },
         { id: 'TN4', customer: 'Sarah Williams', service: 'Wash', addons: 'Softener & Detergent', status: 'paid', date: '2025-11-10', time: '14:20', amount: 120 },
         { id: 'TN5', customer: 'Zalora', service: 'Wash', addons: 'None', status: 'paid', date: '2025-11-10', time: '14:20', amount: 100 },
@@ -441,8 +484,8 @@ export default {
       // Apply search filter
       if (this.searchQuery) {
         filtered = filtered.filter(t => 
-          t.customer.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          t.service.toLowerCase().includes(this.searchQuery.toLowerCase())
+          t.id.toString().toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          t.customer.toLowerCase().includes(this.searchQuery.toLowerCase())
         )
       }
       
@@ -605,6 +648,39 @@ export default {
         date: transaction.date,
         time: transaction.time
       }
+      
+      // Parse existing addons and populate selectedAddons array
+      this.selectedAddons = []
+      if (transaction.addons && transaction.addons !== 'None') {
+        // Handle simple addon format (e.g., "Ariel", "Surf")
+        if (!transaction.addons.includes('(')) {
+          // Single addon without quantity
+          const addonValue = this.availableAddons.find(a => a.label === transaction.addons)?.value
+          if (addonValue) {
+            this.selectedAddons.push({
+              type: addonValue,
+              qty: 1
+            })
+          }
+        } else {
+          // Handle complex addon format with quantities (e.g., "Ariel (2), Surf (1)")
+          const addonParts = transaction.addons.split(', ')
+          addonParts.forEach(part => {
+            const match = part.match(/^(.+)\s*\((\d+)\)$/)
+            if (match) {
+              const addonName = match[1].trim()
+              const qty = parseInt(match[2])
+              const addonValue = this.availableAddons.find(a => a.label === addonName)?.value
+              if (addonValue) {
+                this.selectedAddons.push({
+                  type: addonValue,
+                  qty: qty
+                })
+              }
+            }
+          })
+        }
+      }
       this.showEditModal = true
     },
     closeEditModal() {
@@ -619,8 +695,59 @@ export default {
         date: '',
         time: ''
       }
+      this.selectedAddons = []
+      this.newAddon = ''
+    },
+    // Add-ons methods
+    addAddon() {
+      if (this.newAddon) {
+        // Check if addon already exists
+        const existingIndex = this.selectedAddons.findIndex(addon => addon.type === this.newAddon)
+        if (existingIndex !== -1) {
+          // If exists, increment quantity
+          this.selectedAddons[existingIndex].qty += 1
+        } else {
+          // If doesn't exist, add new addon with qty 1
+          this.selectedAddons.push({
+            type: this.newAddon,
+            qty: 1
+          })
+        }
+        this.newAddon = ''
+      }
+    },
+    removeAddon(index) {
+      this.selectedAddons.splice(index, 1)
+    },
+    validateQty(index) {
+      const addon = this.selectedAddons[index]
+      if (addon.qty < 1) addon.qty = 1
+      if (addon.qty > 99) addon.qty = 99
+    },
+    incrementQty(index) {
+      if (this.selectedAddons[index].qty < 99) {
+        this.selectedAddons[index].qty++
+      }
+    },
+    decrementQty(index) {
+      if (this.selectedAddons[index].qty > 1) {
+        this.selectedAddons[index].qty--
+      }
+    },
+    getAddonDisplayName(type) {
+      const addon = this.availableAddons.find(a => a.value === type)
+      return addon ? addon.label : type
+    },
+    getAddonsForDisplay() {
+      if (this.selectedAddons.length === 0) return 'None'
+      return this.selectedAddons.map(addon => 
+        `${this.getAddonDisplayName(addon.type)} (${addon.qty})`
+      ).join(', ')
     },
     confirmEdit() {
+      // Convert selectedAddons array to addons string format
+      this.editForm.addons = this.getAddonsForDisplay()
+      
       this.showEditModal = false
       this.showConfirmEditModal = true
     },
