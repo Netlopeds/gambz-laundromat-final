@@ -67,7 +67,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="transaction in filteredTransactions" :key="transaction.id">
+              <tr v-for="transaction in paginatedTransactions" :key="transaction.id">
                 <td>{{ transaction.id }}</td>
                 <td>{{ transaction.customer }}</td>
                 <td>{{ transaction.service }}</td>
@@ -95,7 +95,7 @@
 
         <!-- Tablet Card View -->
         <div class="tablet-view">
-          <div v-for="transaction in filteredTransactions" :key="transaction.id" class="transaction-mobile-card">
+          <div v-for="transaction in paginatedTransactions" :key="transaction.id" class="transaction-mobile-card">
             <div class="mobile-card-header">
               <span class="mobile-id">{{ transaction.id }}</span>
               <span :class="['status-badge', transaction.status]">
@@ -136,7 +136,7 @@
 
         <!-- Mobile Card View -->
         <div class="mobile-view">
-          <div v-for="transaction in filteredTransactions" :key="transaction.id" class="transaction-mobile-card">
+          <div v-for="transaction in paginatedTransactions" :key="transaction.id" class="transaction-mobile-card">
             <div class="mobile-card-header">
               <span class="mobile-id">{{ transaction.id }}</span>
               <span :class="['status-badge', transaction.status]">
@@ -173,6 +173,13 @@
               <button @click="openEditModal(transaction)" class="edit-btn-mobile">Edit Transaction</button>
             </div>
           </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+          <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1" class="pagination-btn">Previous</button>
+          <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
+          <button @click="goToPage(currentPage + 1)" :disabled="currentPage === totalPages" class="pagination-btn">Next</button>
         </div>
       </div>
     </main>
@@ -283,6 +290,7 @@
         </div>
         <div class="modal-footer">
           <button @click="closeEditModal" class="btn-modal-cancel">Cancel</button>
+          <button @click="confirmDelete(editForm)" class="btn-modal-delete">Delete Transaction</button>
           <button @click="confirmEdit" class="btn-modal-submit">Update Transaction</button>
         </div>
       </div>
@@ -405,6 +413,26 @@
         </div>
       </div>
     </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div v-if="showDeleteModal" class="modal-overlay" @click="closeDeleteModal">
+      <div class="modal-content modal-confirm" @click.stop>
+        <div class="modal-header">
+          <h3>Confirm Delete</h3>
+          <button @click="closeDeleteModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="confirm-message">
+            Are you sure you want to <strong>permanently delete</strong> transaction <strong>{{ transactionToDelete?.id }}</strong>?
+          </p>
+          <p class="warning-message">This action cannot be undone!</p>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeDeleteModal" class="btn-modal-cancel">No, Cancel</button>
+          <button @click="deleteTransaction" class="btn-modal-delete">Yes, Delete</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -412,6 +440,7 @@
 import Navbar from '../components/Navbar.vue'
 import { useAuthStore } from '../stores/auth'
 import { computed } from 'vue'
+import api from '@/services/api'
 
 export default {
   name: 'TransactionLog',
@@ -457,25 +486,23 @@ export default {
       showEditModal: false,
       showConfirmEditModal: false,
       showSuccessModal: false,
+      showDeleteModal: false,
+      transactionToDelete: null,
       statusModalTransactionId: '',
       transactionNotFound: false,
       selectedTransaction: null,
       newStatus: '',
       sortColumn: '',
       sortDirection: 'asc',
-      transactions: [
-        { id: 'TN1', customer: 'John Doe', service: 'Wash & Dry', addons: 'Ariel', status: 'paid', date: '2025-11-11', time: '10:30', amount: 250 },
-        { id: 'TN2', customer: 'Jane Smith', service: 'Full Service', addons: 'Surf', status: 'unpaid', date: '2025-11-11', time: '11:45', amount: 400 },
-        { id: 'TN3', customer: 'Mike Johnson', service: 'Full Service', addons: 'None', status: 'paid', date: '2025-11-10', time: '09:15', amount: 350 },
-        { id: 'TN4', customer: 'Sarah Williams', service: 'Wash', addons: 'Softener & Detergent', status: 'paid', date: '2025-11-10', time: '14:20', amount: 120 },
-        { id: 'TN5', customer: 'Zalora', service: 'Wash', addons: 'None', status: 'paid', date: '2025-11-10', time: '14:20', amount: 100 },
-        { id: 'TN6', customer: 'Rodel', service: 'Wash', addons: 'Detergent', status: 'unpaid', date: '2025-11-10', time: '14:20', amount: 120 },
-        { id: 'TN7', customer: 'Karen', service: 'Full Service', addons: 'None', status: 'unpaid', date: '2025-11-10', time: '14:20', amount: 380 },
-        { id: 'TN8', customer: 'Patrick', service: 'Wash & Dry', addons: 'Detergent', status: 'paid', date: '2025-11-10', time: '14:20', amount: 230 },
-        { id: 'TN9', customer: 'Koykoy', service: 'Wash & Dry', addons: 'Softener & Detergent', status: 'unpaid', date: '2025-11-10', time: '14:20', amount: 280 },
-        { id: 'TN10', customer: 'David Brown', service: 'Full Service', addons: 'Detergent', status: 'paid', date: '2025-11-09', time: '16:00', amount: 420 }
-      ]
+      transactions: [],
+      loading: false,
+      error: null,
+      currentPage: 1,
+      rowsPerPage: 8
     }
+  },
+  async mounted() {
+    await this.fetchTransactions()
   },
   computed: {
     filteredTransactions() {
@@ -539,10 +566,10 @@ export default {
           }
           
           if (this.sortColumn === 'date') {
-            // Date sorting (recent to oldest by default)
-            const aDate = new Date(aVal)
-            const bDate = new Date(bVal)
-            return this.sortDirection === 'asc' ? bDate - aDate : aDate - bDate
+            // Date sorting using raw date values
+            const aDate = new Date(a.rawDate)
+            const bDate = new Date(b.rawDate)
+            return this.sortDirection === 'asc' ? aDate - bDate : bDate - aDate
           }
           
           if (this.sortColumn === 'time') {
@@ -564,9 +591,54 @@ export default {
       }
       
       return filtered
+    },
+    paginatedTransactions() {
+      const start = (this.currentPage - 1) * this.rowsPerPage
+      return this.filteredTransactions.slice(start, start + this.rowsPerPage)
+    },
+    totalPages() {
+      return Math.max(1, Math.ceil(this.filteredTransactions.length / this.rowsPerPage))
     }
   },
   methods: {
+    async fetchTransactions() {
+      this.loading = true
+      this.error = null
+      try {
+        const response = await api.transactions.getAll()
+        this.transactions = response.data.map(t => ({
+          id: `TN${String(t.transaction_id).padStart(4, '0')}`,
+          customer: t.customer_name || 'N/A',
+          service: t.service_type || 'N/A',
+          addons: t.addon || 'None',
+          status: t.status || 'unpaid',
+          date: this.formatDate(t.date),
+          rawDate: t.date,
+          time: t.time_received,
+          amount: parseFloat(t.price) || 0
+        }))
+      } catch (error) {
+        console.error('Error fetching transactions:', error)
+        this.error = 'Failed to load transactions'
+      } finally {
+        this.loading = false
+      }
+    },
+    formatDate(dateString) {
+      if (!dateString) return 'N/A'
+      // Parse ISO date properly
+      const date = new Date(dateString)
+      if (isNaN(date.getTime())) return 'N/A'
+      const day = date.getUTCDate().toString().padStart(2, '0')
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, '0')
+      const year = date.getUTCFullYear()
+      return `${day}/${month}/${year}`
+    },
+    goToPage(page) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page
+      }
+    },
     sortBy(column) {
       if (this.sortColumn === column) {
         // Toggle direction if clicking same column
@@ -575,11 +647,13 @@ export default {
         // New column, set default direction
         this.sortColumn = column
         if (column === 'date') {
-          this.sortDirection = 'asc' // Recent to oldest by default
+          this.sortDirection = 'desc' // Most recent first by default
         } else {
           this.sortDirection = 'asc'
         }
       }
+      // Reset to first page when sorting changes
+      this.currentPage = 1
     },
     getSortIcon(column) {
       if (this.sortColumn !== column) {
@@ -621,14 +695,26 @@ export default {
     closeConfirmModal() {
       this.showConfirmModal = false
     },
-    saveStatusChange() {
-      const index = this.transactions.findIndex(t => t.id === this.selectedTransaction.id)
-      if (index !== -1) {
-        this.transactions[index].status = this.newStatus
-        
-        // Log the status change
+    async saveStatusChange() {
+      try {
+        const transactionId = parseInt(this.selectedTransaction.id.replace('TN', ''))
         const authStore = useAuthStore()
-        console.log(`Transaction ${this.selectedTransaction.id} status changed to ${this.newStatus} by ${authStore.user} at ${new Date().toLocaleString()}`)
+        
+        await api.transactions.update(transactionId, {
+          status: this.newStatus,
+          staff_id: authStore.staffId || 1 // Use logged in staff ID
+        })
+        
+        // Update local data
+        const index = this.transactions.findIndex(t => t.id === this.selectedTransaction.id)
+        if (index !== -1) {
+          this.transactions[index].status = this.newStatus
+        }
+        
+        console.log(`Transaction ${this.selectedTransaction.id} status changed to ${this.newStatus}`)
+      } catch (error) {
+        console.error('Error updating status:', error)
+        alert('Failed to update transaction status')
       }
       
       // Close all modals
@@ -636,6 +722,35 @@ export default {
       this.selectedTransaction = null
       this.newStatus = ''
       this.statusModalTransactionId = ''
+    },
+    confirmDelete(transaction) {
+      // Close edit modal if open
+      this.showEditModal = false
+      this.transactionToDelete = transaction
+      this.showDeleteModal = true
+    },
+    closeDeleteModal() {
+      this.showDeleteModal = false
+      this.transactionToDelete = null
+    },
+    async deleteTransaction() {
+      try {
+        const transactionId = parseInt(this.transactionToDelete.id.replace('TN', ''))
+        
+        await api.transactions.delete(transactionId)
+        
+        // Refresh the transaction list
+        await this.fetchTransactions()
+        
+        // Close modal
+        this.closeDeleteModal()
+        
+        // Show success message
+        alert('Transaction deleted successfully')
+      } catch (error) {
+        console.error('Error deleting transaction:', error)
+        alert('Failed to delete transaction. Please try again.')
+      }
     },
     openEditModal(transaction) {
       this.editForm = {
@@ -754,14 +869,33 @@ export default {
     closeConfirmEditModal() {
       this.showConfirmEditModal = false
     },
-    saveEditTransaction() {
-      const index = this.transactions.findIndex(t => t.id === this.editForm.id)
-      if (index !== -1) {
-        this.transactions[index] = { ...this.editForm }
-        
-        // Log the edit
+    async saveEditTransaction() {
+      try {
+        const transactionId = parseInt(this.editForm.id.replace('TN', ''))
         const authStore = useAuthStore()
-        console.log(`Transaction ${this.editForm.id} updated by ${authStore.user} at ${new Date().toLocaleString()}`)
+        
+        await api.transactions.update(transactionId, {
+          customer_id: 1, // You may need to handle customer lookup
+          staff_id: authStore.staffId || 1,
+          date: this.editForm.date,
+          time_received: this.editForm.time,
+          price: this.editForm.amount,
+          name: this.editForm.customer,
+          service_type: this.editForm.service,
+          addon: this.editForm.addons,
+          status: this.editForm.status
+        })
+        
+        // Update local data
+        const index = this.transactions.findIndex(t => t.id === this.editForm.id)
+        if (index !== -1) {
+          this.transactions[index] = { ...this.editForm }
+        }
+        
+        console.log(`Transaction ${this.editForm.id} updated`)
+      } catch (error) {
+        console.error('Error updating transaction:', error)
+        alert('Failed to update transaction')
       }
       
       // Close confirm modal and show success

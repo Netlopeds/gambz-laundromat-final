@@ -87,9 +87,14 @@
           <div class="report-card-staff">
             <div class="report-header-staff">
               <h3 class="report-title-staff">Payment Status</h3>
+              <select v-model="adminPaymentPeriod" class="period-select-kpi">
+                <option value="daily">Daily</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
             </div>
             <div class="staff-pie-chart-container">
-              <Pie :data="paymentStatusData" :options="staffChartOptions" />
+              <Pie :data="currentPaymentStatusData" :options="staffChartOptions" />
             </div>
           </div>
 
@@ -117,8 +122,8 @@
         </div>
 
         <div class="export-section-staff">
-          <button class="export-btn-staff">
-            <span>📊</span> Export Report
+          <button class="export-btn-staff" @click="exportReport">
+            <span>📊</span> Export Report ({{ adminSalesPeriod.charAt(0).toUpperCase() + adminSalesPeriod.slice(1) }})
           </button>
         </div>
 
@@ -199,12 +204,6 @@
 
         </div>
 
-        <div class="export-section-staff">
-          <button class="export-btn-staff">
-            <span>📊</span> Export Report
-          </button>
-        </div>
-
       </div>
 
     </main>
@@ -224,6 +223,7 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale,
 
 // Import components
 import Navbar from '../components/Navbar.vue'
+import api from '@/services/api'
 
 export default {
   name: 'Reports',
@@ -235,48 +235,43 @@ export default {
   },
   data() {
     return {
-      // --- DATA FOR ADMIN VIEW (*** UPDATED ***) ---
+      // --- DATA FOR ADMIN VIEW ---
       adminSalesPeriod: 'monthly',
       adminCustomerPeriod: 'monthly',
       adminServicePeriod: 'monthly',
+      adminPaymentPeriod: 'monthly',
       adminKpiData: {
-        daily: { sales: '550.00', orders: 8, customers: 5 },
-        monthly: { sales: '12,500.00', orders: 100, customers: 100 },
-        yearly: { sales: '150,000.00', orders: 1200, customers: 1200 },
-        unpaidTotal: 4 // Static total for the new card
+        daily: { sales: '0.00', orders: 0, customers: 0 },
+        monthly: { sales: '0.00', orders: 0, customers: 0 },
+        yearly: { sales: '0.00', orders: 0, customers: 0 },
+        unpaidTotal: 0
       },
       
       // --- DATA FOR STAFF VIEW ---
       staffKpiData: {
-        sales: '1,250', 
-        customers: 25, 
-        transactions: 30 
+        sales: '0', 
+        customers: 0, 
+        transactions: 0
       },
       
-      // --- SHARED DATA (Used by Admin and Staff) ---
-      popularServices: [
-        { name: 'Wash & Dry', count: 150, percentage: 100 },
-        { name: 'Full Service', count: 120, percentage: 80 },
-        { name: 'Wash Only', count: 90, percentage: 60 },
-        { name: 'Iron Only', count: 60, percentage: 40 },
-        { name: 'Dry Only', count: 30, percentage: 20 }
-      ],
-      unpaidCustomers: [
-        { id: 'TN2', customer: 'Jane Smith' },
-        { id: 'TN6', customer: 'Rodel' },
-        { id: 'TN7', customer: 'Karen' },
-        { id: 'TN9', customer: 'Koykoy' },
-      ],
+      // --- SHARED DATA ---
+      popularServices: [],
+      unpaidCustomers: [],
+      paymentStatusByPeriod: {
+        daily: { paid: 0, unpaid: 0 },
+        monthly: { paid: 0, unpaid: 0 },
+        yearly: { paid: 0, unpaid: 0 }
+      },
       paymentStatusData: {
         labels: ['Paid', 'Unpaid'],
         datasets: [
           {
             backgroundColor: ['#40E0D0', '#FF6384'],
-            data: [6, 4] 
+            data: [0, 0] 
           }
         ]
       },
-      staffChartOptions: { // Used by both Admin and Staff pie charts
+      staffChartOptions: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
@@ -300,10 +295,249 @@ export default {
       }
     }
   },
+  async mounted() {
+    await this.fetchReportsData()
+  },
   computed: {
     isUserAdmin() {
       const authStore = useAuthStore();
       return authStore.isAdmin; 
+    },
+    currentPaymentStatusData() {
+      if (this.isUserAdmin) {
+        const periodData = this.paymentStatusByPeriod[this.adminPaymentPeriod];
+        return {
+          labels: ['Paid', 'Unpaid'],
+          datasets: [
+            {
+              backgroundColor: ['#40E0D0', '#FF6384'],
+              data: [periodData.paid, periodData.unpaid]
+            }
+          ]
+        };
+      } else {
+        return this.paymentStatusData;
+      }
+    }
+  },
+  methods: {
+    async fetchReportsData() {
+      try {
+        const transactionsResponse = await api.transactions.getAll()
+        const transactions = transactionsResponse.data
+        
+        console.log('Total transactions:', transactions.length)
+        
+        // Filter unpaid customers (handle both 'unpaid' and 'pending' statuses)
+        this.unpaidCustomers = transactions
+          .filter(t => t.status === 'unpaid' || t.status === 'pending')
+          .map(t => ({
+            id: `TN${String(t.transaction_id).padStart(4, '0')}`,
+            customer: t.customer_name || t.name
+          }))
+        
+        console.log('Unpaid customers:', this.unpaidCustomers.length)
+        
+        this.adminKpiData.unpaidTotal = this.unpaidCustomers.length
+        
+        // Count paid vs unpaid (handle both 'unpaid' and 'pending' as unpaid)
+        const paidCount = transactions.filter(t => t.status === 'paid').length
+        const unpaidCount = transactions.filter(t => t.status === 'unpaid' || t.status === 'pending').length
+        
+        console.log('Paid:', paidCount, 'Unpaid:', unpaidCount)
+        
+        // Update pie chart data by creating a new object to trigger reactivity
+        this.paymentStatusData = {
+          labels: ['Paid', 'Unpaid'],
+          datasets: [
+            {
+              backgroundColor: ['#40E0D0', '#FF6384'],
+              data: [paidCount, unpaidCount]
+            }
+          ]
+        }
+        
+        const serviceCounts = {}
+        transactions.forEach(t => {
+          const service = t.service_type || 'Unknown'
+          serviceCounts[service] = (serviceCounts[service] || 0) + 1
+        })
+        
+        const maxCount = Math.max(...Object.values(serviceCounts), 1)
+        this.popularServices = Object.entries(serviceCounts)
+          .map(([name, count]) => ({
+            name,
+            count,
+            percentage: (count / maxCount) * 100
+          }))
+          .sort((a, b) => b.count - a.count)
+          .slice(0, 5)
+        
+        await this.fetchPeriodStats()
+      } catch (error) {
+        console.error('Error fetching reports data:', error)
+      }
+    },
+    async fetchPeriodStats() {
+      try {
+        const now = new Date()
+        const transactionsResponse = await api.transactions.getAll()
+        const allTransactions = transactionsResponse.data
+        
+        // Daily
+        const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString().split('T')[0]
+        const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).toISOString().split('T')[0]
+        const dailyResponse = await api.analytics.getSummary(startOfDay, endOfDay)
+        this.adminKpiData.daily = {
+          sales: parseFloat(dailyResponse.data.total_sales || 0).toFixed(2),
+          orders: dailyResponse.data.total_orders || 0,
+          customers: dailyResponse.data.total_customers || 0
+        }
+        
+        // Daily payment status
+        const dailyTrans = allTransactions.filter(t => {
+          const transDate = new Date(t.date).toISOString().split('T')[0]
+          return transDate === startOfDay
+        })
+        this.paymentStatusByPeriod.daily = {
+          paid: dailyTrans.filter(t => t.status === 'paid').length,
+          unpaid: dailyTrans.filter(t => t.status === 'unpaid' || t.status === 'pending').length
+        }
+        
+        // Monthly
+        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0]
+        const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split('T')[0]
+        const monthlyResponse = await api.analytics.getSummary(startOfMonth, endOfMonth)
+        this.adminKpiData.monthly = {
+          sales: parseFloat(monthlyResponse.data.total_sales || 0).toFixed(2),
+          orders: monthlyResponse.data.total_orders || 0,
+          customers: monthlyResponse.data.total_customers || 0
+        }
+        
+        // Monthly payment status
+        const monthlyTrans = allTransactions.filter(t => {
+          const transDate = new Date(t.date)
+          const start = new Date(startOfMonth)
+          const end = new Date(endOfMonth)
+          return transDate >= start && transDate <= end
+        })
+        this.paymentStatusByPeriod.monthly = {
+          paid: monthlyTrans.filter(t => t.status === 'paid').length,
+          unpaid: monthlyTrans.filter(t => t.status === 'unpaid' || t.status === 'pending').length
+        }
+        
+        // Yearly
+        const startOfYear = new Date(now.getFullYear(), 0, 1).toISOString().split('T')[0]
+        const endOfYear = new Date(now.getFullYear(), 11, 31).toISOString().split('T')[0]
+        const yearlyResponse = await api.analytics.getSummary(startOfYear, endOfYear)
+        this.adminKpiData.yearly = {
+          sales: parseFloat(yearlyResponse.data.total_sales || 0).toFixed(2),
+          orders: yearlyResponse.data.total_orders || 0,
+          customers: yearlyResponse.data.total_customers || 0
+        }
+        
+        // Yearly payment status
+        const yearlyTrans = allTransactions.filter(t => {
+          const transDate = new Date(t.date)
+          const start = new Date(startOfYear)
+          const end = new Date(endOfYear)
+          return transDate >= start && transDate <= end
+        })
+        this.paymentStatusByPeriod.yearly = {
+          paid: yearlyTrans.filter(t => t.status === 'paid').length,
+          unpaid: yearlyTrans.filter(t => t.status === 'unpaid' || t.status === 'pending').length
+        }
+        
+        // Staff KPI (using today's data)
+        this.staffKpiData = {
+          sales: this.adminKpiData.daily.sales,
+          customers: this.adminKpiData.daily.customers,
+          transactions: this.adminKpiData.daily.orders
+        }
+      } catch (error) {
+        console.error('Error fetching period stats:', error)
+      }
+    },
+    async exportReport() {
+      try {
+        // Determine which period to export based on admin selections
+        let period = 'monthly'
+        if (this.isUserAdmin) {
+          // Use the most common selected period, or default to monthly
+          period = this.adminSalesPeriod
+        }
+        
+        // Calculate date range based on period
+        const today = new Date()
+        let startDate, endDate
+        
+        if (period === 'daily') {
+          startDate = new Date(today.setHours(0, 0, 0, 0)).toISOString().split('T')[0]
+          endDate = new Date(today.setHours(23, 59, 59, 999)).toISOString().split('T')[0]
+        } else if (period === 'monthly') {
+          startDate = new Date(today.getFullYear(), today.getMonth(), 1).toISOString().split('T')[0]
+          endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0).toISOString().split('T')[0]
+        } else if (period === 'yearly') {
+          startDate = new Date(today.getFullYear(), 0, 1).toISOString().split('T')[0]
+          endDate = new Date(today.getFullYear(), 11, 31).toISOString().split('T')[0]
+        }
+        
+        // Fetch transactions for the period
+        const transactionsResponse = await api.transactions.getAll()
+        const allTransactions = transactionsResponse.data
+        
+        // Filter transactions by date range
+        const transactions = allTransactions.filter(t => {
+          const transDate = new Date(t.date)
+          const start = new Date(startDate)
+          const end = new Date(endDate)
+          return transDate >= start && transDate <= end
+        })
+        
+        // Helper function to format date as DD/MM/YYYY
+        const formatDateForExport = (dateStr) => {
+          if (!dateStr) return 'N/A'
+          const date = new Date(dateStr)
+          if (isNaN(date.getTime())) return 'N/A'
+          const day = date.getUTCDate().toString().padStart(2, '0')
+          const month = (date.getUTCMonth() + 1).toString().padStart(2, '0')
+          const year = date.getUTCFullYear()
+          return `${day}/${month}/${year}`
+        }
+        
+        // Create CSV content
+        const headers = ['Transaction ID', 'Customer Name', 'Service Type', 'Date', 'Time', 'Price', 'Status', 'Add-ons']
+        const csvRows = [headers.join(',')]
+        
+        transactions.forEach(t => {
+          const row = [
+            `TN${String(t.transaction_id).padStart(4, '0')}`,
+            `"${t.customer_name || t.name}"`,
+            `"${t.service_type}"`,
+            formatDateForExport(t.date),
+            t.time_received,
+            t.price,
+            t.status,
+            `"${t.addon || 'none'}"`
+          ]
+          csvRows.push(row.join(','))
+        })
+        
+        // Create and download CSV
+        const csvContent = csvRows.join('\n')
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+        const link = document.createElement('a')
+        const url = URL.createObjectURL(blob)
+        link.setAttribute('href', url)
+        link.setAttribute('download', `report_${period}_${new Date().toISOString().split('T')[0]}.csv`)
+        link.style.visibility = 'hidden'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      } catch (error) {
+        console.error('Error exporting report:', error)
+        alert('Failed to export report')
+      }
     }
   }
 }

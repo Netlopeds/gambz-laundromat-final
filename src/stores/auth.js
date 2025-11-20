@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import axios from 'axios'
+import api from '@/services/api'
 
 export const useAuthStore = defineStore('auth', () => {
   // State
   const user = ref(null)
+  const staffId = ref(null)
   const token = ref(null)
   const isAuthenticated = ref(false)
   const isAdmin = ref(false)
@@ -13,67 +14,44 @@ export const useAuthStore = defineStore('auth', () => {
   const initAuth = () => {
     const savedToken = localStorage.getItem('authToken')
     const savedUser = localStorage.getItem('username')
+    const savedStaffId = localStorage.getItem('staffId')
     const savedIsAdmin = localStorage.getItem('isAdmin') === 'true'
     
     if (savedToken && savedUser) {
       token.value = savedToken
       user.value = savedUser
+      staffId.value = savedStaffId ? parseInt(savedStaffId) : null
       isAuthenticated.value = true
       isAdmin.value = savedIsAdmin
     }
   }
 
-  // Login with DummyJSON API
-  const login = async (username, password) => {
+  // Login with backend API
+  const login = async (email, password) => {
     try {
-      const response = await axios.post('https://dummyjson.com/auth/login', {
-        username,
-        password,
-        expiresInMins: 60
-      })
+      const response = await api.staff.login({ email, password })
+      const staffData = response.data
 
       // Store token and user info
-      token.value = response.data.token
-      user.value = response.data.username
+      token.value = 'staff-token-' + Date.now()
+      user.value = staffData.name
+      staffId.value = staffData.staff_id
       isAuthenticated.value = true
+      isAdmin.value = staffData.role_name === 'Admin'
 
       // Save to localStorage
-      localStorage.setItem('authToken', response.data.token)
-      localStorage.setItem('username', response.data.username)
+      localStorage.setItem('authToken', token.value)
+      localStorage.setItem('username', staffData.name)
+      localStorage.setItem('staffId', staffData.staff_id.toString())
       localStorage.setItem('isLoggedIn', 'true')
+      localStorage.setItem('isAdmin', isAdmin.value.toString())
 
-      return { success: true, user: response.data }
+      return { success: true, user: staffData }
     } catch (error) {
       console.error('Login failed:', error)
-      
-      // Fallback to local users if API fails
-      const localUsers = [
-        { username: 'steve@gmail.com', password: '1234', isAdmin: false },
-        { username: 'creeper@gmail.com', password: '0000', isAdmin: false },
-        { username: 'admin', password: '123', isAdmin: true }
-      ]
-
-      const foundUser = localUsers.find(
-        u => u.username.toLowerCase() === username.toLowerCase() && u.password === password
-      )
-
-      if (foundUser) {
-        token.value = 'local-token-' + Date.now()
-        user.value = foundUser.username
-        isAuthenticated.value = true
-        isAdmin.value = foundUser.isAdmin
-
-        localStorage.setItem('authToken', token.value)
-        localStorage.setItem('username', foundUser.username)
-        localStorage.setItem('isLoggedIn', 'true')
-        localStorage.setItem('isAdmin', foundUser.isAdmin.toString())
-
-        return { success: true, user: foundUser }
-      }
-
       return { 
         success: false, 
-        error: error.response?.data?.message || 'Invalid credentials'
+        error: error.response?.data?.error || 'Invalid credentials'
       }
     }
   }
@@ -81,12 +59,14 @@ export const useAuthStore = defineStore('auth', () => {
   // Logout
   const logout = () => {
     user.value = null
+    staffId.value = null
     token.value = null
     isAuthenticated.value = false
     isAdmin.value = false
 
     localStorage.removeItem('authToken')
     localStorage.removeItem('username')
+    localStorage.removeItem('staffId')
     localStorage.removeItem('isLoggedIn')
     localStorage.removeItem('isAdmin')
     localStorage.removeItem('cartItems')
@@ -98,6 +78,7 @@ export const useAuthStore = defineStore('auth', () => {
 
   return {
     user,
+    staffId,
     token,
     isAuthenticated,
     isAdmin,

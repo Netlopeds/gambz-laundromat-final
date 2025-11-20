@@ -220,6 +220,8 @@
 
 <script>
 import Navbar from '../components/Navbar.vue'
+import { useAuthStore } from '../stores/auth'
+import api from '@/services/api'
 
 export default {
   name: 'NewTransaction',
@@ -270,10 +272,56 @@ export default {
     closeConfirmModal() {
       this.showConfirmModal = false
     },
-    confirmTransaction() {
-      console.log('Transaction submitted:', this.form)
-      this.showConfirmModal = false
-      this.showSuccessModal = true
+    async confirmTransaction() {
+      try {
+        const authStore = useAuthStore()
+        
+        // Get all transactions to find next ID
+        const allTransactions = await api.transactions.getAll()
+        const maxId = allTransactions.data.reduce((max, t) => Math.max(max, t.transaction_id || 0), 0)
+        const nextTransactionId = maxId + 1
+        
+        // Get all customers to find or create customer
+        const allCustomers = await api.customers.getAll()
+        let customer = allCustomers.data.find(c => c.name.toLowerCase() === this.form.customerName.toLowerCase())
+        
+        let customerId
+        if (customer) {
+          customerId = customer.customer_id
+        } else {
+          // Create new customer with next ID
+          const maxCustomerId = allCustomers.data.reduce((max, c) => Math.max(max, c.customer_id || 0), 0)
+          const nextCustomerId = maxCustomerId + 1
+          
+          const customerResponse = await api.customers.create({
+            customer_id: nextCustomerId,
+            name: this.form.customerName
+          })
+          customerId = customerResponse.data.customer_id
+        }
+        
+        // Create transaction with explicit ID
+        await api.transactions.create({
+          transaction_id: nextTransactionId,
+          customer_id: customerId,
+          staff_id: authStore.staffId || 5,
+          date: this.form.date,
+          time_received: this.form.time,
+          price: parseFloat(this.form.amount) || 0,
+          name: this.form.customerName,
+          service_type: this.getServiceTypeName(this.form.serviceType),
+          addon: this.getAddonsForDisplay(),
+          status: this.form.status === 'completed' ? 'paid' : 'unpaid'
+        })
+        
+        console.log('Transaction created successfully')
+        this.showConfirmModal = false
+        this.showSuccessModal = true
+      } catch (error) {
+        console.error('Error creating transaction:', error)
+        alert('Failed to create transaction: ' + (error.response?.data?.error || error.message))
+        this.showConfirmModal = false
+      }
     },
     closeSuccessModal() {
       this.showSuccessModal = false
@@ -374,7 +422,8 @@ export default {
     },
     formatDate(dateString) {
       if (!dateString) return ''
-      const date = new Date(dateString)
+      // Handle both YYYY-MM-DD and date objects
+      const date = new Date(dateString + 'T00:00:00')
       const month = (date.getMonth() + 1).toString().padStart(2, '0')
       const day = date.getDate().toString().padStart(2, '0')
       const year = date.getFullYear()
@@ -383,13 +432,120 @@ export default {
     triggerFileImport() {
       this.$refs.fileInput.click()
     },
-    handleFileImport(event) {
+    async handleFileImport(event) {
       const file = event.target.files[0]
-      if (file) {
-        console.log('File selected:', file.name)
-        alert(`File "${file.name}" selected. Import functionality will be implemented here.`)
-        // TODO: Implement CSV/Excel parsing and import logic
+      if (!file) return
+      
+      if (!file.name.endsWith('.csv')) {
+        alert('Please select a CSV file')
+        return
       }
+      
+      try {
+        const text = await file.text()
+        const lines = text.split('\n').filter(line => line.trim())
+        
+        if (lines.length < 2) {
+          alert('CSV file is empty or invalid')
+          return
+        }
+        
+        const authStore = useAuthStore()
+        const allTransactions = await api.transactions.getAll()
+        const allCustomers = await api.customers.getAll()
+        
+        let maxTransactionId = allTransactions.data.reduce((max, t) => Math.max(max, t.transaction_id || 0), 0)
+        let maxCustomerId = allCustomers.data.reduce((max, c) => Math.max(max, c.customer_id || 0), 0)
+        
+        const customerMap = new Map()
+        allCustomers.data.forEach(c => customerMap.set(c.name.toLowerCase(), c.customer_id))
+        
+        let imported = 0
+        let failed = 0
+        
+        // Skip header row
+        for (let i = 1; i < lines.length; i++) {
+          try {
+            const line = lines[i].trim()
+            if (!line) continue
+            
+            const values = this.parseCSVLine(line)
+            if (values.length < 8) continue
+            
+            const customerName = values[6]?.trim()
+            if (!customerName) continue
+            
+            // Find or create customer
+            let customerId = customerMap.get(customerName.toLowerCase())
+            if (!customerId) {
+              maxCustomerId++
+              await api.customers.create({
+                customer_id: maxCustomerId,
+                name: customerName
+              })
+              customerId = maxCustomerId
+              customerMap.set(customerName.toLowerCase(), customerId)
+            }
+            
+            // Create transaction
+            maxTransactionId++
+            await api.transactions.create({
+              transaction_id: maxTransactionId,
+              customer_id: customerId,
+              staff_id: authStore.staffId || 5,
+              date: this.parseDate(values[3]),
+              time_received: values[4]?.trim(),
+              price: parseFloat(values[5]) || 0,
+              name: customerName,
+              service_type: values[7]?.trim(),
+              addon: values[9]?.trim() || 'none',
+              status: values[8]?.toLowerCase().includes('paid') ? 'paid' : 'unpaid'
+            })
+            
+            imported++
+          } catch (error) {
+            console.error('Error importing line:', error)
+            failed++
+          }
+        }
+        
+        alert(`Import complete!\nImported: ${imported}\nFailed: ${failed}`)
+        this.$refs.fileInput.value = ''
+      } catch (error) {
+        console.error('Error importing CSV:', error)
+        alert('Failed to import CSV file')
+      }
+    },
+    parseCSVLine(line) {
+      const values = []
+      let current = ''
+      let inQuotes = false
+      
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i]
+        
+        if (char === '"') {
+          inQuotes = !inQuotes
+        } else if (char === ',' && !inQuotes) {
+          values.push(current.trim())
+          current = ''
+        } else {
+          current += char
+        }
+      }
+      values.push(current.trim())
+      return values
+    },
+    parseDate(dateStr) {
+      if (!dateStr) return new Date().toISOString().split('T')[0]
+      
+      // Handle DD/MM/YYYY format
+      const parts = dateStr.split('/')
+      if (parts.length === 3) {
+        return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`
+      }
+      
+      return dateStr
     }
   }
 }

@@ -149,6 +149,59 @@
   color: #28a745;
 }
 
+/* Mobile/Desktop View Toggle */
+.desktop-view {
+  display: block;
+}
+
+.mobile-view {
+  display: none;
+}
+
+/* Mobile Card Styles */
+.edit-log-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-row:last-child {
+  border-bottom: none;
+}
+
+.card-label {
+  font-weight: 700;
+  color: #333;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.card-value {
+  color: #666;
+  font-size: 0.85rem;
+  text-align: right;
+  word-break: break-word;
+}
+
+.loading-message,
+.empty-message {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .main-content {
@@ -218,12 +271,13 @@
     padding: 20px;
   }
 
-  .table-container {
-    overflow-x: scroll;
+  /* Switch to mobile view */
+  .desktop-view {
+    display: none;
   }
 
-  .transactions-table {
-    min-width: 900px;
+  .mobile-view {
+    display: block;
   }
 }
 
