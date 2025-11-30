@@ -1,0 +1,1603 @@
+transaction_id,customer_id,staff_id,date,time_received,price,name,service_type,status,addons,quantity_addons
+1,,5,08/03/2025,6:25,126,ZALORA,wash,paid,ariel,1
+,,,08/03/2025,6:52,140,PACATANG,full service,paid,ariel,1
+,,,08/03/2025,7:15,150,RODEL,wash,paid,tide,1
+,,,08/03/2025,7:35,126,KAREN,spin dry,paid,"ariel,surf",2
+,,,08/03/2025,7:50,110,KOYKOY,wash&dry,paid,"breeze,downy",2
+,,,08/03/2025,7:51,202,RJ,wash,paid,"surf,tide",2
+,,,08/03/2025,7:59,154,RAFAEL,spin dry,paid,"del,downy",2
+,,,08/03/2025,8:00,155,HECLES,wash&dry,paid,zonrox,1
+,,,08/03/2025,8:25,138,NICK,wash&dry,paid,"del,breeze",2
+,,,08/03/2025,8:35,170,PATRICK,wash,paid,tide,1
+,,,08/03/2025,8:40,236,JOAN,dry,paid,"breeze,ariel",2
+,,,08/03/2025,8:44,154,MARLON R.,wash&dry,paid,"downy,del",2
+,,,08/03/2025,8:45,133,NEL,dry,paid,downy,1
+,,,08/03/2025,9:35,140,JOHN,spin dry,paid,"tide,ariel",2
+,,,08/03/2025,10:10,156,JR,wash&dry,paid,zonrox,1
+,,,08/03/2025,10:55,143,DEW-DEW,full service,paid,"del,zonrox",2
+,,,08/03/2025,10:56,159,TAN-TAN,spin dry,paid,del,1
+,,,08/03/2025,11:15,136,JANE,full service,paid,"breeze,zonrox",2
+,,,08/03/2025,11:40,360,MARK,wash&dry,paid,breeze,1
+,,,08/03/2025,12:27,148,JUNLY,dry,paid,"breeze,downy",2
+,,,08/03/2025,13:03,172,JOEL,wash,paid,"zonrox,downy",2
+,,,08/03/2025,15:14,148,LUNA,full service,paid,"ariel,zonrox",2
+,,,08/03/2025,16:15,136,KC,full service,paid,zonrox,1
+,,,08/03/2025,16:20,60,JOSHUA,full service,paid,surf,1
+,,,08/03/2025,16:37,240,MARINA,full service,paid,"downy,ariel",2
+,,,08/03/2025,17:25,148,NEL,dry,paid,breeze,1
+,,,08/03/2025,18:00,70,LYN,wash,paid,breeze,1
+,,,08/03/2025,18:11,228,STEVE,spin dry,paid,surf,1
+,,,08/03/2025,18:12,154,CEDRIC,full service,paid,tide,1
+,,,08/03/2025,18:40,176,CHA,wash&dry,paid,zonrox,1
+,,,08/03/2025,18:50,156,GOMER/JOYONG,spin dry,paid,"downy,surf",2
+,,,08/03/2025,19:12,312,MARLON,spin dry,paid,"tide,surf",2
+,,,08/03/2025,19:20,240,XIAN/SEAN,spin dry,paid,"breeze,ariel",2
+,,,08/03/2025,19:25,376,JANE,wash,paid,tide,1
+,,,08/03/2025,19:40,176,WILSON,wash&dry,paid,tide,1
+,,,09/03/2025,7:10,144,BENJIE,dry,paid,"surf,zonrox",2
+,,,09/03/2025,7:20,178,JOSEPH,spin dry,paid,zonrox,1
+,,,09/03/2025,7:23,162,REDE,dry,paid,zonrox,1
+,,,09/03/2025,7:30,60,BOG'S,dry,paid,"zonrox,breeze",2
+,,,09/03/2025,7:35,150,ANGEL,wash,paid,breeze,1
+,,,09/03/2025,7:40,166,ANTHONY,wash,paid,ariel,1
+,,,09/03/2025,7:45,100,ALFRANCE,dry,paid,"breeze,ariel",2
+,,,09/03/2025,7:46,182,JOAN,spin dry,paid,"breeze,ariel",2
+,,,09/03/2025,7:55,80,JAYPEE,wash&dry,paid,surf,1
+,,,09/03/2025,8:00,138,RICK,dry,paid,"breeze,surf",2
+,,,09/03/2025,8:01,110,MARIEL,spin dry,paid,zonrox,1
+,,,09/03/2025,8:05,196,JOSELITO,spin dry,paid,zonrox,1
+,,,09/03/2025,8:30,198,PEN,wash&dry,paid,zonrox,1
+,,,09/03/2025,8:49,176,ROLDAN,wash,paid,"surf,del",2
+,,,09/03/2025,9:14,192,JHONG,full service,paid,"tide,zonrox",2
+,,,09/03/2025,9:16,148,JOSHUA,dry,paid,downy,1
+,,,09/03/2025,9:20,60,JONATHAN,full service,paid,"ariel,downy",2
+,,,09/03/2025,9:50,518,JOSIE,spin dry,paid,surf,1
+,,,09/03/2025,10:00,415,ADETH,dry,paid,downy,1
+,,,09/03/2025,10:15,60,MARUIN,dry,paid,"ariel,breeze",2
+,,,09/03/2025,10:20,152,HARRY,wash&dry,paid,"surf,breeze",2
+,,,09/03/2025,10:30,1480,JAKE,wash,paid,"downy,tide",2
+,,,09/03/2025,10:40,156,KARLA,dry,paid,tide,1
+,,,09/03/2025,10:45,76,ARNEL,wash,paid,del,1
+,,,09/03/2025,11:20,172,RICHARD,dry,paid,"tide,breeze",2
+,,,09/03/2025,11:45,310,KIT,dry,paid,breeze,1
+,,,09/03/2025,11:47,156,LUCKY,wash,paid,zonrox,1
+,,,09/03/2025,12:40,148,ADDY,wash,paid,"zonrox,del",2
+,,,09/03/2025,12:45,156,DARYL,wash,paid,"downy,zonrox",2
+,,,09/03/2025,13:00,148,SAM,dry,paid,"downy,surf",2
+,,,09/03/2025,13:45,172,JECK,full service,paid,"tide,del",2
+,,,09/03/2025,13:46,143,LITO,wash&dry,paid,downy,1
+,,,09/03/2025,13:47,172,DONALD,full service,paid,"breeze,zonrox",2
+,,,09/03/2025,13:48,143,JONATHAN,wash&dry,paid,ariel,1
+,,,09/03/2025,14:09,180,MANDS,dry,paid,"downy,del",2
+,,,09/03/2025,14:10,152,CHRIS,dry,paid,"ariel,downy",2
+,,,09/03/2025,14:15,164,PATRICIA,wash&dry,paid,del,1
+,,,09/03/2025,14:30,176,ARIEL,spin dry,paid,ariel,1
+,,,09/03/2025,15:30,172,JOSH,dry,paid,"zonrox,tide",2
+,,,09/03/2025,15:31,136,MARK,full service,paid,zonrox,1
+,,,09/03/2025,15:35,120,SOTTO,wash,paid,"surf,downy",2
+,,,09/03/2025,16:39,312,LAURENCE,wash,paid,"breeze,del",2
+,,,09/03/2025,17:16,150,CECAL,wash&dry,paid,"downy,breeze",2
+,,,09/03/2025,18:02,156,JING,wash&dry,paid,"ariel,breeze",2
+,,,09/03/2025,16:26,300,BABY,wash&dry,paid,ariel,1
+,,,09/03/2025,18:43,144,JOMAR,full service,paid,tide,1
+,,,10/03/2025,6:55,146,VAN,wash,paid,"surf,tide",2
+,,,10/03/2025,7:24,162,RONALD,wash,paid,breeze,1
+,,,10/03/2025,7:30,153,IVY,dry,paid,"zonrox,surf",2
+,,,10/03/2025,7:39,300,ALICE,dry,paid,"surf,del",2
+,,,10/03/2025,7:45,162,JURIE,wash&dry,paid,surf,1
+,,,10/03/2025,8:18,146,GREG,spin dry,paid,downy,1
+,,,10/03/2025,8:19,110,KRICTY,wash&dry,paid,"breeze,zonrox",2
+,,,10/03/2025,8:20,110,CHRISTIAN,wash&dry,paid,downy,1
+,,,10/03/2025,8:40,146,NANAY NENE,dry,paid,breeze,1
+,,,10/03/2025,9:22,150,JOJO,dry,paid,"del,surf",2
+,,,10/03/2025,10:03,172,GERALD,wash&dry,paid,"tide,surf",2
+,,,10/03/2025,10:36,218,NICK,full service,paid,surf,1
+,,,10/03/2025,11:22,120,DONA,full service,paid,"ariel,del",2
+,,,10/03/2025,11:59,184,ROGER,wash&dry,paid,"downy,zonrox",2
+,,,10/03/2025,12:01,160,LESTER,wash&dry,paid,"tide,breeze",2
+,,,10/03/2025,12:44,152,LARA,wash,paid,downy,1
+,,,10/03/2025,14:15,188,MEL,wash,paid,zonrox,1
+,,,10/03/2025,14:38,152,DWIGHT,full service,paid,breeze,1
+,,,10/03/2025,15:44,152,JOHN,wash,paid,"breeze,del",2
+,,,10/03/2025,15:45,60,JOSIE,dry,paid,"zonrox,downy",2
+,,,10/03/2025,18:55,172,MARK,full service,paid,"breeze,del",2
+,,,11/03/2025,6:26,134,LUCAS,wash,paid,"del,zonrox",2
+,,,11/03/2025,6:33,172,EJ,wash,paid,del,1
+,,,11/03/2025,6:55,144,JOAN,full service,paid,del,1
+,,,11/03/2025,7:00,164,FRANCE,spin dry,paid,downy,1
+,,,11/03/2025,7:29,110,KRIS,spin dry,paid,surf,1
+,,,11/03/2025,7:50,110,ADETH,dry,paid,"del,ariel",2
+,,,11/03/2025,7:52,146,JUNREY,spin dry,paid,surf,1
+,,,11/03/2025,7:55,146,KENJIE,full service,paid,zonrox,1
+,,,11/03/2025,7:56,134,NICK,full service,paid,"surf,tide",2
+,,,11/03/2025,7:57,155,HECLES,wash,paid,"tide,downy",2
+,,,11/03/2025,8:14,146,CONAN,wash,paid,del,1
+,,,11/03/2025,8:16,162,LANIE,full service,paid,"breeze,zonrox",2
+,,,11/03/2025,8:20,110,NAK,wash&dry,paid,"zonrox,breeze",2
+,,,11/03/2025,8:36,142,BOBBY,dry,paid,ariel,1
+,,,11/03/2025,9:10,96,JOHN,full service,paid,downy,1
+,,,11/03/2025,9:15,210,PATRICK,wash&dry,paid,surf,1
+,,,11/03/2025,9:37,120,RENATO,dry,paid,tide,1
+,,,11/03/2025,10:36,312,RUDY,dry,paid,del,1
+,,,11/03/2025,11:00,148,MAMANG,wash,paid,"del,downy",2
+,,,11/03/2025,11:50,136,KEN ,dry,paid,"del,tide",2
+,,,11/03/2025,11:55,156,JOVIT,wash,paid,breeze,1
+,,,11/03/2025,12:00,150,GILBERT,spin dry,paid,tide,1
+,,,11/03/2025,12:22,156,SAM,spin dry,paid,zonrox,1
+,,,11/03/2025,12:40,724,JOSEPH,dry,paid,surf,1
+,,,11/03/2025,13:29,1480,JOHN WYNE,spin dry,paid,"ariel,downy",2
+,,,11/03/2025,13:50,172,HAZEL,full service,paid,"surf,zonrox",2
+,,,11/03/2025,14:00,200,JOCE,spin dry,paid,del,1
+,,,11/03/2025,14:10,70,MARVIN,spin dry,paid,"tide,breeze",2
+,,,11/03/2025,14:20,156,DADO,wash,paid,"zonrox,ariel",2
+,,,11/03/2025,16:06,136,JONATHAN,dry,paid,ariel,1
+,,,11/03/2025,16:11,156,JONG,spin dry,paid,ariel,1
+,,,11/03/2025,16:54,144,SAM,dry,paid,del,1
+,,,11/03/2025,17:59,80,KIM,spin dry,paid,ariel,1
+,,,11/03/2025,18:59,156,BOBIT,wash,paid,"del,ariel",2
+,,,11/03/2025,19:16,168,JUN,spin dry,paid,"zonrox,downy",2
+,,,12/03/2025,6:49,146,PAUL,spin dry,paid,"del,zonrox",2
+,,,12/03/2025,7:05,162,NINO,full service,paid,"tide,del",2
+,,,12/03/2025,7:25,146,LANIE,dry,paid,surf,1
+,,,12/03/2025,8:00,110,DON-DON,dry,paid,"tide,zonrox",2
+,,,12/03/2025,8:01,146,ERWIN,spin dry,paid,"zonrox,breeze",2
+,,,12/03/2025,8:15,122,BERNIE,wash&dry,paid,"del,tide",2
+,,,12/03/2025,8:51,110,ALBERT,full service,paid,"tide,ariel",2
+,,,12/03/2025,9:20,163,TRISHA,spin dry,paid,"downy,zonrox",2
+,,,12/03/2025,9:21,173,BRANDON,dry,paid,"tide,zonrox",2
+,,,12/03/2025,9:55,146,ADDY,wash,paid,surf,1
+,,,12/03/2025,10:29,172,ABBY,wash,paid,"tide,downy",2
+,,,12/03/2025,11:17,152,TATS,full service,paid,"surf,breeze",2
+,,,12/03/2025,11:35,260,CALDY,spin dry,paid,"del,ariel",2
+,,,12/03/2025,12:45,144,LITO,wash,paid,"breeze,surf",2
+,,,12/03/2025,12:49,129,PHILLIP,wash,paid,"del,zonrox",2
+,,,12/03/2025,13:02,166,RIZZA,dry,paid,"downy,surf",2
+,,,12/03/2025,13:10,144,ARVIN,spin dry,paid,zonrox,1
+,,,12/03/2025,14:29,172,WILMOR,spin dry,paid,"breeze,surf",2
+,,,12/03/2025,14:34,129,MARK,dry,paid,"tide,downy",2
+,,,12/03/2025,14:40,156,JAMES,full service,paid,del,1
+,,,12/03/2025,14:40,136,JERVI,wash&dry,paid,"del,ariel",2
+,,,12/03/2025,14:48,156,RONALD,dry,paid,downy,1
+,,,12/03/2025,15:06,272,GIGI,full service,paid,"ariel,del",2
+,,,12/03/2025,15:10,172,MANILYN,full service,paid,del,1
+,,,12/03/2025,15:26,300,JOCKO,full service,paid,surf,1
+,,,12/03/2025,15:49,140,MOISES,dry,paid,"tide,del",2
+,,,12/03/2025,16:51,172,NEG,dry,paid,tide,1
+,,,12/03/2025,17:22,156,JUNLY,wash,paid,downy,1
+,,,13/03/2025,7:50,280,MAICA,wash&dry,paid,tide,1
+,,,13/03/2025,8:01,146,ABE,full service,paid,breeze,1
+,,,13/03/2025,8:10,138,TEAM,wash&dry,paid,del,1
+,,,13/03/2025,8:59,158,AIDA,full service,paid,ariel,1
+,,,13/03/2025,9:41,179,TOTO,full service,paid,"zonrox,del",2
+,,,13/03/2025,9:41,156,EDDIE,wash&dry,paid,del,1
+,,,13/03/2025,9:45,172,BUBOY,wash,paid,"tide,downy",2
+,,,13/03/2025,10:03,240,CECIL,wash,paid,"surf,tide",2
+,,,13/03/2025,10:09,158,ROY,wash&dry,paid,del,1
+,,,13/03/2025,10:15,192,JASON,spin dry,paid,del,1
+,,,13/03/2025,10:38,202,JAI,full service,paid,"tide,breeze",2
+,,,13/03/2025,10:38,202,JAMES,dry,paid,downy,1
+,,,13/03/2025,10:45,140,GRACE,wash,paid,tide,1
+,,,13/03/2025,11:00,159,EDDIE,wash,paid,"tide,surf",2
+,,,13/03/2025,11:04,312,VANESSA,full service,paid,del,1
+,,,13/03/2025,11:45,156,BALTAZAR,wash&dry,paid,breeze,1
+,,,13/03/2025,12:09,304,YANG,wash,paid,"del,zonrox",2
+,,,13/03/2025,12:29,156,LEM,wash&dry,paid,ariel,1
+,,,13/03/2025,13:27,60,NORA,wash,paid,"zonrox,ariel",2
+,,,13/03/2025,14:23,212,AHA,wash,paid,zonrox,1
+,,,13/03/2025,15:35,296,SAM,dry,paid,"del,surf",2
+,,,13/03/2025,17:09,158,JAMES,full service,paid,downy,1
+,,,13/03/2025,17:30,186,REGINE,wash&dry,paid,"ariel,downy",2
+,,,13/03/2025,17:30,198,EDAY,wash,paid,surf,1
+,,,13/03/2025,18:44,70,KIM,wash,paid,"downy,surf",2
+,,,13/03/2025,19:32,186,WILSON,full service,paid,"del,tide",2
+,,,14/03/2025,8:05,146,HAZEL,wash,paid,"zonrox,surf",2
+,,,14/03/2025,7:05,150,NAT,wash,paid,"downy,del",2
+,,,14/03/2025,7:28,178,BENJAMIN,wash,paid,"ariel,zonrox",2
+,,,14/03/2025,7:49,154,JING,spin dry,paid,breeze,1
+,,,14/03/2025,7:55,216,FRANCIS,dry,paid,breeze,1
+,,,14/03/2025,7:59,166,RJ,dry,paid,"zonrox,del",2
+,,,14/03/2025,8:11,154,TAN-TAN,dry,paid,surf,1
+,,,14/03/2025,8:12,142,CEDRIC,spin dry,paid,surf,1
+,,,14/03/2025,8:24,196,BRYAN,spin dry,paid,surf,1
+,,,14/03/2025,8:44,70,ATO,wash,paid,surf,1
+,,,14/03/2025,8:55,168,JOSEPH,spin dry,paid,ariel,1
+,,,14/03/2025,10:05,152,MICHEAL,dry,paid,tide,1
+,,,14/03/2025,10:20,208,KALBO,full service,paid,"surf,del",2
+,,,14/03/2025,10:35,160,JB,dry,paid,downy,1
+,,,14/03/2025,10:45,320,BOK,spin dry,paid,downy,1
+,,,14/03/2025,11:45,148,LITO,spin dry,paid,"ariel,zonrox",2
+,,,14/03/2025,13:05,176,SAMUEL,spin dry,paid,del,1
+,,,14/03/2025,15:49,143,ALORA,full service,paid,tide,1
+,,,14/03/2025,15:50,1184,JOHN WEYN,spin dry,paid,downy,1
+,,,14/03/2025,17:36,162,JAM,full service,paid,tide,1
+,,,14/03/2025,18:04,148,CLAIRE,full service,paid,del,1
+,,,14/03/2025,18:10,152,BUBOY,full service,paid,"breeze,downy",2
+,,,15/03/2025,6:45,138,ALEX,wash,paid,"surf,zonrox",2
+,,,15/03/2025,7:05,142,JR MUYCO,dry,paid,breeze,1
+,,,15/03/2025,7:15,190,SULTAN,wash&dry,paid,del,1
+,,,15/03/2025,7:19,142,RECALA,wash&dry,paid,"downy,ariel",2
+,,,15/03/2025,7:29,156,EDWARD,full service,paid,surf,1
+,,,15/03/2025,7:30,154,RJ MUYCO,wash&dry,paid,"zonrox,del",2
+,,,15/03/2025,7:34,166,RJ,dry,paid,"tide,zonrox",2
+,,,15/03/2025,7:35,146,JOAN S,dry,paid,"zonrox,tide",2
+,,,15/03/2025,7:46,138,LALAINE,full service,paid,breeze,1
+,,,15/03/2025,8:00,142,WILLIAM,wash&dry,paid,"downy,ariel",2
+,,,15/03/2025,8:25,166,DANIEL,wash,paid,del,1
+,,,15/03/2025,8:52,142,BUGOY,full service,paid,"tide,del",2
+,,,15/03/2025,8:53,126,BRYAN,wash&dry,paid,del,1
+,,,15/03/2025,8:54,210,TOTO JERIC,full service,paid,zonrox,1
+,,,15/03/2025,10:05,138,QUEEN,wash,paid,"del,tide",2
+,,,15/03/2025,10:20,120,JOMER,wash,paid,"downy,breeze",2
+,,,15/03/2025,10:40,176,MARIO,full service,paid,ariel,1
+,,,15/03/2025,10:41,148,JONATHAN,spin dry,paid,"downy,zonrox",2
+,,,15/03/2025,10:43,144,ROMEO,wash&dry,paid,breeze,1
+,,,15/03/2025,11:35,178,JOSEPH,spin dry,paid,downy,1
+,,,15/03/2025,12:00,148,ALICE,wash,paid,surf,1
+,,,15/03/2025,12:20,304,VANESSA,dry,paid,"zonrox,surf",2
+,,,15/03/2025,12:21,240,ZIAN,spin dry,paid,"breeze,ariel",2
+,,,15/03/2025,12:26,240,JOAN,wash,paid,"zonrox,breeze",2
+,,,15/03/2025,12:30,180,MARK,spin dry,paid,"tide,zonrox",2
+,,,15/03/2025,13:26,84,JONATHAN,wash,paid,"surf,downy",2
+,,,15/03/2025,13:45,164,SAM,full service,paid,"downy,surf",2
+,,,15/03/2025,13:53,192,MEL,wash,paid,"zonrox,tide",2
+,,,15/03/2025,14:58,148,NIEL,full service,paid,"tide,surf",2
+,,,15/03/2025,15:23,120,ZIAN,full service,paid,"zonrox,downy",2
+,,,15/03/2025,15:24,155,KIT,spin dry,paid,tide,1
+,,,15/03/2025,15:30,60,JOSIE,dry,paid,tide,1
+,,,15/03/2025,15:37,148,JORDAN,spin dry,paid,tide,1
+,,,15/03/2025,15:55,206,JOSHUA,wash,paid,downy,1
+,,,15/03/2025,17:00,120,MARINA,full service,paid,"surf,del",2
+,,,15/03/2025,17:19,408,STEVE,full service,paid,del,1
+,,,15/03/2025,18:21,148,CHA,wash,paid,"ariel,breeze",2
+,,,15/03/2025,18:39,158,GOMER,full service,paid,"del,surf",2
+,,,15/03/2025,18:44,164,PATRICIA,wash&dry,paid,del,1
+,,,15/03/2025,19:25,312,MARLON,spin dry,paid,tide,1
+,,,15/03/2025,19:30,576,JANE,wash&dry,paid,"zonrox,downy",2
+,,,16/03/2025,7:00,126,JOAN S.,wash,paid,"downy,tide",2
+,,,16/03/2025,7:20,129,VOULE,spin dry,paid,surf,1
+,,,16/03/2025,7:25,194,BHAY,full service,paid,"surf,downy",2
+,,,16/03/2025,7:30,142,RODEL,full service,paid,del,1
+,,,16/03/2025,7:45,100,ALFRANCE,dry,paid,"surf,del",2
+,,,16/03/2025,7:55,154,RAFAEL,wash,paid,tide,1
+,,,16/03/2025,8:04,140,RAHIM,dry,paid,"zonrox,del",2
+,,,16/03/2025,8:10,150,DARYLE,full service,paid,breeze,1
+,,,16/03/2025,8:11,156,BENJIE,wash,paid,"tide,zonrox",2
+,,,16/03/2025,8:15,80,JAYPEE,dry,paid,del,1
+,,,16/03/2025,8:16,164,RAFAEL,wash&dry,paid,"downy,breeze",2
+,,,16/03/2025,8:30,140,ANGHEL,spin dry,paid,zonrox,1
+,,,16/03/2025,8:35,138,ERICH,spin dry,paid,"tide,zonrox",2
+,,,16/03/2025,8:40,208,ROLDAN,full service,paid,"downy,del",2
+,,,16/03/2025,8:41,154,MARK,full service,paid,"zonrox,ariel",2
+,,,16/03/2025,8:48,138,JOSHUA,wash&dry,paid,del,1
+,,,16/03/2025,8:52,208,TAN-TAN,wash&dry,paid,del,1
+,,,16/03/2025,9:00,176,JOAN,spin dry,paid,"del,downy",2
+,,,16/03/2025,9:05,148,VINCENT,wash&dry,paid,"del,tide",2
+,,,16/03/2025,9:09,152,CHOC,wash&dry,paid,"breeze,downy",2
+,,,16/03/2025,9:14,160,PHILIP,spin dry,paid,surf,1
+,,,16/03/2025,9:15,150,JUN,wash,paid,"tide,surf",2
+,,,16/03/2025,9:17,151,RECALA,dry,paid,downy,1
+,,,16/03/2025,9:42,188,REGALA,spin dry,paid,breeze,1
+,,,16/03/2025,9:55,160,REPOLS,dry,paid,"ariel,del",2
+,,,16/03/2025,9:59,160,ALDRIN,full service,paid,"del,zonrox",2
+,,,16/03/2025,10:13,150,JAMES,wash&dry,paid,tide,1
+,,,16/03/2025,10:20,148,MAMANG,spin dry,paid,tide,1
+,,,16/03/2025,10:26,176,REDE,wash,paid,zonrox,1
+,,,16/03/2025,10:30,150,WELFER,spin dry,paid,"tide,ariel",2
+,,,16/03/2025,10:31,424,GEMMA,wash,paid,surf,1
+,,,16/03/2025,10:35,188,ARNEL,full service,paid,downy,1
+,,,16/03/2025,10:36,180,JAMES A.,wash,paid,"surf,breeze",2
+,,,16/03/2025,10:40,148,EDDIE,spin dry,paid,downy,1
+,,,16/03/2025,10:55,70,JOVINA,dry,paid,"zonrox,tide",2
+,,,16/03/2025,11:15,204,JHONG,wash,paid,surf,1
+,,,16/03/2025,11:50,148,ANTON,wash&dry,paid,"surf,del",2
+,,,16/03/2025,11:51,150,GILBERT,wash,paid,del,1
+,,,16/03/2025,11:52,152,CEDRIC,full service,paid,"surf,downy",2
+,,,16/03/2025,11:53,60,MELAI,spin dry,paid,ariel,1
+,,,16/03/2025,12:01,150,NOMAR,spin dry,paid,"downy,del",2
+,,,16/03/2025,12:05,176,DONALD,wash&dry,paid,downy,1
+,,,16/03/2025,12:40,148,LITO,spin dry,paid,tide,1
+,,,16/03/2025,12:50,144,REN,dry,paid,"zonrox,surf",2
+,,,16/03/2025,13:38,136,RIZZA,wash,paid,"del,zonrox",2
+,,,16/03/2025,14:15,148,JONATAN,spin dry,paid,"tide,downy",2
+,,,16/03/2025,14:25,152,NOJIR,full service,paid,"del,breeze",2
+,,,16/03/2025,15:14,120,YUAN,dry,paid,breeze,1
+,,,16/03/2025,15:35,148,BACOLOD,spin dry,paid,downy,1
+,,,16/03/2025,15:35,152,JAMES,full service,paid,tide,1
+,,,16/03/2025,15:38,812,ALVIN,dry,paid,"zonrox,tide",2
+,,,16/03/2025,15:55,160,LESTER,wash&dry,paid,ariel,1
+,,,16/03/2025,17:45,148,JOMAR,dry,paid,breeze,1
+,,,16/03/2025,17:55,148,MALIADO,wash&dry,paid,del,1
+,,,16/03/2025,18:30,176,WILSON,spin dry,paid,"zonrox,del",2
+,,,16/03/2025,19:00,120,MARIEL,full service,paid,downy,1
+,,,16/03/2025,19:01,163,JECK,spin dry,paid,del,1
+,,,16/03/2025,20:10,288,GEMMA,spin dry,paid,"zonrox,tide",2
+,,,17/03/2025,6:00,236,GEMMA,wash,paid,zonrox,1
+,,,17/03/2025,6:25,140,CECIL,wash,paid,downy,1
+,,,17/03/2025,6:52,110,CHRISTIAN,wash,paid,downy,1
+,,,17/03/2025,7:03,146,JULIE B.,dry,paid,breeze,1
+,,,17/03/2025,7:07,150,BENJIE,spin dry,paid,"zonrox,surf",2
+,,,17/03/2025,7:25,166,JURIE,spin dry,paid,"del,ariel",2
+,,,17/03/2025,7:31,142,ALICE,full service,paid,"zonrox,surf",2
+,,,17/03/2025,7:48,138,GOS,wash,paid,ariel,1
+,,,17/03/2025,8:07,120,JOSIE,wash,paid,zonrox,1
+,,,17/03/2025,8:15,284,JR  ,spin dry,paid,breeze,1
+,,,17/03/2025,8:23,158,ALICE,dry,paid,"del,surf",2
+,,,17/03/2025,8:38,164,JOEY,wash&dry,paid,"downy,zonrox",2
+,,,17/03/2025,8:42,140,WILSON ,spin dry,paid,"del,surf",2
+,,,17/03/2025,10:33,1776,JOHNN WYNE,spin dry,paid,tide,1
+,,,17/03/2025,10:57,266,R.J.,spin dry,paid,downy,1
+,,,17/03/2025,13:15,144,GRACE,spin dry,paid,downy,1
+,,,17/03/2025,13:18,148,LITO,wash&dry,paid,"tide,zonrox",2
+,,,17/03/2025,13:40,160,ABI,full service,paid,zonrox,1
+,,,17/03/2025,14:10,296,ELMER,wash,paid,breeze,1
+,,,17/03/2025,17:16,152,EMMAN,spin dry,paid,ariel,1
+,,,17/03/2025,17:46,160,ALEX,dry,paid,"surf,del",2
+,,,17/03/2025,18:30,148,GILBERT,dry,paid,"breeze,downy",2
+,,,17/03/2025,18:35,240,JENNY,wash&dry,paid,breeze,1
+,,,18/03/2025,6:17,110,DENNIS,wash&dry,paid,"del,breeze",2
+,,,18/03/2025,6:26,138,ARTHUR,dry,paid,"downy,del",2
+,,,18/03/2025,7:05,128,DANIEL,full service,paid,"del,tide",2
+,,,18/03/2025,7:18,126,DEN-DEN,wash&dry,paid,"ariel,zonrox",2
+,,,18/03/2025,7:37,126,ABE,wash,paid,zonrox,1
+,,,18/03/2025,7:38,280,WENG,spin dry,paid,"surf,downy",2
+,,,18/03/2025,7:45,152,ADRIAN,wash&dry,paid,"tide,breeze",2
+,,,18/03/2025,7:46,168,FRANCE,spin dry,paid,zonrox,1
+,,,18/03/2025,7:51,200,RJ,dry,paid,del,1
+,,,18/03/2025,7:52,170,PATRICK,spin dry,paid,"surf,ariel",2
+,,,18/03/2025,8:00,110,TOP NATCH/CRISTY,wash,paid,surf,1
+,,,18/03/2025,8:20,150,JASON,full service,paid,"del,ariel",2
+,,,18/03/2025,8:26,110,MACOY A.,dry,paid,"del,zonrox",2
+,,,18/03/2025,9:13,148,SONNY,dry,paid,ariel,1
+,,,18/03/2025,9:34,188,MYLEN,wash,paid,"breeze,del",2
+,,,18/03/2025,10:05,136,DREW,dry,paid,"downy,zonrox",2
+,,,18/03/2025,10:56,136,JEFF,dry,paid,"surf,zonrox",2
+,,,18/03/2025,11:44,144,JOEL,full service,paid,"ariel,zonrox",2
+,,,18/03/2025,12:18,150,JAM,wash&dry,paid,surf,1
+,,,18/03/2025,12:29,300,MARIA,wash,paid,surf,1
+,,,18/03/2025,12:36,256,BERNIE,wash&dry,paid,"downy,zonrox",2
+,,,18/03/2025,13:05,132,NOEL,wash,paid,"downy,tide",2
+,,,18/03/2025,14:02,70,ERICH,spin dry,paid,breeze,1
+,,,18/03/2025,14:56,344,DONALD,spin dry,paid,"del,surf",2
+,,,18/03/2025,16:08,149,ERICH,wash&dry,paid,ariel,1
+,,,18/03/2025,16:11,192,MEMALYN,wash&dry,paid,"del,surf",2
+,,,18/03/2025,16:45,289,ANNA,spin dry,paid,"downy,zonrox",2
+,,,18/03/2025,17:18,70,JOHN,wash,paid,downy,1
+,,,18/03/2025,18:34,148,TOTO JERIC,wash,paid,"del,surf",2
+,,,18/03/2025,18:37,206,SAM,spin dry,paid,surf,1
+,,,18/03/2025,18:38,300,BAREI,full service,paid,surf,1
+,,,18/03/2025,19:00,150,GELBERT,dry,paid,downy,1
+,,,18/03/2025,19:35,148,GREG,wash,paid,breeze,1
+,,,19/03/2025,6:36,138,BALATAZAR,full service,paid,breeze,1
+,,,19/03/2025,7:00,149,JHEN,spin dry,paid,breeze,1
+,,,19/03/2025,7:04,163,BRANDON,full service,paid,tide,1
+,,,19/03/2025,7:21,138,BOGS,spin dry,paid,ariel,1
+,,,19/03/2025,7:32,110,KRIS,dry,paid,tide,1
+,,,19/03/2025,7:35,150,CONAN,full service,paid,ariel,1
+,,,19/03/2025,7:42,110,DON-DON,dry,paid,tide,1
+,,,19/03/2025,7:51,196,BRYAN,wash,paid,"tide,surf",2
+,,,19/03/2025,9:50,144,GRACE,dry,paid,downy,1
+,,,19/03/2025,10:30,60,JOSIE,wash&dry,paid,del,1
+,,,19/03/2025,11:40,160,PRIZZ,full service,paid,zonrox,1
+,,,19/03/2025,11:45,312,NEL,spin dry,paid,downy,1
+,,,19/03/2025,12:25,296,ARCELLI,wash,paid,"downy,tide",2
+,,,19/03/2025,13:03,346,JODAY,full service,paid,"downy,tide",2
+,,,19/03/2025,13:15,148,NIEL,spin dry,paid,"breeze,downy",2
+,,,19/03/2025,14:25,240,EDCIL,full service,paid,"del,breeze",2
+,,,19/03/2025,15:10,120,GIGI,full service,paid,"surf,ariel",2
+,,,19/03/2025,15:19,304,JUDAY,spin dry,paid,"del,surf",2
+,,,19/03/2025,15:49,144,TRIVIA,wash,paid,downy,1
+,,,19/03/2025,17:51,320,KIT,wash&dry,paid,surf,1
+,,,19/03/2025,18:20,188,SULTAN,wash,paid,downy,1
+,,,19/03/2025,18:47,176,MARK ,wash&dry,paid,downy,1
+,,,19/03/2025,19:31,206,TOTO JERIC,spin dry,paid,"breeze,zonrox",2
+,,,20/03/2025,7:11,300,DACA,spin dry,paid,del,1
+,,,20/03/2025,7:39,154,TAN-TAN,wash,paid,del,1
+,,,20/03/2025,7:49,166,NICO,full service,paid,"zonrox,tide",2
+,,,20/03/2025,8:03,110,MARK,dry,paid,breeze,1
+,,,20/03/2025,8:39,306,BUBOY,full service,paid,"del,downy",2
+,,,20/03/2025,9:02,148,BOBBY,spin dry,paid,zonrox,1
+,,,20/03/2025,9:04,144,DOMEY,wash,paid,ariel,1
+,,,20/03/2025,9:31,160,JAMES,dry,paid,"surf,downy",2
+,,,20/03/2025,9:55,120,JASON,dry,paid,"zonrox,tide",2
+,,,20/03/2025,9:58,152,RYAN,full service,paid,del,1
+,,,20/03/2025,10:07,312,NEL,spin dry,paid,"surf,ariel",2
+,,,20/03/2025,10:17,70,KIM,spin dry,paid,"surf,ariel",2
+,,,20/03/2025,11:02,148,SAM,dry,paid,zonrox,1
+,,,20/03/2025,12:29,136,BRIXX,dry,paid,"downy,zonrox",2
+,,,20/03/2025,12:34,120,DONA,dry,paid,breeze,1
+,,,20/03/2025,13:15,144,JHON,wash,paid,breeze,1
+,,,20/03/2025,13:20,132,BERNIE,wash,paid,breeze,1
+,,,20/03/2025,14:15,164,PYUBE,dry,paid,tide,1
+,,,20/03/2025,14:20,120,TONNY,full service,paid,"downy,tide",2
+,,,20/03/2025,16:52,148,MARUIN,spin dry,paid,"breeze,zonrox",2
+,,,20/03/2025,17:11,186,JAM,wash&dry,paid,zonrox,1
+,,,20/03/2025,17:35,70,KIM,dry,paid,breeze,1
+,,,20/03/2025,17:56,136,ALLAN,wash&dry,paid,surf,1
+,,,20/03/2025,18:00,60,JOSIE,spin dry,paid,"breeze,tide",2
+,,,20/03/2025,18:49,156,JUN,wash&dry,paid,downy,1
+,,,21/03/2025,7:14,130,AMY,full service,paid,downy,1
+,,,21/03/2025,7:41,126,KAREN,wash,paid,ariel,1
+,,,21/03/2025,7:48,138,APOLLO,spin dry,paid,"breeze,surf",2
+,,,21/03/2025,8:11,110,DEL,full service,paid,del,1
+,,,21/03/2025,10:07,168,TATS,wash&dry,paid,"breeze,zonrox",2
+,,,21/03/2025,10:58,148,MAMANG,wash&dry,paid,"breeze,zonrox",2
+,,,21/03/2025,11:01,148,GARRY,wash&dry,paid,"del,surf",2
+,,,21/03/2025,11:29,1480,JOHNWYNE,full service,paid,"ariel,zonrox",2
+,,,21/03/2025,11:58,148,GLEM,full service,paid,"ariel,surf",2
+,,,21/03/2025,12:30,192,SIGAY,spin dry,paid,"downy,tide",2
+,,,21/03/2025,12:32,148,AJ,full service,paid,"ariel,surf",2
+,,,21/03/2025,12:37,160,GERALD,wash,paid,"surf,ariel",2
+,,,21/03/2025,2:22,144,FREDO,spin dry,paid,"downy,tide",2
+,,,21/03/2025,2:32,144,DAVE,dry,paid,"breeze,del",2
+,,,21/03/2025,3:46,152,LARA,wash,paid,breeze,1
+,,,21/03/2025,5:48,136,ALVIN,spin dry,paid,"del,breeze",2
+,,,21/03/2025,6:22,138,JOHN REGALA,wash,paid,"breeze,ariel",2
+,,,21/03/2025,6:31,120,MARINA,dry,paid,"zonrox,del",2
+,,,22/03/2025,6:46,138,ALEX,wash,paid,del,1
+,,,22/03/2025,6:47,150,RODEL,full service,paid,"breeze,surf",2
+,,,22/03/2025,6:54,142,JR. MUYCO,dry,paid,"zonrox,del",2
+,,,22/03/2025,7:03,430,JAYSON,full service,paid,del,1
+,,,22/03/2025,7:07,242,CAWY,wash,paid,ariel,1
+,,,22/03/2025,7:24,140,JOSELITO,wash&dry,paid,del,1
+,,,22/03/2025,7:30,130,ALORA,wash,paid,"tide,del",2
+,,,22/03/2025,7:55,138,NICK,wash,paid,"surf,tide",2
+,,,22/03/2025,8:00,218,PEN,wash,paid,"breeze,tide",2
+,,,22/03/2025,8:05,142,LARA,spin dry,paid,surf,1
+,,,22/03/2025,8:09,126,CEDRIC,wash,paid,"surf,downy",2
+,,,22/03/2025,8:10,146,ANN,wash,paid,breeze,1
+,,,22/03/2025,8:11,158,BUBOY,wash,paid,"ariel,breeze",2
+,,,22/03/2025,8:23,110,LEAH,spin dry,paid,surf,1
+,,,22/03/2025,8:28,292,EDWARD,spin dry,paid,del,1
+,,,22/03/2025,8:48,190,PATRICK,wash,paid,"surf,downy",2
+,,,22/03/2025,9:00,138,JOHN,wash&dry,paid,zonrox,1
+,,,22/03/2025,10:16,360,ZIAN,wash&dry,paid,zonrox,1
+,,,22/03/2025,10:33,166,BUGOY,wash&dry,paid,"del,tide",2
+,,,22/03/2025,10:52,148,JONATHAN,wash,paid,breeze,1
+,,,22/03/2025,10:55,136,GERALD,spin dry,paid,"downy,surf",2
+,,,22/03/2025,11:15,240,JOAN,dry,paid,"breeze,downy",2
+,,,22/03/2025,11:23,148,ALBERT,full service,paid,breeze,1
+,,,22/03/2025,11:34,120,MARJORIE,wash&dry,paid,ariel,1
+,,,22/03/2025,11:53,300,MARK,full service,paid,zonrox,1
+,,,22/03/2025,12:22,148,JR,spin dry,paid,breeze,1
+,,,22/03/2025,12:32,148,GIL,spin dry,paid,downy,1
+,,,22/03/2025,12:33,70,TATTOO,dry,paid,tide,1
+,,,22/03/2025,12:38,266,FRANCIS,spin dry,paid,tide,1
+,,,22/03/2025,12:45,132,BERNIE,dry,paid,"breeze,tide",2
+,,,22/03/2025,12:55,206,JAMES,wash&dry,paid,"tide,downy",2
+,,,22/03/2025,12:56,206,JAIRUS,dry,paid,tide,1
+,,,22/03/2025,1:18,138,JN,wash&dry,paid,"del,ariel",2
+,,,22/03/2025,1:50,156,GRACE,wash&dry,paid,"downy,tide",2
+,,,22/03/2025,2:53,420,BEBE,spin dry,paid,zonrox,1
+,,,22/03/2025,3:25,164,LESTER,dry,paid,tide,1
+,,,22/03/2025,4:01,136,GIGI,dry,paid,breeze,1
+,,,22/03/2025,4:54,152,REGALA,dry,paid,breeze,1
+,,,22/03/2025,5:07,158,PAUL,wash&dry,paid,"ariel,del",2
+,,,22/03/2025,5:34,60,MARVIN,spin dry,paid,tide,1
+,,,22/03/2025,5:51,384,STEVE,wash,paid,"breeze,ariel",2
+,,,22/03/2025,6:53,168,MARIOH,dry,paid,ariel,1
+,,,22/03/2025,6:57,150,CHA,wash,paid,tide,1
+,,,23/03/2025,6:24,140,CECIL,wash,paid,ariel,1
+,,,23/03/2025,6:55,150,NAK,dry,paid,"del,ariel",2
+,,,23/03/2025,6:56,332,LANIE,wash&dry,paid,"downy,breeze",2
+,,,23/03/2025,7:01,100,ALFRANCE,wash&dry,paid,"downy,breeze",2
+,,,23/03/2025,7:14,142,WILIAM,full service,paid,zonrox,1
+,,,23/03/2025,7:15,152,JONG,wash,paid,"tide,zonrox",2
+,,,23/03/2025,7:37,200,ROY,full service,paid,"surf,downy",2
+,,,23/03/2025,7:38,162,REDE,wash&dry,paid,surf,1
+,,,23/03/2025,7:53,140,EFAH,dry,paid,"zonrox,tide",2
+,,,23/03/2025,8:10,182,RJ,wash,paid,tide,1
+,,,23/03/2025,8:13,134,DEXTER,full service,paid,"surf,breeze",2
+,,,23/03/2025,8:18,149,RODMAN,dry,paid,"surf,zonrox",2
+,,,23/03/2025,8:23,198,MANDS,full service,paid,breeze,1
+,,,23/03/2025,8:39,150,GELD,wash,paid,tide,1
+,,,23/03/2025,8:59,62,JAYPEE,wash&dry,paid,surf,1
+,,,23/03/2025,9:04,192,MEL,dry,paid,"downy,ariel",2
+,,,23/03/2025,9:11,160,KEN-KEN,full service,paid,del,1
+,,,23/03/2025,9:15,336,JANE,dry,paid,tide,1
+,,,23/03/2025,9:20,204,ARNEL,dry,paid,zonrox,1
+,,,23/03/2025,9:21,164,RICHARD,spin dry,paid,"breeze,downy",2
+,,,23/03/2025,9:24,152,BRYRAN,spin dry,paid,surf,1
+,,,23/03/2025,9:44,232,DEX,spin dry,paid,downy,1
+,,,23/03/2025,9:45,176,JOAN,wash,paid,surf,1
+,,,23/03/2025,9:54,218,ROLDAN,wash&dry,paid,"downy,ariel",2
+,,,23/03/2025,9:58,152,RENE,full service,paid,"tide,breeze",2
+,,,23/03/2025,10:02,160,DARYLE,dry,paid,breeze,1
+,,,23/03/2025,10:17,204,JHONG,wash&dry,paid,surf,1
+,,,23/03/2025,10:25,60,MARK,spin dry,paid,breeze,1
+,,,23/03/2025,10:28,160,HAZEL,wash&dry,paid,surf,1
+,,,23/03/2025,11:00,148,EDDIE,spin dry,paid,surf,1
+,,,23/03/2025,11:10,151,JHEN,spin dry,paid,downy,1
+,,,23/03/2025,11:12,189,EDDIE,wash,paid,zonrox,1
+,,,23/03/2025,11:49,148,BACOLOD,dry,paid,zonrox,1
+,,,23/03/2025,12:00,272,JANE,spin dry,paid,ariel,1
+,,,23/03/2025,12:14,300,OMAR,wash&dry,paid,"breeze,tide",2
+,,,23/03/2025,12:23,120,MARK,spin dry,paid,breeze,1
+,,,23/03/2025,12:24,120,SIMON,full service,paid,del,1
+,,,23/03/2025,12:27,152,REGALA,full service,paid,breeze,1
+,,,23/03/2025,1:24,136,EMAN,spin dry,paid,downy,1
+,,,23/03/2025,1:32,120,MARIEL,wash,paid,tide,1
+,,,23/03/2025,1:48,190,JOSHUA,spin dry,paid,"breeze,ariel",2
+,,,23/03/2025,2:08,136,MARVIN,spin dry,paid,"ariel,downy",2
+,,,23/03/2025,2:23,148,JAMES,full service,paid,"tide,breeze",2
+,,,23/03/2025,2:53,160,JO,dry,paid,"zonrox,ariel",2
+,,,23/03/2025,2:56,168,ARIEL,wash,paid,"downy,tide",2
+,,,23/03/2025,2:57,148,FRANCE,wash,paid,ariel,1
+,,,23/03/2025,3:00,150,WINCES LAD,wash&dry,paid,del,1
+,,,23/03/2025,3:35,136,JANE,wash&dry,paid,ariel,1
+,,,23/03/2025,3:50,1184,EDESON,spin dry,paid,downy,1
+,,,23/03/2025,4:04,200,BALONG,wash,paid,tide,1
+,,,23/03/2025,4:09,176,DONALD,wash&dry,paid,"ariel,downy",2
+,,,23/03/2025,4:43,150,JOMAR,wash&dry,paid,"breeze,tide",2
+,,,23/03/2025,5:06,328,LAURENCE,spin dry,paid,"surf,breeze",2
+,,,23/03/2025,6:34,152,JOAN SALAS,wash,paid,downy,1
+,,,23/03/2025,6:41,176,WILSON,full service,paid,del,1
+,,,23/03/2025,6:57,180,SIMON,wash,paid,"del,zonrox",2
+,,,23/03/2025,7:26,240,YUAN,full service,paid,"del,zonrox",2
+,,,23/03/2025,7:40,352,MARLOW,spin dry,paid,"downy,tide",2
+,,,24/03/2025,6:15,170,ROD,dry,paid,breeze,1
+,,,24/03/2025,7:03,163,BRANDON,wash,paid,ariel,1
+,,,24/03/2025,7:30,202,RJ,dry,paid,ariel,1
+,,,24/03/2025,7:36,168,FRANCE,spin dry,paid,"del,tide",2
+,,,24/03/2025,7:43,166,JURIE,wash,paid,downy,1
+,,,24/03/2025,7:56,158,ANTHONY,full service,paid,"breeze,ariel",2
+,,,24/03/2025,7:57,158,ALICE,spin dry,paid,del,1
+,,,24/03/2025,8:05,158,RAFAEL,wash&dry,paid,zonrox,1
+,,,24/03/2025,8:06,138,JECK,spin dry,paid,"breeze,ariel",2
+,,,24/03/2025,8:07,140,ARVI,wash&dry,paid,downy,1
+,,,24/03/2025,8:27,140,ANGHEL,wash&dry,paid,"zonrox,ariel",2
+,,,24/03/2025,8:28,110,CRISTY,spin dry,paid,del,1
+,,,24/03/2025,8:45,169,MANGTOTO,full service,paid,downy,1
+,,,24/03/2025,9:46,148,RIGINBRAX,wash,paid,"tide,del",2
+,,,24/03/2025,11:06,368,JOSIE,wash&dry,paid,"ariel,del",2
+,,,24/03/2025,11:19,304,VANESSA,spin dry,paid,surf,1
+,,,24/03/2025,11:41,160,CHRISTIAN,dry,paid,tide,1
+,,,24/03/2025,12:08,152,DWIGHT,full service,paid,"tide,downy",2
+,,,24/03/2025,12:30,144,GENNIE,wash,paid,del,1
+,,,24/03/2025,12:41,180,JOSEP,wash&dry,paid,"downy,del",2
+,,,24/03/2025,1:10,164,KIVEN,full service,paid,"tide,ariel",2
+,,,24/03/2025,1:16,120,BEBE,wash&dry,paid,"surf,ariel",2
+,,,24/03/2025,1:41,270,RONALD,wash&dry,paid,surf,1
+,,,24/03/2025,1:50,160,ARVIN,wash,paid,"del,surf",2
+,,,24/03/2025,2:51,150,JOKO,spin dry,paid,"surf,ariel",2
+,,,24/03/2025,3:03,120,MARK O,wash&dry,paid,downy,1
+,,,24/03/2025,3:35,155,JOHN C,wash&dry,paid,tide,1
+,,,24/03/2025,4:02,148,KIT,dry,paid,"breeze,downy",2
+,,,24/03/2025,4:51,150,SAM,spin dry,paid,del,1
+,,,24/03/2025,6:24,148,CLAIRE,dry,paid,"del,downy",2
+,,,25/03/2025,7:09,140,KENJIE,full service,paid,del,1
+,,,25/03/2025,7:12,140,NANAY VIOLY,wash&dry,paid,"zonrox,del",2
+,,,25/03/2025,7:20,138,JOSHUA,wash&dry,paid,"surf,tide",2
+,,,25/03/2025,7:23,138,TAN-TAN,wash,paid,ariel,1
+,,,25/03/2025,7:27,126,ABE,dry,paid,breeze,1
+,,,25/03/2025,7:30,324,JR,wash&dry,paid,tide,1
+,,,25/03/2025,7:32,130,BENJIE,wash,paid,"ariel,tide",2
+,,,25/03/2025,8:13,346,MYKA,spin dry,paid,downy,1
+,,,25/03/2025,8:19,156,EJ,dry,paid,del,1
+,,,25/03/2025,8:22,110,ALBERT,dry,paid,surf,1
+,,,25/03/2025,9:04,150,JOJO,dry,paid,del,1
+,,,25/03/2025,9:37,218,NICK,wash&dry,paid,"ariel,downy",2
+,,,25/03/2025,10:05,136,TIM,full service,paid,"surf,downy",2
+,,,25/03/2025,10:15,324,EVELYN,spin dry,paid,ariel,1
+,,,25/03/2025,11:20,240,CICEL,wash,paid,tide,1
+,,,25/03/2025,11:26,148,BALTAZAR,spin dry,paid,"downy,ariel",2
+,,,25/03/2025,12:10,300,LITO,wash&dry,paid,downy,1
+,,,25/03/2025,12:20,176,CLAIRE,wash&dry,paid,"downy,ariel",2
+,,,25/03/2025,12:39,136,RIZZA,spin dry,paid,"breeze,downy",2
+,,,25/03/2025,1:28,150,CARL,dry,paid,"del,ariel",2
+,,,25/03/2025,1:50,60,MARK,wash&dry,paid,downy,1
+,,,25/03/2025,2:09,148,VANNESA,full service,paid,"surf,zonrox",2
+,,,25/03/2025,4:28,148,LESTER,dry,paid,"breeze,downy",2
+,,,25/03/2025,6:30,176,ALEX,wash&dry,paid,tide,1
+,,,26/03/2025,7:10,133,ALORA,dry,paid,ariel,1
+,,,26/03/2025,7:12,170,PATRICK,wash&dry,paid,"surf,tide",2
+,,,26/03/2025,7:17,110,DON-DON,full service,paid,"breeze,zonrox",2
+,,,26/03/2025,7:32,110,KRIS,dry,paid,downy,1
+,,,26/03/2025,7:49,190,SULTAN,wash&dry,paid,downy,1
+,,,26/03/2025,7:53,137,GRACE,spin dry,paid,"breeze,surf",2
+,,,26/03/2025,7:55,128,DAN,wash,paid,"tide,ariel",2
+,,,26/03/2025,8:05,154,MARK,spin dry,paid,surf,1
+,,,26/03/2025,8:22,50,DENNIS,wash&dry,paid,ariel,1
+,,,26/03/2025,9:37,156,GRACE,wash&dry,paid,"del,tide",2
+,,,26/03/2025,9:52,144,BOBBY,wash,paid,"ariel,tide",2
+,,,26/03/2025,11:34,120,AIKO,full service,paid,"zonrox,ariel",2
+,,,26/03/2025,12:06,150,LITO,dry,paid,surf,1
+,,,26/03/2025,12:27,136,PAUL,dry,paid,tide,1
+,,,26/03/2025,12:52,148,JELO,wash&dry,paid,ariel,1
+,,,26/03/2025,1:02,176,JAMES,spin dry,paid,zonrox,1
+,,,26/03/2025,1:05,1480,JOHNWYNE,full service,paid,"surf,del",2
+,,,26/03/2025,1:37,144,LESTER,wash,paid,downy,1
+,,,26/03/2025,1:38,138,BERNIE,wash,paid,"breeze,del",2
+,,,26/03/2025,1:40,152,RYAN,wash&dry,paid,"tide,zonrox",2
+,,,26/03/2025,2:29,70,KIM,dry,paid,surf,1
+,,,26/03/2025,5:02,296,SAM,wash,paid,"surf,del",2
+,,,26/03/2025,6:25,152,ALVIN,spin dry,paid,"downy,surf",2
+,,,26/03/2025,7:25,328,JING,full service,paid,"zonrox,del",2
+,,,27/03/2025,7:02,218,PEN,dry,paid,"downy,surf",2
+,,,27/03/2025,7:18,178,BHAY,dry,paid,downy,1
+,,,27/03/2025,7:28,110,TOPNATCH,wash,paid,breeze,1
+,,,27/03/2025,7:54,134,BENJIE,dry,paid,"breeze,tide",2
+,,,27/03/2025,8:37,140,JOMAR,wash&dry,paid,"tide,ariel",2
+,,,27/03/2025,9:09,168,ATE AIDA,wash,paid,downy,1
+,,,27/03/2025,9:29,148,JOEL,spin dry,paid,del,1
+,,,27/03/2025,9:50,144,DENTER,dry,paid,downy,1
+,,,27/03/2025,10:07,152,REGALA,spin dry,paid,downy,1
+,,,27/03/2025,10:13,160,ABE,full service,paid,"tide,breeze",2
+,,,27/03/2025,11:40,76,RAFAEL,wash&dry,paid,ariel,1
+,,,27/03/2025,11:53,176,CLAIRE,full service,paid,"ariel,tide",2
+,,,27/03/2025,11:56,180,NEG,full service,paid,ariel,1
+,,,27/03/2025,12:16,150,CECIL,wash,paid,"ariel,tide",2
+,,,27/03/2025,12:21,150,DEN-DEN,wash,paid,downy,1
+,,,27/03/2025,12:22,296,YAM,wash&dry,paid,del,1
+,,,27/03/2025,1:35,260,GELBERT,wash,paid,"downy,del",2
+,,,27/03/2025,2:05,144,JAY,full service,paid,tide,1
+,,,27/03/2025,4:47,148,DAVIN,wash&dry,paid,downy,1
+,,,27/03/2025,5:06,176,CARL,full service,paid,"ariel,tide",2
+,,,28/03/2025,7:30,110,BOTS,spin dry,paid,surf,1
+,,,28/03/2025,8:07,110,NAK,spin dry,paid,"downy,surf",2
+,,,28/03/2025,8:19,150,BUBOY,spin dry,paid,"breeze,del",2
+,,,28/03/2025,8:37,1266,AUTON,spin dry,paid,"zonrox,tide",2
+,,,28/03/2025,9:06,312,DAVE,full service,paid,zonrox,1
+,,,28/03/2025,9:28,132,PHILIP,wash&dry,paid,"ariel,downy",2
+,,,28/03/2025,9:35,120,BERNIE,dry,paid,tide,1
+,,,28/03/2025,10:22,176,TATS,dry,paid,tide,1
+,,,28/03/2025,12:10,80,KIM,wash&dry,paid,"tide,breeze",2
+,,,28/03/2025,12:40,148,JOHN,wash,paid,ariel,1
+,,,28/03/2025,1:00,206,JERIL,spin dry,paid,downy,1
+,,,28/03/2025,1:08,180,MARK,wash,paid,del,1
+,,,28/03/2025,2:16,164,WILMA,dry,paid,"zonrox,del",2
+,,,28/03/2025,4:00,160,CARLA,wash,paid,"ariel,surf",2
+,,,28/03/2025,4:24,136,GIGI,full service,paid,"tide,breeze",2
+,,,28/03/2025,4:47,176,ERIC,wash&dry,paid,surf,1
+,,,28/03/2025,5:46,156,CONAN,full service,paid,"zonrox,del",2
+,,,28/03/2025,6:10,120,LEAH,spin dry,paid,"ariel,del",2
+,,,28/03/2025,6:25,136,NARD,dry,paid,breeze,1
+,,,28/03/2025,6:30,240,ZIAN,wash&dry,paid,"downy,surf",2
+,,,28/03/2025,6:52,156,JULLIEAN,spin dry,paid,ariel,1
+,,,28/03/2025,6:44,316,MANUEL,wash,paid,"zonrox,downy",2
+,,,28/03/2025,7:45,152,BUBOY,dry,paid,del,1
+,,,29/03/2025,6:45,146,JAYSON,dry,paid,"del,surf",2
+,,,29/03/2025,6:46,146,ALEX,spin dry,paid,breeze,1
+,,,29/03/2025,7:00,162,REDE,wash,paid,"tide,breeze",2
+,,,29/03/2025,7:13,332,LANIE,wash&dry,paid,ariel,1
+,,,29/03/2025,7:49,140,NICK,dry,paid,"ariel,surf",2
+,,,29/03/2025,7:55,148,FIOBE,wash,paid,ariel,1
+,,,29/03/2025,8:08,158,CHA,wash&dry,paid,"downy,ariel",2
+,,,29/03/2025,8:14,150,ANN,full service,paid,tide,1
+,,,29/03/2025,8:15,126,CEDERIC,full service,paid,zonrox,1
+,,,29/03/2025,8:35,138,LESTER,wash,paid,"del,surf",2
+,,,29/03/2025,8:45,60,CECIL,wash&dry,paid,"del,surf",2
+,,,29/03/2025,9:16,240,JOAN,wash&dry,paid,"ariel,breeze",2
+,,,29/03/2025,10:10,152,CHOC,wash,paid,downy,1
+,,,29/03/2025,10:35,156,WILMOR,wash&dry,paid,del,1
+,,,29/03/2025,10:54,60,MELAI,full service,paid,tide,1
+,,,29/03/2025,12:04,144,SAMUEL,full service,paid,"del,tide",2
+,,,29/03/2025,12:14,163,JOSIE,spin dry,paid,"zonrox,del",2
+,,,29/03/2025,12:20,160,KIT,spin dry,paid,downy,1
+,,,29/03/2025,12:34,152,RODMAM,dry,paid,ariel,1
+,,,29/03/2025,12:39,148,NOEL,wash,paid,breeze,1
+,,,29/03/2025,12:40,270,SIMON,wash,paid,ariel,1
+,,,29/03/2025,1:01,188,LIDIN,spin dry,paid,"downy,ariel",2
+,,,29/03/2025,1:13,138,LYN,dry,paid,del,1
+,,,29/03/2025,1:45,206,JERIL,wash&dry,paid,"tide,del",2
+,,,29/03/2025,2:10,208,JOSHUA,wash,paid,"tide,downy",2
+,,,29/03/2025,3:18,136,JAMES,dry,paid,"ariel,tide",2
+,,,29/03/2025,3:27,720,BALDO,spin dry,paid,"downy,breeze",2
+,,,29/03/2025,3:42,240,MOISES,wash&dry,paid,"breeze,surf",2
+,,,29/03/2025,3:49,136,KC,wash,paid,downy,1
+,,,29/03/2025,4:17,136,JONEL,wash&dry,paid,ariel,1
+,,,29/03/2025,5:10,120,MARINA,dry,paid,breeze,1
+,,,29/03/2025,6:22,164,MARION S.,full service,paid,surf,1
+,,,29/03/2025,7:00,176,WILSON,dry,paid,"breeze,tide",2
+,,,29/03/2025,7:40,228,ANA,full service,paid,"breeze,ariel",2
+,,,29/03/2025,7:45,384,STEVE,full service,paid,"del,breeze",2
+,,,30/03/2025,6:25,146,JOAN SALAS ,dry,paid,"tide,surf",2
+,,,30/03/2025,6:30,158,LLYOD,spin dry,paid,"zonrox,ariel",2
+,,,30/03/2025,6:42,100,ALFRANCE,wash&dry,paid,tide,1
+,,,30/03/2025,7:15,138,LITO,wash&dry,paid,"del,downy",2
+,,,30/03/2025,7:16,180,BABY,full service,paid,"downy,breeze",2
+,,,30/03/2025,7:22,182,RODEL,wash&dry,paid,"tide,breeze",2
+,,,30/03/2025,7:35,110,KRIS,dry,paid,"zonrox,ariel",2
+,,,30/03/2025,7:37,142,BENJIE,wash&dry,paid,"ariel,zonrox",2
+,,,30/03/2025,7:47,122,KAREN,full service,paid,downy,1
+,,,30/03/2025,7:48,138,ALLAN,dry,paid,"tide,downy",2
+,,,30/03/2025,8:05,226,ELIZABETH,spin dry,paid,downy,1
+,,,30/03/2025,8:15,140,RAHIM,wash,paid,"tide,del",2
+,,,30/03/2025,8:21,110,DEL,wash&dry,paid,"breeze,ariel",2
+,,,30/03/2025,8:29,162,JOAN,wash,paid,"breeze,ariel",2
+,,,30/03/2025,8:35,196,BRYAN,wash&dry,paid,breeze,1
+,,,30/03/2025,8:38,166,LARRY,dry,paid,del,1
+,,,30/03/2025,9:11,148,FLOR,full service,paid,"ariel,tide",2
+,,,30/03/2025,9:15,150,ALKENT,spin dry,paid,downy,1
+,,,30/03/2025,9:23,80,RIZA,dry,paid,"tide,breeze",2
+,,,30/03/2025,9:30,206,ROLDAN,wash&dry,paid,breeze,1
+,,,30/03/2025,9:53,120,SAME,wash&dry,paid,"downy,surf",2
+,,,30/03/2025,9:54,84,JAYPEE,spin dry,paid,breeze,1
+,,,30/03/2025,10:00,190,PHILIP,dry,paid,zonrox,1
+,,,30/03/2025,10:05,148,AMIN,wash,paid,"ariel,downy",2
+,,,30/03/2025,10:10,144,CLIFORT,spin dry,paid,"ariel,tide",2
+,,,30/03/2025,10:14,192,BOG,spin dry,paid,"surf,zonrox",2
+,,,30/03/2025,10:19,156,ARNEL,spin dry,paid,"surf,breeze",2
+,,,30/03/2025,10:27,156,VINCE,wash&dry,paid,"tide,surf",2
+,,,30/03/2025,10:30,138,GERALD,wash,paid,downy,1
+,,,30/03/2025,10:31,158,DEN-DEN,full service,paid,del,1
+,,,30/03/2025,10:32,120,ROMEL,dry,paid,downy,1
+,,,30/03/2025,10:54,176,RICHARD,spin dry,paid,"zonrox,surf",2
+,,,30/03/2025,11:01,162,DONALD,spin dry,paid,surf,1
+,,,30/03/2025,11:04,160,JUNMARK,wash,paid,surf,1
+,,,30/03/2025,11:07,192,JONG,wash,paid,del,1
+,,,30/03/2025,11:09,148,MANDS,wash,paid,tide,1
+,,,30/03/2025,11:11,188,KEN-KEN,dry,paid,surf,1
+,,,30/03/2025,11:22,188,SULTAN,dry,paid,"breeze,ariel",2
+,,,30/03/2025,11:36,150,JHONG,spin dry,paid,surf,1
+,,,30/03/2025,11:58,152,RODMAN,wash&dry,paid,"breeze,tide",2
+,,,30/03/2025,12:12,138,CHRISTIAN,spin dry,paid,"del,zonrox",2
+,,,30/03/2025,12:18,160,QUEEN,full service,paid,tide,1
+,,,30/03/2025,12:32,144,DARRYL,wash&dry,paid,breeze,1
+,,,30/03/2025,12:35,148,NEL,spin dry,paid,"tide,ariel",2
+,,,30/03/2025,12:57,148,DONEL,dry,paid,"surf,downy",2
+,,,30/03/2025,1:27,1480,JOHNWYNE,dry,paid,breeze,1
+,,,30/03/2025,1:50,156,LUCKY,spin dry,paid,"del,zonrox",2
+,,,30/03/2025,2:11,164,RICHARD,wash,paid,ariel,1
+,,,30/03/2025,2:25,240,JONATHAN,wash,paid,"surf,ariel",2
+,,,30/03/2025,3:13,120,ZIAN,dry,paid,ariel,1
+,,,30/03/2025,3:27,148,JAMES,wash,paid,ariel,1
+,,,30/03/2025,5:03,188,DANIEL,full service,paid,"downy,surf",2
+,,,30/03/2025,5:40,60,MARLON,spin dry,paid,"downy,tide",2
+,,,30/03/2025,5:42,148,SAM,wash,paid,"tide,zonrox",2
+,,,30/03/2025,7:14,60,JOSIE,dry,paid,ariel,1
+,,,31/03/2025,7:12,145,CESAR,dry,paid,zonrox,1
+,,,31/03/2025,7:38,146,JOKE,spin dry,paid,"ariel,del",2
+,,,31/03/2025,7:41,70,TATTOO,wash,paid,del,1
+,,,31/03/2025,7:59,202,RJ,wash,paid,"surf,ariel",2
+,,,31/03/2025,8:00,158,ALICE,spin dry,paid,"zonrox,ariel",2
+,,,31/03/2025,8:23,138,DANIEL,full service,paid,"del,surf",2
+,,,31/03/2025,8:33,306,BUBOY,spin dry,paid,tide,1
+,,,31/03/2025,8:34,110,TOPNATCH,wash&dry,paid,downy,1
+,,,31/03/2025,8:35,268,MARVIN,wash,paid,"del,zonrox",2
+,,,31/03/2025,8:40,146,GRACE,spin dry,paid,"zonrox,del",2
+,,,31/03/2025,9:06,480,SIMON,full service,paid,"tide,ariel",2
+,,,31/03/2025,9:10,252,EDCEL,wash&dry,paid,"surf,ariel",2
+,,,31/03/2025,10:20,173,BRANDON,wash,paid,"tide,ariel",2
+,,,31/03/2025,10:40,136,ABE,wash,paid,"breeze,del",2
+,,,31/03/2025,10:49,140,ANALYN,full service,paid,downy,1
+,,,31/03/2025,11:52,341,JOHN,full service,paid,breeze,1
+,,,31/03/2025,12:03,120,DONA,wash,paid,"downy,breeze",2
+,,,31/03/2025,3:40,400,CHRISTIAN,spin dry,paid,"downy,tide",2
+,,,31/03/2025,3:51,258,FRANCIS,wash,paid,ariel,1
+,,,31/03/2025,4:57,170,JOEY,wash&dry,paid,"ariel,surf",2
+,,,31/03/2025,4:58,176,JONEL,wash&dry,paid,"ariel,surf",2
+,,,31/03/2025,5:18,176,ALEY,spin dry,paid,"downy,surf",2
+,,,31/03/2025,5:39,194,EDAY,wash&dry,paid,"downy,surf",2
+,,,01/04/2025,7:00,140,CECIL,wash,paid,"del,tide",2
+,,,01/04/2025,7:05,154,ALFRED,dry,paid,surf,1
+,,,01/04/2025,7:18,332,ARIEL,full service,paid,"downy,tide",2
+,,,01/04/2025,7:19,138,MARVIN,dry,paid,ariel,1
+,,,01/04/2025,7:32,190,PATRICK,full service,paid,surf,1
+,,,01/04/2025,7:40,162,ANTHONY,dry,paid,ariel,1
+,,,01/04/2025,7:41,142,PRIMO,wash&dry,paid,"downy,del",2
+,,,01/04/2025,7:42,138,JOSHUA,full service,paid,ariel,1
+,,,01/04/2025,7:43,162,RJ,full service,paid,ariel,1
+,,,01/04/2025,8:05,129,LOUIE,wash,paid,"tide,del",2
+,,,01/04/2025,8:08,202,CALOY,wash&dry,paid,"surf,downy",2
+,,,01/04/2025,8:11,126,CEDRIC,spin dry,paid,tide,1
+,,,01/04/2025,8:15,70,TATTOO,wash&dry,paid,"surf,tide",2
+,,,01/04/2025,8:17,158,RAFAEL,dry,paid,"breeze,zonrox",2
+,,,01/04/2025,8:30,142,WILLIAM,wash,paid,"surf,ariel",2
+,,,01/04/2025,8:40,172,JIMBOY,wash,paid,"surf,downy",2
+,,,01/04/2025,9:11,308,WILLIAM,wash&dry,paid,"surf,zonrox",2
+,,,01/04/2025,9:21,178,FRANCE,wash&dry,paid,surf,1
+,,,01/04/2025,9:25,162,MAC,wash&dry,paid,breeze,1
+,,,01/04/2025,9:39,152,JAYSON,dry,paid,breeze,1
+,,,01/04/2025,9:44,60,MARVIN,wash&dry,paid,"downy,surf",2
+,,,01/04/2025,10:08,150,TRISTAN ,wash&dry,paid,downy,1
+,,,01/04/2025,10:11,156,VR,wash,paid,downy,1
+,,,01/04/2025,10:50,150,LIZA,spin dry,paid,ariel,1
+,,,01/04/2025,16:34,272,MARVIN,full service,paid,"downy,ariel",2
+,,,01/04/2025,17:51,166,LYN,wash,paid,breeze,1
+,,,01/04/2025,18:07,162,BALONG,dry,paid,tide,1
+,,,01/04/2025,18:35,120,ZIAN,dry,paid,zonrox,1
+,,,01/04/2025,18:58,352,CLAIRE,dry,paid,"zonrox,surf",2
+,,,01/04/2025,19:25,352,MARLON,full service,paid,"zonrox,surf",2
+,,,01/04/2025,19:49,100,ERIC,wash,paid,"downy,tide",2
+,,,02/04/2025,7:17,138,ARTUR,wash&dry,paid,ariel,1
+,,,02/04/2025,7:20,146,MARLON,wash,paid,ariel,1
+,,,02/04/2025,7:36,220,WENG,full service,paid,tide,1
+,,,02/04/2025,7:41,122,AMY FER,full service,paid,"zonrox,tide",2
+,,,02/04/2025,7:42,220,DON,wash,paid,"surf,downy",2
+,,,02/04/2025,7:47,348,JANE LAROSA,spin dry,paid,"tide,del",2
+,,,02/04/2025,8:16,110,GIGI,full service,paid,surf,1
+,,,02/04/2025,9:36,570,DAGA,wash,paid,downy,1
+,,,02/04/2025,10:01,152,ATOS JR,wash&dry,paid,"del,surf",2
+,,,02/04/2025,11:38,143,REGALA,spin dry,paid,"tide,ariel",2
+,,,02/04/2025,11:40,151,SHAO,full service,paid,"breeze,tide",2
+,,,02/04/2025,11:51,140,JOHN,wash&dry,paid,"breeze,ariel",2
+,,,02/04/2025,11:58,328,LORENCE,full service,paid,"tide,surf",2
+,,,02/04/2025,12:04,158,MEL,wash,paid,breeze,1
+,,,02/04/2025,12:30,148,KIT,spin dry,paid,tide,1
+,,,02/04/2025,14:10,150,BOGS,spin dry,paid,"ariel,surf",2
+,,,02/04/2025,14:14,180,PATTRECK,full service,paid,breeze,1
+,,,02/04/2025,15:05,206,GRACE,dry,paid,"surf,ariel",2
+,,,02/04/2025,15:10,136,ROEL,wash,paid,breeze,1
+,,,02/04/2025,16:02,328,JENNY,wash,paid,"surf,downy",2
+,,,02/04/2025,18:00,168,ROD,dry,paid,"downy,zonrox",2
+,,,02/04/2025,18:32,176,WILSON,spin dry,paid,zonrox,1
+,,,03/04/2025,7:00,165,BENJIE,wash,paid,breeze,1
+,,,03/04/2025,7:28,324,JAYSON,wash&dry,paid,"zonrox,downy",2
+,,,03/04/2025,7:34,70,TATTOO,wash,paid,tide,1
+,,,03/04/2025,7:35,196,ROY,wash,paid,"tide,ariel",2
+,,,03/04/2025,7:42,138,LAGURA,spin dry,paid,ariel,1
+,,,03/04/2025,8:35,138,BOBBY,wash,paid,surf,1
+,,,03/04/2025,8:48,146,RONEL,wash&dry,paid,ariel,1
+,,,03/04/2025,9:05,208,NICK,wash&dry,paid,"ariel,surf",2
+,,,03/04/2025,9:12,152,REGALA,full service,paid,breeze,1
+,,,03/04/2025,9:25,304,VANISSA,spin dry,paid,del,1
+,,,03/04/2025,9:32,152,DEXTER,spin dry,paid,breeze,1
+,,,03/04/2025,9:55,152,JR,full service,paid,"ariel,del",2
+,,,03/04/2025,10:07,168,BUBOY,wash,paid,"del,ariel",2
+,,,03/04/2025,10:22,120,LAARNI,full service,paid,del,1
+,,,03/04/2025,12:06,206,TOTO JERIC,wash&dry,paid,tide,1
+,,,03/04/2025,12:08,120,GANDA,dry,paid,"tide,breeze",2
+,,,03/04/2025,13:00,136,JAMES,dry,paid,"breeze,surf",2
+,,,03/04/2025,13:11,148,JOSEP,full service,paid,"zonrox,del",2
+,,,03/04/2025,13:20,376,NAK,dry,paid,"del,breeze",2
+,,,03/04/2025,15:50,120,BERNIE,full service,paid,breeze,1
+,,,03/04/2025,16:22,120,JONATHAN,spin dry,paid,ariel,1
+,,,03/04/2025,17:55,156,CONNAN,full service,paid,breeze,1
+,,,04/04/2025,7:00,218,PEN,full service,paid,"zonrox,tide",2
+,,,04/04/2025,7:11,138,BOGS,full service,paid,zonrox,1
+,,,04/04/2025,7:21,138,ARTHUR,dry,paid,breeze,1
+,,,04/04/2025,7:28,142,JAYSON,dry,paid,surf,1
+,,,04/04/2025,7:34,148,ANGHEL,spin dry,paid,"downy,ariel",2
+,,,04/04/2025,7:35,128,DAN,wash,paid,"surf,del",2
+,,,04/04/2025,9:05,136,BACOLOD,wash,paid,surf,1
+,,,04/04/2025,10:21,152,EMMAN,spin dry,paid,"tide,surf",2
+,,,04/04/2025,11:58,148,LITO,spin dry,paid,breeze,1
+,,,04/04/2025,12:10,139,JERVI,spin dry,paid,"downy,zonrox",2
+,,,04/04/2025,12:45,120,KIM,full service,paid,downy,1
+,,,04/04/2025,13:04,189,EDDIE,wash&dry,paid,del,1
+,,,04/04/2025,13:39,272,LARA,spin dry,paid,tide,1
+,,,04/04/2025,13:48,1480,JOHNWYNE,spin dry,paid,tide,1
+,,,04/04/2025,14:05,240,GELBERT,dry,paid,zonrox,1
+,,,04/04/2025,14:11,168,JAMES,spin dry,paid,"zonrox,breeze",2
+,,,04/04/2025,16:08,312,BOK,wash,paid,zonrox,1
+,,,04/04/2025,16:10,300,CHOKO,dry,paid,del,1
+,,,04/04/2025,16:15,120,TONNY,full service,paid,tide,1
+,,,04/04/2025,18:00,144,JOMAR,wash&dry,paid,"tide,breeze",2
+,,,04/04/2025,18:37,300,SAM,full service,paid,zonrox,1
+,,,04/04/2025,19:07,138,JOHN REGALA,full service,paid,"ariel,del",2
+,,,04/04/2025,19:19,120,YINAN,wash,paid,"zonrox,tide",2
+,,,04/04/2025,19:36,192,HAZEL,wash&dry,paid,"tide,zonrox",2
+,,,05/04/2025,6:22,134,JERRY,wash,paid,zonrox,1
+,,,05/04/2025,7:13,158,BENJIE,spin dry,paid,tide,1
+,,,05/04/2025,7:20,146,ALEX ,wash&dry,paid,"downy,tide",2
+,,,05/04/2025,7:21,50,DENNIS,dry,paid,ariel,1
+,,,05/04/2025,7:41,142,RODEL,spin dry,paid,zonrox,1
+,,,05/04/2025,7:48,146,JOAN S.,wash&dry,paid,"ariel,surf",2
+,,,05/04/2025,7:49,154,MARLON R.,dry,paid,"downy,ariel",2
+,,,05/04/2025,7:54,150,JECK,spin dry,paid,zonrox,1
+,,,05/04/2025,8:23,284,CEDRIC,wash,paid,"zonrox,ariel",2
+,,,05/04/2025,8:26,136,NICK,wash,paid,"ariel,tide",2
+,,,05/04/2025,8:28,158,TATS,full service,paid,"tide,ariel",2
+,,,05/04/2025,8:44,220,JOAN ,spin dry,paid,"breeze,ariel",2
+,,,05/04/2025,9:46,120,MARWN,spin dry,paid,del,1
+,,,05/04/2025,10:04,200,JOSIE,full service,paid,breeze,1
+,,,05/04/2025,10:34,138,QUEEW,dry,paid,"downy,surf",2
+,,,05/04/2025,10:53,148,JELO,spin dry,paid,"surf,del",2
+,,,05/04/2025,11:26,192,SULTAN,wash,paid,"downy,surf",2
+,,,05/04/2025,11:34,150,KENJIE,wash&dry,paid,"ariel,breeze",2
+,,,05/04/2025,11:43,60,MARWN,full service,paid,zonrox,1
+,,,05/04/2025,11:50,60,CECIL,full service,paid,breeze,1
+,,,05/04/2025,13:20,172,RANDY,spin dry,paid,ariel,1
+,,,05/04/2025,13:22,60,MARLON ,wash,paid,"surf,downy",2
+,,,05/04/2025,13:30,300,MARK,dry,paid,"downy,ariel",2
+,,,05/04/2025,13:40,180,MARINA,full service,paid,"downy,tide",2
+,,,05/04/2025,13:55,156,JC,full service,paid,zonrox,1
+,,,05/04/2025,14:30,240,JOSHUA,full service,paid,zonrox,1
+,,,05/04/2025,14:32,156,GRACE,dry,paid,zonrox,1
+,,,05/04/2025,14:35,240,MARK,dry,paid,zonrox,1
+,,,05/04/2025,14:38,120,STEVE,spin dry,paid,del,1
+,,,05/04/2025,16:02,154,CARLA,wash,paid,ariel,1
+,,,05/04/2025,16:04,332,JUDAY,spin dry,paid,tide,1
+,,,05/04/2025,16:36,158,ROMEL,dry,paid,"breeze,tide",2
+,,,05/04/2025,16:45,152,KIKO,wash&dry,paid,"tide,downy",2
+,,,05/04/2025,16:46,156,GOMER,spin dry,paid,surf,1
+,,,05/04/2025,17:50,292,EDWARD,wash&dry,paid,surf,1
+,,,05/04/2025,17:58,148,SAM,wash&dry,paid,ariel,1
+,,,05/04/2025,18:38,192,SOTTO,spin dry,paid,"downy,surf",2
+,,,05/04/2025,18:53,164,CHA,wash&dry,paid,tide,1
+,,,06/04/2025,7:06,158,ALICE,wash&dry,paid,"del,surf",2
+,,,06/04/2025,7:24,162,REDE,wash,paid,zonrox,1
+,,,06/04/2025,7:31,134,BALTAZAR,wash,paid,"surf,tide",2
+,,,06/04/2025,7:31,138,JONDI,wash&dry,paid,"zonrox,tide",2
+,,,06/04/2025,7:56,128,ALFRANGE,wash,paid,zonrox,1
+,,,06/04/2025,7:59,154,RICHARD,spin dry,paid,surf,1
+,,,06/04/2025,8:02,154,RYAN,full service,paid,surf,1
+,,,06/04/2025,8:10,142,BENJIE,spin dry,paid,ariel,1
+,,,06/04/2025,8:13,146,TAN-TAN,spin dry,paid,"del,tide",2
+,,,06/04/2025,8:26,194,ARNEL,wash&dry,paid,"del,tide",2
+,,,06/04/2025,8:55,134,TAARK,full service,paid,ariel,1
+,,,06/04/2025,9:03,292,ROLDAN,wash&dry,paid,"surf,zonrox",2
+,,,06/04/2025,9:15,86,JP,full service,paid,breeze,1
+,,,06/04/2025,9:27,188,MEL,spin dry,paid,"breeze,downy",2
+,,,06/04/2025,9:32,148,GERALD,wash,paid,"downy,tide",2
+,,,06/04/2025,9:56,139,CLIFFORT,spin dry,paid,zonrox,1
+,,,06/04/2025,10:21,188,CLIDE PEPETO,dry,paid,"tide,downy",2
+,,,06/04/2025,10:46,176,DONALD,wash,paid,del,1
+,,,06/04/2025,11:14,159,AFRED,spin dry,paid,"breeze,surf",2
+,,,06/04/2025,11:22,172,JHONG,wash,paid,"del,breeze",2
+,,,06/04/2025,11:32,160,LESTER,spin dry,paid,ariel,1
+,,,06/04/2025,12:20,316,BALONG,wash&dry,paid,"surf,tide",2
+,,,06/04/2025,12:22,138,ANNA,spin dry,paid,del,1
+,,,06/04/2025,12:32,164,DARYL,dry,paid,"ariel,breeze",2
+,,,06/04/2025,12:33,144,FANZAL,dry,paid,downy,1
+,,,06/04/2025,12:41,182,EDWARD,wash&dry,paid,"tide,downy",2
+,,,06/04/2025,13:10,150,LITO,wash,paid,"surf,zonrox",2
+,,,06/04/2025,13:35,192,HANDS,dry,paid,del,1
+,,,06/04/2025,13:51,1184,JOHNWYNE,wash&dry,paid,"tide,del",2
+,,,06/04/2025,14:00,160,MAKUIN,spin dry,paid,surf,1
+,,,06/04/2025,15:02,84,JOMAR,wash,paid,ariel,1
+,,,06/04/2025,15:30,138,PAUL,full service,paid,downy,1
+,,,06/04/2025,15:45,136,GIGI,spin dry,paid,"breeze,del",2
+,,,06/04/2025,16:34,158,GRANY,wash&dry,paid,"downy,ariel",2
+,,,06/04/2025,17:15,608,ARIEL,wash&dry,paid,surf,1
+,,,06/04/2025,17:56,166,JHEN,spin dry,paid,tide,1
+,,,06/04/2025,17:45,168,ALEX ,full service,paid,"tide,ariel",2
+,,,07/04/2025,6:40,146,JOHN ,wash&dry,paid,surf,1
+,,,07/04/2025,7:10,178,BHAY,wash,paid,ariel,1
+,,,07/04/2025,7:30,196,BRYAN,wash&dry,paid,"tide,breeze",2
+,,,07/04/2025,7:32,130,KEN-KEN,dry,paid,breeze,1
+,,,07/04/2025,7:43,162,JURIE,wash,paid,surf,1
+,,,07/04/2025,7:47,158,REY,wash,paid,"downy,breeze",2
+,,,07/04/2025,7:48,126,KAREN,spin dry,paid,"surf,breeze",2
+,,,07/04/2025,7:49,202,RJ,wash&dry,paid,tide,1
+,,,07/04/2025,8:01,110,DEL,spin dry,paid,"ariel,tide",2
+,,,07/04/2025,8:05,142,ALICE,wash&dry,paid,zonrox,1
+,,,07/04/2025,8:06,150,MARIO,full service,paid,"ariel,tide",2
+,,,07/04/2025,8:11,110,MARIEL,full service,paid,"surf,tide",2
+,,,07/04/2025,8:15,154,JUN,wash,paid,del,1
+,,,07/04/2025,8:17,138,JUSTIN,wash&dry,paid,"surf,tide",2
+,,,07/04/2025,8:21,136,JUN S.,full service,paid,"tide,breeze",2
+,,,07/04/2025,8:28,142,CHRISTIAN,full service,paid,ariel,1
+,,,07/04/2025,8:37,190,PATRICK,full service,paid,breeze,1
+,,,07/04/2025,9:20,183,MANG TOTO,dry,paid,"tide,breeze",2
+,,,07/04/2025,9:27,202,TOTO JERIC,dry,paid,"surf,del",2
+,,,07/04/2025,11:22,120,TOPNATCH,full service,paid,"zonrox,breeze",2
+,,,07/04/2025,12:17,156,ABE,wash&dry,paid,"breeze,tide",2
+,,,07/04/2025,12:45,172,JR,wash&dry,paid,"ariel,del",2
+,,,07/04/2025,12:46,148,MAMANG ,dry,paid,breeze,1
+,,,07/04/2025,13:15,160,JR ATOS,wash&dry,paid,downy,1
+,,,07/04/2025,13:36,136,CEDRICK ,spin dry,paid,"breeze,downy",2
+,,,07/04/2025,13:40,136,BERNIE,dry,paid,del,1
+,,,07/04/2025,15:20,143,ALORA,wash,paid,"zonrox,surf",2
+,,,07/04/2025,14:36,106,LIZA,dry,paid,"downy,surf",2
+,,,07/04/2025,16:44,146,OMAR,wash,paid,breeze,1
+,,,07/04/2025,17:45,324,BALONG,wash&dry,paid,"zonrox,del",2
+,,,07/04/2025,17:58,182,BRAWDON,wash&dry,paid,"breeze,zonrox",2
+,,,07/04/2025,16:18,138,QUEEW,full service,paid,surf,1
+,,,08/04/2025,6:20,170,CECIL,dry,paid,"zonrox,breeze",2
+,,,08/04/2025,6:25,146,ADI,full service,paid,"zonrox,tide",2
+,,,08/04/2025,7:06,138,NICK,full service,paid,"downy,breeze",2
+,,,08/04/2025,7:25,110,KRIS,wash&dry,paid,"tide,del",2
+,,,08/04/2025,7:32,140,JOSELITO,full service,paid,breeze,1
+,,,08/04/2025,7:34,142,MAYLEN,spin dry,paid,surf,1
+,,,08/04/2025,7:37,168,FRANCE,full service,paid,"downy,breeze",2
+,,,08/04/2025,7:40,148,DADO,wash,paid,"tide,breeze",2
+,,,08/04/2025,7:45,146,MARGA,wash&dry,paid,del,1
+,,,08/04/2025,8:00,154,RAFAEL,dry,paid,del,1
+,,,08/04/2025,8:04,148,JOSUA,wash&dry,paid,"del,surf",2
+,,,08/04/2025,8:23,134,KENNETH,dry,paid,zonrox,1
+,,,08/04/2025,8:42,166,MADEL,wash&dry,paid,"surf,downy",2
+,,,08/04/2025,8:47,146,ROGER,wash,paid,surf,1
+,,,08/04/2025,9:11,308,KIT,wash,paid,zonrox,1
+,,,08/04/2025,9:17,160,JONG,full service,paid,"downy,ariel",2
+,,,08/04/2025,10:00,148,KEN,dry,paid,"ariel,tide",2
+,,,08/04/2025,11:51,202,TOTO JERIC,dry,paid,"ariel,surf",2
+,,,08/04/2025,19:05,352,GIGI,wash&dry,paid,breeze,1
+,,,08/04/2025,19:39,148,JEFF,dry,paid,downy,1
+,,,09/04/2025,7:44,156,EJ,wash,paid,downy,1
+,,,09/04/2025,7:51,200,JOSELITO,full service,paid,"surf,ariel",2
+,,,09/04/2025,8:01,330,NAK,full service,paid,zonrox,1
+,,,09/04/2025,8:05,412,JANE,spin dry,paid,"surf,downy",2
+,,,09/04/2025,8:10,244,DONEJ,spin dry,paid,tide,1
+,,,09/04/2025,8:14,60,CECIL,wash,paid,ariel,1
+,,,09/04/2025,8:17,203,ROY,dry,paid,breeze,1
+,,,09/04/2025,8:36,296,EVELYN,wash&dry,paid,downy,1
+,,,09/04/2025,8:37,134,JACKY,spin dry,paid,"del,tide",2
+,,,09/04/2025,9:16,312,VANESSA,wash,paid,ariel,1
+,,,09/04/2025,10:20,240,ZIAN,dry,paid,del,1
+,,,09/04/2025,11:19,156,GRACE,wash,paid,"surf,del",2
+,,,09/04/2025,11:20,156,RYAN,spin dry,paid,"tide,surf",2
+,,,09/04/2025,11:22,166,LARA,spin dry,paid,surf,1
+,,,09/04/2025,11:29,146,AUREL,full service,paid,"ariel,breeze",2
+,,,09/04/2025,11:34,158,ROMEL,dry,paid,"downy,breeze",2
+,,,09/04/2025,12:00,136,CHRISTIAN,spin dry,paid,del,1
+,,,09/04/2025,12:24,152,BUBOY,spin dry,paid,zonrox,1
+,,,09/04/2025,12:31,146,SAM,wash&dry,paid,breeze,1
+,,,09/04/2025,13:15,192,KIASIS,wash,paid,"del,downy",2
+,,,09/04/2025,14:00,143,ALORA,dry,paid,surf,1
+,,,09/04/2025,14:45,1184,LOADS,wash&dry,paid,"surf,tide",2
+,,,09/04/2025,14:55,240,RONALD,dry,paid,"ariel,zonrox",2
+,,,09/04/2025,14:57,480,NEL,dry,paid,del,1
+,,,09/04/2025,15:40,312,LORENCE,wash,paid,downy,1
+,,,09/04/2025,15:42,120,ZIAN,spin dry,paid,"zonrox,tide",2
+,,,09/04/2025,16:12,152,WILMOR,spin dry,paid,"breeze,ariel",2
+,,,09/04/2025,16:46,152,RODMAN,full service,paid,breeze,1
+,,,09/04/2025,17:16,152,DWIGHT,dry,paid,ariel,1
+,,,09/04/2025,18:21,156,VINZ,dry,paid,zonrox,1
+,,,09/04/2025,19:26,320,DAGA,wash&dry,paid,"del,tide",2
+,,,10/04/2025,6:21,110,OMACAP,spin dry,paid,zonrox,1
+,,,10/04/2025,6:49,340,LANIE,dry,paid,downy,1
+,,,10/04/2025,6:51,134,LIOYD,full service,paid,breeze,1
+,,,10/04/2025,6:56,140,DEN-DEN,wash&dry,paid,"breeze,surf",2
+,,,10/04/2025,7:26,146,RJ,spin dry,paid,"ariel,breeze",2
+,,,10/04/2025,7:29,150,JAYSON,wash&dry,paid,"del,surf",2
+,,,10/04/2025,7:44,146,ADRIAN,spin dry,paid,"zonrox,breeze",2
+,,,10/04/2025,7:45,344,MYKA,wash&dry,paid,downy,1
+,,,10/04/2025,7:55,190,PATRICK,wash&dry,paid,del,1
+,,,10/04/2025,8:00,122,KEN,spin dry,paid,"tide,zonrox",2
+,,,10/04/2025,8:30,60,CICIL,dry,paid,"ariel,surf",2
+,,,10/04/2025,8:50,150,DANTE,dry,paid,"breeze,surf",2
+,,,10/04/2025,8:40,150,BUBOY,full service,paid,surf,1
+,,,10/04/2025,9:09,150,JOJO,wash,paid,zonrox,1
+,,,10/04/2025,9:52,172,JEFFREY,dry,paid,ariel,1
+,,,10/04/2025,11:21,152,RECALA,wash&dry,paid,"ariel,downy",2
+,,,10/04/2025,13:05,176,WILSOH,wash&dry,paid,breeze,1
+,,,10/04/2025,15:00,148,CARLA,dry,paid,"breeze,tide",2
+,,,10/04/2025,15:12,164,VIOLY,wash,paid,surf,1
+,,,10/04/2025,15:22,120,GIGI,dry,paid,"breeze,zonrox",2
+,,,10/04/2025,15:53,148,LITO,wash&dry,paid,del,1
+,,,10/04/2025,16:21,172,JR,dry,paid,"tide,downy",2
+,,,10/04/2025,16:21,160,ZENNY,spin dry,paid,del,1
+,,,10/04/2025,18:03,60,JOSIE,dry,paid,"zonrox,breeze",2
+,,,10/04/2025,18:36,168,MICHAEL,dry,paid,"surf,breeze",2
+,,,10/04/2025,18:56,136,EMMAN,full service,paid,surf,1
+,,,10/04/2025,19:06,312,MARWN,dry,paid,"downy,surf",2
+,,,11/04/2025,6:40,142,GRACE,wash,paid,breeze,1
+,,,11/04/2025,6:48,238,CALOY,spin dry,paid,breeze,1
+,,,11/04/2025,7:03,126,TIM ,full service,paid,breeze,1
+,,,11/04/2025,7:15,140,WENG,wash,paid,surf,1
+,,,11/04/2025,8:34,110,BERNIE,dry,paid,"zonrox,surf",2
+,,,11/04/2025,8:37,130,ADDY,wash&dry,paid,zonrox,1
+,,,11/04/2025,9:03,152,SAMUEL,wash,paid,breeze,1
+,,,11/04/2025,9:30,156,RANDY,wash,paid,breeze,1
+,,,11/04/2025,10:15,188,MEL,full service,paid,del,1
+,,,11/04/2025,10:55,304,VANESSA,dry,paid,downy,1
+,,,11/04/2025,10:56,165,PAUL,full service,paid,"zonrox,ariel",2
+,,,11/04/2025,12:52,70,KIM,wash,paid,"del,zonrox",2
+,,,11/04/2025,13:10,120,DONA,spin dry,paid,zonrox,1
+,,,11/04/2025,14:24,176,ARIE,full service,paid,"downy,del",2
+,,,11/04/2025,16:10,180,ANA,dry,paid,"tide,del",2
+,,,11/04/2025,16:11,240,MARK,spin dry,paid,downy,1
+,,,11/04/2025,17:10,148,JOMAR,wash&dry,paid,"downy,tide",2
+,,,11/04/2025,17:13,186,JHEN,wash&dry,paid,downy,1
+,,,11/04/2025,17:39,248,JASON,spin dry,paid,"breeze,zonrox",2
+,,,11/04/2025,18:15,308,SAY,full service,paid,"del,ariel",2
+,,,11/04/2025,18:38,172,CONNAN,dry,paid,del,1
+,,,11/04/2025,19:15,176,SULTAN,dry,paid,breeze,1
+,,,12/04/2025,6:43,148,ALEX ,dry,paid,surf,1
+,,,12/04/2025,7:18,137,JOSELITO,wash,paid,"del,downy",2
+,,,12/04/2025,7:39,110,BOTS,full service,paid,"zonrox,surf",2
+,,,12/04/2025,7:44,202,RJ,dry,paid,"zonrox,downy",2
+,,,12/04/2025,7:53,154,JECK,wash&dry,paid,"zonrox,del",2
+,,,12/04/2025,8:00,140,RAHIM,full service,paid,"ariel,del",2
+,,,12/04/2025,8:17,284,CIDRICK,full service,paid,ariel,1
+,,,12/04/2025,8:25,162,PATRICK,wash,paid,"tide,zonrox",2
+,,,12/04/2025,8:26,140,NICK,spin dry,paid,zonrox,1
+,,,12/04/2025,8:29,190,ALBERT,dry,paid,downy,1
+,,,12/04/2025,8:46,60,MELAI,wash&dry,paid,breeze,1
+,,,12/04/2025,9:11,296,RM,full service,paid,ariel,1
+,,,12/04/2025,9:19,152,CHOC,dry,paid,breeze,1
+,,,12/04/2025,9:42,152,GERALD,spin dry,paid,breeze,1
+,,,12/04/2025,9:45,240,JOAN,wash,paid,"tide,breeze",2
+,,,12/04/2025,9:50,120,BERNIE,dry,paid,breeze,1
+,,,12/04/2025,10:07,148,BALTAZAR,wash,paid,del,1
+,,,12/04/2025,10:12,236,DEXS,wash,paid,ariel,1
+,,,12/04/2025,10:16,148,ANDY,spin dry,paid,"ariel,surf",2
+,,,12/04/2025,10:39,164,ABE,dry,paid,del,1
+,,,12/04/2025,10:56,360,JAYSON,spin dry,paid,"zonrox,del",2
+,,,12/04/2025,10:56,180,MEG,spin dry,paid,del,1
+,,,12/04/2025,11:18,120,MARK,dry,paid,tide,1
+,,,12/04/2025,12:18,316,LACE,dry,paid,"zonrox,ariel",2
+,,,12/04/2025,12:37,162,CESAR,dry,paid,zonrox,1
+,,,12/04/2025,12:48,192,SIGAY,spin dry,paid,surf,1
+,,,12/04/2025,13:01,148,LITO,wash,paid,"del,ariel",2
+,,,12/04/2025,13:29,156,ADDY,dry,paid,zonrox,1
+,,,12/04/2025,13:37,156,JOEY,wash&dry,paid,"zonrox,surf",2
+,,,12/04/2025,14:40,136,PAOLO,dry,paid,zonrox,1
+,,,12/04/2025,15:18,164,CARLA,wash&dry,paid,breeze,1
+,,,12/04/2025,16:26,168,JOJO,wash&dry,paid,"breeze,zonrox",2
+,,,12/04/2025,16:51,180,MARINA,wash&dry,paid,ariel,1
+,,,12/04/2025,17:10,152,KIKO,full service,paid,downy,1
+,,,12/04/2025,17:34,120,BRAKE,full service,paid,"zonrox,tide",2
+,,,12/04/2025,18:14,168,GOMER,full service,paid,"ariel,del",2
+,,,12/04/2025,18:17,148,RECHARD,wash,paid,"del,zonrox",2
+,,,12/04/2025,18:35,164,CHA,dry,paid,del,1
+,,,12/04/2025,19:01,408,MARVIN,spin dry,paid,ariel,1
+,,,12/04/2025,19:12,202,ERIC,wash&dry,paid,ariel,1
+,,,13/04/2025,7:00,50,MARVIN,wash&dry,paid,breeze,1
+,,,13/04/2025,7:05,140,ANGHEL,wash&dry,paid,tide,1
+,,,13/04/2025,7:10,158,ALACE,wash&dry,paid,"tide,del",2
+,,,13/04/2025,7:12,110,ANGEL,full service,paid,"breeze,ariel",2
+,,,13/04/2025,7:20,138,DAN,dry,paid,"downy,zonrox",2
+,,,13/04/2025,7:21,128,ALFRANCE,wash,paid,"downy,zonrox",2
+,,,13/04/2025,7:30,138,BENJA,wash&dry,paid,zonrox,1
+,,,13/04/2025,7:46,150,JAMES,dry,paid,"zonrox,breeze",2
+,,,13/04/2025,8:00,80,JP,dry,paid,"del,downy",2
+,,,13/04/2025,8:01,158,RODEL,spin dry,paid,"downy,zonrox",2
+,,,13/04/2025,8:25,414,YAM,spin dry,paid,"zonrox,ariel",2
+,,,13/04/2025,8:30,110,NAK,full service,paid,"surf,breeze",2
+,,,13/04/2025,8:50,146,JOAN S.,dry,paid,"downy,zonrox",2
+,,,13/04/2025,9:10,148,MARVIN,full service,paid,"del,tide",2
+,,,13/04/2025,9:35,158,ROMEL,full service,paid,"surf,tide",2
+,,,13/04/2025,9:38,120,PHILIP,dry,paid,breeze,1
+,,,13/04/2025,9:42,176,JONG,dry,paid,del,1
+,,,13/04/2025,10:15,188,ARDEL,spin dry,paid,"zonrox,downy",2
+,,,13/04/2025,10:20,164,RICHARD,wash,paid,"breeze,surf",2
+,,,13/04/2025,10:21,148,JUSTIN,dry,paid,"breeze,surf",2
+,,,13/04/2025,10:30,146,CUEVAD,wash,paid,zonrox,1
+,,,13/04/2025,10:31,168,NUNIE,dry,paid,"ariel,downy",2
+,,,13/04/2025,10:51,266,FRANCIS,full service,paid,"tide,zonrox",2
+,,,13/04/2025,10:57,136,KEN,full service,paid,"del,breeze",2
+,,,13/04/2025,11:02,172,ALFRED,wash,paid,"tide,ariel",2
+,,,13/04/2025,11:34,160,MARK,wash&dry,paid,"surf,downy",2
+,,,13/04/2025,11:58,307,VICTORIA,full service,paid,breeze,1
+,,,13/04/2025,12:17,156,JOEL S.,full service,paid,surf,1
+,,,13/04/2025,12:25,162,ARIEL,wash&dry,paid,"zonrox,tide",2
+,,,13/04/2025,12:35,270,JOSHUA,wash&dry,paid,"ariel,breeze",2
+,,,13/04/2025,12:37,150,LITO,full service,paid,"ariel,downy",2
+,,,13/04/2025,12:40,160,DARY,dry,paid,"breeze,del",2
+,,,13/04/2025,13:30,176,DODALD,wash&dry,paid,downy,1
+,,,13/04/2025,13:40,1776,JOHNWYNE,full service,paid,"del,ariel",2
+,,,13/04/2025,14:00,120,DONA,spin dry,paid,"tide,ariel",2
+,,,13/04/2025,14:31,148,ERWIN,spin dry,paid,del,1
+,,,13/04/2025,14:37,156,MARK,full service,paid,ariel,1
+,,,13/04/2025,15:05,139,KENNETH,spin dry,paid,"del,downy",2
+,,,13/04/2025,15:06,120,MARVEL,dry,paid,"downy,zonrox",2
+,,,13/04/2025,15:24,140,JR ANOS,spin dry,paid,"del,breeze",2
+,,,13/04/2025,15:35,70,MARBIN,wash,paid,"downy,surf",2
+,,,13/04/2025,16:25,143,ABA,dry,paid,"del,downy",2
+,,,13/04/2025,16:41,172,ROD,full service,paid,"breeze,del",2
+,,,13/04/2025,17:30,136,LUCKY,wash&dry,paid,ariel,1
+,,,13/04/2025,17:32,408,STEVE,wash&dry,paid,"downy,del",2
+,,,13/04/2025,17:50,206,JAM,spin dry,paid,"ariel,tide",2
+,,,13/04/2025,18:25,240,JOYCE,spin dry,paid,"downy,surf",2
+,,,13/04/2025,18:30,163,ALEX ,full service,paid,"tide,surf",2
+,,,13/04/2025,19:30,192,BHAY,spin dry,paid,"zonrox,breeze",2
+,,,14/04/2025,7:26,180,KIM,dry,paid,"tide,downy",2
+,,,14/04/2025,7:30,137,MARLON ,wash,paid,del,1
+,,,14/04/2025,7:50,280,SAM,spin dry,paid,"zonrox,breeze",2
+,,,14/04/2025,7:51,160,TATS,dry,paid,"breeze,ariel",2
+,,,14/04/2025,7:57,142,WILIAM,full service,paid,"breeze,ariel",2
+,,,14/04/2025,8:04,148,JAYSON,dry,paid,"del,zonrox",2
+,,,14/04/2025,5:10,150,NICO,wash&dry,paid,"del,ariel",2
+,,,14/04/2025,8:50,133,AWRA,full service,paid,"tide,downy",2
+,,,14/04/2025,8:51,164,JOEY,spin dry,paid,"surf,tide",2
+,,,14/04/2025,9:10,352,CLAIRE,wash&dry,paid,"breeze,ariel",2
+,,,14/04/2025,10:59,173,BRANDON,dry,paid,"breeze,zonrox",2
+,,,14/04/2025,11:45,148,LOWRENCE,spin dry,paid,"del,zonrox",2
+,,,14/04/2025,11:50,160,CRISTIAN,spin dry,paid,"tide,downy",2
+,,,14/04/2025,11:51,60,JOSIE,spin dry,paid,zonrox,1
+,,,14/04/2025,12:10,160,MARR,dry,paid,"del,downy",2
+,,,14/04/2025,12:37,144,ERIKA,wash,paid,downy,1
+,,,14/04/2025,13:39,76,JOVY,full service,paid,"tide,surf",2
+,,,14/04/2025,13:41,136,LIZA,full service,paid,"downy,breeze",2
+,,,14/04/2025,15:15,136,ADDY,wash,paid,ariel,1
+,,,14/04/2025,15:29,144,KEN,wash&dry,paid,"surf,del",2
+,,,14/04/2025,15:32,120,MANDS,wash,paid,breeze,1
+,,,14/04/2025,19:00,150,SAM,full service,paid,ariel,1
+,,,14/04/2025,19:45,176,WILSON,wash,paid,del,1
+,,,15/04/2025,7:15,146,JONG,full service,paid,"downy,breeze",2
+,,,15/04/2025,7:30,110,KRIS,spin dry,paid,surf,1
+,,,15/04/2025,7:35,146,JOSHUA,wash&dry,paid,breeze,1
+,,,15/04/2025,8:14,154,RAPAEL,dry,paid,"breeze,zonrox",2
+,,,15/04/2025,8:15,164,FRANCE,dry,paid,del,1
+,,,15/04/2025,8:31,190,PATRICK,wash,paid,ariel,1
+,,,15/04/2025,8:43,324,JR,spin dry,paid,"ariel,tide",2
+,,,15/04/2025,8:50,146,MAMANG,wash,paid,"surf,del",2
+,,,15/04/2025,11:05,444,JOSIE,dry,paid,zonrox,1
+,,,15/04/2025,11:07,158,LINO,wash&dry,paid,zonrox,1
+,,,15/04/2025,12:20,189,EDDIE,wash&dry,paid,"tide,downy",2
+,,,15/04/2025,12:44,144,LITO,wash,paid,"downy,tide",2
+,,,15/04/2025,14:53,168,CARL,wash&dry,paid,del,1
+,,,15/04/2025,15:30,120,YONAH,wash&dry,paid,ariel,1
+,,,15/04/2025,15:46,151,JOHN,wash&dry,paid,"downy,surf",2
+,,,15/04/2025,16:22,344,ERIC,wash,paid,"breeze,zonrox",2
+,,,15/04/2025,16:39,168,JAMES,dry,paid,"surf,breeze",2
+,,,15/04/2025,16:40,120,GIGI,wash&dry,paid,tide,1
+,,,15/04/2025,17:17,186,JHEN,spin dry,paid,surf,1
+,,,15/04/2025,16:36,240,JEBOY,dry,paid,"ariel,tide",2
+,,,15/04/2025,19:23,328,DANIKA,spin dry,paid,downy,1
+,,,15/04/2025,19:33,552,JANE,wash&dry,paid,surf,1
+,,,16/04/2025,7:10,110,DONDON,dry,paid,surf,1
+,,,16/04/2025,7:13,134,BOGS,spin dry,paid,"tide,breeze",2
+,,,16/04/2025,7:30,126,MICHAEL,spin dry,paid,breeze,1
+,,,16/04/2025,7:31,110,KRIS,full service,paid,"tide,ariel",2
+,,,16/04/2025,7:32,110,BERNIE,wash,paid,ariel,1
+,,,16/04/2025,7:40,129,LOUWIE,wash,paid,"breeze,zonrox",2
+,,,16/04/2025,7:41,60,JOSIE,wash&dry,paid,surf,1
+,,,16/04/2025,7:52,140,CECIL,dry,paid,zonrox,1
+,,,16/04/2025,7:59,142,NAK,wash&dry,paid,"del,breeze",2
+,,,16/04/2025,8:05,110,MANG TONY,wash&dry,paid,"tide,ariel",2
+,,,16/04/2025,8:15,162,JORIE,full service,paid,"zonrox,del",2
+,,,16/04/2025,8:16,134,MALESIDO,spin dry,paid,downy,1
+,,,16/04/2025,8:19,142,CEDRIC,dry,paid,"downy,zonrox",2
+,,,16/04/2025,8:20,142,JOAN,spin dry,paid,zonrox,1
+,,,16/04/2025,8:21,155,WILIAM,full service,paid,"surf,zonrox",2
+,,,16/04/2025,8:42,154,BUBOY,wash,paid,downy,1
+,,,16/04/2025,8:43,140,ANGEL,wash,paid,"ariel,breeze",2
+,,,16/04/2025,9:00,188,MEL,spin dry,paid,tide,1
+,,,16/04/2025,9:11,240,CHA,wash&dry,paid,downy,1
+,,,16/04/2025,9:12,156,PAO,wash&dry,paid,surf,1
+,,,16/04/2025,10:00,252,EDCEL,wash,paid,"del,breeze",2
+,,,16/04/2025,10:21,296,JHOAN,full service,paid,ariel,1
+,,,16/04/2025,10:23,158,ALKENT,wash,paid,zonrox,1
+,,,16/04/2025,10:30,172,VR,dry,paid,zonrox,1
+,,,16/04/2025,11:36,120,ASHLEY,wash&dry,paid,surf,1
+,,,16/04/2025,12:31,152,DWIGHT,wash,paid,"ariel,downy",2
+,,,16/04/2025,12:34,144,REYMAR,wash,paid,surf,1
+,,,16/04/2025,12:40,70,KIM,wash,paid,"zonrox,tide",2
+,,,16/04/2025,12:51,156,KIT,full service,paid,"downy,tide",2
+,,,16/04/2025,13:15,139,LESTER,wash,paid,"ariel,del",2
+,,,16/04/2025,14:25,152,KENKEN,full service,paid,"breeze,downy",2
+,,,16/04/2025,14:25,384,BOBOY,wash,paid,"tide,downy",2
+,,,16/04/2025,14:36,194,JOHEL,wash&dry,paid,zonrox,1
+,,,16/04/2025,14:44,1184,JOHNWYNE,dry,paid,"tide,breeze",2
+,,,16/04/2025,15:40,240,XIAN,wash&dry,paid,"del,tide",2
+,,,16/04/2025,16:54,156,CONAN,wash,paid,"tide,downy",2
+,,,16/04/2025,17:10,138,JOHN ,spin dry,paid,"breeze,zonrox",2
+,,,16/04/2025,17:13,152,BOBOY,dry,paid,del,1
+,,,16/04/2025,17:26,188,ROY,wash&dry,paid,zonrox,1
+,,,19/04/2025,7:37,150,MARINA,dry,paid,"downy,del",2
+,,,19/04/2025,7:40,220,TOPNATCH,spin dry,paid,downy,1
+,,,19/04/2025,7:44,138,KENJIE,spin dry,paid,"breeze,surf",2
+,,,19/04/2025,7:47,206,RJ,wash&dry,paid,"downy,breeze",2
+,,,19/04/2025,8:27,110,ADEL,wash&dry,paid,"zonrox,surf",2
+,,,19/04/2025,8:35,146,DANDY,spin dry,paid,surf,1
+,,,19/04/2025,8:42,166,JOAN S.,spin dry,paid,"downy,zonrox",2
+,,,19/04/2025,8:52,510,NEL,full service,paid,"surf,ariel",2
+,,,19/04/2025,8:58,172,EDWARD,wash&dry,paid,ariel,1
+,,,19/04/2025,9:15,120,MARK,full service,paid,"del,ariel",2
+,,,19/04/2025,9:17,140,SHERLY,dry,paid,"del,surf",2
+,,,19/04/2025,9:32,188,KALBO,spin dry,paid,"ariel,tide",2
+,,,19/04/2025,9:33,144,BALTAZAR,dry,paid,surf,1
+,,,19/04/2025,10:10,156,ALDRIN,spin dry,paid,breeze,1
+,,,19/04/2025,10:25,240,JOAN,full service,paid,"del,surf",2
+,,,,,178,BRYXX,dry,paid,downy,1
+,,,19/04/2025,10:40,152,REGALA,wash&dry,paid,tide,1
+,,,19/04/2025,10:55,60,JOSHUA,spin dry,paid,breeze,1
+,,,19/04/2025,10:56,80,MARVIN,dry,paid,"zonrox,ariel",2
+,,,19/04/2025,10:57,127,JASON,spin dry,paid,downy,1
+,,,19/04/2025,11:19,144,MELVIN,wash,paid,breeze,1
+,,,19/04/2025,11:20,296,ARCELLI,spin dry,paid,"del,surf",2
+,,,19/04/2025,12:00,160,JAY-R,dry,paid,"downy,del",2
+,,,19/04/2025,14:00,1480,JOHN WYNE,dry,paid,downy,1
+,,,19/04/2025,14:13,151,GRACE,dry,paid,"downy,breeze",2
+,,,19/04/2025,14:49,366,JUDAY,wash&dry,paid,"ariel,tide",2
+,,,19/04/2025,14:50,272,JORICK,wash,paid,"tide,zonrox",2
+,,,19/04/2025,14:58,156,LAWRINCE,wash&dry,paid,downy,1
+,,,19/04/2025,15:20,316,JR,wash,paid,tide,1
+,,,19/04/2025,15:25,148,LITO,spin dry,paid,tide,1
+,,,19/04/2025,15:50,176,TATTOO,full service,paid,"tide,breeze",2
+,,,19/04/2025,16:00,412,TOTO JERIC,wash&dry,paid,"ariel,zonrox",2
+,,,19/04/2025,16:49,160,GOMER,spin dry,paid,"surf,breeze",2
+,,,19/04/2025,17:04,240,RYAN,wash&dry,paid,ariel,1
+,,,19/04/2025,17:20,120,ZIAN,wash&dry,paid,ariel,1
+,,,19/04/2025,17:23,174,BALONG,wash&dry,paid,"breeze,tide",2
+,,,19/04/2025,18:17,400,EDAY,full service,paid,"surf,zonrox",2
+,,,19/04/2025,18:32,143,ALORA,dry,paid,"tide,del",2
+,,,19/04/2025,18:42,296,SAM,dry,paid,ariel,1
+,,,20/04/2025,7:05,128,ALFRANCE,full service,paid,breeze,1
+,,,20/04/2025,7:20,140,WENG,wash&dry,paid,surf,1
+,,,20/04/2025,7:25,166,TANTAN,spin dry,paid,del,1
+,,,20/04/2025,7:45,154,RAFAEL,spin dry,paid,breeze,1
+,,,20/04/2025,8:13,154,RJ,full service,paid,"downy,del",2
+,,,20/04/2025,8:21,138,JOSELITO,spin dry,paid,zonrox,1
+,,,20/04/2025,8:50,196,ROLDAN,spin dry,paid,zonrox,1
+,,,20/04/2025,8:54,154,GERALD,full service,paid,"downy,tide",2
+,,,20/04/2025,9:08,72,JAYPEE,wash&dry,paid,ariel,1
+,,,20/04/2025,9:09,144,SHERLY,spin dry,paid,downy,1
+,,,20/04/2025,9:17,179,MANG TOTO,dry,paid,"breeze,ariel",2
+,,,20/04/2025,9:20,176,GINA,wash&dry,paid,del,1
+,,,20/04/2025,9:42,176,LARY,spin dry,paid,"surf,zonrox",2
+,,,20/04/2025,9:44,136,KAREN,wash&dry,paid,"zonrox,breeze",2
+,,,20/04/2025,10:01,192,JHONG,wash&dry,paid,"breeze,ariel",2
+,,,20/04/2025,10:19,164,ALFRED,spin dry,paid,zonrox,1
+,,,20/04/2025,10:46,304,VANESSA,wash,paid,downy,1
+,,,20/04/2025,10:47,156,ROMEL,wash,paid,ariel,1
+,,,20/04/2025,10:58,160,DARYL ,wash&dry,paid,del,1
+,,,20/04/2025,11:23,150,AR-JAY,spin dry,paid,del,1
+,,,20/04/2025,11:31,168,R-R,full service,paid,"del,downy",2
+,,,20/04/2025,11:32,300,ANGEL,wash,paid,breeze,1
+,,,20/04/2025,11:45,206,JOSHUA,dry,paid,surf,1
+,,,20/04/2025,11:52,390,STEVE,wash,paid,zonrox,1
+,,,20/04/2025,11:53,120,DONALD,wash,paid,"del,zonrox",2
+,,,20/04/2025,12:15,160,CHRISTIAN,full service,paid,"downy,zonrox",2
+,,,20/04/2025,13:50,158,DAN,full service,paid,ariel,1
+,,,20/04/2025,14:00,176,OJ,wash,paid,"ariel,tide",2
+,,,20/04/2025,14:01,144,SOLIDAD,spin dry,paid,"downy,tide",2
+,,,20/04/2025,15:29,176,DONALD,full service,paid,"zonrox,tide",2
+,,,20/04/2025,16:27,144,LITO,wash&dry,paid,"breeze,del",2
+,,,20/04/2025,16:30,136,GIGI,full service,paid,surf,1
+,,,20/04/2025,16:31,172,DENNIS,dry,paid,tide,1
+,,,20/04/2025,16:41,156,PAUL,dry,paid,surf,1
+,,,20/04/2025,17:20,240,EIAN,dry,paid,"downy,breeze",2
+,,,20/04/2025,17:26,152,RODMAN,wash&dry,paid,ariel,1
+,,,20/04/2025,17:40,160,JO,spin dry,paid,zonrox,1
+,,,20/04/2025,18:34,60,KATLEN,wash,paid,zonrox,1
+,,,21/04/2025,7:20,246,FRANCIS,spin dry,paid,ariel,1
+,,,21/04/2025,7:23,138,MALISIDO,spin dry,paid,"surf,downy",2
+,,,21/04/2025,7:27,138,NAK,full service,paid,zonrox,1
+,,,21/04/2025,7:32,142,ALICE,wash&dry,paid,"surf,del",2
+,,,21/04/2025,7:51,134,JUSTIN,spin dry,paid,"surf,breeze",2
+,,,21/04/2025,8:08,163,BRANDON,spin dry,paid,breeze,1
+,,,21/04/2025,8:12,158,TATS,spin dry,paid,tide,1
+,,,21/04/2025,8:14,324,LANIE,dry,paid,"surf,del",2
+,,,21/04/2025,8:35,194,SONY,wash,paid,"zonrox,downy",2
+,,,21/04/2025,8:50,182,ATE AIDA,dry,paid,"surf,zonrox",2
+,,,21/04/2025,8:53,138,GARCIA,spin dry,paid,tide,1
+,,,21/04/2025,11:00,156,ADDY,wash&dry,paid,breeze,1
+,,,21/04/2025,12:51,288,EDWARD,wash,paid,"zonrox,del",2
+,,,21/04/2025,13:01,150,RONALD,dry,paid,tide,1
+,,,21/04/2025,15:10,240,CICIL,full service,paid,"zonrox,ariel",2
+,,,21/04/2025,15:27,160,RYAN,spin dry,paid,tide,1
+,,,21/04/2025,16:34,276,WILMOR,spin dry,paid,tide,1
+,,,21/04/2025,16:49,152,KENKEN,wash&dry,paid,tide,1
+,,,21/04/2025,16:50,120,KIM,full service,paid,"tide,breeze",2
+,,,22/04/2025,6:34,158,EJ,full service,paid,"surf,zonrox",2
+,,,22/04/2025,6:35,226,CALOY,spin dry,paid,"del,surf",2
+,,,22/04/2025,7:12,158,ALICE,full service,paid,"tide,surf",2
+,,,22/04/2025,7:20,168,FRANCE,spin dry,paid,downy,1
+,,,22/04/2025,8:00,138,JOSHUA,wash&dry,paid,zonrox,1
+,,,22/04/2025,8:04,190,PATRICK,full service,paid,surf,1
+,,,22/04/2025,9:15,144,SHERLY,spin dry,paid,del,1
+,,,22/04/2025,9:20,60,JOSIE,wash&dry,paid,surf,1
+,,,22/04/2025,9:25,164,JOEL,wash,paid,"zonrox,ariel",2
+,,,22/04/2025,10:08,60,CECIL,wash&dry,paid,"breeze,zonrox",2
+,,,22/04/2025,10:21,156,KEVIN,full service,paid,"zonrox,tide",2
+,,,22/04/2025,12:11,139,MALRON,full service,paid,"downy,breeze",2
+,,,22/04/2025,15:31,162,JOSIE,wash,paid,"surf,zonrox",2
+,,,22/04/2025,15:40,156,JING,wash,paid,tide,1
+,,,22/04/2025,15:55,148,MICHAEL ROJO,wash&dry,paid,"zonrox,tide",2
+,,,22/04/2025,16:37,328,BOKS,wash,paid,"downy,zonrox",2
+,,,22/04/2025,16:41,296,CLAIRE,spin dry,paid,breeze,1
+,,,22/04/2025,17:36,152,SIMON,full service,paid,"downy,surf",2
+,,,22/04/2025,18:18,148,ADDY,full service,paid,"downy,surf",2
+,,,22/04/2025,18:41,176,WILSON,spin dry,paid,del,1
+,,,23/04/2025,7:00,146,ANN ,wash,paid,"tide,ariel",2
+,,,23/04/2025,7:05,140,CECIL,spin dry,paid,"zonrox,ariel",2
+,,,23/04/2025,7:34,352,MYKA,wash,paid,"ariel,breeze",2
+,,,23/04/2025,7:35,138,ANGHEL,wash&dry,paid,"tide,ariel",2
+,,,23/04/2025,7:48,138,BRYAN,dry,paid,surf,1
+,,,23/04/2025,8:09,220,NAK,wash,paid,surf,1
+,,,23/04/2025,8:20,154,JECK,wash,paid,downy,1
+,,,23/04/2025,8:45,170,LESSA,spin dry,paid,"zonrox,del",2
+,,,23/04/2025,9:36,192,MEL,spin dry,paid,"tide,ariel",2
+,,,23/04/2025,10:15,148,MAMANG,full service,paid,"tide,zonrox",2
+,,,23/04/2025,11:42,150,JOMAK,wash&dry,paid,tide,1
+,,,23/04/2025,12:25,148,LITO,dry,paid,"tide,ariel",2
+,,,23/04/2025,12:56,136,MARK B,wash&dry,paid,downy,1
+,,,23/04/2025,13:20,312,MARK 23,wash&dry,paid,"tide,del",2
+,,,23/04/2025,14:19,1480,JOHN WYNE,full service,paid,"breeze,tide",2
+,,,23/04/2025,15:05,144,VINCENT,dry,paid,ariel,1
+,,,23/04/2025,15:45,176,ANTHONY,dry,paid,"downy,breeze",2
+,,,23/04/2025,16:19,70,KIM,wash,paid,zonrox,1
+,,,23/04/2025,16:38,176,LOVELY,wash,paid,"surf,tide",2
+,,,23/04/2025,17:13,152,JAMES,wash&dry,paid,zonrox,1
+,,,23/04/2025,18:50,176,MARLON,wash&dry,paid,surf,1
+,,,24/04/2025,7:01,110,DONDON,spin dry,paid,surf,1
+,,,24/04/2025,7:02,150,LESTER,spin dry,paid,del,1
+,,,24/04/2025,7:14,158,BERNIE,wash&dry,paid,tide,1
+,,,24/04/2025,7:15,136,DENDEN,wash,paid,breeze,1
+,,,24/04/2025,7:20,142,JR,wash&dry,paid,"zonrox,breeze",2
+,,,24/04/2025,7:35,242,KEVIN,spin dry,paid,tide,1
+,,,24/04/2025,7:45,126,MICHAEL,full service,paid,"del,downy",2
+,,,24/04/2025,7:51,126,JOEL,wash,paid,"ariel,zonrox",2
+,,,24/04/2025,8:00,158,BUBOY,spin dry,paid,"surf,zonrox",2
+,,,24/04/2025,8:13,138,STEPEN,dry,paid,"surf,breeze",2
+,,,24/04/2025,8:17,110,BOTS,dry,paid,del,1
+,,,24/04/2025,10:24,176,CHA,dry,paid,ariel,1
+,,,24/04/2025,10:43,198,REGGIE,full service,paid,ariel,1
+,,,24/04/2025,10:44,182,JOSIE,full service,paid,zonrox,1
+,,,24/04/2025,10:46,180,KEN,wash,paid,"ariel,del",2
+,,,24/04/2025,11:08,189,EDDIE,spin dry,paid,"ariel,downy",2
+,,,24/04/2025,12:00,320,DAGA,wash&dry,paid,tide,1
+,,,24/04/2025,13:07,164,KEVIN,wash&dry,paid,"ariel,downy",2
+,,,24/04/2025,13:35,152,REGALA,full service,paid,tide,1
+,,,24/04/2025,13:56,136,GIGI,wash,paid,"tide,downy",2
+,,,24/04/2025,14:55,80,KIM,full service,paid,"del,surf",2
+,,,24/04/2025,15:04,148,RANDY,wash&dry,paid,"tide,surf",2
+,,,24/04/2025,15:32,168,CARLA,full service,paid,tide,1
+,,,24/04/2025,16:03,160,ZENNY,wash&dry,paid,"breeze,downy",2
+,,,24/04/2025,16:09,176,ROD,full service,paid,"breeze,zonrox",2
+,,,24/04/2025,16:13,300,JOCO,spin dry,paid,tide,1
+,,,24/04/2025,16:45,120,RICK ,full service,paid,tide,1
+,,,24/04/2025,17:46,204,ERIC,spin dry,paid,"breeze,zonrox",2
+,,,24/04/2025,18:13,240,SIMON,dry,paid,zonrox,1
+,,,24/04/2025,18:19,176,ALEX,spin dry,paid,surf,1
+,,,24/04/2025,18:35,60,JOSIE,dry,paid,"del,zonrox",2
+,,,24/04/2025,18:49,192,LEN,spin dry,paid,"ariel,downy",2
+,,,24/04/2025,19:18,160,PRAYLE,wash&dry,paid,"breeze,surf",2
+,,,24/04/2025,19:25,176,SOTTO,full service,paid,del,1
+,,,25/04/2025,6:58,166,PATRICK,full service,paid,"ariel,del",2
+,,,25/04/2025,7:34,138,JR,wash,paid,tide,1
+,,,25/04/2025,7:35,133,ALORA,wash,paid,ariel,1
+,,,25/04/2025,7:45,140,JOSELITO,spin dry,paid,"breeze,surf",2
+,,,25/04/2025,7:46,142,JR MUYCO,wash&dry,paid,"ariel,tide",2
+,,,25/04/2025,7:49,142,WILIAM,wash,paid,surf,1
+,,,25/04/2025,7:54,150,JC,full service,paid,"surf,zonrox",2
+,,,25/04/2025,8:21,414,YAM,wash&dry,paid,downy,1
+,,,25/04/2025,8:27,140,WENG,spin dry,paid,tide,1
+,,,25/04/2025,8:35,110,BERNIE,spin dry,paid,"downy,zonrox",2
+,,,25/04/2025,8:45,140,WENG,wash,paid,"tide,ariel",2
+,,,25/04/2025,8:47,141,GRACE,dry,paid,zonrox,1
+,,,25/04/2025,9:31,148,ADDY,wash&dry,paid,tide,1
+,,,25/04/2025,9:53,328,JOAN SALAS,dry,paid,"del,downy",2
+,,,25/04/2025,10:04,144,AMYFER,spin dry,paid,ariel,1
+,,,25/04/2025,10:18,144,MELAN,dry,paid,"breeze,ariel",2
+,,,25/04/2025,10:34,168,QUEEN,full service,paid,surf,1
+,,,25/04/2025,13:11,176,ROMEL,dry,paid,zonrox,1
+,,,25/04/2025,13:45,160,JR,wash,paid,ariel,1
+,,,25/04/2025,14:26,80,GINA,spin dry,paid,"tide,zonrox",2
+,,,25/04/2025,14:49,296,SAM ,full service,paid,ariel,1
+,,,25/04/2025,15:17,148,KIT,wash,paid,"ariel,surf",2
+,,,25/04/2025,15:50,240,LANIE,wash,paid,zonrox,1
+,,,25/04/2025,16:19,120,TOPNATCH,wash&dry,paid,downy,1
+,,,25/04/2025,16:26,136,CHRISTIAN,dry,paid,"surf,zonrox",2
+,,,25/04/2025,16:48,234,JERICK,full service,paid,ariel,1
+,,,25/04/2025,17:09,174,JHEN,spin dry,paid,"surf,zonrox",2
+,,,25/04/2025,17:34,148,MERVIN,wash,paid,breeze,1
+,,,25/04/2025,17:36,148,RICKY,wash&dry,paid,del,1
+,,,25/04/2025,18:05,152,FIOBE,wash,paid,ariel,1
+,,,25/04/2025,18:08,150,SAM,full service,paid,"zonrox,surf",2
+,,,25/04/2025,18:40,188,SULTAN,wash&dry,paid,breeze,1
+,,,25/04/2025,19:35,360,JANE,spin dry,paid,surf,1
+,,,25/04/2025,19:57,120,SIMON,wash,paid,ariel,1
+,,,26/04/2025,7:26,150,ALEX,dry,paid,"del,breeze",2
+,,,26/04/2025,7:40,166,GERALD,wash&dry,paid,"surf,downy",2
+,,,26/04/2025,7:40,150,ARGIE M,spin dry,paid,del,1
+,,,26/04/2025,7:57,138,VINCENT,dry,paid,"del,ariel",2
+,,,26/04/2025,8:00,142,ANNE,wash&dry,paid,"surf,del",2
+,,,26/04/2025,8:00,162,MARLON,full service,paid,ariel,1
+,,,26/04/2025,8:02,138,NICK,spin dry,paid,"del,ariel",2
+,,,26/04/2025,8:02,138,MONTANO,dry,paid,ariel,1
+,,,26/04/2025,8:03,110,DEL,wash&dry,paid,"tide,surf",2
+,,,26/04/2025,8:05,214,RJ,spin dry,paid,"zonrox,surf",2
+,,,26/04/2025,8:23,252,VANESSA,wash,paid,"surf,del",2
+,,,26/04/2025,8:31,150,HAMID,full service,paid,surf,1
+,,,26/04/2025,8:35,162,ROSELL,wash,paid,ariel,1
+,,,26/04/2025,8:45,278,LYN,dry,paid,"del,ariel",2
+,,,26/04/2025,9:02,60,MICHEAL,wash&dry,paid,breeze,1
+,,,26/04/2025,9:34,148,BALTAZAR,wash,paid,"breeze,surf",2
+,,,26/04/2025,9:50,152,WILMOR,full service,paid,tide,1
+,,,26/04/2025,9:55,240,JOAN,dry,paid,"ariel,breeze",2
+,,,26/04/2025,10:56,136,MARVIN,wash&dry,paid,ariel,1
+,,,26/04/2025,11:59,148,MAMANG,wash&dry,paid,"breeze,zonrox",2
+,,,26/04/2025,13:32,164,MARK,full service,paid,"tide,zonrox",2
+,,,26/04/2025,13:33,148,ALKENT,full service,paid,surf,1
+,,,26/04/2025,13:35,120,MARK O,full service,paid,del,1
+,,,26/04/2025,14:09,60,JOSHUA,wash,paid,"ariel,breeze",2
+,,,26/04/2025,14:35,136,LESTER,full service,paid,"zonrox,downy",2
+,,,26/04/2025,15:10,148,ROD,dry,paid,zonrox,1
+,,,26/04/2025,16:26,180,MARINA,wash&dry,paid,zonrox,1
+,,,26/04/2025,18:24,156,VINZ,wash&dry,paid,zonrox,1
+,,,26/04/2025,18:50,176,WILSON,dry,paid,zonrox,1
+,,,26/04/2025,18:58,160,GOMER,full service,paid,"tide,surf",2
+,,,26/04/2025,19:21,176,ADRIAN,wash&dry,paid,breeze,1
+,,,26/04/2025,19:38,408,STEVE,wash,paid,"surf,ariel",2
+,,,27/04/2025,7:20,128,ALFRANCE,dry,paid,breeze,1
+,,,27/04/2025,7:25,154,ARNORLD,dry,paid,"del,surf",2
+,,,27/04/2025,7:28,154,JR,wash,paid,"tide,ariel",2
+,,,27/04/2025,7:39,300,JOAN S.,wash,paid,tide,1
+,,,27/04/2025,7:40,150,RODEL,full service,paid,"surf,zonrox",2
+,,,27/04/2025,7:49,140,NICK,full service,paid,"surf,del",2
+,,,27/04/2025,8:02,150,MARION,wash,paid,zonrox,1
+,,,27/04/2025,8:10,140,ANGEL,wash,paid,"surf,zonrox",2
+,,,27/04/2025,8:13,280,RAHIM,wash,paid,"tide,del",2
+,,,27/04/2025,8:13,110,CRISTY,wash&dry,paid,"breeze,zonrox",2
+,,,27/04/2025,8:24,146,LUCKY,full service,paid,"ariel,breeze",2
+,,,27/04/2025,8:28,110,KEN,wash,paid,ariel,1
+,,,27/04/2025,8:30,158,NANAY VIOLY,wash,paid,"ariel,downy",2
+,,,27/04/2025,8:53,208,ROLDAN,dry,paid,breeze,1
+,,,27/04/2025,8:54,80,JAYPEE,wash&dry,paid,"surf,ariel",2
+,,,27/04/2025,8:55,140,JOJO,wash&dry,paid,zonrox,1
+,,,27/04/2025,9:07,152,CHOC,wash,paid,"downy,ariel",2
+,,,27/04/2025,9:10,192,ARNEL,spin dry,paid,breeze,1
+,,,27/04/2025,9:14,136,KENT,wash&dry,paid,downy,1
+,,,27/04/2025,9:42,388,JOSHUA,dry,paid,breeze,1
+,,,27/04/2025,9:54,192,MEL,wash,paid,surf,1
+,,,27/04/2025,10:25,192,JHONG,dry,paid,del,1
+,,,27/04/2025,10:31,152,RODMAN,spin dry,paid,zonrox,1
+,,,27/04/2025,10:57,152,SAMUEL,wash,paid,"surf,downy",2
+,,,27/04/2025,11:13,176,MARKY,wash&dry,paid,del,1
+,,,27/04/2025,11:30,120,PHILIP,dry,paid,"ariel,downy",2
+,,,27/04/2025,11:32,164,ALFRED,full service,paid,"downy,tide",2
+,,,27/04/2025,11:40,160,DARYLE,wash&dry,paid,downy,1
+,,,27/04/2025,11:42,164,MARK ,wash&dry,paid,"downy,breeze",2
+,,,27/04/2025,12:20,120,ANTONIO,full service,paid,"breeze,ariel",2
+,,,27/04/2025,12:31,158,MARVIN,spin dry,paid,downy,1
+,,,27/04/2025,12:35,160,CHRISTIAN,full service,paid,"del,ariel",2
+,,,27/04/2025,12:36,60,JOSIE,wash&dry,paid,del,1
+,,,27/04/2025,13:04,162,ARVI,full service,paid,breeze,1
+,,,27/04/2025,13:28,1480,JOHN WYNE,wash,paid,del,1
+,,,27/04/2025,14:04,168,DONALD,wash,paid,"ariel,tide",2
+,,,27/04/2025,14:39,160,MACMAC,wash&dry,paid,"breeze,tide",2
+,,,27/04/2025,15:21,138,MARIELLE,wash&dry,paid,zonrox,1
+,,,27/04/2025,15:34,150,OMAR,dry,paid,surf,1
+,,,27/04/2025,15:51,150,LINO,wash&dry,paid,tide,1
+,,,27/04/2025,16:54,120,PUNYONG,wash&dry,paid,"surf,breeze",2
+,,,27/04/2025,16:55,240,YIUAN,spin dry,paid,"downy,surf",2
+,,,27/04/2025,17:30,148,RANDY,wash&dry,paid,"del,downy",2
+,,,27/04/2025,18:05,138,JOHN REGALA,wash,paid,"tide,surf",2
+,,,27/04/2025,18:10,148,ADDY,spin dry,paid,ariel,1
+,,,27/04/2025,18:47,240,MARK,wash&dry,paid,tide,1
+,,,27/04/2025,19:14,192,RIZZA,wash&dry,paid,surf,1
+,,,27/04/2025,19:40,300,JAM,wash,paid,downy,1
+,,,28/04/2025,6:34,140,CICIL,wash&dry,paid,surf,1
+,,,28/04/2025,7:25,110,KRIS,dry,paid,surf,1
+,,,28/04/2025,7:40,166,TATTOO,wash&dry,paid,ariel,1
+,,,28/04/2025,7:51,166,JORIE,wash&dry,paid,"surf,tide",2
+,,,28/04/2025,8:01,129,MICHAEL,wash&dry,paid,breeze,1
+,,,28/04/2025,8:10,110,TOPNATS,wash,paid,"downy,tide",2
+,,,28/04/2025,8:24,252,SAY,wash,paid,"downy,breeze",2
+,,,28/04/2025,8:35,150,JOLIANNE,spin dry,paid,"tide,ariel",2
+,,,28/04/2025,10:28,160,VICTORINA,wash,paid,"ariel,downy",2
+,,,28/04/2025,11:18,240,SHERLY,wash&dry,paid,"surf,zonrox",2
+,,,28/04/2025,12:17,152,NIL,dry,paid,"tide,downy",2
+,,,28/04/2025,12:50,240,ZIAN,wash&dry,paid,ariel,1
+,,,28/04/2025,13:54,150,RONALD,dry,paid,breeze,1
+,,,28/04/2025,15:06,120,KIM,full service,paid,tide,1
+,,,28/04/2025,15:30,148,ROD,wash&dry,paid,"surf,del",2
+,,,28/04/2025,17:49,188,SULTAN,wash&dry,paid,"downy,surf",2
+,,,29/04/2025,7:20,168,FRANCE,wash,paid,"tide,ariel",2
+,,,29/04/2025,7:26,158,ALICE,spin dry,paid,surf,1
+,,,29/04/2025,7:32,154,REY,wash,paid,downy,1
+,,,29/04/2025,7:40,142,ALICE,spin dry,paid,"tide,ariel",2
+,,,29/04/2025,7:51,110,TONNY,dry,paid,del,1
+,,,29/04/2025,7:55,190,PATRICK,dry,paid,breeze,1
+,,,29/04/2025,8:00,150,IBY,full service,paid,downy,1
+,,,29/04/2025,8:15,158,BUBOY,spin dry,paid,tide,1
+,,,29/04/2025,8:25,134,JEASON,full service,paid,tide,1
+,,,29/04/2025,8:29,170,RIZZA,dry,paid,"surf,tide",2
+,,,29/04/2025,8:32,200,ROY,dry,paid,del,1
+,,,29/04/2025,8:39,158,TATS,spin dry,paid,"breeze,surf",2
+,,,29/04/2025,8:44,126,HYLEN,wash,paid,downy,1
+,,,29/04/2025,8:46,60,JOSIE,wash&dry,paid,downy,1
+,,,29/04/2025,8:50,308,AR-JAY,spin dry,paid,ariel,1
+,,,29/04/2025,8:55,284,VANESSA,wash&dry,paid,tide,1
+,,,29/04/2025,8:58,292,NEL,wash,paid,"downy,del",2
+,,,29/04/2025,9:41,140,CHA,full service,paid,surf,1
+,,,29/04/2025,11:23,206,JONEL,wash,paid,zonrox,1
+,,,29/04/2025,13:01,168,JL,wash,paid,"downy,tide",2
+,,,29/04/2025,13:35,1184,JOHN,dry,paid,"tide,downy",2
+,,,29/04/2025,13:39,136,BERNIE,wash&dry,paid,tide,1
+,,,29/04/2025,2:11,136,GIGI,wash&dry,paid,downy,1
+,,,29/04/2025,16:40,160,GERALD,spin dry,paid,del,1
+,,,29/04/2025,16:42,304,RM,wash&dry,paid,surf,1
+,,,29/04/2025,17:01,188,HAO,spin dry,paid,"del,ariel",2
+,,,29/04/2025,17:04,156,PAUL,full service,paid,del,1
+,,,29/04/2025,17:09,159,JHEN,full service,paid,"breeze,downy",2
+,,,29/04/2025,18:16,148,ADDY,dry,paid,"ariel,downy",2
+,,,29/04/2025,18:28,192,BUBOY,wash&dry,paid,"ariel,tide",2
+,,,29/04/2025,19:07,160,ANTHONY,wash,paid,"surf,ariel",2
+,,,29/04/2025,19:27,160,JAMS,spin dry,paid,"del,tide",2
+,,,29/04/2025,19:30,148,BOBET,wash,paid,breeze,1
+,,,30/04/2025,7:12,110,DON-DON,wash&dry,paid,surf,1
+,,,30/04/2025,7:14,226,CALOY,spin dry,paid,"surf,tide",2
+,,,30/04/2025,7:16,166,LANIE,wash,paid,"breeze,del",2
+,,,30/04/2025,7:21,110,BRAKE,dry,paid,"zonrox,del",2
+,,,30/04/2025,7:32,149,JR,wash&dry,paid,"downy,del",2
+,,,30/04/2025,7:45,122,KAREN,full service,paid,downy,1
+,,,30/04/2025,7:57,173,JC,spin dry,paid,"tide,zonrox",2
+,,,30/04/2025,8:10,220,NAK,full service,paid,"ariel,surf",2
+,,,30/04/2025,8:15,154,JECK,spin dry,paid,"del,tide",2
+,,,30/04/2025,8:31,126,PANTAS,wash,paid,"zonrox,ariel",2
+,,,30/04/2025,9:10,163,GRACE,dry,paid,"tide,ariel",2
+,,,30/04/2025,9:18,444,TONI,full service,paid,surf,1
+,,,30/04/2025,9:19,176,AREI,full service,paid,"zonrox,surf",2
+,,,30/04/2025,11:34,198,NEG,dry,paid,"ariel,del",2
+,,,30/04/2025,14:05,240,EDCEL,spin dry,paid,del,1
+,,,30/04/2025,14:40,157,TRISYA,spin dry,paid,surf,1
+,,,30/04/2025,14:53,120,MANDS,spin dry,paid,"surf,ariel",2
+,,,30/04/2025,15:40,148,ROD,full service,paid,"surf,ariel",2
+,,,30/04/2025,15:59,120,DOWA,wash&dry,paid,"tide,zonrox",2
+,,,30/04/2025,19:22,352,CRISTINE,wash&dry,paid,ariel,1

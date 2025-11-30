@@ -1,0 +1,75 @@
+/* MAIN WRAPPER */
+.edit-service-page {
+  margin-left: 280px;
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Toggle Buttons */
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.toggle-btn {
+  padding: 15px 60px;
+  font-size: 1.2rem;
+  border-radius: 40px;
+  border: none;
+  background: #d5f6ff;
+  color: #0b4b66;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: bold;
+}
+
+.toggle-btn.active {
+  background: #0bb3d9;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Card Container */
+.service-table-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+}
+
+th {
+  text-align: left;
+  padding: 15px;
+  font-weight: 700;
+  color: #093c4d;
+  border-bottom: 3px solid #e6eef2;
+}
+
+td {
+  padding: 18px 15px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #f2f6f9;
+}
+
+/* Edit button */
+.edit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #0c6074;
+}
+
+.edit-btn:hover {
+  color: #004a5c;
+}
