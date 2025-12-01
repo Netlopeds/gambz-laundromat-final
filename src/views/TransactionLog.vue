@@ -471,15 +471,8 @@ export default {
       },
       selectedAddons: [],
       newAddon: '',
-      availableAddons: [
-        { value: 'ariel', label: 'Ariel' },
-        { value: 'Tide', label: 'Tide' },
-        { value: 'breeze', label: 'Breeze' },
-        { value: 'Downy', label: 'Downy' },
-        { value: 'Zonrox', label: 'Zonrox'},
-        { value: 'Surf', label: 'Surf' },
-        { value: 'Del', label: 'Del' }
-      ],
+      availableAddons: [], // Will be fetched from backend
+      availableServices: [], // Will be fetched from backend
       showStatusModal: false,
       showEditStatusForm: false,
       showConfirmModal: false,
@@ -502,6 +495,8 @@ export default {
     }
   },
   async mounted() {
+    await this.fetchServices()
+    await this.fetchAddons()
     await this.fetchTransactions()
   },
   computed: {
@@ -601,6 +596,30 @@ export default {
     }
   },
   methods: {
+    async fetchServices() {
+      try {
+        const response = await api.services.getAll();
+        this.availableServices = response.data.map(s => ({
+          value: s.service_id,
+          label: s.name,
+          price: parseFloat(s.base_price)
+        }));
+      } catch (error) {
+        console.error('Error fetching services:', error);
+      }
+    },
+    async fetchAddons() {
+      try {
+        const response = await api.addons.getAll();
+        this.availableAddons = response.data.map(a => ({
+          value: a.addon_id,
+          label: a.name,
+          price: parseFloat(a.price)
+        }));
+      } catch (error) {
+        console.error('Error fetching addons:', error);
+      }
+    },
     async fetchTransactions() {
       this.loading = true
       this.error = null
@@ -609,13 +628,17 @@ export default {
         this.transactions = response.data.map(t => ({
           id: `TN${String(t.transaction_id).padStart(4, '0')}`,
           customer: t.customer_name || 'N/A',
-          service: t.service_type || 'N/A',
-          addons: t.addon || 'None',
+          service: t.service_name || 'N/A',
+          addons: t.addons && t.addons.length > 0 
+            ? t.addons.map(a => a.name).join(', ') 
+            : 'None',
           status: t.status || 'unpaid',
           date: this.formatDate(t.date),
           rawDate: t.date,
           time: t.time_received,
-          amount: parseFloat(t.price) || 0
+          amount: parseFloat(t.price) || 0,
+          service_id: t.service_id,
+          addon_ids: t.addons ? t.addons.map(a => a.addon_id) : []
         }))
       } catch (error) {
         console.error('Error fetching transactions:', error)
@@ -700,16 +723,28 @@ export default {
         const transactionId = parseInt(this.selectedTransaction.id.replace('TN', ''))
         const authStore = useAuthStore()
         
+        // Get full transaction data
+        const transaction = this.transactions.find(t => t.id === this.selectedTransaction.id)
+        
+        // Get customer_id
+        const allCustomers = await api.customers.getAll()
+        const customer = allCustomers.data.find(c => c.name.toLowerCase() === transaction.customer.toLowerCase())
+        const customerId = customer ? customer.customer_id : 1
+        
         await api.transactions.update(transactionId, {
-          status: this.newStatus,
-          staff_id: authStore.staffId || 1 // Use logged in staff ID
+          customer_id: customerId,
+          staff_id: authStore.staffId || 1,
+          service_id: transaction.service_id,
+          addon_ids: transaction.addon_ids,
+          date: transaction.rawDate,
+          time_received: transaction.time,
+          price: transaction.amount,
+          name: transaction.customer,
+          status: this.newStatus
         })
         
-        // Update local data
-        const index = this.transactions.findIndex(t => t.id === this.selectedTransaction.id)
-        if (index !== -1) {
-          this.transactions[index].status = this.newStatus
-        }
+        // Refresh transactions
+        await this.fetchTransactions()
         
         console.log(`Transaction ${this.selectedTransaction.id} status changed to ${this.newStatus}`)
       } catch (error) {
@@ -753,49 +788,31 @@ export default {
       }
     },
     openEditModal(transaction) {
+      // Find service_id from service name
+      const service = this.availableServices.find(s => s.label === transaction.service)
+      
       this.editForm = {
         id: transaction.id,
         customer: transaction.customer,
-        service: transaction.service,
+        service: service ? service.value : '',
         addons: transaction.addons,
         amount: transaction.amount,
         status: transaction.status,
-        date: transaction.date,
+        date: transaction.rawDate || transaction.date,
         time: transaction.time
       }
       
-      // Parse existing addons and populate selectedAddons array
+      // Parse existing addons and populate selectedAddons array using addon_ids
       this.selectedAddons = []
-      if (transaction.addons && transaction.addons !== 'None') {
-        // Handle simple addon format (e.g., "Ariel", "Surf")
-        if (!transaction.addons.includes('(')) {
-          // Single addon without quantity
-          const addonValue = this.availableAddons.find(a => a.label === transaction.addons)?.value
-          if (addonValue) {
-            this.selectedAddons.push({
-              type: addonValue,
-              qty: 1
-            })
-          }
-        } else {
-          // Handle complex addon format with quantities (e.g., "Ariel (2), Surf (1)")
-          const addonParts = transaction.addons.split(', ')
-          addonParts.forEach(part => {
-            const match = part.match(/^(.+)\s*\((\d+)\)$/)
-            if (match) {
-              const addonName = match[1].trim()
-              const qty = parseInt(match[2])
-              const addonValue = this.availableAddons.find(a => a.label === addonName)?.value
-              if (addonValue) {
-                this.selectedAddons.push({
-                  type: addonValue,
-                  qty: qty
-                })
-              }
-            }
+      if (transaction.addon_ids && transaction.addon_ids.length > 0) {
+        transaction.addon_ids.forEach(addonId => {
+          this.selectedAddons.push({
+            type: addonId,
+            qty: 1 // Default quantity, you may need to store quantities separately
           })
-        }
+        })
       }
+      
       this.showEditModal = true
     },
     closeEditModal() {
@@ -874,23 +891,28 @@ export default {
         const transactionId = parseInt(this.editForm.id.replace('TN', ''))
         const authStore = useAuthStore()
         
+        // Get customer_id from customer name
+        const allCustomers = await api.customers.getAll()
+        const customer = allCustomers.data.find(c => c.name.toLowerCase() === this.editForm.customer.toLowerCase())
+        const customerId = customer ? customer.customer_id : 1
+        
+        // Prepare addon_ids array
+        const addon_ids = this.selectedAddons.map(addon => addon.type)
+        
         await api.transactions.update(transactionId, {
-          customer_id: 1, // You may need to handle customer lookup
+          customer_id: customerId,
           staff_id: authStore.staffId || 1,
+          service_id: parseInt(this.editForm.service),
+          addon_ids: addon_ids,
           date: this.editForm.date,
           time_received: this.editForm.time,
           price: this.editForm.amount,
           name: this.editForm.customer,
-          service_type: this.editForm.service,
-          addon: this.editForm.addons,
           status: this.editForm.status
         })
         
-        // Update local data
-        const index = this.transactions.findIndex(t => t.id === this.editForm.id)
-        if (index !== -1) {
-          this.transactions[index] = { ...this.editForm }
-        }
+        // Refresh transactions to get updated data
+        await this.fetchTransactions()
         
         console.log(`Transaction ${this.editForm.id} updated`)
       } catch (error) {

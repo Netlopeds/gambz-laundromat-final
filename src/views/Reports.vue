@@ -359,7 +359,7 @@ export default {
         
         const serviceCounts = {}
         transactions.forEach(t => {
-          const service = t.service_type || 'Unknown'
+          const service = t.service_name || 'Unknown'
           serviceCounts[service] = (serviceCounts[service] || 0) + 1
         })
         
@@ -513,12 +513,12 @@ export default {
           const row = [
             `TN${String(t.transaction_id).padStart(4, '0')}`,
             `"${t.customer_name || t.name}"`,
-            `"${t.service_type}"`,
+            `"${t.service_name || 'N/A'}"`,
             formatDateForExport(t.date),
             t.time_received,
             t.price,
             t.status,
-            `"${t.addon || 'none'}"`
+            `"${t.addons && t.addons.length > 0 ? t.addons.map(a => a.name).join(', ') : 'None'}"`
           ]
           csvRows.push(row.join(','))
         })
