@@ -256,8 +256,9 @@ export default {
           id: s.service_id,
           name: s.name,
           price: parseFloat(s.base_price),
-          updated: new Date(s.created_at || Date.now()).toISOString().split('T')[0],
-          status: 'Active'
+          updated: new Date(s.updated_at || s.created_at || Date.now()).toISOString().split('T')[0],
+          status: s.is_active ? 'Active' : 'Inactive',
+          isActive: s.is_active
         }))
       } catch (error) {
         console.error('Error fetching services:', error)
@@ -270,8 +271,9 @@ export default {
           id: a.addon_id,
           name: a.name,
           description: `Price: ₱${parseFloat(a.price).toFixed(2)}`,
-          updated: new Date(a.created_at || Date.now()).toISOString().split('T')[0],
-          status: 'Active'
+          updated: new Date(a.updated_at || a.created_at || Date.now()).toISOString().split('T')[0],
+          status: a.is_active ? 'Active' : 'Inactive',
+          isActive: a.is_active
         }))
       } catch (error) {
         console.error('Error fetching addons:', error)
@@ -288,7 +290,8 @@ export default {
           price: service.price,
           description: '',
           status: service.status,
-          updated: service.updated
+          updated: service.updated,
+          isActive: service.isActive
         }
         this.showEditModal = true
       }
@@ -304,7 +307,8 @@ export default {
           price: '',
           description: addon.description,
           status: addon.status,
-          updated: addon.updated
+          updated: addon.updated,
+          isActive: addon.isActive
         }
         this.showEditModal = true
       }
@@ -360,11 +364,14 @@ export default {
             return
           }
           
+          const isActive = this.editForm.status === 'Active' ? 1 : 0
+          
           if (this.isAddingNew) {
             // Add new service to backend
             const response = await api.services.create({
               name: this.editForm.name,
-              base_price: parseFloat(this.editForm.price)
+              base_price: parseFloat(this.editForm.price),
+              is_active: isActive
             })
             
             // Add to local array
@@ -373,13 +380,15 @@ export default {
               name: this.editForm.name,
               price: parseFloat(this.editForm.price),
               status: this.editForm.status,
-              updated: new Date().toISOString().split('T')[0]
+              updated: new Date().toISOString().split('T')[0],
+              isActive: isActive
             })
           } else {
             // Update existing service in backend
             await api.services.update(this.editingId, {
               name: this.editForm.name,
-              base_price: parseFloat(this.editForm.price)
+              base_price: parseFloat(this.editForm.price),
+              is_active: isActive
             })
             
             // Update local array
@@ -389,6 +398,7 @@ export default {
               service.price = parseFloat(this.editForm.price)
               service.status = this.editForm.status
               service.updated = new Date().toISOString().split('T')[0]
+              service.isActive = isActive
             }
           }
         } else {
@@ -396,11 +406,14 @@ export default {
           const priceMatch = this.editForm.description.match(/₱([0-9.]+)/)
           const price = priceMatch ? parseFloat(priceMatch[1]) : 0
           
+          const isActive = this.editForm.status === 'Active' ? 1 : 0
+          
           if (this.isAddingNew) {
             // Add new addon to backend
             const response = await api.addons.create({
               name: this.editForm.name,
-              price: price
+              price: price,
+              is_active: isActive
             })
             
             // Add to local array
@@ -409,13 +422,15 @@ export default {
               name: this.editForm.name,
               description: this.editForm.description,
               status: this.editForm.status,
-              updated: new Date().toISOString().split('T')[0]
+              updated: new Date().toISOString().split('T')[0],
+              isActive: isActive
             })
           } else {
             // Update existing addon in backend
             await api.addons.update(this.editingId, {
               name: this.editForm.name,
-              price: price
+              price: price,
+              is_active: isActive
             })
             
             // Update local array
@@ -425,6 +440,7 @@ export default {
               addon.description = this.editForm.description
               addon.status = this.editForm.status
               addon.updated = new Date().toISOString().split('T')[0]
+              addon.isActive = isActive
             }
           }
         }

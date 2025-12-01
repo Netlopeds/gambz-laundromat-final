@@ -21,12 +21,11 @@ async function addUser() {
     
     console.log('\nSelect role:');
     console.log('1 - Admin');
-    console.log('2 - Manager');
-    console.log('3 - Staff');
-    const roleChoice = await question('Enter role number (1-3): ');
+    console.log('2 - Staff');
+    const roleChoice = await question('Enter role number (1-2): ');
     
     const roleId = parseInt(roleChoice);
-    if (roleId < 1 || roleId > 3) {
+    if (roleId < 1 || roleId > 2) {
       console.log('❌ Invalid role selection');
       rl.close();
       process.exit(1);
@@ -45,7 +44,7 @@ async function addUser() {
     console.log(`📧 Email: ${email}`);
     console.log(`🔑 Password: ${password}`);
     console.log(`👤 Staff ID: ${result.insertId}`);
-    console.log(`👔 Role: ${roleId === 1 ? 'Admin' : roleId === 2 ? 'Manager' : 'Staff'}`);
+    console.log(`👔 Role: ${roleId === 1 ? 'Admin' : 'Staff'}`);
     
     rl.close();
     process.exit(0);

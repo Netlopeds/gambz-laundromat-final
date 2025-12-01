@@ -46,15 +46,16 @@ const isAdmin = (req, res, next) => {
   next();
 };
 
-// Middleware to verify if user is admin or manager (role_id = 1 or 2)
-const isAdminOrManager = (req, res, next) => {
+// Middleware to verify if user is staff (role_id = 2)
+const isStaff = (req, res, next) => {
   if (!req.user) {
     return res.status(401).json({ error: 'Authentication required' });
   }
 
-  if (req.user.roleId !== 1 && req.user.roleId !== 2) {
+  if (req.user.roleId !== 2) {
     return res.status(403).json({ 
-      error: 'Access denied. Admin or Manager privileges required.'
+      error: 'Access denied. Staff privileges required.',
+      message: 'Only staff members can perform this action'
     });
   }
 
@@ -64,5 +65,5 @@ const isAdminOrManager = (req, res, next) => {
 module.exports = {
   isAuthenticated,
   isAdmin,
-  isAdminOrManager
+  isStaff
 };

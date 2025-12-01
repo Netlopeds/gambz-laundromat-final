@@ -21,7 +21,7 @@
               </select>
             </div>
             <div class="report-content-kpi">
-              <div class="report-value-kpi">₱{{ adminKpiData[adminSalesPeriod].sales }}</div>
+              <div class="report-value-kpi">₱{{ formatMoney(adminKpiData[adminSalesPeriod].sales) }}</div>
               <p class="report-label-kpi">Total Revenue</p>
             </div>
           </div>
@@ -121,12 +121,6 @@
           </div>
         </div>
 
-        <div class="export-section-staff">
-          <button class="export-btn-staff" @click="exportReport">
-            <span>📊</span> Export Report ({{ adminSalesPeriod.charAt(0).toUpperCase() + adminSalesPeriod.slice(1) }})
-          </button>
-        </div>
-
       </div>
 
       <div v-else class="staff-reports">
@@ -142,7 +136,7 @@
               <h3 class="report-title-kpi">Today's Sales Report</h3>
             </div>
             <div class="report-content-kpi">
-              <div class="report-value-kpi">₱{{ staffKpiData.sales }}</div>
+              <div class="report-value-kpi">₱{{ formatMoney(staffKpiData.sales) }}</div>
               <p class="report-label-kpi">Total Revenue</p>
             </div>
           </div>
@@ -321,6 +315,10 @@ export default {
     }
   },
   methods: {
+    formatMoney(amount) {
+      const num = parseFloat(amount) || 0
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    },
     async fetchReportsData() {
       try {
         const transactionsResponse = await api.transactions.getAll()
@@ -359,8 +357,17 @@ export default {
         
         const serviceCounts = {}
         transactions.forEach(t => {
-          const service = t.service_name || 'Unknown'
-          serviceCounts[service] = (serviceCounts[service] || 0) + 1
+          // Handle new schema with services array
+          if (t.services && t.services.length > 0) {
+            t.services.forEach(service => {
+              const serviceName = service.name || 'Unknown'
+              serviceCounts[serviceName] = (serviceCounts[serviceName] || 0) + 1
+            })
+          } else {
+            // Fallback for old data structure
+            const service = t.service_name || t.service_type || 'Unknown'
+            serviceCounts[service] = (serviceCounts[service] || 0) + 1
+          }
         })
         
         const maxCount = Math.max(...Object.values(serviceCounts), 1)
@@ -456,87 +463,6 @@ export default {
         }
       } catch (error) {
         console.error('Error fetching period stats:', error)
-      }
-    },
-    async exportReport() {
-      try {
-        // Determine which period to export based on admin selections
-        let period = 'monthly'
-        if (this.isUserAdmin) {
-          // Use the most common selected period, or default to monthly
-          period = this.adminSalesPeriod
-        }
-        
-        // Calculate date range based on period
-        const today = new Date()
-        let startDate, endDate
-        
-        if (period === 'daily') {
-          startDate = new Date(today.setHours(0, 0, 0, 0)).toISOString().split('T')[0]
-          endDate = new Date(today.setHours(23, 59, 59, 999)).toISOString().split('T')[0]
-        } else if (period === 'monthly') {
-          startDate = new Date(today.getFullYear(), today.getMonth(), 1).toISOString().split('T')[0]
-          endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0).toISOString().split('T')[0]
-        } else if (period === 'yearly') {
-          startDate = new Date(today.getFullYear(), 0, 1).toISOString().split('T')[0]
-          endDate = new Date(today.getFullYear(), 11, 31).toISOString().split('T')[0]
-        }
-        
-        // Fetch transactions for the period
-        const transactionsResponse = await api.transactions.getAll()
-        const allTransactions = transactionsResponse.data
-        
-        // Filter transactions by date range
-        const transactions = allTransactions.filter(t => {
-          const transDate = new Date(t.date)
-          const start = new Date(startDate)
-          const end = new Date(endDate)
-          return transDate >= start && transDate <= end
-        })
-        
-        // Helper function to format date as DD/MM/YYYY
-        const formatDateForExport = (dateStr) => {
-          if (!dateStr) return 'N/A'
-          const date = new Date(dateStr)
-          if (isNaN(date.getTime())) return 'N/A'
-          const day = date.getUTCDate().toString().padStart(2, '0')
-          const month = (date.getUTCMonth() + 1).toString().padStart(2, '0')
-          const year = date.getUTCFullYear()
-          return `${day}/${month}/${year}`
-        }
-        
-        // Create CSV content
-        const headers = ['Transaction ID', 'Customer Name', 'Service Type', 'Date', 'Time', 'Price', 'Status', 'Add-ons']
-        const csvRows = [headers.join(',')]
-        
-        transactions.forEach(t => {
-          const row = [
-            `TN${String(t.transaction_id).padStart(4, '0')}`,
-            `"${t.customer_name || t.name}"`,
-            `"${t.service_name || 'N/A'}"`,
-            formatDateForExport(t.date),
-            t.time_received,
-            t.price,
-            t.status,
-            `"${t.addons && t.addons.length > 0 ? t.addons.map(a => a.name).join(', ') : 'None'}"`
-          ]
-          csvRows.push(row.join(','))
-        })
-        
-        // Create and download CSV
-        const csvContent = csvRows.join('\n')
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
-        const link = document.createElement('a')
-        const url = URL.createObjectURL(blob)
-        link.setAttribute('href', url)
-        link.setAttribute('download', `report_${period}_${new Date().toISOString().split('T')[0]}.csv`)
-        link.style.visibility = 'hidden'
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-      } catch (error) {
-        console.error('Error exporting report:', error)
-        alert('Failed to export report')
       }
     }
   }

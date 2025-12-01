@@ -41,6 +41,14 @@ export default {
     create: (data) => api.post('/transactions', data),
     update: (id, data) => api.put(`/transactions/${id}`, data),
     delete: (id) => api.delete(`/transactions/${id}`),
+    importCSV: (formData) => {
+      return axios.post(`${API_URL}/transactions/import-csv`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('auth') || '{}').staffId}:${JSON.parse(localStorage.getItem('auth') || '{}').roleId}`
+        }
+      });
+    },
   },
 
   // Customer endpoints

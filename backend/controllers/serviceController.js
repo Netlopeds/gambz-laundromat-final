@@ -27,11 +27,11 @@ exports.getServiceById = async (req, res) => {
 // Create new service
 exports.createService = async (req, res) => {
   try {
-    const { name, base_price } = req.body;
+    const { name, base_price, is_active } = req.body;
     
     const [result] = await db.query(
-      'INSERT INTO SERVICES (name, base_price) VALUES (?, ?)',
-      [name, base_price]
+      'INSERT INTO SERVICES (name, base_price, is_active) VALUES (?, ?, ?)',
+      [name, base_price, is_active !== undefined ? is_active : true]
     );
     
     res.status(201).json({ 
@@ -46,12 +46,20 @@ exports.createService = async (req, res) => {
 // Update service
 exports.updateService = async (req, res) => {
   try {
-    const { name, base_price } = req.body;
+    const { name, base_price, is_active } = req.body;
     
-    const [result] = await db.query(
-      'UPDATE SERVICES SET name = ?, base_price = ? WHERE service_id = ?',
-      [name, base_price, req.params.id]
-    );
+    let query = 'UPDATE SERVICES SET name = ?, base_price = ?';
+    let params = [name, base_price];
+    
+    if (is_active !== undefined) {
+      query += ', is_active = ?';
+      params.push(is_active);
+    }
+    
+    query += ' WHERE service_id = ?';
+    params.push(req.params.id);
+    
+    const [result] = await db.query(query, params);
     
     if (result.affectedRows === 0) {
       return res.status(404).json({ error: 'Service not found' });

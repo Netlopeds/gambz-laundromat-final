@@ -9,9 +9,8 @@ router.get('/:id', transactionController.getTransactionById);
 
 // Protected routes (authentication required)
 router.post('/', isAuthenticated, transactionController.createTransaction);
-
-// Admin-only routes
-router.put('/:id', isAuthenticated, isAdmin, transactionController.updateTransaction);
+router.post('/import-csv', isAuthenticated, transactionController.importCSV);
+router.put('/:id', isAuthenticated, transactionController.updateTransaction);
 router.delete('/:id', isAuthenticated, isAdmin, transactionController.deleteTransaction);
 
 module.exports = router;

@@ -27,11 +27,11 @@ exports.getAddonById = async (req, res) => {
 // Create new addon
 exports.createAddon = async (req, res) => {
   try {
-    const { name, price } = req.body;
+    const { name, price, is_active } = req.body;
     
     const [result] = await db.query(
-      'INSERT INTO ADDON (name, price) VALUES (?, ?)',
-      [name, price]
+      'INSERT INTO ADDON (name, price, is_active) VALUES (?, ?, ?)',
+      [name, price, is_active !== undefined ? is_active : true]
     );
     
     res.status(201).json({ 
@@ -46,12 +46,20 @@ exports.createAddon = async (req, res) => {
 // Update addon
 exports.updateAddon = async (req, res) => {
   try {
-    const { name, price } = req.body;
+    const { name, price, is_active } = req.body;
     
-    const [result] = await db.query(
-      'UPDATE ADDON SET name = ?, price = ? WHERE addon_id = ?',
-      [name, price, req.params.id]
-    );
+    let query = 'UPDATE ADDON SET name = ?, price = ?';
+    let params = [name, price];
+    
+    if (is_active !== undefined) {
+      query += ', is_active = ?';
+      params.push(is_active);
+    }
+    
+    query += ' WHERE addon_id = ?';
+    params.push(req.params.id);
+    
+    const [result] = await db.query(query, params);
     
     if (result.affectedRows === 0) {
       return res.status(404).json({ error: 'Addon not found' });

@@ -27,38 +27,68 @@
               </div>
 
               <div class="form-group">
-                <label for="serviceType">Service Type</label>
-                <select id="serviceType" v-model="form.serviceType" required>
-                  <option value="">Select service</option>
-                  <option 
-                    v-for="service in availableServices" 
-                    :key="service.value" 
-                    :value="service.value"
-                  >
-                    {{ service.label }} - ₱{{ service.price }}
-                  </option>
+                <label for="status">Status</label>
+                <select id="status" v-model="form.status" required>
+                  <option value="pending" selected>Unpaid</option>
+                  <option value="completed">Paid</option>
                 </select>
               </div>
 
               <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" v-model="form.date" :max="today" required @change="checkWashPromo" />
+              </div>
+
+              <div class="form-group">
+                <label for="time">Time Received</label>
+                <input 
+                  type="time" 
+                  id="time" 
+                  v-model="form.time" 
+                  step="60"
+                  pattern="[0-9]{2}:[0-9]{2}"
+                  title="Please use 24-hour format (HH:MM)"
+                  @blur="formatTime24Hour"
+                  @change="checkWashPromo"
+                  required 
+                />
+              </div>
+            </div>
+
+            <!-- Row 2: Services -->
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label for="services">Service Type</label>
+                <div class="services-container">
+                  <div class="add-service-section">
+                    <select v-model="newService" class="service-select">
+                      <option value="">Select service to add</option>
+                      <option 
+                        v-for="service in availableServices" 
+                        :key="service.value" 
+                        :value="service.value"
+                      >
+                        {{ service.label }} - ₱{{ service.price }}
+                      </option>
+                    </select>
+                    <button 
+                      type="button" 
+                      @click="addService" 
+                      :disabled="!newService"
+                      class="add-btn"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3: Add-ons -->
+            <div class="form-row">
+              <div class="form-group full-width">
                 <label for="addons">Add-ons</label>
                 <div class="addons-container">
-                  <!-- Selected Add-ons List -->
-                  <div v-if="selectedAddons.length > 0" class="selected-addons">
-                    <div v-for="(addon, index) in selectedAddons" :key="index" class="addon-item">
-                      <span class="addon-name">{{ getAddonDisplayName(addon.type) }}</span>
-                      <div class="addon-controls">
-                        <div class="qty-controls">
-                          <button type="button" @click="decrementQty(index)" class="qty-btn minus-btn" :disabled="addon.qty <= 1">-</button>
-                          <span class="qty-display">{{ addon.qty }}</span>
-                          <button type="button" @click="incrementQty(index)" class="qty-btn plus-btn" :disabled="addon.qty >= 99">+</button>
-                        </div>
-                        <button type="button" @click="removeAddon(index)" class="remove-btn">&times;</button>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Add New Add-on -->
                   <div class="add-addon-section">
                     <select v-model="newAddon" class="addon-select">
                       <option value="">Select add-on to add</option>
@@ -67,7 +97,7 @@
                         :key="addon.value" 
                         :value="addon.value"
                       >
-                        {{ addon.label }}
+                        {{ addon.label }} - ₱{{ addon.price }}
                       </option>
                     </select>
                     <button 
@@ -81,47 +111,49 @@
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class="form-group">
-                <label for="status">Status</label>
-                <select id="status" v-model="form.status" required>
-                  <option value="pending" selected>Unpaid</option>
-                  <option value="completed">Paid</option>
-                </select>
+            <!-- Extra Dry Service Checkbox -->
+            <div class="form-row" v-if="hasDryService">
+              <div class="form-group full-width">
+                <label class="checkbox-label">
+                  <input 
+                    type="checkbox" 
+                    v-model="form.extraService"
+                    @change="computeAmount"
+                  />
+                  Extra Dry Service (+₱30)
+                </label>
               </div>
             </div>
 
-            <!-- Row 2 -->
+            <!-- Wash Promo Indicator -->
+            <div class="form-row" v-if="form.washPromo">
+              <div class="form-group full-width">
+                <div class="promo-indicator">
+                  🎉 Wash Promo Active (7AM-9AM) - Special pricing applied!
+                </div>
+              </div>
+            </div>
+
+            <!-- Summary Section -->
             <div class="form-row">
-              <div class="form-group">
-                <label for="date">Date</label>
-                <input type="date" id="date" v-model="form.date" :max="today" required />
-              </div>
-
-              <div class="form-group">
-                <label for="time">Time Received</label>
-                <input 
-                  type="time" 
-                  id="time" 
-                  v-model="form.time" 
-                  step="60"
-                  pattern="[0-9]{2}:[0-9]{2}"
-                  title="Please use 24-hour format (HH:MM)"
-                  @blur="formatTime24Hour"
-                  required 
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="amount">Amount (₱)</label>
-                <input 
-                  type="number" 
-                  id="amount" 
-                  v-model="form.amount" 
-                  placeholder="Enter amount"
-                  min="0"
-                  required
-                />
+              <div class="form-group full-width">
+                <label>Order Summary</label>
+                <div class="order-summary">
+                  <div class="summary-section">
+                    <strong>Services:</strong>
+                    <p class="summary-text">{{ getServicesForDisplay() }}</p>
+                  </div>
+                  <div class="summary-section">
+                    <strong>Add-ons:</strong>
+                    <p class="summary-text">{{ getAddonsForDisplay() }}</p>
+                  </div>
+                  <div class="summary-section">
+                    <strong>Total Amount:</strong>
+                    <p class="summary-total">₱{{ formatMoney(form.amount) }}</p>
+                  </div>
+                </div>
               </div>
             </div>
             </div>
@@ -168,12 +200,20 @@
               <span class="summary-value">{{ form.customerName }}</span>
             </div>
             <div class="summary-item">
-              <span class="summary-label">Service Type:</span>
-              <span class="summary-value">{{ getServiceTypeName(form.serviceType) }}</span>
+              <span class="summary-label">Services:</span>
+              <span class="summary-value">{{ getServicesForDisplay() }}</span>
             </div>
             <div class="summary-item">
               <span class="summary-label">Add-ons:</span>
-              <span class="summary-value">{{ getAddonsName() }}</span>
+              <span class="summary-value">{{ getAddonsForDisplay() }}</span>
+            </div>
+            <div class="summary-item" v-if="form.extraService">
+              <span class="summary-label">Extra Dry Service:</span>
+              <span class="summary-value">Yes (+₱30)</span>
+            </div>
+            <div class="summary-item" v-if="form.washPromo">
+              <span class="summary-label">Wash Promo:</span>
+              <span class="summary-value">Active (7AM-9AM)</span>
             </div>
             <div class="summary-item">
               <span class="summary-label">Status:</span>
@@ -188,8 +228,8 @@
               <span class="summary-value">{{ form.time }}</span>
             </div>
             <div class="summary-item">
-              <span class="summary-label">Amount:</span>
-              <span class="summary-value">₱{{ form.amount }}</span>
+              <span class="summary-label">Total Amount:</span>
+              <span class="summary-value">₱{{ formatMoney(form.amount) }}</span>
             </div>
           </div>
         </div>
@@ -217,6 +257,30 @@
         </div>
       </div>
     </div>
+
+    <!-- Import Success Modal -->
+    <div v-if="showImportModal" class="modal-overlay" @click="closeImportModal">
+      <div class="modal-content modal-confirm" @click.stop>
+        <div class="modal-header">
+          <h3>Import Complete!</h3>
+          <button @click="closeImportModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="success-message" v-if="importResult">
+            {{ importResult.message }}
+          </p>
+          <div class="import-stats" v-if="importResult">
+            <p><strong>📊 Import Summary:</strong></p>
+            <p>✅ Transactions Imported: {{ importResult.imported || 0 }}</p>
+            <p v-if="importResult.skipped > 0">⏭️ Transactions Skipped: {{ importResult.skipped }}</p>
+            <p v-if="importResult.customers">👥 Customers Processed: {{ importResult.customers }}</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeImportModal" class="btn-modal-submit">OK</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -233,24 +297,39 @@ export default {
   computed: {
     today() {
       return new Date().toISOString().split('T')[0]
+    },
+    hasDryService() {
+      return this.selectedServices.some(serviceId => {
+        const service = this.availableServices.find(s => s.value === serviceId)
+        return service && (
+          service.label.toLowerCase().includes('dry') ||
+          service.label.toLowerCase().includes('fold')
+        )
+      })
     }
   },
   data() {
     return {
       showConfirmModal: false,
       showSuccessModal: false,
+      showImportModal: false,
+      importResult: null,
       selectedAddons: [],
+      selectedServices: [],
       newAddon: '',
+      newService: '',
       availableAddons: [], // Will be fetched from backend
       availableServices: [], // Will be fetched from backend
       form: {
         customerName: '',
         serviceType: '',
         weight: '',
-        amount: '',
+        amount: '0.00',
         status: 'pending',
         date: '',
-        time: ''
+        time: '',
+        extraService: false,
+        washPromo: false
       }
     }
   },
@@ -263,25 +342,33 @@ export default {
     await this.fetchAddons()
   },
   watch: {
-    'form.serviceType': function(newVal) {
-      this.computeAmount()
+    selectedServices: {
+      handler() {
+        this.computeAmount()
+      },
+      deep: true
     },
     selectedAddons: {
       handler() {
         this.computeAmount()
       },
       deep: true
+    },
+    'form.extraService': function() {
+      this.computeAmount()
     }
   },
   methods: {
     async fetchServices() {
       try {
         const response = await api.services.getAll()
-        this.availableServices = response.data.map(s => ({
-          value: s.service_id,
-          label: s.name,
-          price: parseFloat(s.base_price)
-        }))
+        this.availableServices = response.data
+          .filter(s => s.is_active) // Only show active services
+          .map(s => ({
+            value: s.service_id,
+            label: s.name,
+            price: parseFloat(s.base_price)
+          }))
       } catch (error) {
         console.error('Error fetching services:', error)
       }
@@ -289,25 +376,31 @@ export default {
     async fetchAddons() {
       try {
         const response = await api.addons.getAll()
-        this.availableAddons = response.data.map(a => ({
-          value: a.addon_id,
-          label: a.name,
-          price: parseFloat(a.price)
-        }))
+        this.availableAddons = response.data
+          .filter(a => a.is_active) // Only show active addons
+          .map(a => ({
+            value: a.addon_id,
+            label: a.name,
+            price: parseFloat(a.price)
+          }))
       } catch (error) {
         console.error('Error fetching addons:', error)
       }
     },
+    formatMoney(amount) {
+      const num = parseFloat(amount) || 0
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    },
     computeAmount() {
       let total = 0
       
-      // Add service price
-      if (this.form.serviceType) {
-        const service = this.availableServices.find(s => s.value === this.form.serviceType)
+      // Add service prices
+      this.selectedServices.forEach(serviceId => {
+        const service = this.availableServices.find(s => s.value === serviceId)
         if (service) {
           total += service.price
         }
-      }
+      })
       
       // Add addon prices
       this.selectedAddons.forEach(addon => {
@@ -317,7 +410,43 @@ export default {
         }
       })
       
+      // Add extra dry service cost
+      if (this.form.extraService && this.hasDryService) {
+        total += 30
+      }
+      
       this.form.amount = total.toFixed(2)
+    },
+    checkWashPromo() {
+      if (!this.form.time) {
+        this.form.washPromo = false
+        return
+      }
+      
+      const [hours, minutes] = this.form.time.split(':')
+      const hour = parseInt(hours)
+      
+      // Check if time is between 7:00 AM and 9:00 AM
+      this.form.washPromo = hour >= 7 && hour < 9
+    },
+    addService() {
+      if (this.newService && !this.selectedServices.includes(this.newService)) {
+        this.selectedServices.push(this.newService)
+        this.newService = ''
+      }
+    },
+    removeService(serviceId) {
+      const index = this.selectedServices.indexOf(serviceId)
+      if (index > -1) {
+        this.selectedServices.splice(index, 1)
+      }
+    },
+    getServicesForDisplay() {
+      if (this.selectedServices.length === 0) return 'None selected'
+      return this.selectedServices.map(serviceId => {
+        const service = this.availableServices.find(s => s.value === serviceId)
+        return service ? `${service.label} (₱${service.price})` : 'Unknown'
+      }).join(', ')
     },
     handleSubmit() {
       this.showConfirmModal = true
@@ -328,6 +457,12 @@ export default {
     async confirmTransaction() {
       try {
         const authStore = useAuthStore()
+        
+        // Validate that at least one service is selected
+        if (this.selectedServices.length === 0) {
+          alert('Please select at least one service')
+          return
+        }
         
         // Get all transactions to find next ID
         const allTransactions = await api.transactions.getAll()
@@ -353,10 +488,12 @@ export default {
           customerId = customerResponse.data.customer_id
         }
         
-        // Prepare addon_ids array
+        // Prepare service_ids and addon_ids arrays
+        const service_ids = this.selectedServices
         const addon_ids = this.selectedAddons.map(addon => addon.type)
+        const addon_quantities = this.selectedAddons.map(addon => addon.qty)
         
-        // Create transaction with explicit ID
+        // Create transaction with new structure
         await api.transactions.create({
           transaction_id: nextTransactionId,
           customer_id: customerId,
@@ -364,9 +501,14 @@ export default {
           date: this.form.date,
           time_received: this.form.time,
           price: parseFloat(this.form.amount) || 0,
-          name: this.form.customerName,
-          service_id: this.form.serviceType,
+          total: parseFloat(this.form.amount) || 0,
+          customer_name: this.form.customerName,
+          service_ids: service_ids,
           addon_ids: addon_ids,
+          addon_quantities: addon_quantities,
+          extra_service: this.form.extraService,
+          wash_promo: this.form.washPromo,
+          quantity_addons: this.selectedAddons.reduce((sum, addon) => sum + addon.qty, 0),
           status: this.form.status === 'completed' ? 'paid' : 'unpaid'
         })
         
@@ -383,13 +525,6 @@ export default {
       this.showSuccessModal = false
       this.resetForm()
     },
-    getServiceTypeName(value) {
-      const service = this.availableServices.find(s => s.value === value)
-      return service ? service.label : value
-    },
-    getAddonsName() {
-      return this.getAddonsForDisplay()
-    },
     getStatusName(value) {
       const statuses = {
         'pending': 'Unpaid',
@@ -402,13 +537,17 @@ export default {
         customerName: '',
         serviceType: '',
         weight: '',
-        amount: '',
+        amount: '0.00',
         status: 'pending',
         date: '',
-        time: ''
+        time: '',
+        extraService: false,
+        washPromo: false
       }
       this.selectedAddons = []
+      this.selectedServices = []
       this.newAddon = ''
+      this.newService = ''
     },
     addAddon() {
       if (this.newAddon) {
@@ -492,110 +631,27 @@ export default {
       }
       
       try {
-        const text = await file.text()
-        const lines = text.split('\n').filter(line => line.trim())
+        // Upload CSV file to backend
+        const formData = new FormData()
+        formData.append('csvFile', file)
         
-        if (lines.length < 2) {
-          alert('CSV file is empty or invalid')
-          return
-        }
+        const response = await api.transactions.importCSV(formData)
         
-        const authStore = useAuthStore()
-        const allTransactions = await api.transactions.getAll()
-        const allCustomers = await api.customers.getAll()
-        
-        let maxTransactionId = allTransactions.data.reduce((max, t) => Math.max(max, t.transaction_id || 0), 0)
-        let maxCustomerId = allCustomers.data.reduce((max, c) => Math.max(max, c.customer_id || 0), 0)
-        
-        const customerMap = new Map()
-        allCustomers.data.forEach(c => customerMap.set(c.name.toLowerCase(), c.customer_id))
-        
-        let imported = 0
-        let failed = 0
-        
-        // Skip header row
-        for (let i = 1; i < lines.length; i++) {
-          try {
-            const line = lines[i].trim()
-            if (!line) continue
-            
-            const values = this.parseCSVLine(line)
-            if (values.length < 8) continue
-            
-            const customerName = values[6]?.trim()
-            if (!customerName) continue
-            
-            // Find or create customer
-            let customerId = customerMap.get(customerName.toLowerCase())
-            if (!customerId) {
-              maxCustomerId++
-              await api.customers.create({
-                customer_id: maxCustomerId,
-                name: customerName
-              })
-              customerId = maxCustomerId
-              customerMap.set(customerName.toLowerCase(), customerId)
-            }
-            
-            // Create transaction
-            maxTransactionId++
-            await api.transactions.create({
-              transaction_id: maxTransactionId,
-              customer_id: customerId,
-              staff_id: authStore.staffId || 5,
-              date: this.parseDate(values[3]),
-              time_received: values[4]?.trim(),
-              price: parseFloat(values[5]) || 0,
-              name: customerName,
-              service_type: values[7]?.trim(),
-              addon: values[9]?.trim() || 'none',
-              status: values[8]?.toLowerCase().includes('paid') ? 'paid' : 'unpaid'
-            })
-            
-            imported++
-          } catch (error) {
-            console.error('Error importing line:', error)
-            failed++
-          }
-        }
-        
-        alert(`Import complete!\nImported: ${imported}\nFailed: ${failed}`)
+        // Store import result and show modal
+        this.importResult = response.data
+        this.showImportModal = true
         this.$refs.fileInput.value = ''
+        
+        // Optionally refresh the page or reload data
+        // window.location.reload()
       } catch (error) {
         console.error('Error importing CSV:', error)
-        alert('Failed to import CSV file')
+        alert('Failed to import CSV file: ' + (error.response?.data?.error || error.message))
       }
     },
-    parseCSVLine(line) {
-      const values = []
-      let current = ''
-      let inQuotes = false
-      
-      for (let i = 0; i < line.length; i++) {
-        const char = line[i]
-        
-        if (char === '"') {
-          inQuotes = !inQuotes
-        } else if (char === ',' && !inQuotes) {
-          values.push(current.trim())
-          current = ''
-        } else {
-          current += char
-        }
-      }
-      values.push(current.trim())
-      return values
-    },
-    parseDate(dateStr) {
-      if (!dateStr) return new Date().toISOString().split('T')[0]
-      
-      // Handle DD/MM/YYYY format
-      const parts = dateStr.split('/')
-      if (parts.length === 3) {
-        return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`
-      }
-      
-      return dateStr
+    closeImportModal() {
+      this.showImportModal = false
+      this.importResult = null
     }
   }
 }

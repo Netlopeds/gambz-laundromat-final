@@ -94,6 +94,7 @@
   font-size: 1.15rem;
   color: #062D3E;
   font-weight: 600;
+  margin-top: 10px;
 }
 
 .form-group input,
@@ -668,4 +669,136 @@ input[type=number]::-webkit-outer-spin-button {
 .btn-modal-submit:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(93, 224, 230, 0.5);
+}
+
+/* Full width form group */
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Services container */
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-service-section {
+  display: flex;
+  gap: 10px;
+}
+
+.service-select {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #e1f5f7;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #062D3E;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.service-select:focus {
+  outline: none;
+  border-color: #5de0e6;
+  box-shadow: 0 0 0 3px rgba(93, 224, 230, 0.1);
+}
+
+/* Order Summary */
+.order-summary {
+  background: linear-gradient(135deg, #f0f8fa 0%, #e1f5f7 100%);
+  border: 2px solid #5de0e6;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.summary-section {
+  margin-bottom: 15px;
+}
+
+.summary-section:last-child {
+  margin-bottom: 0;
+  padding-top: 15px;
+  border-top: 2px solid #5de0e6;
+}
+
+.summary-section strong {
+  color: #17696d;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.summary-text {
+  color: #062D3E;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 8px;
+  background: white;
+  border-radius: 8px;
+  min-height: 40px;
+}
+
+.summary-total {
+  color: #17696d;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Checkbox styles */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #062D3E;
+  cursor: pointer;
+  padding: 12px;
+  background: #f0f8fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+  background: #e1f5f7;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #5de0e6;
+}
+
+/* Promo indicator */
+.promo-indicator {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  border: 2px solid #ffaa00;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #662d00;
+  box-shadow: 0 4px 12px rgba(255, 170, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
 }

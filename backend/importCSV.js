@@ -31,6 +31,19 @@ async function importCSV() {
     
     console.log(`Found ${customerMap.size} unique customers\n`);
     
+    // Check if staff exists, if not use staff_id from CSV or create a default one
+    const [staffRows] = await db.query('SELECT staff_id FROM STAFF LIMIT 1');
+    let defaultStaffId = 1;
+    
+    if (staffRows.length === 0) {
+      console.log('⚠️  No staff found in database. Please create a staff member first using addUser.js');
+      console.log('Run: node addUser.js');
+      process.exit(1);
+    } else {
+      defaultStaffId = staffRows[0].staff_id;
+      console.log(`Using default staff_id: ${defaultStaffId}\n`);
+    }
+    
     // Insert customers first
     console.log('Inserting customers...');
     for (const [name, id] of customerMap) {
@@ -52,41 +65,101 @@ async function importCSV() {
     let imported = 0;
     let skipped = 0;
     
-    // Now insert transactions
+    // Get all services and addons from database for mapping
+    const [services] = await db.query('SELECT service_id, name FROM SERVICES');
+    const [addons] = await db.query('SELECT addon_id, name FROM ADDON');
+    
+    const serviceMap = new Map(services.map(s => [s.name.toLowerCase(), s.service_id]));
+    const addonMap = new Map(addons.map(a => [a.name.toLowerCase(), a.addon_id]));
+    
+    // Now insert transactions with junction tables
     for (let i = 1; i < lines.length; i++) {
       if (!lines[i].trim()) continue;
       
+      const connection = await db.getConnection();
+      
       try {
+        await connection.beginTransaction();
+        
         const values = parseCSVLine(lines[i]);
         
-        // Parse the CSV columns based on actual structure:
+        // Parse the CSV columns:
         // 0: transaction_id, 1: customer_id, 2: staff_id, 3: date, 4: time_received, 
-        // 5: price, 6: name, 7: service_type, 8: status, 9: addons, 10: quantity_addons
+        // 5: price, 6: name, 7: service_type, 8: status, 9: addons, 10: quantity_addons,
+        // 11: extra_service, 12: wash_promo, 13: total
         const customerName = values[6];
         const customerId = customerMap.get(customerName);
+        const csvStaffId = parseInt(values[2]) || defaultStaffId;
         const date = parseDate(values[3]);
         const timeReceived = values[4];
         const price = parseFloat(values[5]) || 0;
-        const serviceType = values[7];
-        const status = values[8];
-        const addons = values[9] || 'none';
+        const serviceTypeStr = values[7] || '';
+        const status = values[8] || 'pending';
+        const addonsStr = values[9] || '';
+        const quantityAddonsStr = values[10] || '';
+        const extraService = values[11] === 'TRUE' || values[11] === '1' || values[11] === 'true';
+        const washPromo = values[12] === 'TRUE' || values[12] === '1' || values[12] === 'true';
+        const total = parseFloat(values[13]) || price;
         
-        // Insert transaction with custom ID
-        await db.query(
-          `INSERT INTO TRANSACTION (transaction_id, customer_id, staff_id, date, time_received, price, name, service_type, addon, status) 
+        // Verify staff_id exists
+        const [staffCheck] = await connection.query('SELECT staff_id FROM STAFF WHERE staff_id = ?', [csvStaffId]);
+        const staffId = staffCheck.length > 0 ? csvStaffId : defaultStaffId;
+        
+        // Insert transaction
+        const [result] = await connection.query(
+          `INSERT INTO \`TRANSACTION\` (customer_id, staff_id, date, time_received, price, total, customer_name, status, extra_service, wash_promo) 
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [transactionCounter, customerId, 1, date, timeReceived, price, customerName, serviceType, addons, status]
+          [customerId, staffId, date, timeReceived, price, total, customerName, status, extraService, washPromo]
         );
         
-        console.log(`✅ TN${String(transactionCounter).padStart(4, '0')}: ${customerName} - ${serviceType} - ₱${price}`);
+        const transactionId = result.insertId;
+        
+        // Parse and insert services
+        if (serviceTypeStr && serviceTypeStr.toLowerCase() !== 'none') {
+          const serviceNames = serviceTypeStr.split(',').map(s => s.trim().toLowerCase());
+          for (const serviceName of serviceNames) {
+            const serviceId = serviceMap.get(serviceName);
+            if (serviceId) {
+              await connection.query(
+                'INSERT INTO TRANSACTION_SERVICES (transaction_id, service_id) VALUES (?, ?)',
+                [transactionId, serviceId]
+              );
+            }
+          }
+        }
+        
+        // Parse and insert addons with quantities
+        if (addonsStr && addonsStr.toLowerCase() !== 'none') {
+          const addonNames = addonsStr.split(',').map(a => a.trim().toLowerCase());
+          const quantities = quantityAddonsStr.split(',').map(q => parseInt(q.trim()) || 1);
+          
+          for (let j = 0; j < addonNames.length; j++) {
+            const addonName = addonNames[j];
+            const quantity = quantities[j] || 1;
+            const addonId = addonMap.get(addonName);
+            
+            if (addonId) {
+              await connection.query(
+                'INSERT INTO TRANSACTION_ADDONS (transaction_id, addon_id, quantity) VALUES (?, ?, ?)',
+                [transactionId, addonId, quantity]
+              );
+            }
+          }
+        }
+        
+        await connection.commit();
+        console.log(`✅ TN${String(transactionId).padStart(4, '0')}: ${customerName} - ${serviceTypeStr} - ₱${total}`);
         imported++;
         transactionCounter++;
       } catch (error) {
+        await connection.rollback();
         if (error.code === 'ER_DUP_ENTRY') {
           skipped++;
         } else {
           console.error(`❌ Error on line ${i}: ${error.message}`);
         }
+      } finally {
+        connection.release();
       }
     }
     
@@ -125,15 +198,15 @@ function parseCSVLine(line) {
 }
 
 function parseDate(dateStr) {
-  // Convert DD/MM/YYYY to YYYY-MM-DD
+  // Convert MM/DD/YYYY to YYYY-MM-DD
   if (!dateStr || !dateStr.trim()) {
     return new Date().toISOString().split('T')[0];
   }
   
   const parts = dateStr.trim().split('/');
   if (parts.length === 3) {
-    const day = parts[0].padStart(2, '0');
-    const month = parts[1].padStart(2, '0');
+    const month = parts[0].padStart(2, '0');
+    const day = parts[1].padStart(2, '0');
     const year = parts[2];
     return `${year}-${month}-${day}`;
   }

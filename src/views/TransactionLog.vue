@@ -79,7 +79,7 @@
                 </td>
                 <td>{{ transaction.date }}</td>
                 <td>{{ transaction.time }}</td>
-                <td>₱{{ transaction.amount }}</td>
+                <td>₱{{ formatMoney(transaction.amount) }}</td>
                 <td v-if="isAdmin">
                   <button
                     @click="openEditModal(transaction)"
@@ -125,7 +125,7 @@
               </div>
               <div class="mobile-field">
                 <span class="mobile-label">Amount:</span>
-                <span class="mobile-value amount">₱{{ transaction.amount }}</span>
+                <span class="mobile-value amount">₱{{ formatMoney(transaction.amount) }}</span>
               </div>
             </div>
             <div v-if="isAdmin" class="mobile-card-footer">
@@ -166,7 +166,7 @@
               </div>
               <div class="mobile-field">
                 <span class="mobile-label">Amount:</span>
-                <span class="mobile-value amount">₱{{ transaction.amount }}</span>
+                <span class="mobile-value amount">₱{{ formatMoney(transaction.amount) }}</span>
               </div>
             </div>
             <div v-if="isAdmin" class="mobile-card-footer">
@@ -467,10 +467,14 @@ export default {
         amount: 0,
         status: '',
         date: '',
-        time: ''
+        time: '',
+        extraService: false,
+        washPromo: false
       },
       selectedAddons: [],
+      selectedServices: [],
       newAddon: '',
+      newService: '',
       availableAddons: [], // Will be fetched from backend
       availableServices: [], // Will be fetched from backend
       showStatusModal: false,
@@ -627,18 +631,26 @@ export default {
         const response = await api.transactions.getAll()
         this.transactions = response.data.map(t => ({
           id: `TN${String(t.transaction_id).padStart(4, '0')}`,
+          transaction_id: t.transaction_id,
           customer: t.customer_name || 'N/A',
-          service: t.service_name || 'N/A',
+          service: t.services && t.services.length > 0 
+            ? t.services.map(s => s.name).join(', ') 
+            : 'None',
           addons: t.addons && t.addons.length > 0 
-            ? t.addons.map(a => a.name).join(', ') 
+            ? t.addons.map(a => `${a.name} (${a.quantity})`).join(', ') 
             : 'None',
           status: t.status || 'unpaid',
           date: this.formatDate(t.date),
           rawDate: t.date,
           time: t.time_received,
-          amount: parseFloat(t.price) || 0,
-          service_id: t.service_id,
-          addon_ids: t.addons ? t.addons.map(a => a.addon_id) : []
+          amount: parseFloat(t.total) || parseFloat(t.price) || 0,
+          service_ids: t.services ? t.services.map(s => s.service_id) : [],
+          addon_ids: t.addons ? t.addons.map(a => a.addon_id) : [],
+          addon_quantities: t.addons ? t.addons.map(a => a.quantity) : [],
+          extra_service: t.extra_service || false,
+          wash_promo: t.wash_promo || false,
+          customer_id: t.customer_id,
+          staff_id: t.staff_id
         }))
       } catch (error) {
         console.error('Error fetching transactions:', error)
@@ -683,6 +695,10 @@ export default {
         return '⇅' // Both arrows when not sorted
       }
       return this.sortDirection === 'asc' ? '↑' : '↓'
+    },
+    formatMoney(amount) {
+      const num = parseFloat(amount) || 0
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
     },
     openStatusModal() {
       this.showStatusModal = true
@@ -788,27 +804,32 @@ export default {
       }
     },
     openEditModal(transaction) {
-      // Find service_id from service name
-      const service = this.availableServices.find(s => s.label === transaction.service)
-      
       this.editForm = {
         id: transaction.id,
         customer: transaction.customer,
-        service: service ? service.value : '',
+        service: '', // Will be handled by selectedServices
         addons: transaction.addons,
         amount: transaction.amount,
         status: transaction.status,
         date: transaction.rawDate || transaction.date,
-        time: transaction.time
+        time: transaction.time,
+        extraService: transaction.extra_service || false,
+        washPromo: transaction.wash_promo || false
       }
       
-      // Parse existing addons and populate selectedAddons array using addon_ids
+      // Populate selectedServices from transaction.service_ids
+      this.selectedServices = transaction.service_ids ? [...transaction.service_ids] : []
+      
+      // Parse existing addons and populate selectedAddons array with quantities
       this.selectedAddons = []
       if (transaction.addon_ids && transaction.addon_ids.length > 0) {
-        transaction.addon_ids.forEach(addonId => {
+        transaction.addon_ids.forEach((addonId, index) => {
+          const quantity = transaction.addon_quantities && transaction.addon_quantities[index] 
+            ? transaction.addon_quantities[index] 
+            : 1
           this.selectedAddons.push({
             type: addonId,
-            qty: 1 // Default quantity, you may need to store quantities separately
+            qty: quantity
           })
         })
       }
@@ -896,19 +917,27 @@ export default {
         const customer = allCustomers.data.find(c => c.name.toLowerCase() === this.editForm.customer.toLowerCase())
         const customerId = customer ? customer.customer_id : 1
         
-        // Prepare addon_ids array
+        // Prepare service_ids and addon arrays
+        const service_ids = this.selectedServices || []
         const addon_ids = this.selectedAddons.map(addon => addon.type)
+        const addon_quantities = this.selectedAddons.map(addon => addon.qty)
+        const quantity_addons = this.selectedAddons.reduce((sum, addon) => sum + addon.qty, 0)
         
         await api.transactions.update(transactionId, {
           customer_id: customerId,
           staff_id: authStore.staffId || 1,
-          service_id: parseInt(this.editForm.service),
+          service_ids: service_ids,
           addon_ids: addon_ids,
+          addon_quantities: addon_quantities,
           date: this.editForm.date,
           time_received: this.editForm.time,
           price: this.editForm.amount,
-          name: this.editForm.customer,
-          status: this.editForm.status
+          total: this.editForm.amount,
+          customer_name: this.editForm.customer,
+          status: this.editForm.status,
+          extra_service: this.editForm.extraService || false,
+          wash_promo: this.editForm.washPromo || false,
+          quantity_addons: quantity_addons
         })
         
         // Refresh transactions to get updated data
