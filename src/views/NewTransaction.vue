@@ -30,11 +30,13 @@
                 <label for="serviceType">Service Type</label>
                 <select id="serviceType" v-model="form.serviceType" required>
                   <option value="">Select service</option>
-                  <option value="wash">Wash</option>
-                  <option value="wash-dry">Wash & Dry</option>
-                  <option value="dry">Dry</option>
-                  <option value="spin-dry">Spin Dry</option>
-                  <option value="full">Full Service</option>
+                  <option 
+                    v-for="service in availableServices" 
+                    :key="service.value" 
+                    :value="service.value"
+                  >
+                    {{ service.label }} - ₱{{ service.price }}
+                  </option>
                 </select>
               </div>
 
@@ -239,15 +241,8 @@ export default {
       showSuccessModal: false,
       selectedAddons: [],
       newAddon: '',
-      availableAddons: [
-        { value: 'ariel', label: 'Ariel' },
-        { value: 'Tide', label: 'Tide' },
-        { value: 'breeze', label: 'Breeze' },
-        { value: 'Downy', label: 'Downy' },
-        { value: 'Zonrox', label: 'Zonrox'},
-        { value: 'Surf', label: 'Surf' },
-        { value: 'Del', label: 'Del' }
-      ],
+      availableAddons: [], // Will be fetched from backend
+      availableServices: [], // Will be fetched from backend
       form: {
         customerName: '',
         serviceType: '',
@@ -259,13 +254,71 @@ export default {
       }
     }
   },
-  mounted() {
+  async mounted() {
     const timeInput = document.getElementById('time');
     if (timeInput) {
       timeInput.setAttribute('data-format', '24');
     }
+    await this.fetchServices()
+    await this.fetchAddons()
+  },
+  watch: {
+    'form.serviceType': function(newVal) {
+      this.computeAmount()
+    },
+    selectedAddons: {
+      handler() {
+        this.computeAmount()
+      },
+      deep: true
+    }
   },
   methods: {
+    async fetchServices() {
+      try {
+        const response = await api.services.getAll()
+        this.availableServices = response.data.map(s => ({
+          value: s.service_id,
+          label: s.name,
+          price: parseFloat(s.base_price)
+        }))
+      } catch (error) {
+        console.error('Error fetching services:', error)
+      }
+    },
+    async fetchAddons() {
+      try {
+        const response = await api.addons.getAll()
+        this.availableAddons = response.data.map(a => ({
+          value: a.addon_id,
+          label: a.name,
+          price: parseFloat(a.price)
+        }))
+      } catch (error) {
+        console.error('Error fetching addons:', error)
+      }
+    },
+    computeAmount() {
+      let total = 0
+      
+      // Add service price
+      if (this.form.serviceType) {
+        const service = this.availableServices.find(s => s.value === this.form.serviceType)
+        if (service) {
+          total += service.price
+        }
+      }
+      
+      // Add addon prices
+      this.selectedAddons.forEach(addon => {
+        const addonData = this.availableAddons.find(a => a.value === addon.type)
+        if (addonData) {
+          total += addonData.price * addon.qty
+        }
+      })
+      
+      this.form.amount = total.toFixed(2)
+    },
     handleSubmit() {
       this.showConfirmModal = true
     },
@@ -300,6 +353,9 @@ export default {
           customerId = customerResponse.data.customer_id
         }
         
+        // Prepare addon_ids array
+        const addon_ids = this.selectedAddons.map(addon => addon.type)
+        
         // Create transaction with explicit ID
         await api.transactions.create({
           transaction_id: nextTransactionId,
@@ -309,8 +365,8 @@ export default {
           time_received: this.form.time,
           price: parseFloat(this.form.amount) || 0,
           name: this.form.customerName,
-          service_type: this.getServiceTypeName(this.form.serviceType),
-          addon: this.getAddonsForDisplay(),
+          service_id: this.form.serviceType,
+          addon_ids: addon_ids,
           status: this.form.status === 'completed' ? 'paid' : 'unpaid'
         })
         
@@ -328,14 +384,8 @@ export default {
       this.resetForm()
     },
     getServiceTypeName(value) {
-      const services = {
-        'wash': 'Wash',
-        'dry': 'Dry',
-        'wash-dry': 'Wash & Dry',
-        'spin-dry': 'Spin Dry',
-        'full': 'Full Service'
-      }
-      return services[value] || value
+      const service = this.availableServices.find(s => s.value === value)
+      return service ? service.label : value
     },
     getAddonsName() {
       return this.getAddonsForDisplay()

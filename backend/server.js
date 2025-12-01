@@ -15,6 +15,8 @@ app.use('/api/transactions', require('./routes/transactions'));
 app.use('/api/customers', require('./routes/customers'));
 app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/editlogs', require('./routes/editlogs'));
+app.use('/api/services', require('./routes/services'));
+app.use('/api/addons', require('./routes/addons'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

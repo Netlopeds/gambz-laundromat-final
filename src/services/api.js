@@ -64,4 +64,22 @@ export default {
     getAll: () => api.get('/editlogs'),
     getByTransaction: (transactionId) => api.get(`/editlogs/transaction/${transactionId}`),
   },
+
+  // Services endpoints
+  services: {
+    getAll: () => api.get('/services'),
+    getById: (id) => api.get(`/services/${id}`),
+    create: (data) => api.post('/services', data),
+    update: (id, data) => api.put(`/services/${id}`, data),
+    delete: (id) => api.delete(`/services/${id}`),
+  },
+
+  // Addons endpoints
+  addons: {
+    getAll: () => api.get('/addons'),
+    getById: (id) => api.get(`/addons/${id}`),
+    create: (data) => api.post('/addons', data),
+    update: (id, data) => api.put(`/addons/${id}`, data),
+    delete: (id) => api.delete(`/addons/${id}`),
+  },
 };
