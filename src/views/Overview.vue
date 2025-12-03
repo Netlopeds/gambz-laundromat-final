@@ -21,19 +21,19 @@
               :class="['filter-btn', { active: timeFilter === 'daily' }]"
               @click="timeFilter = 'daily'"
             >
-              Daily
+              Day
             </button>
             <button 
               :class="['filter-btn', { active: timeFilter === 'monthly' }]"
               @click="timeFilter = 'monthly'"
             >
-              Monthly
+              Month
             </button>
             <button 
               :class="['filter-btn', { active: timeFilter === 'yearly' }]"
               @click="timeFilter = 'yearly'"
             >
-              Yearly
+              Year
             </button>
           </div>
         </div>

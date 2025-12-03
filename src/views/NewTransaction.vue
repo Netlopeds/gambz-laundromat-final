@@ -80,6 +80,27 @@
                       +
                     </button>
                   </div>
+                  <!-- Display selected services with individual extra dry checkboxes -->
+                  <div v-if="selectedServices.length > 0" class="selected-items">
+                    <div v-for="(service, index) in selectedServices" :key="index" class="selected-item">
+                      <span class="item-name">{{ getServiceName(service.serviceId) }}</span>
+                      <label v-if="isDryService(service.serviceId)" class="extra-dry-checkbox">
+                        <input 
+                          type="checkbox" 
+                          v-model="service.extraDry"
+                          @change="computeAmount"
+                        />
+                        <span class="checkbox-text">Extra Dry (+₱30)</span>
+                      </label>
+                      <button 
+                        type="button" 
+                        @click="removeService(service.serviceId)" 
+                        class="remove-btn"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -110,20 +131,6 @@
                     </button>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- Extra Dry Service Checkbox -->
-            <div class="form-row" v-if="hasDryService">
-              <div class="form-group full-width">
-                <label class="checkbox-label">
-                  <input 
-                    type="checkbox" 
-                    v-model="form.extraService"
-                    @change="computeAmount"
-                  />
-                  Extra Dry Service (+₱30)
-                </label>
               </div>
             </div>
 
@@ -299,8 +306,8 @@ export default {
       return new Date().toISOString().split('T')[0]
     },
     hasDryService() {
-      return this.selectedServices.some(serviceId => {
-        const service = this.availableServices.find(s => s.value === serviceId)
+      return this.selectedServices.some(svc => {
+        const service = this.availableServices.find(s => s.value === svc.serviceId)
         return service && (
           service.label.toLowerCase().includes('dry') ||
           service.label.toLowerCase().includes('fold')
@@ -315,7 +322,7 @@ export default {
       showImportModal: false,
       importResult: null,
       selectedAddons: [],
-      selectedServices: [],
+      selectedServices: [], // Array of {serviceId, extraDry}
       newAddon: '',
       newService: '',
       availableAddons: [], // Will be fetched from backend
@@ -369,6 +376,7 @@ export default {
             label: s.name,
             price: parseFloat(s.base_price)
           }))
+          .sort((a, b) => b.price - a.price) // Sort by price: highest to lowest
       } catch (error) {
         console.error('Error fetching services:', error)
       }
@@ -383,6 +391,7 @@ export default {
             label: a.name,
             price: parseFloat(a.price)
           }))
+          .sort((a, b) => b.price - a.price) // Sort by price: highest to lowest
       } catch (error) {
         console.error('Error fetching addons:', error)
       }
@@ -391,14 +400,29 @@ export default {
       const num = parseFloat(amount) || 0
       return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
     },
+    getServiceName(serviceId) {
+      const service = this.availableServices.find(s => s.value === serviceId)
+      return service ? service.label : 'Unknown Service'
+    },
+    isDryService(serviceId) {
+      const service = this.availableServices.find(s => s.value === serviceId)
+      return service && (
+        service.label.toLowerCase().includes('dry') ||
+        service.label.toLowerCase().includes('fold')
+      )
+    },
     computeAmount() {
       let total = 0
       
-      // Add service prices
-      this.selectedServices.forEach(serviceId => {
-        const service = this.availableServices.find(s => s.value === serviceId)
+      // Add service prices with individual extra dry charges
+      this.selectedServices.forEach(svc => {
+        const service = this.availableServices.find(s => s.value === svc.serviceId)
         if (service) {
           total += service.price
+          // Add extra dry cost for this specific service
+          if (svc.extraDry && this.isDryService(svc.serviceId)) {
+            total += 30
+          }
         }
       })
       
@@ -409,11 +433,6 @@ export default {
           total += addonData.price * addon.qty
         }
       })
-      
-      // Add extra dry service cost
-      if (this.form.extraService && this.hasDryService) {
-        total += 30
-      }
       
       this.form.amount = total.toFixed(2)
     },
@@ -430,22 +449,23 @@ export default {
       this.form.washPromo = hour >= 7 && hour < 9
     },
     addService() {
-      if (this.newService && !this.selectedServices.includes(this.newService)) {
-        this.selectedServices.push(this.newService)
+      if (this.newService && !this.selectedServices.some(s => s.serviceId === this.newService)) {
+        this.selectedServices.push({ serviceId: this.newService, extraDry: false })
         this.newService = ''
       }
     },
     removeService(serviceId) {
-      const index = this.selectedServices.indexOf(serviceId)
+      const index = this.selectedServices.findIndex(s => s.serviceId === serviceId)
       if (index > -1) {
         this.selectedServices.splice(index, 1)
       }
     },
     getServicesForDisplay() {
       if (this.selectedServices.length === 0) return 'None selected'
-      return this.selectedServices.map(serviceId => {
-        const service = this.availableServices.find(s => s.value === serviceId)
-        return service ? `${service.label} (₱${service.price})` : 'Unknown'
+      return this.selectedServices.map(svc => {
+        const service = this.availableServices.find(s => s.value === svc.serviceId)
+        const name = service ? service.label : 'Unknown'
+        return svc.extraDry ? `${name} (Extra Dry)` : name
       }).join(', ')
     },
     handleSubmit() {
@@ -466,7 +486,8 @@ export default {
         
         // Get all transactions to find next ID
         const allTransactions = await api.transactions.getAll()
-        const maxId = allTransactions.data.reduce((max, t) => Math.max(max, t.transaction_id || 0), 0)
+        const transactionsData = Array.isArray(allTransactions.data) ? allTransactions.data : allTransactions.data.data
+        const maxId = transactionsData.reduce((max, t) => Math.max(max, t.transaction_id || 0), 0)
         const nextTransactionId = maxId + 1
         
         // Get all customers to find or create customer
@@ -489,7 +510,8 @@ export default {
         }
         
         // Prepare service_ids and addon_ids arrays
-        const service_ids = this.selectedServices
+        const service_ids = this.selectedServices.map(s => s.serviceId)
+        const service_extra_dry = this.selectedServices.map(s => s.extraDry)
         const addon_ids = this.selectedAddons.map(addon => addon.type)
         const addon_quantities = this.selectedAddons.map(addon => addon.qty)
         
@@ -504,9 +526,10 @@ export default {
           total: parseFloat(this.form.amount) || 0,
           customer_name: this.form.customerName,
           service_ids: service_ids,
+          service_extra_dry: service_extra_dry,
           addon_ids: addon_ids,
           addon_quantities: addon_quantities,
-          extra_service: this.form.extraService,
+          extra_service: false,
           wash_promo: this.form.washPromo,
           quantity_addons: this.selectedAddons.reduce((sum, addon) => sum + addon.qty, 0),
           status: this.form.status === 'completed' ? 'paid' : 'unpaid'

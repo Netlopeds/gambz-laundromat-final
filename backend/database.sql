@@ -70,6 +70,7 @@ CREATE TABLE TRANSACTION_SERVICES (
   transaction_service_id INT PRIMARY KEY AUTO_INCREMENT,
   transaction_id INT NOT NULL,
   service_id INT NOT NULL,
+  extra_dry BOOLEAN DEFAULT FALSE,
   FOREIGN KEY (transaction_id) REFERENCES `TRANSACTION`(transaction_id) ON DELETE CASCADE,
   FOREIGN KEY (service_id) REFERENCES SERVICES(service_id)
 ) DEFAULT CHARSET=utf8mb4;
@@ -116,3 +117,15 @@ INSERT INTO SERVICES (name, base_price) VALUES
   ('Dry', 60.00),
   ('Fold', 30.00),
   ('Spin', 15.00);
+
+-- Performance optimization indexes
+CREATE INDEX idx_transaction_date ON `TRANSACTION`(date DESC, time_received DESC);
+CREATE INDEX idx_transaction_status ON `TRANSACTION`(status);
+CREATE INDEX idx_transaction_customer ON `TRANSACTION`(customer_id);
+CREATE INDEX idx_transaction_staff ON `TRANSACTION`(staff_id);
+CREATE INDEX idx_transaction_services_trans ON TRANSACTION_SERVICES(transaction_id);
+CREATE INDEX idx_transaction_services_serv ON TRANSACTION_SERVICES(service_id);
+CREATE INDEX idx_transaction_addons_trans ON TRANSACTION_ADDONS(transaction_id);
+CREATE INDEX idx_transaction_addons_addon ON TRANSACTION_ADDONS(addon_id);
+CREATE INDEX idx_edit_log_transaction ON EDIT_LOG(transaction_id);
+CREATE INDEX idx_edit_log_date ON EDIT_LOG(date_modified DESC);

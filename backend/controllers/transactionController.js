@@ -3,36 +3,90 @@ const db = require('../config/database');
 // Get all transactions
 exports.getAllTransactions = async (req, res) => {
   try {
+    // Get pagination parameters from query string (optional)
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 1000; // Default to 1000 if not specified
+    const offset = (page - 1) * limit;
+    
+    // Get total count for pagination info
+    const [countResult] = await db.query('SELECT COUNT(*) as total FROM TRANSACTION');
+    const totalTransactions = countResult[0].total;
+    
+    // Single optimized query to get all data at once
     const [rows] = await db.query(`
-      SELECT t.*, c.name as customer_name, s.name as staff_name
+      SELECT 
+        t.*,
+        c.name as customer_name,
+        s.name as staff_name,
+        GROUP_CONCAT(DISTINCT CONCAT(serv.service_id, ':', serv.name, ':', serv.base_price, ':', IFNULL(ts.extra_dry, 0)) SEPARATOR '||') as services_data,
+        GROUP_CONCAT(DISTINCT CONCAT(a.addon_id, ':', a.name, ':', a.price, ':', ta.quantity) SEPARATOR '||') as addons_data
       FROM TRANSACTION t
       LEFT JOIN CUSTOMER c ON t.customer_id = c.customer_id
       LEFT JOIN STAFF s ON t.staff_id = s.staff_id
+      LEFT JOIN TRANSACTION_SERVICES ts ON t.transaction_id = ts.transaction_id
+      LEFT JOIN SERVICES serv ON ts.service_id = serv.service_id
+      LEFT JOIN TRANSACTION_ADDONS ta ON t.transaction_id = ta.transaction_id
+      LEFT JOIN ADDON a ON ta.addon_id = a.addon_id
+      GROUP BY t.transaction_id
       ORDER BY t.date DESC, t.time_received DESC
-    `);
+      LIMIT ? OFFSET ?
+    `, [limit, offset]);
     
-    // For each transaction, get services and addons
-    for (let transaction of rows) {
-      // Get services
-      const [services] = await db.query(`
-        SELECT serv.service_id, serv.name, serv.base_price
-        FROM TRANSACTION_SERVICES ts
-        JOIN SERVICES serv ON ts.service_id = serv.service_id
-        WHERE ts.transaction_id = ?
-      `, [transaction.transaction_id]);
-      transaction.services = services;
+    // Parse the concatenated data
+    const transactions = rows.map(t => {
+      // Parse services
+      const services = [];
+      if (t.services_data) {
+        const servicesArray = t.services_data.split('||');
+        servicesArray.forEach(serviceStr => {
+          const [service_id, name, base_price, extra_dry] = serviceStr.split(':');
+          if (service_id && name) {
+            services.push({
+              service_id: parseInt(service_id),
+              name,
+              base_price: parseFloat(base_price),
+              extra_dry: parseInt(extra_dry) === 1
+            });
+          }
+        });
+      }
       
-      // Get addons
-      const [addons] = await db.query(`
-        SELECT a.addon_id, a.name, a.price, ta.quantity
-        FROM TRANSACTION_ADDONS ta
-        JOIN ADDON a ON ta.addon_id = a.addon_id
-        WHERE ta.transaction_id = ?
-      `, [transaction.transaction_id]);
-      transaction.addons = addons;
-    }
+      // Parse addons
+      const addons = [];
+      if (t.addons_data) {
+        const addonsArray = t.addons_data.split('||');
+        addonsArray.forEach(addonStr => {
+          const [addon_id, name, price, quantity] = addonStr.split(':');
+          if (addon_id && name) {
+            addons.push({
+              addon_id: parseInt(addon_id),
+              name,
+              price: parseFloat(price),
+              quantity: parseInt(quantity)
+            });
+          }
+        });
+      }
+      
+      // Remove the concatenated fields and add parsed arrays
+      delete t.services_data;
+      delete t.addons_data;
+      t.services = services;
+      t.addons = addons;
+      
+      return t;
+    });
     
-    res.json(rows);
+    // Send response with pagination metadata
+    res.json({
+      data: transactions,
+      pagination: {
+        page,
+        limit,
+        total: totalTransactions,
+        totalPages: Math.ceil(totalTransactions / limit)
+      }
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -55,9 +109,9 @@ exports.getTransactionById = async (req, res) => {
     
     const transaction = rows[0];
     
-    // Get services
+    // Get services with extra_dry flag
     const [services] = await db.query(`
-      SELECT serv.service_id, serv.name, serv.base_price
+      SELECT serv.service_id, serv.name, serv.base_price, ts.extra_dry
       FROM TRANSACTION_SERVICES ts
       JOIN SERVICES serv ON ts.service_id = serv.service_id
       WHERE ts.transaction_id = ?
@@ -96,6 +150,7 @@ exports.createTransaction = async (req, res) => {
       total,
       customer_name, 
       service_ids, 
+      service_extra_dry, // Array of booleans for each service
       addon_ids,
       addon_quantities,
       status,
@@ -125,12 +180,14 @@ exports.createTransaction = async (req, res) => {
       newTransactionId = result.insertId;
     }
     
-    // Insert services
+    // Insert services with extra_dry flag
     if (service_ids && Array.isArray(service_ids) && service_ids.length > 0) {
-      for (const serviceId of service_ids) {
+      for (let i = 0; i < service_ids.length; i++) {
+        const serviceId = service_ids[i];
+        const extraDry = service_extra_dry && service_extra_dry[i] ? service_extra_dry[i] : false;
         await connection.query(
-          `INSERT INTO TRANSACTION_SERVICES (transaction_id, service_id) VALUES (?, ?)`,
-          [newTransactionId, serviceId]
+          `INSERT INTO TRANSACTION_SERVICES (transaction_id, service_id, extra_dry) VALUES (?, ?, ?)`,
+          [newTransactionId, serviceId, extraDry]
         );
       }
     }
@@ -212,54 +269,129 @@ exports.updateTransaction = async (req, res) => {
     
     const old = oldData[0];
     
-    // Track changes
-    const changes = [];
-    if (customer_name && old.customer_name !== customer_name) changes.push({ field: 'Customer Name', oldValue: old.customer_name, newValue: customer_name });
-    if (status && old.status !== status) changes.push({ field: 'Status', oldValue: old.status, newValue: status });
-    if (date && old.date !== date) changes.push({ field: 'Date', oldValue: old.date, newValue: date });
-    if (time_received && old.time_received !== time_received) changes.push({ field: 'Time Received', oldValue: old.time_received, newValue: time_received });
-    if (total && parseFloat(old.total) !== parseFloat(total)) changes.push({ field: 'Total', oldValue: old.total, newValue: total });
-    
-    // Update main transaction
-    await connection.query(
-      `UPDATE TRANSACTION 
-       SET customer_id = ?, staff_id = ?, date = ?, time_received = ?, price = ?, total = ?, 
-           customer_name = ?, status = ?, extra_service = ?, wash_promo = ?, quantity_addons = ?
-       WHERE transaction_id = ?`,
-      [customer_id, staff_id, date, time_received, price, total, customer_name, status, 
-       extra_service || false, wash_promo || false, quantity_addons || 0, req.params.id]
-    );
-    
-    // Update services - delete old and insert new
-    await connection.query('DELETE FROM TRANSACTION_SERVICES WHERE transaction_id = ?', [req.params.id]);
-    if (service_ids && Array.isArray(service_ids) && service_ids.length > 0) {
-      for (const serviceId of service_ids) {
-        await connection.query(
-          `INSERT INTO TRANSACTION_SERVICES (transaction_id, service_id) VALUES (?, ?)`,
-          [req.params.id, serviceId]
-        );
+    // Get old customer name from CUSTOMER table
+    let oldCustomerName = old.customer_name || 'N/A';
+    if (old.customer_id) {
+      const [oldCustomer] = await connection.query('SELECT name FROM CUSTOMER WHERE customer_id = ?', [old.customer_id]);
+      if (oldCustomer.length > 0) {
+        oldCustomerName = oldCustomer[0].name;
       }
     }
     
-    // Update addons - delete old and insert new
-    await connection.query('DELETE FROM TRANSACTION_ADDONS WHERE transaction_id = ?', [req.params.id]);
-    if (addon_ids && Array.isArray(addon_ids) && addon_ids.length > 0) {
-      for (let i = 0; i < addon_ids.length; i++) {
-        const addonId = addon_ids[i];
-        const quantity = addon_quantities && addon_quantities[i] ? addon_quantities[i] : 1;
-        await connection.query(
-          `INSERT INTO TRANSACTION_ADDONS (transaction_id, addon_id, quantity) VALUES (?, ?, ?)`,
-          [req.params.id, addonId, quantity]
-        );
+    // Build dynamic update query - only update fields that are provided
+    const updateFields = [];
+    const updateValues = [];
+    
+    if (customer_id !== undefined) {
+      updateFields.push('customer_id = ?');
+      updateValues.push(customer_id);
+    }
+    if (staff_id !== undefined) {
+      updateFields.push('staff_id = ?');
+      updateValues.push(staff_id);
+    }
+    if (date !== undefined) {
+      updateFields.push('date = ?');
+      updateValues.push(date);
+    }
+    if (time_received !== undefined) {
+      updateFields.push('time_received = ?');
+      updateValues.push(time_received);
+    }
+    if (price !== undefined) {
+      updateFields.push('price = ?');
+      updateValues.push(price);
+    }
+    if (total !== undefined) {
+      updateFields.push('total = ?');
+      updateValues.push(total);
+    }
+    if (customer_name !== undefined) {
+      updateFields.push('customer_name = ?');
+      updateValues.push(customer_name);
+    }
+    if (status !== undefined) {
+      updateFields.push('status = ?');
+      updateValues.push(status);
+    }
+    if (extra_service !== undefined) {
+      updateFields.push('extra_service = ?');
+      updateValues.push(extra_service);
+    }
+    if (wash_promo !== undefined) {
+      updateFields.push('wash_promo = ?');
+      updateValues.push(wash_promo);
+    }
+    if (quantity_addons !== undefined) {
+      updateFields.push('quantity_addons = ?');
+      updateValues.push(quantity_addons);
+    }
+    
+    // Track changes for edit log
+    const changes = [];
+    if (customer_name !== undefined && oldCustomerName !== customer_name) {
+      changes.push({ field: 'Customer Name', oldValue: oldCustomerName, newValue: customer_name });
+    }
+    if (status !== undefined && old.status !== status) {
+      changes.push({ field: 'Status', oldValue: old.status, newValue: status });
+    }
+    if (date !== undefined && old.date !== date) {
+      changes.push({ field: 'Date', oldValue: old.date, newValue: date });
+    }
+    if (time_received !== undefined && old.time_received !== time_received) {
+      changes.push({ field: 'Time Received', oldValue: old.time_received, newValue: time_received });
+    }
+    if (total !== undefined && parseFloat(old.total) !== parseFloat(total)) {
+      changes.push({ field: 'Total', oldValue: old.total, newValue: total });
+    }
+    
+    // Only execute update if there are fields to update
+    if (updateFields.length > 0) {
+      updateValues.push(req.params.id);
+      await connection.query(
+        `UPDATE TRANSACTION SET ${updateFields.join(', ')} WHERE transaction_id = ?`,
+        updateValues
+      );
+    }
+    
+    // Update services only if provided - delete old and insert new
+    if (service_ids !== undefined) {
+      const service_extra_dry = req.body.service_extra_dry;
+      await connection.query('DELETE FROM TRANSACTION_SERVICES WHERE transaction_id = ?', [req.params.id]);
+      if (Array.isArray(service_ids) && service_ids.length > 0) {
+        for (let i = 0; i < service_ids.length; i++) {
+          const serviceId = service_ids[i];
+          const extraDry = service_extra_dry && service_extra_dry[i] ? service_extra_dry[i] : false;
+          await connection.query(
+            `INSERT INTO TRANSACTION_SERVICES (transaction_id, service_id, extra_dry) VALUES (?, ?, ?)`,
+            [req.params.id, serviceId, extraDry]
+          );
+        }
+      }
+    }
+    
+    // Update addons only if provided - delete old and insert new
+    if (addon_ids !== undefined) {
+      await connection.query('DELETE FROM TRANSACTION_ADDONS WHERE transaction_id = ?', [req.params.id]);
+      if (Array.isArray(addon_ids) && addon_ids.length > 0) {
+        for (let i = 0; i < addon_ids.length; i++) {
+          const addonId = addon_ids[i];
+          const quantity = addon_quantities && addon_quantities[i] ? addon_quantities[i] : 1;
+          await connection.query(
+            `INSERT INTO TRANSACTION_ADDONS (transaction_id, addon_id, quantity) VALUES (?, ?, ?)`,
+            [req.params.id, addonId, quantity]
+          );
+        }
       }
     }
     
     // Log each changed field
+    const logStaffId = staff_id || old.staff_id;
     for (const change of changes) {
       await connection.query(
         `INSERT INTO EDIT_LOG (transaction_id, staff_id, action, old_value, new_value) 
          VALUES (?, ?, ?, ?, ?)`,
-        [req.params.id, staff_id, change.field, change.oldValue, change.newValue]
+        [req.params.id, logStaffId, change.field, change.oldValue, change.newValue]
       );
     }
     

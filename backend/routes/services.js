@@ -3,8 +3,9 @@ const router = express.Router();
 const serviceController = require('../controllers/serviceController');
 const { isAuthenticated, isAdmin } = require('../middleware/auth');
 
-router.get('/', serviceController.getAllServices);
-router.get('/:id', serviceController.getServiceById);
+// All routes require authentication
+router.get('/', isAuthenticated, serviceController.getAllServices);
+router.get('/:id', isAuthenticated, serviceController.getServiceById);
 router.post('/', isAuthenticated, isAdmin, serviceController.createService);
 router.put('/:id', isAuthenticated, isAdmin, serviceController.updateService);
 router.delete('/:id', isAuthenticated, isAdmin, serviceController.deleteService);

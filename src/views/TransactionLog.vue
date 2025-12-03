@@ -69,9 +69,9 @@
             <tbody>
               <tr v-for="transaction in paginatedTransactions" :key="transaction.id">
                 <td>{{ transaction.id }}</td>
-                <td>{{ transaction.customer }}</td>
-                <td>{{ transaction.service }}</td>
-                <td>{{ transaction.addons }}</td>
+                <td :title="transaction.customer">{{ transaction.customer }}</td>
+                <td :title="transaction.service">{{ transaction.service }}</td>
+                <td :title="transaction.addons">{{ transaction.addons }}</td>
                 <td>
                   <span :class="['status-badge', transaction.status]">
                     {{ transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1) }}
@@ -203,11 +203,45 @@
           
           <div class="form-group">
             <label class="modal-label">Service Type:</label>
-            <select v-model="editForm.service" class="modal-select">
-              <option value="Wash">Wash</option>
-              <option value="Wash & Dry">Wash & Dry</option>
-              <option value="Full Service">Full Service</option>
-            </select>
+            <div class="services-edit-container">
+              <!-- Selected Services List -->
+              <div v-if="selectedServices.length > 0" class="selected-services">
+                <div v-for="(service, index) in selectedServices" :key="index" class="service-item-edit">
+                  <span class="service-name">{{ getServiceDisplayName(service.serviceId) }}</span>
+                  <label v-if="isDryService(service.serviceId)" class="extra-dry-checkbox-modal">
+                    <input 
+                      type="checkbox" 
+                      v-model="service.extraDry"
+                      @change="computeModalAmount"
+                    />
+                    <span class="checkbox-text">Extra Dry (+₱30)</span>
+                  </label>
+                  <button type="button" @click="removeServiceModal(index)" class="remove-btn">&times;</button>
+                </div>
+              </div>
+              
+              <!-- Add New Service -->
+              <div class="add-service-section">
+                <select v-model="newService" class="service-select modal-select">
+                  <option value="">Select service to add</option>
+                  <option 
+                    v-for="service in availableServices" 
+                    :key="service.value" 
+                    :value="service.value"
+                  >
+                    {{ service.label }} - ₱{{ service.price }}
+                  </option>
+                </select>
+                <button 
+                  type="button" 
+                  @click="addServiceModal" 
+                  :disabled="!newService"
+                  class="add-btn"
+                >
+                  +
+                </button>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -237,12 +271,12 @@
                     :key="addon.value" 
                     :value="addon.value"
                   >
-                    {{ addon.label }}
+                    {{ addon.label }} - ₱{{ addon.price }}
                   </option>
                 </select>
                 <button 
                   type="button" 
-                  @click="addAddon" 
+                  @click="addAddonModal" 
                   :disabled="!newAddon"
                   class="add-btn"
                 >
@@ -279,12 +313,13 @@
           </div>
 
           <div class="form-group">
-            <label class="modal-label">Amount:</label>
+            <label class="modal-label">Total Amount:</label>
             <input 
               v-model="editForm.amount" 
-              type="number" 
-              step="0.01"
+              type="text" 
               class="modal-input"
+              readonly
+              style="background-color: #f8f9fa; font-weight: 600;"
             />
           </div>
         </div>
@@ -629,7 +664,9 @@ export default {
       this.error = null
       try {
         const response = await api.transactions.getAll()
-        this.transactions = response.data.map(t => ({
+        // Handle both old format (array) and new format (object with data property)
+        const transactionsData = Array.isArray(response.data) ? response.data : response.data.data
+        this.transactions = transactionsData.map(t => ({
           id: `TN${String(t.transaction_id).padStart(4, '0')}`,
           transaction_id: t.transaction_id,
           customer: t.customer_name || 'N/A',
@@ -742,10 +779,18 @@ export default {
         // Get full transaction data
         const transaction = this.transactions.find(t => t.id === this.selectedTransaction.id)
         
-        // Get customer_id
+        // Get or create customer_id
         const allCustomers = await api.customers.getAll()
-        const customer = allCustomers.data.find(c => c.name.toLowerCase() === transaction.customer.toLowerCase())
-        const customerId = customer ? customer.customer_id : 1
+        let customer = allCustomers.data.find(c => c.name.toLowerCase() === transaction.customer.toLowerCase())
+        let customerId
+        
+        if (customer) {
+          customerId = customer.customer_id
+        } else {
+          // Create new customer if doesn't exist
+          const newCustomerResponse = await api.customers.create({ name: transaction.customer })
+          customerId = newCustomerResponse.data.customer_id
+        }
         
         await api.transactions.update(transactionId, {
           customer_id: customerId,
@@ -817,8 +862,18 @@ export default {
         washPromo: transaction.wash_promo || false
       }
       
-      // Populate selectedServices from transaction.service_ids
-      this.selectedServices = transaction.service_ids ? [...transaction.service_ids] : []
+      // Populate selectedServices with {serviceId, extraDry} objects
+      this.selectedServices = []
+      if (transaction.service_ids && transaction.service_ids.length > 0) {
+        // For now, set extraDry to false since we don't have that data yet
+        // In the future, this would come from the transaction data
+        transaction.service_ids.forEach(serviceId => {
+          this.selectedServices.push({
+            serviceId: serviceId,
+            extraDry: false
+          })
+        })
+      }
       
       // Parse existing addons and populate selectedAddons array with quantities
       this.selectedAddons = []
@@ -835,6 +890,8 @@ export default {
       }
       
       this.showEditModal = true
+      // Compute initial amount
+      this.computeModalAmount()
     },
     closeEditModal() {
       this.showEditModal = false
@@ -852,7 +909,7 @@ export default {
       this.newAddon = ''
     },
     // Add-ons methods
-    addAddon() {
+    addAddonModal() {
       if (this.newAddon) {
         // Check if addon already exists
         const existingIndex = this.selectedAddons.findIndex(addon => addon.type === this.newAddon)
@@ -867,24 +924,29 @@ export default {
           })
         }
         this.newAddon = ''
+        this.computeModalAmount()
       }
     },
     removeAddon(index) {
       this.selectedAddons.splice(index, 1)
+      this.computeModalAmount()
     },
     validateQty(index) {
       const addon = this.selectedAddons[index]
       if (addon.qty < 1) addon.qty = 1
       if (addon.qty > 99) addon.qty = 99
+      this.computeModalAmount()
     },
     incrementQty(index) {
       if (this.selectedAddons[index].qty < 99) {
         this.selectedAddons[index].qty++
+        this.computeModalAmount()
       }
     },
     decrementQty(index) {
       if (this.selectedAddons[index].qty > 1) {
         this.selectedAddons[index].qty--
+        this.computeModalAmount()
       }
     },
     getAddonDisplayName(type) {
@@ -896,6 +958,57 @@ export default {
       return this.selectedAddons.map(addon => 
         `${this.getAddonDisplayName(addon.type)} (${addon.qty})`
       ).join(', ')
+    },
+    // Service methods
+    addServiceModal() {
+      if (this.newService) {
+        const existingService = this.selectedServices.find(s => s.serviceId === this.newService)
+        if (!existingService) {
+          this.selectedServices.push({
+            serviceId: this.newService,
+            extraDry: false
+          })
+          this.newService = ''
+          this.computeModalAmount()
+        }
+      }
+    },
+    removeServiceModal(index) {
+      this.selectedServices.splice(index, 1)
+      this.computeModalAmount()
+    },
+    getServiceDisplayName(serviceId) {
+      const service = this.availableServices.find(s => s.value === serviceId)
+      return service ? service.label : 'Unknown Service'
+    },
+    isDryService(serviceId) {
+      const service = this.availableServices.find(s => s.value === serviceId)
+      return service && service.label && service.label.toLowerCase().includes('dry')
+    },
+    computeModalAmount() {
+      let total = 0
+      
+      // Add service prices
+      this.selectedServices.forEach(service => {
+        const serviceData = this.availableServices.find(s => s.value === service.serviceId)
+        if (serviceData) {
+          total += serviceData.price
+          // Add extra dry charge if applicable
+          if (service.extraDry && this.isDryService(service.serviceId)) {
+            total += 30
+          }
+        }
+      })
+      
+      // Add addon prices
+      this.selectedAddons.forEach(addon => {
+        const addonData = this.availableAddons.find(a => a.value === addon.type)
+        if (addonData) {
+          total += addonData.price * addon.qty
+        }
+      })
+      
+      this.editForm.amount = total
     },
     confirmEdit() {
       // Convert selectedAddons array to addons string format
@@ -912,13 +1025,25 @@ export default {
         const transactionId = parseInt(this.editForm.id.replace('TN', ''))
         const authStore = useAuthStore()
         
-        // Get customer_id from customer name
+        // Get or create customer_id from customer name
         const allCustomers = await api.customers.getAll()
-        const customer = allCustomers.data.find(c => c.name.toLowerCase() === this.editForm.customer.toLowerCase())
-        const customerId = customer ? customer.customer_id : 1
+        let customer = allCustomers.data.find(c => c.name.toLowerCase() === this.editForm.customer.toLowerCase())
+        let customerId
         
-        // Prepare service_ids and addon arrays
-        const service_ids = this.selectedServices || []
+        if (customer) {
+          // Customer exists, use their ID
+          customerId = customer.customer_id
+        } else {
+          // Customer doesn't exist, create new customer
+          const newCustomerResponse = await api.customers.create({ name: this.editForm.customer })
+          customerId = newCustomerResponse.data.customer_id
+        }
+        
+        // Prepare service_ids and service_extra_dry arrays
+        const service_ids = this.selectedServices.map(s => s.serviceId)
+        const service_extra_dry = this.selectedServices.map(s => s.extraDry ? 1 : 0)
+        
+        // Prepare addon arrays
         const addon_ids = this.selectedAddons.map(addon => addon.type)
         const addon_quantities = this.selectedAddons.map(addon => addon.qty)
         const quantity_addons = this.selectedAddons.reduce((sum, addon) => sum + addon.qty, 0)
@@ -927,6 +1052,7 @@ export default {
           customer_id: customerId,
           staff_id: authStore.staffId || 1,
           service_ids: service_ids,
+          service_extra_dry: service_extra_dry,
           addon_ids: addon_ids,
           addon_quantities: addon_quantities,
           date: this.editForm.date,

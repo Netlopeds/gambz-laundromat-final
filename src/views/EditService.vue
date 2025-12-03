@@ -139,18 +139,20 @@
             <input 
               v-model="editForm.price" 
               type="number" 
+              step="0.01"
               class="modal-input"
               placeholder="Enter price"
             />
           </div>
 
           <div v-else class="form-group">
-            <label class="modal-label">Description</label>
+            <label class="modal-label">Price (₱)</label>
             <input 
-              v-model="editForm.description" 
-              type="text" 
+              v-model="editForm.price" 
+              type="number" 
+              step="0.01"
               class="modal-input"
-              placeholder="Enter description"
+              placeholder="Enter price"
             />
           </div>
 
@@ -270,6 +272,7 @@ export default {
         this.addons = response.data.map(a => ({
           id: a.addon_id,
           name: a.name,
+          price: parseFloat(a.price),
           description: `Price: ₱${parseFloat(a.price).toFixed(2)}`,
           updated: new Date(a.updated_at || a.created_at || Date.now()).toISOString().split('T')[0],
           status: a.is_active ? 'Active' : 'Inactive',
@@ -304,7 +307,7 @@ export default {
         this.editingId = addonId
         this.editForm = {
           name: addon.name,
-          price: '',
+          price: addon.price,
           description: addon.description,
           status: addon.status,
           updated: addon.updated,
@@ -402,10 +405,13 @@ export default {
             }
           }
         } else {
-          // Extract price from description if it exists
-          const priceMatch = this.editForm.description.match(/₱([0-9.]+)/)
-          const price = priceMatch ? parseFloat(priceMatch[1]) : 0
+          // Addon - validate price
+          if (!this.editForm.price) {
+            alert('Please enter a price')
+            return
+          }
           
+          const price = parseFloat(this.editForm.price)
           const isActive = this.editForm.status === 'Active' ? 1 : 0
           
           if (this.isAddingNew) {
@@ -420,7 +426,8 @@ export default {
             this.addons.push({
               id: response.data.addon_id,
               name: this.editForm.name,
-              description: this.editForm.description,
+              price: price,
+              description: `Price: ₱${price.toFixed(2)}`,
               status: this.editForm.status,
               updated: new Date().toISOString().split('T')[0],
               isActive: isActive
@@ -437,7 +444,8 @@ export default {
             const addon = this.addons.find(a => a.id === this.editingId)
             if (addon) {
               addon.name = this.editForm.name
-              addon.description = this.editForm.description
+              addon.price = price
+              addon.description = `Price: ₱${price.toFixed(2)}`
               addon.status = this.editForm.status
               addon.updated = new Date().toISOString().split('T')[0]
               addon.isActive = isActive
