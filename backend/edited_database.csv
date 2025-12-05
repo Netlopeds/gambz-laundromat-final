@@ -1262,7 +1262,7 @@ transaction_id,customer_id,staff_id,date,time_received,price,name,service_type,s
 ,,,04/19/2025,9:33,144,BALTAZAR,Wash Dry Fold,paid,"Surf,Downy,Tide",2,FALSE,TRUE,224
 ,,,04/19/2025,10:10,156,ALDRIN,Wash,paid,Downy,1,FALSE,FALSE,72
 ,,,04/19/2025,10:25,240,JOAN,"Wash,Wash Dry Fold",paid,"Zonrox,Del,Downy",2,FALSE,FALSE,264
-,,,,,178,BRYXX,"Fold,Spin",paid,"Tide,Surf",2,TRUE,TRUE,110
+,,,04/19/2025,10:35,178,BRYXX,"Fold,Spin",paid,"Tide,Surf",2,TRUE,TRUE,110
 ,,,04/19/2025,10:40,152,REGALA,Wash and Dry,paid,"Breeze,Surf,Ariel",2,FALSE,FALSE,216
 ,,,04/19/2025,10:55,60,JOSHUA,Wash Dry Fold,paid,"Breeze,Zonrox",1,FALSE,TRUE,165
 ,,,04/19/2025,10:56,80,MARVIN,"Wash,Wash Dry Fold",paid,"Zonrox,Breeze",1,FALSE,FALSE,235

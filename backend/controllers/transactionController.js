@@ -5,7 +5,7 @@ exports.getAllTransactions = async (req, res) => {
   try {
     // Get pagination parameters from query string (optional)
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 1000; // Default to 1000 if not specified
+    const limit = parseInt(req.query.limit) || 10000; // Increased to 10000 to get all transactions
     const offset = (page - 1) * limit;
     
     // Get total count for pagination info
@@ -15,7 +15,17 @@ exports.getAllTransactions = async (req, res) => {
     // Single optimized query to get all data at once
     const [rows] = await db.query(`
       SELECT 
-        t.*,
+        t.transaction_id,
+        t.customer_id,
+        t.staff_id,
+        DATE_FORMAT(t.date, '%Y-%m-%d') as date,
+        t.time_received,
+        t.price,
+        t.total,
+        t.status,
+        t.extra_service,
+        t.wash_promo,
+        t.quantity_addons,
         c.name as customer_name,
         s.name as staff_name,
         GROUP_CONCAT(DISTINCT CONCAT(serv.service_id, ':', serv.name, ':', serv.base_price, ':', IFNULL(ts.extra_dry, 0)) SEPARATOR '||') as services_data,
@@ -28,7 +38,7 @@ exports.getAllTransactions = async (req, res) => {
       LEFT JOIN TRANSACTION_ADDONS ta ON t.transaction_id = ta.transaction_id
       LEFT JOIN ADDON a ON ta.addon_id = a.addon_id
       GROUP BY t.transaction_id
-      ORDER BY t.date DESC, t.time_received DESC
+      ORDER BY t.transaction_id ASC
       LIMIT ? OFFSET ?
     `, [limit, offset]);
     
@@ -487,29 +497,40 @@ exports.importCSV = async (req, res) => {
         const serviceMap = new Map(services.map(s => [s.name.toLowerCase(), s.service_id]));
         const addonMap = new Map(addons.map(a => [a.name.toLowerCase(), a.addon_id]));
         
-        // First, create a map of unique customers
-        const customerMap = new Map();
-        let customerCounter = 1;
+        // Get existing customers from database
+        const [existingCustomers] = await db.query('SELECT customer_id, name FROM CUSTOMER');
+        const customerIdMap = new Map(existingCustomers.map(c => [c.name.toLowerCase(), c.customer_id]));
         
-        // Parse all rows to find unique customers
+        // Parse all rows to find unique customers that need to be created
+        const newCustomersToCreate = new Set();
+        
         for (let i = 1; i < lines.length; i++) {
           if (!lines[i].trim()) continue;
           
           const values = parseCSVLine(lines[i]);
-          const customerName = values[6]; // name column
           
-          if (customerName && !customerMap.has(customerName)) {
-            customerMap.set(customerName, customerCounter++);
+          // Skip if we don't have enough columns
+          if (values.length < 7) {
+            console.log(`Line ${i + 1}: Not enough columns (${values.length}), skipping`);
+            continue;
+          }
+          
+          const customerName = values[6]?.trim(); // name column
+          
+          if (customerName && !customerIdMap.has(customerName.toLowerCase())) {
+            newCustomersToCreate.add(customerName);
           }
         }
         
-        // Insert customers first
-        for (const [name, id] of customerMap) {
+        // Insert only new customers
+        for (const name of newCustomersToCreate) {
           try {
-            await db.query(
-              'INSERT INTO CUSTOMER (customer_id, name) VALUES (?, ?)',
-              [id, name]
+            const [result] = await db.query(
+              'INSERT INTO CUSTOMER (name) VALUES (?)',
+              [name]
             );
+            // Add to map for reference during transaction creation
+            customerIdMap.set(name.toLowerCase(), result.insertId);
           } catch (error) {
             if (error.code !== 'ER_DUP_ENTRY') {
               console.error(`Error inserting customer ${name}:`, error.message);
@@ -517,7 +538,7 @@ exports.importCSV = async (req, res) => {
           }
         }
         
-        // Get default staff_id if req.user.staffId is not available
+        // Get current user's staff_id from auth token or use default
         let defaultStaffId = req.user?.staffId;
         if (!defaultStaffId) {
           const [staffRows] = await db.query('SELECT staff_id FROM STAFF LIMIT 1');
@@ -530,6 +551,7 @@ exports.importCSV = async (req, res) => {
         
         let imported = 0;
         let skipped = 0;
+        const errors = [];
         
         // Now insert transactions with junction tables
         for (let i = 1; i < lines.length; i++) {
@@ -542,10 +564,33 @@ exports.importCSV = async (req, res) => {
             
             const values = parseCSVLine(lines[i]);
             
+            // Debug: log the raw line and parsed values
+            console.log(`\n=== Line ${i + 1} ===`);
+            console.log(`Raw line: "${lines[i]}"`);
+            console.log(`Parsed into ${values.length} columns:`, values);
+            
+            // Skip if we don't have enough columns
+            if (values.length < 7) {
+              throw new Error(`Not enough columns (expected at least 7, got ${values.length})`);
+            }
+            
             // Parse the CSV columns
-            const customerName = values[6];
-            const customerId = customerMap.get(customerName);
-            const csvStaffId = parseInt(values[2]);
+            const customerName = values[6]?.trim();
+            
+            console.log(`Customer name (column 6): "${customerName}"`);
+            
+            // Validate customer name exists
+            if (!customerName) {
+              throw new Error(`Missing customer name (column G is empty, parsed values: ${JSON.stringify(values)})`);
+            }
+            
+            // Get customer_id from map (either existing or newly created)
+            const customerId = customerIdMap.get(customerName.toLowerCase());
+            if (!customerId) {
+              throw new Error(`Line ${i + 1}: Customer '${customerName}' not found in database`);
+            }
+            
+            const csvStaffId = values[2] ? parseInt(values[2]) : null;
             const date = parseDate(values[3]);
             const timeReceived = values[4];
             const price = parseFloat(values[5]) || 0;
@@ -557,9 +602,9 @@ exports.importCSV = async (req, res) => {
             const washPromo = values[12] === 'TRUE' || values[12] === '1' || values[12] === 'true';
             const total = parseFloat(values[13]) || price;
             
-            // Verify staff_id exists, otherwise use default
+            // Use staff_id from CSV if valid, otherwise use current user's staff_id
             let staffId = defaultStaffId;
-            if (csvStaffId) {
+            if (csvStaffId && !isNaN(csvStaffId)) {
               const [staffCheck] = await connection.query('SELECT staff_id FROM STAFF WHERE staff_id = ?', [csvStaffId]);
               if (staffCheck.length > 0) {
                 staffId = csvStaffId;
@@ -608,13 +653,20 @@ exports.importCSV = async (req, res) => {
               }
             }
             
+            // Log the CSV import in edit log
+            await connection.query(
+              `INSERT INTO EDIT_LOG (transaction_id, staff_id, action, old_value, new_value) 
+               VALUES (?, ?, ?, ?, ?)`,
+              [transactionId, staffId, 'Transaction Added via CSV Import', 'N/A', `Customer: ${customerName}, Services: ${serviceTypeStr}, Amount: ₱${total}`]
+            );
+            
             await connection.commit();
             imported++;
           } catch (error) {
             await connection.rollback();
-            if (error.code !== 'ER_DUP_ENTRY') {
-              console.error(`Error on line ${i}:`, error.message);
-            }
+            const errorMsg = `Line ${i + 1}: ${error.message}`;
+            console.error(errorMsg);
+            errors.push(errorMsg);
             skipped++;
           } finally {
             connection.release();
@@ -628,7 +680,8 @@ exports.importCSV = async (req, res) => {
           message: `Import complete! Imported: ${imported}, Skipped: ${skipped}`,
           imported,
           skipped,
-          customers: customerMap.size
+          newCustomersCreated: newCustomersToCreate.size,
+          errors: errors.length > 0 ? errors : undefined
         });
       } catch (error) {
         // Clean up uploaded file
@@ -651,17 +704,27 @@ function parseCSVLine(line) {
   
   for (let i = 0; i < line.length; i++) {
     const char = line[i];
+    const nextChar = line[i + 1];
     
-    if (char === '"') {
+    if (char === '"' && nextChar === '"') {
+      // Handle escaped quotes ("")
+      current += '"';
+      i++; // Skip next quote
+    } else if (char === '"') {
       inQuotes = !inQuotes;
     } else if (char === ',' && !inQuotes) {
-      values.push(current.trim());
+      values.push(current);
       current = '';
+    } else if (char === '\r') {
+      // Skip carriage return
+      continue;
     } else {
       current += char;
     }
   }
-  values.push(current.trim());
+  
+  // Push the last value
+  values.push(current);
   
   return values;
 }

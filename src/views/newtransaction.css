@@ -25,15 +25,19 @@
 .new-transaction-page {
   display: flex;
   min-height: 100vh;
+  height: auto;
   background-color: #bef0fb;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  position: relative;
 }
 
 .main-content {
   flex: 1;
   margin-left: 280px;
   padding: 40px;
+  min-height: calc(100vh - 80px);
+  background-color: #bef0fb;
 }
 
 .content-header {
@@ -860,4 +864,68 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 700;
   color: #662d00;
   box-shadow: 0 4px 12px rgba(255, 170, 0, 0.3);
+}
+
+/* Import modal styles */
+.import-errors {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+}
+
+.error-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.error-item {
+  font-size: 0.9rem;
+  color: #856404;
+  margin: 5px 0;
+  padding: 5px;
+  background: white;
+  border-radius: 4px;
+}
+
+.import-stats p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+/* Loading Modal Styles */
+.loading-modal {
+  text-align: center;
+  padding: 40px;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border: 6px solid #f0f8fa;
+  border-top: 6px solid #17a2b8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-message {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #17696d;
+  margin: 10px 0;
+}
+
+.loading-submessage {
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 400;
+  margin-top: 5px;
 }

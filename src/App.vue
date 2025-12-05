@@ -55,9 +55,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+  min-height: 100vh;
 }
 
 #app {
   min-height: 100vh;
+  height: 100%;
 }
 </style>

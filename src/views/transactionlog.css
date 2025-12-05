@@ -17,15 +17,19 @@
 .transaction-log-page {
   display: flex;
   min-height: 100vh;
+  height: auto;
   background-color: #bef0fb;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  position: relative;
 }
 
 .main-content {
   flex: 1;
   margin-left: 280px;
   padding: 40px;
+  min-height: calc(100vh - 80px);
+  background-color: #bef0fb;
 }
 
 .content-header {
@@ -92,6 +96,27 @@
   box-shadow: 0 4px 12px rgba(93, 224, 230, 0.5);
 }
 
+.btn-export-csv {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-export-csv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.5);
+}
+
 .card-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -154,35 +179,38 @@
   font-weight: 700;
   color: #333;
   border-bottom: 2px solid #e9ecef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Column-specific widths for better layout control */
 .transactions-table th:nth-child(1), /* ID */
 .transactions-table td:nth-child(1) {
-  width: 80px;
-  min-width: 80px;
-  max-width: 80px;
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
 }
 
 .transactions-table th:nth-child(2), /* Customer Name */
 .transactions-table td:nth-child(2) {
-  width: 120px;
-  min-width: 120px;
-  max-width: 150px;
+  width: 140px;
+  min-width: 140px;
+  max-width: 140px;
 }
 
 .transactions-table th:nth-child(3), /* Service Type */
 .transactions-table td:nth-child(3) {
-  width: 180px;
+  width: 150px;
   min-width: 150px;
-  max-width: 200px;
+  max-width: 150px;
 }
 
 .transactions-table th:nth-child(4), /* Add-ons */
 .transactions-table td:nth-child(4) {
-  width: 180px;
-  min-width: 150px;
-  max-width: 200px;
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
 }
 
 .transactions-table th:nth-child(5), /* Status */
@@ -194,16 +222,16 @@
 
 .transactions-table th:nth-child(6), /* Date */
 .transactions-table td:nth-child(6) {
-  width: 110px;
-  min-width: 110px;
-  max-width: 110px;
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
 }
 
 .transactions-table th:nth-child(7), /* Time */
 .transactions-table td:nth-child(7) {
-  width: 100px;
-  min-width: 100px;
-  max-width: 100px;
+  width: 110px;
+  min-width: 110px;
+  max-width: 110px;
 }
 
 .transactions-table th:nth-child(8), /* Amount */
@@ -1318,4 +1346,40 @@
   display: flex;
   gap: 10px;
   justify-content: space-between;
+}
+
+/* Export Modal Styles */
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #333;
+}
+
+.radio-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.date-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
 }

@@ -17,15 +17,19 @@
 .edit-log-page {
   display: flex;
   min-height: 100vh;
+  height: auto;
   background-color: #bef0fb;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  position: relative;
 }
 
 .main-content {
   flex: 1;
   margin-left: 280px;
   padding: 40px;
+  min-height: calc(100vh - 80px);
+  background-color: #bef0fb;
 }
 
 .content-header {
@@ -107,6 +111,7 @@
 .transactions-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .transactions-table thead {
@@ -122,6 +127,50 @@
   font-weight: 700;
   color: #333;
   border-bottom: 2px solid #e9ecef;
+  white-space: nowrap;
+}
+
+/* Column-specific widths */
+.transactions-table th:nth-child(1), /* Edit Date/Time */
+.transactions-table td:nth-child(1) {
+  width: 150px;
+  min-width: 150px;
+}
+
+.transactions-table th:nth-child(2), /* Transaction ID */
+.transactions-table td:nth-child(2) {
+  width: 120px;
+  min-width: 120px;
+}
+
+.transactions-table th:nth-child(3), /* Customer */
+.transactions-table td:nth-child(3) {
+  width: 140px;
+  min-width: 140px;
+}
+
+.transactions-table th:nth-child(4), /* Edited By */
+.transactions-table td:nth-child(4) {
+  width: 140px;
+  min-width: 140px;
+}
+
+.transactions-table th:nth-child(5), /* Field Changed */
+.transactions-table td:nth-child(5) {
+  width: 140px;
+  min-width: 140px;
+}
+
+.transactions-table th:nth-child(6), /* Old Value */
+.transactions-table td:nth-child(6) {
+  width: 140px;
+  min-width: 140px;
+}
+
+.transactions-table th:nth-child(7), /* New Value */
+.transactions-table td:nth-child(7) {
+  width: 140px;
+  min-width: 140px;
 }
 
 .transactions-table td {

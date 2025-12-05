@@ -282,9 +282,28 @@
             <p v-if="importResult.skipped > 0">⏭️ Transactions Skipped: {{ importResult.skipped }}</p>
             <p v-if="importResult.customers">👥 Customers Processed: {{ importResult.customers }}</p>
           </div>
+          <div class="import-errors" v-if="importResult && importResult.errors && importResult.errors.length > 0">
+            <p><strong>⚠️ Error Details:</strong></p>
+            <div class="error-list">
+              <p v-for="(error, index) in importResult.errors" :key="index" class="error-item">
+                {{ error }}
+              </p>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button @click="closeImportModal" class="btn-modal-submit">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSV Import Loading Modal -->
+    <div v-if="showImportingModal" class="modal-overlay">
+      <div class="modal-content modal-confirm loading-modal" @click.stop>
+        <div class="modal-body">
+          <div class="loading-spinner"></div>
+          <p class="loading-message">Please wait, importing CSV...</p>
+          <p class="loading-submessage">This may take a few moments</p>
         </div>
       </div>
     </div>
@@ -320,6 +339,7 @@ export default {
       showConfirmModal: false,
       showSuccessModal: false,
       showImportModal: false,
+      showImportingModal: false,
       importResult: null,
       selectedAddons: [],
       selectedServices: [], // Array of {serviceId, extraDry}
@@ -654,11 +674,17 @@ export default {
       }
       
       try {
+        // Show loading modal
+        this.showImportingModal = true
+        
         // Upload CSV file to backend
         const formData = new FormData()
         formData.append('csvFile', file)
         
         const response = await api.transactions.importCSV(formData)
+        
+        // Hide loading modal
+        this.showImportingModal = false
         
         // Store import result and show modal
         this.importResult = response.data
@@ -668,6 +694,9 @@ export default {
         // Optionally refresh the page or reload data
         // window.location.reload()
       } catch (error) {
+        // Hide loading modal
+        this.showImportingModal = false
+        
         console.error('Error importing CSV:', error)
         alert('Failed to import CSV file: ' + (error.response?.data?.error || error.message))
       }

@@ -78,6 +78,7 @@ export default {
   height: 100vh;
   left: 0;
   top: 0;
+  z-index: 100;
 }
 
 .sidebar-header {
