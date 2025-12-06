@@ -345,8 +345,30 @@ exports.updateTransaction = async (req, res) => {
     if (status !== undefined && old.status !== status) {
       changes.push({ field: 'Status', oldValue: old.status, newValue: status });
     }
-    if (date !== undefined && old.date !== date) {
-      changes.push({ field: 'Date', oldValue: old.date, newValue: date });
+    if (date !== undefined) {
+      // Normalize dates to YYYY-MM-DD format for proper comparison
+      // MySQL DATE type returns as YYYY-MM-DD string
+      let oldDateStr = old.date;
+      if (old.date instanceof Date) {
+        // If it's a Date object, get the date portion in local timezone
+        const year = old.date.getFullYear();
+        const month = String(old.date.getMonth() + 1).padStart(2, '0');
+        const day = String(old.date.getDate()).padStart(2, '0');
+        oldDateStr = `${year}-${month}-${day}`;
+      } else if (typeof old.date === 'string') {
+        // If it's a string, extract just the date part (before any T or space)
+        oldDateStr = old.date.split('T')[0].split(' ')[0];
+      }
+      
+      let newDateStr = date;
+      if (typeof date === 'string') {
+        newDateStr = date.split('T')[0].split(' ')[0];
+      }
+      
+      // Only log if dates actually differ
+      if (oldDateStr !== newDateStr) {
+        changes.push({ field: 'Date', oldValue: oldDateStr, newValue: newDateStr });
+      }
     }
     if (time_received !== undefined && old.time_received !== time_received) {
       changes.push({ field: 'Time Received', oldValue: old.time_received, newValue: time_received });
