@@ -38,7 +38,7 @@ exports.getAllTransactions = async (req, res) => {
       LEFT JOIN TRANSACTION_ADDONS ta ON t.transaction_id = ta.transaction_id
       LEFT JOIN ADDON a ON ta.addon_id = a.addon_id
       GROUP BY t.transaction_id
-      ORDER BY t.transaction_id ASC
+      ORDER BY t.transaction_id DESC
       LIMIT ? OFFSET ?
     `, [limit, offset]);
     

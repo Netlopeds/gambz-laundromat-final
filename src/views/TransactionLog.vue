@@ -17,7 +17,7 @@
             <button @click="openStatusModal" class="btn-edit-status">
               Edit Status
             </button>
-            <button @click="openExportModal" class="btn-export-csv">
+            <button v-if="isAdmin" @click="openExportModal" class="btn-export-csv">
               Export to CSV
             </button>
             <input 
