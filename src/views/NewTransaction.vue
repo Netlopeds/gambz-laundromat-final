@@ -22,6 +22,9 @@
                   id="customerName" 
                   v-model="form.customerName" 
                   placeholder="Enter customer name"
+                  pattern="[A-Za-z\s\.\-']+"
+                  title="Customer name should only contain letters, spaces, dots, hyphens, and apostrophes"
+                  @keypress="validateLettersOnly"
                   required
                 />
               </div>
@@ -386,6 +389,13 @@ export default {
     }
   },
   methods: {
+    validateLettersOnly(event) {
+      const char = String.fromCharCode(event.keyCode || event.which);
+      // Allow letters (A-Z, a-z), spaces, dots, hyphens, and apostrophes
+      if (!/^[A-Za-z\s\.\-']$/.test(char)) {
+        event.preventDefault();
+      }
+    },
     async fetchServices() {
       try {
         const response = await api.services.getAll()
