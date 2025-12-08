@@ -29,6 +29,11 @@
         <img src="/images/edit log.png" alt="Edit Log" class="nav-icon" />
         <span>Edit Log</span>
       </router-link>
+      
+      <router-link v-if="authStore.isAdmin" to="/edit-service" class="nav-item" active-class="active">
+        <img src="/images/edit log.png" alt="Edit Service" class="nav-icon" />
+        <span>Edit Service</span>
+      </router-link>
     </nav>
 
     <button @click="handleLogout" class="logout-btn">
@@ -61,22 +66,6 @@ export default {
 </script>
 
 <style scoped>
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Sidebar Navigation */
 .sidebar {
   width: 280px;
@@ -89,6 +78,7 @@ export default {
   height: 100vh;
   left: 0;
   top: 0;
+  z-index: 100;
 }
 
 .sidebar-header {

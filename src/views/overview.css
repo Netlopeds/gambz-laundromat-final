@@ -25,9 +25,11 @@
 .overview-page {
   display: flex;
   min-height: 100vh;
+  height: auto;
   background-color: #bef0fb;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  position: relative;
 }
 
 /* Main Content */
@@ -35,6 +37,8 @@
   flex: 1;
   margin-left: 280px;
   padding: 40px;
+  min-height: calc(100vh - 80px);
+  background-color: #bef0fb;
 }
 
 .content-header {

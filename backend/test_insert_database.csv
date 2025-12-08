@@ -1,0 +1,8 @@
+transaction_id,customer_id,staff_id,date,time_received,price,name,service_type,status,addons,quantity_addons,extra_service,wash_promo,total
+1,,5,12/08/2025,6:25,126,JISON,"Dry,Fold",paid,Zonrox,2,FALSE,FALSE,104
+,,,12/08/2025,6:52,140,RANDY,Dry,paid,"Zonrox,Breeze,Del",1,TRUE,TRUE,98
+,,,12/08/2025,7:15,150,JANET,Spin,paid,"Downy,Ariel,Surf",2,FALSE,TRUE,89
+,,,12/08/2025,7:35,126,ANALISA,"Dry,Wash",paid,"Del,Zonrox",1,FALSE,TRUE,125
+,,,12/08/2025,7:50,110,BABSI,Fold,paid,"Surf,Breeze",2,TRUE,FALSE,105
+,,,12/08/2025,7:51,202,JISON X JANET PIZZA HOUSE,"Wash and Dry,Fold",paid,"Downy,Ariel,Zonrox",2,FALSE,FALSE,224
+,,,12/08/2025,7:59,154,JISON QUIMPO BERDON,"Wash Dry Fold,Wash",paid,Del,2,FALSE,FALSE,226

@@ -21,19 +21,19 @@
               :class="['filter-btn', { active: timeFilter === 'daily' }]"
               @click="timeFilter = 'daily'"
             >
-              Daily
+              Day
             </button>
             <button 
               :class="['filter-btn', { active: timeFilter === 'monthly' }]"
               @click="timeFilter = 'monthly'"
             >
-              Monthly
+              Month
             </button>
             <button 
               :class="['filter-btn', { active: timeFilter === 'yearly' }]"
               @click="timeFilter = 'yearly'"
             >
-              Yearly
+              Year
             </button>
           </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="stat-icon sales">
               <img src="/images/total-sales.png" alt="Sales" class="stat-icon-img" />
             </div>
-            <h3 class="stat-number">₱{{ currentStats.sales }}</h3>
+            <h3 class="stat-number">₱{{ formatMoney(currentStats.sales) }}</h3>
             <p class="stat-label">Total Sales</p>
             <p class="stat-description">Shows total revenue {{ timeFilterText }}</p>
             <button class="details-btn" @click="goToReports">See Details</button>
@@ -189,6 +189,10 @@ export default {
     }
   },
   methods: {
+    formatMoney(amount) {
+      const num = parseFloat(amount) || 0
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    },
     goToReports() {
       this.$router.push({ name: 'Reports' })
     }

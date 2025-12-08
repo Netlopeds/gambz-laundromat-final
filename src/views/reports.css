@@ -9,14 +9,18 @@
 .reports-page {
   display: flex;
   min-height: 100vh;
+  height: auto;
   background-color: #bef0fb;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  position: relative;
 }
 .main-content {
   flex: 1;
   margin-left: 280px;
   padding: 40px;
+  min-height: calc(100vh - 80px);
+  background-color: #bef0fb;
 }
 .admin-reports .content-header {
   text-align: center;
@@ -212,6 +216,14 @@
   font-weight: 700;
   color: #333;
 }
+
+.filter-group-kpi {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .period-select-kpi {
   padding: 8px 12px;
   border: 2px solid #e9ecef;
@@ -220,7 +232,32 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   cursor: pointer;
+  min-width: 100px;
 }
+
+.date-picker-kpi,
+.year-picker-kpi {
+  padding: 8px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  background: white;
+  color: #333;
+}
+
+.year-picker-kpi {
+  width: 100px;
+  text-align: center;
+}
+
+.date-picker-kpi::-webkit-calendar-picker-indicator,
+.year-picker-kpi::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
 .report-content-kpi {
   text-align: center;
   padding: 20px 0;

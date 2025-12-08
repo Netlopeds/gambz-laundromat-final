@@ -14,14 +14,40 @@
           <div class="report-card-kpi">
             <div class="report-header-kpi">
               <h3 class="report-title-kpi">Sales Report</h3>
-              <select v-model="adminSalesPeriod" class="period-select-kpi">
-                <option value="daily">Daily</option>
-                <option value="monthly">Monthly</option>
-                <option value="yearly">Yearly</option>
-              </select>
+              <div class="filter-group-kpi">
+                <select v-model="adminSalesPeriod" class="period-select-kpi" @change="fetchReportsData">
+                  <option value="daily">Day</option>
+                  <option value="monthly">Month</option>
+                  <option value="yearly">Year</option>
+                </select>
+                <input 
+                  v-if="adminSalesPeriod === 'daily'" 
+                  type="date" 
+                  v-model="salesDateFilter" 
+                  @change="fetchReportsData"
+                  class="date-picker-kpi"
+                />
+                <input 
+                  v-else-if="adminSalesPeriod === 'monthly'" 
+                  type="month" 
+                  v-model="salesMonthFilter" 
+                  @change="fetchReportsData"
+                  class="date-picker-kpi"
+                />
+                <input 
+                  v-else-if="adminSalesPeriod === 'yearly'" 
+                  type="number" 
+                  v-model="salesYearFilter" 
+                  @change="fetchReportsData"
+                  min="2000" 
+                  max="2100"
+                  class="year-picker-kpi"
+                  placeholder="Year"
+                />
+              </div>
             </div>
             <div class="report-content-kpi">
-              <div class="report-value-kpi">₱{{ adminKpiData[adminSalesPeriod].sales }}</div>
+              <div class="report-value-kpi">₱{{ formatMoney(adminKpiData[adminSalesPeriod].sales) }}</div>
               <p class="report-label-kpi">Total Revenue</p>
             </div>
           </div>
@@ -29,11 +55,37 @@
           <div class="report-card-kpi">
             <div class="report-header-kpi">
               <h3 class="report-title-kpi">Customer Report</h3>
-              <select v-model="adminCustomerPeriod" class="period-select-kpi">
-                <option value="daily">Daily</option>
-                <option value="monthly">Monthly</option>
-                <option value="yearly">Yearly</option>
-              </select>
+              <div class="filter-group-kpi">
+                <select v-model="adminCustomerPeriod" class="period-select-kpi" @change="fetchReportsData">
+                  <option value="daily">Day</option>
+                  <option value="monthly">Month</option>
+                  <option value="yearly">Year</option>
+                </select>
+                <input 
+                  v-if="adminCustomerPeriod === 'daily'" 
+                  type="date" 
+                  v-model="customerDateFilter" 
+                  @change="fetchReportsData"
+                  class="date-picker-kpi"
+                />
+                <input 
+                  v-else-if="adminCustomerPeriod === 'monthly'" 
+                  type="month" 
+                  v-model="customerMonthFilter" 
+                  @change="fetchReportsData"
+                  class="date-picker-kpi"
+                />
+                <input 
+                  v-else-if="adminCustomerPeriod === 'yearly'" 
+                  type="number" 
+                  v-model="customerYearFilter" 
+                  @change="fetchReportsData"
+                  min="2000" 
+                  max="2100"
+                  class="year-picker-kpi"
+                  placeholder="Year"
+                />
+              </div>
             </div>
             <div class="report-content-kpi">
               <div class="report-value-kpi">{{ adminKpiData[adminCustomerPeriod].customers }}</div>
@@ -44,11 +96,37 @@
           <div class="report-card-kpi">
             <div class="report-header-kpi">
               <h3 class="report-title-kpi">Service Report</h3>
-              <select v-model="adminServicePeriod" class="period-select-kpi">
-                <option value="daily">Daily</option>
-                <option value="monthly">Monthly</option>
-                <option value="yearly">Yearly</option>
-              </select>
+              <div class="filter-group-kpi">
+                <select v-model="adminServicePeriod" class="period-select-kpi" @change="fetchReportsData">
+                  <option value="daily">Day</option>
+                  <option value="monthly">Month</option>
+                  <option value="yearly">Year</option>
+                </select>
+                <input 
+                  v-if="adminServicePeriod === 'daily'" 
+                  type="date" 
+                  v-model="serviceDateFilter" 
+                  @change="fetchReportsData"
+                  class="date-picker-kpi"
+                />
+                <input 
+                  v-else-if="adminServicePeriod === 'monthly'" 
+                  type="month" 
+                  v-model="serviceMonthFilter" 
+                  @change="fetchReportsData"
+                  class="date-picker-kpi"
+                />
+                <input 
+                  v-else-if="adminServicePeriod === 'yearly'" 
+                  type="number" 
+                  v-model="serviceYearFilter" 
+                  @change="fetchReportsData"
+                  min="2000" 
+                  max="2100"
+                  class="year-picker-kpi"
+                  placeholder="Year"
+                />
+              </div>
             </div>
             <div class="report-content-kpi">
               <div class="report-value-kpi">{{ adminKpiData[adminServicePeriod].orders }}</div>
@@ -87,11 +165,37 @@
           <div class="report-card-staff">
             <div class="report-header-staff">
               <h3 class="report-title-staff">Payment Status</h3>
-              <select v-model="adminPaymentPeriod" class="period-select-kpi">
-                <option value="daily">Daily</option>
-                <option value="monthly">Monthly</option>
-                <option value="yearly">Yearly</option>
-              </select>
+              <div class="filter-group-kpi">
+                <select v-model="adminPaymentPeriod" class="period-select-kpi" @change="fetchReportsData">
+                  <option value="daily">Day</option>
+                  <option value="monthly">Month</option>
+                  <option value="yearly">Year</option>
+                </select>
+                <input 
+                  v-if="adminPaymentPeriod === 'daily'" 
+                  type="date" 
+                  v-model="paymentDateFilter" 
+                  @change="fetchReportsData"
+                  class="date-picker-kpi"
+                />
+                <input 
+                  v-else-if="adminPaymentPeriod === 'monthly'" 
+                  type="month" 
+                  v-model="paymentMonthFilter" 
+                  @change="fetchReportsData"
+                  class="date-picker-kpi"
+                />
+                <input 
+                  v-else-if="adminPaymentPeriod === 'yearly'" 
+                  type="number" 
+                  v-model="paymentYearFilter" 
+                  @change="fetchReportsData"
+                  min="2000" 
+                  max="2100"
+                  class="year-picker-kpi"
+                  placeholder="Year"
+                />
+              </div>
             </div>
             <div class="staff-pie-chart-container">
               <Pie :data="currentPaymentStatusData" :options="staffChartOptions" />
@@ -121,12 +225,6 @@
           </div>
         </div>
 
-        <div class="export-section-staff">
-          <button class="export-btn-staff" @click="exportReport">
-            <span>📊</span> Export Report ({{ adminSalesPeriod.charAt(0).toUpperCase() + adminSalesPeriod.slice(1) }})
-          </button>
-        </div>
-
       </div>
 
       <div v-else class="staff-reports">
@@ -142,7 +240,7 @@
               <h3 class="report-title-kpi">Today's Sales Report</h3>
             </div>
             <div class="report-content-kpi">
-              <div class="report-value-kpi">₱{{ staffKpiData.sales }}</div>
+              <div class="report-value-kpi">₱{{ formatMoney(staffKpiData.sales) }}</div>
               <p class="report-label-kpi">Total Revenue</p>
             </div>
           </div>
@@ -240,6 +338,21 @@ export default {
       adminCustomerPeriod: 'monthly',
       adminServicePeriod: 'monthly',
       adminPaymentPeriod: 'monthly',
+      
+      // Date filter states
+      salesDateFilter: new Date().toISOString().split('T')[0],
+      salesMonthFilter: new Date().toISOString().slice(0, 7),
+      salesYearFilter: new Date().getFullYear(),
+      customerDateFilter: new Date().toISOString().split('T')[0],
+      customerMonthFilter: new Date().toISOString().slice(0, 7),
+      customerYearFilter: new Date().getFullYear(),
+      serviceDateFilter: new Date().toISOString().split('T')[0],
+      serviceMonthFilter: new Date().toISOString().slice(0, 7),
+      serviceYearFilter: new Date().getFullYear(),
+      paymentDateFilter: new Date().toISOString().split('T')[0],
+      paymentMonthFilter: new Date().toISOString().slice(0, 7),
+      paymentYearFilter: new Date().getFullYear(),
+      
       adminKpiData: {
         daily: { sales: '0.00', orders: 0, customers: 0 },
         monthly: { sales: '0.00', orders: 0, customers: 0 },
@@ -321,10 +434,14 @@ export default {
     }
   },
   methods: {
+    formatMoney(amount) {
+      const num = parseFloat(amount) || 0
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    },
     async fetchReportsData() {
       try {
         const transactionsResponse = await api.transactions.getAll()
-        const transactions = transactionsResponse.data
+        const transactions = Array.isArray(transactionsResponse.data) ? transactionsResponse.data : transactionsResponse.data.data
         
         console.log('Total transactions:', transactions.length)
         
@@ -359,8 +476,17 @@ export default {
         
         const serviceCounts = {}
         transactions.forEach(t => {
-          const service = t.service_type || 'Unknown'
-          serviceCounts[service] = (serviceCounts[service] || 0) + 1
+          // Handle new schema with services array
+          if (t.services && t.services.length > 0) {
+            t.services.forEach(service => {
+              const serviceName = service.name || 'Unknown'
+              serviceCounts[serviceName] = (serviceCounts[serviceName] || 0) + 1
+            })
+          } else {
+            // Fallback for old data structure
+            const service = t.service_name || t.service_type || 'Unknown'
+            serviceCounts[service] = (serviceCounts[service] || 0) + 1
+          }
         })
         
         const maxCount = Math.max(...Object.values(serviceCounts), 1)
@@ -380,33 +506,34 @@ export default {
     },
     async fetchPeriodStats() {
       try {
-        const now = new Date()
         const transactionsResponse = await api.transactions.getAll()
-        const allTransactions = transactionsResponse.data
+        const allTransactions = Array.isArray(transactionsResponse.data) ? transactionsResponse.data : transactionsResponse.data.data
         
-        // Daily
-        const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString().split('T')[0]
-        const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).toISOString().split('T')[0]
-        const dailyResponse = await api.analytics.getSummary(startOfDay, endOfDay)
+        // Daily - use salesDateFilter
+        const dailyDate = this.salesDateFilter || new Date().toISOString().split('T')[0]
+        const dailyResponse = await api.analytics.getSummary(dailyDate, dailyDate)
         this.adminKpiData.daily = {
           sales: parseFloat(dailyResponse.data.total_sales || 0).toFixed(2),
           orders: dailyResponse.data.total_orders || 0,
           customers: dailyResponse.data.total_customers || 0
         }
         
-        // Daily payment status
+        // Daily payment status - use paymentDateFilter
+        const paymentDailyDate = this.paymentDateFilter || new Date().toISOString().split('T')[0]
         const dailyTrans = allTransactions.filter(t => {
           const transDate = new Date(t.date).toISOString().split('T')[0]
-          return transDate === startOfDay
+          return transDate === paymentDailyDate
         })
         this.paymentStatusByPeriod.daily = {
           paid: dailyTrans.filter(t => t.status === 'paid').length,
           unpaid: dailyTrans.filter(t => t.status === 'unpaid' || t.status === 'pending').length
         }
         
-        // Monthly
-        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0]
-        const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split('T')[0]
+        // Monthly - use salesMonthFilter (format: YYYY-MM)
+        const monthFilter = this.salesMonthFilter || new Date().toISOString().slice(0, 7)
+        const [year, month] = monthFilter.split('-')
+        const startOfMonth = new Date(parseInt(year), parseInt(month) - 1, 1).toISOString().split('T')[0]
+        const endOfMonth = new Date(parseInt(year), parseInt(month), 0).toISOString().split('T')[0]
         const monthlyResponse = await api.analytics.getSummary(startOfMonth, endOfMonth)
         this.adminKpiData.monthly = {
           sales: parseFloat(monthlyResponse.data.total_sales || 0).toFixed(2),
@@ -414,21 +541,24 @@ export default {
           customers: monthlyResponse.data.total_customers || 0
         }
         
-        // Monthly payment status
+        // Monthly payment status - use paymentMonthFilter
+        const paymentMonthFilter = this.paymentMonthFilter || new Date().toISOString().slice(0, 7)
+        const [payYear, payMonth] = paymentMonthFilter.split('-')
+        const payStartOfMonth = new Date(parseInt(payYear), parseInt(payMonth) - 1, 1)
+        const payEndOfMonth = new Date(parseInt(payYear), parseInt(payMonth), 0)
         const monthlyTrans = allTransactions.filter(t => {
           const transDate = new Date(t.date)
-          const start = new Date(startOfMonth)
-          const end = new Date(endOfMonth)
-          return transDate >= start && transDate <= end
+          return transDate >= payStartOfMonth && transDate <= payEndOfMonth
         })
         this.paymentStatusByPeriod.monthly = {
           paid: monthlyTrans.filter(t => t.status === 'paid').length,
           unpaid: monthlyTrans.filter(t => t.status === 'unpaid' || t.status === 'pending').length
         }
         
-        // Yearly
-        const startOfYear = new Date(now.getFullYear(), 0, 1).toISOString().split('T')[0]
-        const endOfYear = new Date(now.getFullYear(), 11, 31).toISOString().split('T')[0]
+        // Yearly - use salesYearFilter
+        const yearFilter = this.salesYearFilter || new Date().getFullYear()
+        const startOfYear = new Date(yearFilter, 0, 1).toISOString().split('T')[0]
+        const endOfYear = new Date(yearFilter, 11, 31).toISOString().split('T')[0]
         const yearlyResponse = await api.analytics.getSummary(startOfYear, endOfYear)
         this.adminKpiData.yearly = {
           sales: parseFloat(yearlyResponse.data.total_sales || 0).toFixed(2),
@@ -436,12 +566,13 @@ export default {
           customers: yearlyResponse.data.total_customers || 0
         }
         
-        // Yearly payment status
+        // Yearly payment status - use paymentYearFilter
+        const paymentYearFilter = this.paymentYearFilter || new Date().getFullYear()
+        const payStartOfYear = new Date(paymentYearFilter, 0, 1)
+        const payEndOfYear = new Date(paymentYearFilter, 11, 31, 23, 59, 59)
         const yearlyTrans = allTransactions.filter(t => {
           const transDate = new Date(t.date)
-          const start = new Date(startOfYear)
-          const end = new Date(endOfYear)
-          return transDate >= start && transDate <= end
+          return transDate >= payStartOfYear && transDate <= payEndOfYear
         })
         this.paymentStatusByPeriod.yearly = {
           paid: yearlyTrans.filter(t => t.status === 'paid').length,
@@ -449,94 +580,15 @@ export default {
         }
         
         // Staff KPI (using today's data)
+        const today = new Date().toISOString().split('T')[0]
+        const todayResponse = await api.analytics.getSummary(today, today)
         this.staffKpiData = {
-          sales: this.adminKpiData.daily.sales,
-          customers: this.adminKpiData.daily.customers,
-          transactions: this.adminKpiData.daily.orders
+          sales: parseFloat(todayResponse.data.total_sales || 0).toFixed(2),
+          customers: todayResponse.data.total_customers || 0,
+          transactions: todayResponse.data.total_orders || 0
         }
       } catch (error) {
         console.error('Error fetching period stats:', error)
-      }
-    },
-    async exportReport() {
-      try {
-        // Determine which period to export based on admin selections
-        let period = 'monthly'
-        if (this.isUserAdmin) {
-          // Use the most common selected period, or default to monthly
-          period = this.adminSalesPeriod
-        }
-        
-        // Calculate date range based on period
-        const today = new Date()
-        let startDate, endDate
-        
-        if (period === 'daily') {
-          startDate = new Date(today.setHours(0, 0, 0, 0)).toISOString().split('T')[0]
-          endDate = new Date(today.setHours(23, 59, 59, 999)).toISOString().split('T')[0]
-        } else if (period === 'monthly') {
-          startDate = new Date(today.getFullYear(), today.getMonth(), 1).toISOString().split('T')[0]
-          endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0).toISOString().split('T')[0]
-        } else if (period === 'yearly') {
-          startDate = new Date(today.getFullYear(), 0, 1).toISOString().split('T')[0]
-          endDate = new Date(today.getFullYear(), 11, 31).toISOString().split('T')[0]
-        }
-        
-        // Fetch transactions for the period
-        const transactionsResponse = await api.transactions.getAll()
-        const allTransactions = transactionsResponse.data
-        
-        // Filter transactions by date range
-        const transactions = allTransactions.filter(t => {
-          const transDate = new Date(t.date)
-          const start = new Date(startDate)
-          const end = new Date(endDate)
-          return transDate >= start && transDate <= end
-        })
-        
-        // Helper function to format date as DD/MM/YYYY
-        const formatDateForExport = (dateStr) => {
-          if (!dateStr) return 'N/A'
-          const date = new Date(dateStr)
-          if (isNaN(date.getTime())) return 'N/A'
-          const day = date.getUTCDate().toString().padStart(2, '0')
-          const month = (date.getUTCMonth() + 1).toString().padStart(2, '0')
-          const year = date.getUTCFullYear()
-          return `${day}/${month}/${year}`
-        }
-        
-        // Create CSV content
-        const headers = ['Transaction ID', 'Customer Name', 'Service Type', 'Date', 'Time', 'Price', 'Status', 'Add-ons']
-        const csvRows = [headers.join(',')]
-        
-        transactions.forEach(t => {
-          const row = [
-            `TN${String(t.transaction_id).padStart(4, '0')}`,
-            `"${t.customer_name || t.name}"`,
-            `"${t.service_type}"`,
-            formatDateForExport(t.date),
-            t.time_received,
-            t.price,
-            t.status,
-            `"${t.addon || 'none'}"`
-          ]
-          csvRows.push(row.join(','))
-        })
-        
-        // Create and download CSV
-        const csvContent = csvRows.join('\n')
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
-        const link = document.createElement('a')
-        const url = URL.createObjectURL(blob)
-        link.setAttribute('href', url)
-        link.setAttribute('download', `report_${period}_${new Date().toISOString().split('T')[0]}.csv`)
-        link.style.visibility = 'hidden'
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-      } catch (error) {
-        console.error('Error exporting report:', error)
-        alert('Failed to export report')
       }
     }
   }

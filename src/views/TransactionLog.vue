@@ -17,6 +17,9 @@
             <button @click="openStatusModal" class="btn-edit-status">
               Edit Status
             </button>
+            <button v-if="isAdmin" @click="openExportModal" class="btn-export-csv">
+              Export to CSV
+            </button>
             <input 
               type="text" 
               v-model="searchQuery" 
@@ -69,9 +72,9 @@
             <tbody>
               <tr v-for="transaction in paginatedTransactions" :key="transaction.id">
                 <td>{{ transaction.id }}</td>
-                <td>{{ transaction.customer }}</td>
-                <td>{{ transaction.service }}</td>
-                <td>{{ transaction.addons }}</td>
+                <td :title="transaction.customer">{{ transaction.customer }}</td>
+                <td :title="transaction.service">{{ transaction.service }}</td>
+                <td :title="transaction.addons">{{ transaction.addons }}</td>
                 <td>
                   <span :class="['status-badge', transaction.status]">
                     {{ transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1) }}
@@ -79,7 +82,7 @@
                 </td>
                 <td>{{ transaction.date }}</td>
                 <td>{{ transaction.time }}</td>
-                <td>₱{{ transaction.amount }}</td>
+                <td>₱{{ formatMoney(transaction.amount) }}</td>
                 <td v-if="isAdmin">
                   <button
                     @click="openEditModal(transaction)"
@@ -125,7 +128,7 @@
               </div>
               <div class="mobile-field">
                 <span class="mobile-label">Amount:</span>
-                <span class="mobile-value amount">₱{{ transaction.amount }}</span>
+                <span class="mobile-value amount">₱{{ formatMoney(transaction.amount) }}</span>
               </div>
             </div>
             <div v-if="isAdmin" class="mobile-card-footer">
@@ -166,7 +169,7 @@
               </div>
               <div class="mobile-field">
                 <span class="mobile-label">Amount:</span>
-                <span class="mobile-value amount">₱{{ transaction.amount }}</span>
+                <span class="mobile-value amount">₱{{ formatMoney(transaction.amount) }}</span>
               </div>
             </div>
             <div v-if="isAdmin" class="mobile-card-footer">
@@ -203,11 +206,45 @@
           
           <div class="form-group">
             <label class="modal-label">Service Type:</label>
-            <select v-model="editForm.service" class="modal-select">
-              <option value="Wash">Wash</option>
-              <option value="Wash & Dry">Wash & Dry</option>
-              <option value="Full Service">Full Service</option>
-            </select>
+            <div class="services-edit-container">
+              <!-- Selected Services List -->
+              <div v-if="selectedServices.length > 0" class="selected-services">
+                <div v-for="(service, index) in selectedServices" :key="index" class="service-item-edit">
+                  <span class="service-name">{{ getServiceDisplayName(service.serviceId) }}</span>
+                  <label v-if="isDryService(service.serviceId)" class="extra-dry-checkbox-modal">
+                    <input 
+                      type="checkbox" 
+                      v-model="service.extraDry"
+                      @change="computeModalAmount"
+                    />
+                    <span class="checkbox-text">Extra Dry (+₱30)</span>
+                  </label>
+                  <button type="button" @click="removeServiceModal(index)" class="remove-btn">&times;</button>
+                </div>
+              </div>
+              
+              <!-- Add New Service -->
+              <div class="add-service-section">
+                <select v-model="newService" class="service-select modal-select">
+                  <option value="">Select service to add</option>
+                  <option 
+                    v-for="service in availableServices" 
+                    :key="service.value" 
+                    :value="service.value"
+                  >
+                    {{ service.label }} - ₱{{ service.price }}
+                  </option>
+                </select>
+                <button 
+                  type="button" 
+                  @click="addServiceModal" 
+                  :disabled="!newService"
+                  class="add-btn"
+                >
+                  +
+                </button>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -237,12 +274,12 @@
                     :key="addon.value" 
                     :value="addon.value"
                   >
-                    {{ addon.label }}
+                    {{ addon.label }} - ₱{{ addon.price }}
                   </option>
                 </select>
                 <button 
                   type="button" 
-                  @click="addAddon" 
+                  @click="addAddonModal" 
                   :disabled="!newAddon"
                   class="add-btn"
                 >
@@ -279,12 +316,13 @@
           </div>
 
           <div class="form-group">
-            <label class="modal-label">Amount:</label>
+            <label class="modal-label">Total Amount:</label>
             <input 
               v-model="editForm.amount" 
-              type="number" 
-              step="0.01"
+              type="text" 
               class="modal-input"
+              readonly
+              style="background-color: #f8f9fa; font-weight: 600;"
             />
           </div>
         </div>
@@ -329,6 +367,82 @@
         </div>
         <div class="modal-footer">
           <button @click="closeSuccessModal" class="btn-modal-submit">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export to CSV Modal -->
+    <div v-if="showExportModal" class="modal-overlay" @click="closeExportModal">
+      <div class="modal-content" @click.stop>
+        <div class="modal-header">
+          <h3>Export Transactions to CSV</h3>
+          <button @click="closeExportModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="export-options">
+            <label class="modal-label">Select Export Period:</label>
+            
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" v-model="exportType" value="monthly" />
+                <span>Monthly</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" v-model="exportType" value="quarterly" />
+                <span>Quarterly</span>
+              </label>
+            </div>
+
+            <!-- Monthly Selection -->
+            <div v-if="exportType === 'monthly'" class="date-selection">
+              <div class="form-group">
+                <label class="modal-label">Select Month:</label>
+                <select v-model="exportMonth" class="modal-select">
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="modal-label">Select Year:</label>
+                <select v-model="exportYear" class="modal-select">
+                  <option v-for="year in availableYears" :key="year" :value="year">{{ year }}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Quarterly Selection -->
+            <div v-if="exportType === 'quarterly'" class="date-selection">
+              <div class="form-group">
+                <label class="modal-label">Select Quarter:</label>
+                <select v-model="exportQuarter" class="modal-select">
+                  <option value="Q1">Q1 (Jan - Mar)</option>
+                  <option value="Q2">Q2 (Apr - Jun)</option>
+                  <option value="Q3">Q3 (Jul - Sep)</option>
+                  <option value="Q4">Q4 (Oct - Dec)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="modal-label">Select Year:</label>
+                <select v-model="exportYear" class="modal-select">
+                  <option v-for="year in availableYears" :key="year" :value="year">{{ year }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeExportModal" class="btn-modal-cancel">Cancel</button>
+          <button @click="exportToCSV" class="btn-modal-submit">Export</button>
         </div>
       </div>
     </div>
@@ -467,19 +581,16 @@ export default {
         amount: 0,
         status: '',
         date: '',
-        time: ''
+        time: '',
+        extraService: false,
+        washPromo: false
       },
       selectedAddons: [],
+      selectedServices: [],
       newAddon: '',
-      availableAddons: [
-        { value: 'ariel', label: 'Ariel' },
-        { value: 'Tide', label: 'Tide' },
-        { value: 'breeze', label: 'Breeze' },
-        { value: 'Downy', label: 'Downy' },
-        { value: 'Zonrox', label: 'Zonrox'},
-        { value: 'Surf', label: 'Surf' },
-        { value: 'Del', label: 'Del' }
-      ],
+      newService: '',
+      availableAddons: [], // Will be fetched from backend
+      availableServices: [], // Will be fetched from backend
       showStatusModal: false,
       showEditStatusForm: false,
       showConfirmModal: false,
@@ -487,6 +598,11 @@ export default {
       showConfirmEditModal: false,
       showSuccessModal: false,
       showDeleteModal: false,
+      showExportModal: false,
+      exportType: 'monthly',
+      exportMonth: new Date().getMonth() + 1 < 10 ? '0' + (new Date().getMonth() + 1) : String(new Date().getMonth() + 1),
+      exportYear: new Date().getFullYear(),
+      exportQuarter: 'Q1',
       transactionToDelete: null,
       statusModalTransactionId: '',
       transactionNotFound: false,
@@ -502,9 +618,19 @@ export default {
     }
   },
   async mounted() {
+    await this.fetchServices()
+    await this.fetchAddons()
     await this.fetchTransactions()
   },
   computed: {
+    availableYears() {
+      const currentYear = new Date().getFullYear()
+      const years = []
+      for (let i = currentYear; i >= currentYear - 10; i--) {
+        years.push(i)
+      }
+      return years
+    },
     filteredTransactions() {
       let filtered = this.transactions
       
@@ -601,22 +727,65 @@ export default {
     }
   },
   methods: {
+    async fetchServices() {
+      try {
+        const response = await api.services.getAll();
+        this.availableServices = response.data.map(s => ({
+          value: s.service_id,
+          label: s.name,
+          price: parseFloat(s.base_price)
+        }));
+      } catch (error) {
+        console.error('Error fetching services:', error);
+      }
+    },
+    async fetchAddons() {
+      try {
+        const response = await api.addons.getAll();
+        this.availableAddons = response.data.map(a => ({
+          value: a.addon_id,
+          label: a.name,
+          price: parseFloat(a.price)
+        }));
+      } catch (error) {
+        console.error('Error fetching addons:', error);
+      }
+    },
     async fetchTransactions() {
       this.loading = true
       this.error = null
       try {
         const response = await api.transactions.getAll()
-        this.transactions = response.data.map(t => ({
+        // Handle both old format (array) and new format (object with data property)
+        const transactionsData = Array.isArray(response.data) ? response.data : response.data.data
+        
+        console.log('Sample transaction from API:', transactionsData[0])
+        
+        this.transactions = transactionsData.map(t => ({
           id: `TN${String(t.transaction_id).padStart(4, '0')}`,
+          transaction_id: t.transaction_id,
           customer: t.customer_name || 'N/A',
-          service: t.service_type || 'N/A',
-          addons: t.addon || 'None',
+          service: t.services && t.services.length > 0 
+            ? t.services.map(s => s.name).join(', ') 
+            : 'None',
+          addons: t.addons && t.addons.length > 0 
+            ? t.addons.map(a => `${a.name} (${a.quantity})`).join(', ') 
+            : 'None',
           status: t.status || 'unpaid',
           date: this.formatDate(t.date),
           rawDate: t.date,
           time: t.time_received,
-          amount: parseFloat(t.price) || 0
+          amount: parseFloat(t.total) || parseFloat(t.price) || 0,
+          service_ids: t.services ? t.services.map(s => s.service_id) : [],
+          addon_ids: t.addons ? t.addons.map(a => a.addon_id) : [],
+          addon_quantities: t.addons ? t.addons.map(a => a.quantity) : [],
+          extra_service: t.extra_service || false,
+          wash_promo: t.wash_promo || false,
+          customer_id: t.customer_id,
+          staff_id: t.staff_id
         }))
+        
+        console.log('Sample formatted transaction:', this.transactions[0])
       } catch (error) {
         console.error('Error fetching transactions:', error)
         this.error = 'Failed to load transactions'
@@ -626,7 +795,14 @@ export default {
     },
     formatDate(dateString) {
       if (!dateString) return 'N/A'
-      // Parse ISO date properly
+      
+      // Handle date string in YYYY-MM-DD format without timezone conversion
+      if (typeof dateString === 'string' && dateString.includes('-')) {
+        const [year, month, day] = dateString.split('T')[0].split('-')
+        return `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year}`
+      }
+      
+      // Fallback to Date parsing
       const date = new Date(dateString)
       if (isNaN(date.getTime())) return 'N/A'
       const day = date.getUTCDate().toString().padStart(2, '0')
@@ -660,6 +836,10 @@ export default {
         return '⇅' // Both arrows when not sorted
       }
       return this.sortDirection === 'asc' ? '↑' : '↓'
+    },
+    formatMoney(amount) {
+      const num = parseFloat(amount) || 0
+      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
     },
     openStatusModal() {
       this.showStatusModal = true
@@ -700,16 +880,36 @@ export default {
         const transactionId = parseInt(this.selectedTransaction.id.replace('TN', ''))
         const authStore = useAuthStore()
         
+        // Get full transaction data
+        const transaction = this.transactions.find(t => t.id === this.selectedTransaction.id)
+        
+        // Get or create customer_id
+        const allCustomers = await api.customers.getAll()
+        let customer = allCustomers.data.find(c => c.name.toLowerCase() === transaction.customer.toLowerCase())
+        let customerId
+        
+        if (customer) {
+          customerId = customer.customer_id
+        } else {
+          // Create new customer if doesn't exist
+          const newCustomerResponse = await api.customers.create({ name: transaction.customer })
+          customerId = newCustomerResponse.data.customer_id
+        }
+        
         await api.transactions.update(transactionId, {
-          status: this.newStatus,
-          staff_id: authStore.staffId || 1 // Use logged in staff ID
+          customer_id: customerId,
+          staff_id: authStore.staffId || 1,
+          service_id: transaction.service_id,
+          addon_ids: transaction.addon_ids,
+          date: transaction.rawDate,
+          time_received: transaction.time,
+          price: transaction.amount,
+          name: transaction.customer,
+          status: this.newStatus
         })
         
-        // Update local data
-        const index = this.transactions.findIndex(t => t.id === this.selectedTransaction.id)
-        if (index !== -1) {
-          this.transactions[index].status = this.newStatus
-        }
+        // Refresh transactions
+        await this.fetchTransactions()
         
         console.log(`Transaction ${this.selectedTransaction.id} status changed to ${this.newStatus}`)
       } catch (error) {
@@ -756,47 +956,46 @@ export default {
       this.editForm = {
         id: transaction.id,
         customer: transaction.customer,
-        service: transaction.service,
+        service: '', // Will be handled by selectedServices
         addons: transaction.addons,
         amount: transaction.amount,
         status: transaction.status,
-        date: transaction.date,
-        time: transaction.time
+        date: transaction.rawDate || transaction.date,
+        time: transaction.time,
+        extraService: transaction.extra_service || false,
+        washPromo: transaction.wash_promo || false
       }
       
-      // Parse existing addons and populate selectedAddons array
-      this.selectedAddons = []
-      if (transaction.addons && transaction.addons !== 'None') {
-        // Handle simple addon format (e.g., "Ariel", "Surf")
-        if (!transaction.addons.includes('(')) {
-          // Single addon without quantity
-          const addonValue = this.availableAddons.find(a => a.label === transaction.addons)?.value
-          if (addonValue) {
-            this.selectedAddons.push({
-              type: addonValue,
-              qty: 1
-            })
-          }
-        } else {
-          // Handle complex addon format with quantities (e.g., "Ariel (2), Surf (1)")
-          const addonParts = transaction.addons.split(', ')
-          addonParts.forEach(part => {
-            const match = part.match(/^(.+)\s*\((\d+)\)$/)
-            if (match) {
-              const addonName = match[1].trim()
-              const qty = parseInt(match[2])
-              const addonValue = this.availableAddons.find(a => a.label === addonName)?.value
-              if (addonValue) {
-                this.selectedAddons.push({
-                  type: addonValue,
-                  qty: qty
-                })
-              }
-            }
+      // Populate selectedServices with {serviceId, extraDry} objects
+      this.selectedServices = []
+      if (transaction.service_ids && transaction.service_ids.length > 0) {
+        // For now, set extraDry to false since we don't have that data yet
+        // In the future, this would come from the transaction data
+        transaction.service_ids.forEach(serviceId => {
+          this.selectedServices.push({
+            serviceId: serviceId,
+            extraDry: false
           })
-        }
+        })
       }
+      
+      // Parse existing addons and populate selectedAddons array with quantities
+      this.selectedAddons = []
+      if (transaction.addon_ids && transaction.addon_ids.length > 0) {
+        transaction.addon_ids.forEach((addonId, index) => {
+          const quantity = transaction.addon_quantities && transaction.addon_quantities[index] 
+            ? transaction.addon_quantities[index] 
+            : 1
+          this.selectedAddons.push({
+            type: addonId,
+            qty: quantity
+          })
+        })
+      }
+      
       this.showEditModal = true
+      // Compute initial amount
+      this.computeModalAmount()
     },
     closeEditModal() {
       this.showEditModal = false
@@ -814,7 +1013,7 @@ export default {
       this.newAddon = ''
     },
     // Add-ons methods
-    addAddon() {
+    addAddonModal() {
       if (this.newAddon) {
         // Check if addon already exists
         const existingIndex = this.selectedAddons.findIndex(addon => addon.type === this.newAddon)
@@ -829,24 +1028,29 @@ export default {
           })
         }
         this.newAddon = ''
+        this.computeModalAmount()
       }
     },
     removeAddon(index) {
       this.selectedAddons.splice(index, 1)
+      this.computeModalAmount()
     },
     validateQty(index) {
       const addon = this.selectedAddons[index]
       if (addon.qty < 1) addon.qty = 1
       if (addon.qty > 99) addon.qty = 99
+      this.computeModalAmount()
     },
     incrementQty(index) {
       if (this.selectedAddons[index].qty < 99) {
         this.selectedAddons[index].qty++
+        this.computeModalAmount()
       }
     },
     decrementQty(index) {
       if (this.selectedAddons[index].qty > 1) {
         this.selectedAddons[index].qty--
+        this.computeModalAmount()
       }
     },
     getAddonDisplayName(type) {
@@ -858,6 +1062,57 @@ export default {
       return this.selectedAddons.map(addon => 
         `${this.getAddonDisplayName(addon.type)} (${addon.qty})`
       ).join(', ')
+    },
+    // Service methods
+    addServiceModal() {
+      if (this.newService) {
+        const existingService = this.selectedServices.find(s => s.serviceId === this.newService)
+        if (!existingService) {
+          this.selectedServices.push({
+            serviceId: this.newService,
+            extraDry: false
+          })
+          this.newService = ''
+          this.computeModalAmount()
+        }
+      }
+    },
+    removeServiceModal(index) {
+      this.selectedServices.splice(index, 1)
+      this.computeModalAmount()
+    },
+    getServiceDisplayName(serviceId) {
+      const service = this.availableServices.find(s => s.value === serviceId)
+      return service ? service.label : 'Unknown Service'
+    },
+    isDryService(serviceId) {
+      const service = this.availableServices.find(s => s.value === serviceId)
+      return service && service.label && service.label.toLowerCase().includes('dry')
+    },
+    computeModalAmount() {
+      let total = 0
+      
+      // Add service prices
+      this.selectedServices.forEach(service => {
+        const serviceData = this.availableServices.find(s => s.value === service.serviceId)
+        if (serviceData) {
+          total += serviceData.price
+          // Add extra dry charge if applicable
+          if (service.extraDry && this.isDryService(service.serviceId)) {
+            total += 30
+          }
+        }
+      })
+      
+      // Add addon prices
+      this.selectedAddons.forEach(addon => {
+        const addonData = this.availableAddons.find(a => a.value === addon.type)
+        if (addonData) {
+          total += addonData.price * addon.qty
+        }
+      })
+      
+      this.editForm.amount = total
     },
     confirmEdit() {
       // Convert selectedAddons array to addons string format
@@ -874,23 +1129,49 @@ export default {
         const transactionId = parseInt(this.editForm.id.replace('TN', ''))
         const authStore = useAuthStore()
         
+        // Get or create customer_id from customer name
+        const allCustomers = await api.customers.getAll()
+        let customer = allCustomers.data.find(c => c.name.toLowerCase() === this.editForm.customer.toLowerCase())
+        let customerId
+        
+        if (customer) {
+          // Customer exists, use their ID
+          customerId = customer.customer_id
+        } else {
+          // Customer doesn't exist, create new customer
+          const newCustomerResponse = await api.customers.create({ name: this.editForm.customer })
+          customerId = newCustomerResponse.data.customer_id
+        }
+        
+        // Prepare service_ids and service_extra_dry arrays
+        const service_ids = this.selectedServices.map(s => s.serviceId)
+        const service_extra_dry = this.selectedServices.map(s => s.extraDry ? 1 : 0)
+        
+        // Prepare addon arrays
+        const addon_ids = this.selectedAddons.map(addon => addon.type)
+        const addon_quantities = this.selectedAddons.map(addon => addon.qty)
+        const quantity_addons = this.selectedAddons.reduce((sum, addon) => sum + addon.qty, 0)
+        
         await api.transactions.update(transactionId, {
-          customer_id: 1, // You may need to handle customer lookup
+          customer_id: customerId,
           staff_id: authStore.staffId || 1,
+          service_ids: service_ids,
+          service_extra_dry: service_extra_dry,
+          addon_ids: addon_ids,
+          addon_quantities: addon_quantities,
           date: this.editForm.date,
           time_received: this.editForm.time,
           price: this.editForm.amount,
-          name: this.editForm.customer,
-          service_type: this.editForm.service,
-          addon: this.editForm.addons,
-          status: this.editForm.status
+          total: this.editForm.amount,
+          customer_name: this.editForm.customer,
+          status: this.editForm.status,
+          extra_service: this.editForm.extraService || false,
+          wash_promo: this.editForm.washPromo || false,
+          quantity_addons: quantity_addons
         })
         
-        // Update local data
-        const index = this.transactions.findIndex(t => t.id === this.editForm.id)
-        if (index !== -1) {
-          this.transactions[index] = { ...this.editForm }
-        }
+        // Refresh transactions to get updated data
+        await this.fetchTransactions()
         
         console.log(`Transaction ${this.editForm.id} updated`)
       } catch (error) {
@@ -947,6 +1228,120 @@ export default {
         addons: '',
         amount: 0,
         status: ''
+      }
+    },
+    openExportModal() {
+      this.showExportModal = true
+    },
+    closeExportModal() {
+      this.showExportModal = false
+    },
+    async exportToCSV() {
+      try {
+        let filteredTransactions = []
+        
+        console.log('Export type:', this.exportType)
+        console.log('Export quarter:', this.exportQuarter)
+        console.log('Export year:', this.exportYear, typeof this.exportYear)
+        console.log('Total transactions:', this.transactions.length)
+        
+        if (this.exportType === 'monthly') {
+          // Filter by month and year - parse directly from string to avoid timezone issues
+          filteredTransactions = this.transactions.filter(t => {
+            if (typeof t.rawDate === 'string' && t.rawDate.includes('-')) {
+              const [year, month] = t.rawDate.split('T')[0].split('-')
+              return month === this.exportMonth && year === String(this.exportYear)
+            }
+            const transDate = new Date(t.rawDate)
+            const transMonth = (transDate.getMonth() + 1).toString().padStart(2, '0')
+            const transYear = transDate.getFullYear().toString()
+            return transMonth === this.exportMonth && transYear === String(this.exportYear)
+          })
+        } else if (this.exportType === 'quarterly') {
+          // Filter by quarter and year - parse directly from string to avoid timezone issues
+          const quarterMonths = {
+            'Q1': ['01', '02', '03'],
+            'Q2': ['04', '05', '06'],
+            'Q3': ['07', '08', '09'],
+            'Q4': ['10', '11', '12']
+          }
+          const months = quarterMonths[this.exportQuarter]
+          
+          console.log('Filtering for months:', months)
+          
+          filteredTransactions = this.transactions.filter(t => {
+            if (typeof t.rawDate === 'string' && t.rawDate.includes('-')) {
+              const [year, month] = t.rawDate.split('T')[0].split('-')
+              const matches = months.includes(month) && year === String(this.exportYear)
+              if (matches) {
+                console.log('Match found:', t.rawDate, 'year:', year, 'month:', month)
+              }
+              return matches
+            }
+            const transDate = new Date(t.rawDate)
+            const transMonth = (transDate.getMonth() + 1).toString().padStart(2, '0')
+            const transYear = transDate.getFullYear().toString()
+            return months.includes(transMonth) && transYear === String(this.exportYear)
+          })
+        }
+        
+        console.log('Filtered transactions:', filteredTransactions.length)
+
+        if (filteredTransactions.length === 0) {
+          alert('No transactions found for the selected period.')
+          return
+        }
+
+        // Create CSV content
+        const headers = ['ID', 'Customer Name', 'Service Type', 'Add-ons', 'Status', 'Date', 'Time Received', 'Amount']
+        const csvRows = [headers.join(',')]
+        
+        filteredTransactions.forEach(t => {
+          // Format date as MM/DD/YYYY for CSV export - parse directly from string to avoid timezone issues
+          let csvDate = ''
+          if (typeof t.rawDate === 'string' && t.rawDate.includes('-')) {
+            const [year, month, day] = t.rawDate.split('T')[0].split('-')
+            csvDate = `${month.padStart(2, '0')}/${day.padStart(2, '0')}/${year}`
+          } else {
+            const dateObj = new Date(t.rawDate)
+            csvDate = `${(dateObj.getMonth() + 1).toString().padStart(2, '0')}/${dateObj.getDate().toString().padStart(2, '0')}/${dateObj.getFullYear()}`
+          }
+          
+          const row = [
+            t.id,
+            `"${t.customer}"`,
+            `"${t.service}"`,
+            `"${t.addons}"`,
+            t.status,
+            csvDate,
+            t.time,
+            t.amount
+          ]
+          csvRows.push(row.join(','))
+        })
+
+        const csvContent = csvRows.join('\n')
+        
+        // Create download link
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+        const link = document.createElement('a')
+        const url = URL.createObjectURL(blob)
+        
+        const periodLabel = this.exportType === 'monthly' 
+          ? `${this.exportYear}-${this.exportMonth}` 
+          : `${this.exportYear}-${this.exportQuarter}`
+        
+        link.setAttribute('href', url)
+        link.setAttribute('download', `transactions_${periodLabel}.csv`)
+        link.style.visibility = 'hidden'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        
+        this.closeExportModal()
+      } catch (error) {
+        console.error('Error exporting CSV:', error)
+        alert('Failed to export CSV')
       }
     }
   }

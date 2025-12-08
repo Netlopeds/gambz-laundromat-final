@@ -1,0 +1,1603 @@
+transaction_id,customer_id,staff_id,date,time_received,price,name,service_type,status,addons,quantity_addons,extra_service,wash_promo,total
+1,,5,03/08/2025,6:25,126,ZALORA,"Dry,Fold",paid,Zonrox,2,FALSE,FALSE,104
+,,,03/08/2025,6:52,140,PACATANG,Dry,paid,"Zonrox,Breeze,Del",1,TRUE,TRUE,98
+,,,03/08/2025,7:15,150,RODEL,Spin,paid,"Downy,Ariel,Surf",2,FALSE,TRUE,89
+,,,03/08/2025,7:35,126,KAREN,"Dry,Wash",paid,"Del,Zonrox",1,FALSE,TRUE,125
+,,,03/08/2025,7:50,110,KOYKOY,Fold,paid,"Surf,Breeze",2,TRUE,FALSE,105
+,,,03/08/2025,7:51,202,RJ,"Wash and Dry,Fold",paid,"Downy,Ariel,Zonrox",2,FALSE,FALSE,224
+,,,03/08/2025,7:59,154,RAFAEL,"Wash Dry Fold,Wash",paid,Del,2,FALSE,FALSE,226
+,,,03/08/2025,8:00,155,HECLES,Wash Dry Fold,paid,Downy,1,FALSE,FALSE,162
+,,,03/08/2025,8:25,138,NICK,"Spin,Wash",paid,"Tide,Downy",1,TRUE,FALSE,120
+,,,03/08/2025,8:35,170,PATRICK,Spin,paid,"Ariel,Surf",1,FALSE,TRUE,35
+,,,03/08/2025,8:40,236,JOAN,"Fold,Wash and Dry",paid,"Del,Breeze,Zonrox",1,TRUE,TRUE,188
+,,,03/08/2025,8:44,154,MARLON R.,Wash Dry Fold,paid,"Ariel,Tide,Surf",2,TRUE,FALSE,261
+,,,03/08/2025,8:45,133,NEL,"Spin,Fold",paid,"Ariel,Surf,Downy",2,TRUE,TRUE,134
+,,,03/08/2025,9:35,140,JOHN,Fold,paid,"Del,Zonrox",1,TRUE,TRUE,50
+,,,03/08/2025,10:10,156,JR,Dry,paid,Ariel,2,FALSE,TRUE,86
+,,,03/08/2025,10:55,143,DEW-DEW,"Wash and Dry,Wash",paid,Ariel,1,FALSE,FALSE,198
+,,,03/08/2025,10:56,159,TAN-TAN,"Dry,Wash Dry Fold",paid,"Surf,Tide",2,FALSE,FALSE,270
+,,,03/08/2025,11:15,136,JANE,Fold,paid,"Tide,Ariel,Del",2,TRUE,TRUE,123
+,,,03/08/2025,11:40,360,MARK,Dry,paid,"Ariel,Surf",1,TRUE,FALSE,105
+,,,03/08/2025,12:27,148,JUNLY,Wash Dry Fold,paid,"Zonrox,Breeze,Ariel",2,FALSE,TRUE,226
+,,,03/08/2025,13:03,172,JOEL,Wash and Dry,paid,Surf,2,FALSE,TRUE,134
+,,,03/08/2025,15:14,148,LUNA,"Wash Dry Fold,Spin",paid,"Surf,Zonrox",2,TRUE,TRUE,208
+,,,03/08/2025,16:15,136,KC,Dry,paid,"Downy,Zonrox",2,TRUE,TRUE,103
+,,,03/08/2025,16:20,60,JOSHUA,"Spin,Wash",paid,"Breeze,Tide,Del",2,FALSE,FALSE,163
+,,,03/08/2025,16:37,240,MARINA,Spin,paid,Zonrox,2,FALSE,FALSE,29
+,,,03/08/2025,17:25,148,NEL,Dry,paid,"Ariel,Zonrox,Del",1,FALSE,TRUE,83
+,,,03/08/2025,18:00,70,LYN,Dry,paid,Surf,1,TRUE,TRUE,77
+,,,03/08/2025,18:11,228,STEVE,Dry,paid,"Downy,Tide",1,FALSE,FALSE,90
+,,,03/08/2025,18:12,154,CEDRIC,"Fold,Wash Dry Fold",paid,"Zonrox,Tide,Breeze",1,TRUE,TRUE,228
+,,,03/08/2025,18:40,176,CHA,"Dry,Wash and Dry",paid,"Zonrox,Del",2,FALSE,FALSE,210
+,,,03/08/2025,18:50,156,GOMER/JOYONG,"Wash Dry Fold,Fold",paid,"Breeze,Surf",2,FALSE,TRUE,230
+,,,03/08/2025,19:12,312,MARLON,"Wash Dry Fold,Spin",paid,"Surf,Breeze,Downy",2,FALSE,FALSE,249
+,,,03/08/2025,19:20,240,XIAN/SEAN,"Wash Dry Fold,Wash and Dry",paid,"Surf,Zonrox,Downy",1,TRUE,FALSE,316
+,,,03/08/2025,19:25,376,JANE,"Wash,Wash Dry Fold",paid,Tide,2,TRUE,TRUE,251
+,,,03/08/2025,19:40,176,WILSON,"Spin,Wash and Dry",paid,Zonrox,2,TRUE,FALSE,164
+,,,03/09/2025,7:10,144,BENJIE,"Wash Dry Fold,Wash",paid,Del,1,TRUE,TRUE,223
+,,,03/09/2025,7:20,178,JOSEPH,"Spin,Wash Dry Fold",paid,"Surf,Downy,Ariel",1,TRUE,FALSE,222
+,,,03/09/2025,7:23,162,REDE,"Wash and Dry,Wash",paid,"Ariel,Zonrox,Del",1,FALSE,FALSE,213
+,,,03/09/2025,7:30,60,BOG'S,"Spin,Fold",paid,"Zonrox,Breeze,Ariel",2,TRUE,FALSE,146
+,,,03/09/2025,7:35,150,ANGEL,Wash and Dry,paid,"Breeze,Ariel,Del",1,TRUE,TRUE,169
+,,,03/09/2025,7:40,166,ANTHONY,Wash,paid,"Surf,Breeze,Ariel",1,FALSE,FALSE,108
+,,,03/09/2025,7:45,100,ALFRANCE,Spin,paid,Ariel,1,TRUE,FALSE,48
+,,,03/09/2025,7:46,182,JOAN,Fold,paid,Ariel,1,TRUE,FALSE,63
+,,,03/09/2025,7:55,80,JAYPEE,"Spin,Wash",paid,"Downy,Del,Surf",1,TRUE,FALSE,122
+,,,03/09/2025,8:00,138,RICK,Wash Dry Fold,paid,"Zonrox,Breeze",1,FALSE,FALSE,175
+,,,03/09/2025,8:01,110,MARIEL,"Dry,Wash Dry Fold",paid,"Ariel,Breeze",2,FALSE,TRUE,272
+,,,03/09/2025,8:05,196,JOSELITO,Wash Dry Fold,paid,"Del,Breeze,Tide",1,FALSE,TRUE,184
+,,,03/09/2025,8:30,198,PEN,"Wash,Wash and Dry",paid,Breeze,2,TRUE,FALSE,231
+,,,03/09/2025,8:49,176,ROLDAN,Spin,paid,Ariel,1,FALSE,TRUE,23
+,,,03/09/2025,9:14,192,JHONG,"Wash and Dry,Wash Dry Fold",paid,Tide,1,FALSE,TRUE,278
+,,,03/09/2025,9:16,148,JOSHUA,Wash Dry Fold,paid,"Downy,Surf,Del",1,TRUE,FALSE,197
+,,,03/09/2025,9:20,60,JONATHAN,Spin,paid,"Surf,Downy",1,FALSE,TRUE,29
+,,,03/09/2025,9:50,518,JOSIE,"Wash and Dry,Wash Dry Fold",paid,Zonrox,2,FALSE,FALSE,284
+,,,03/09/2025,10:00,415,ADETH,"Fold,Wash and Dry",paid,Zonrox,1,FALSE,TRUE,147
+,,,03/09/2025,10:15,60,MARUIN,Dry,paid,"Breeze,Del,Tide",1,TRUE,TRUE,109
+,,,03/09/2025,10:20,152,HARRY,Dry,paid,"Del,Ariel,Tide",2,TRUE,TRUE,153
+,,,03/09/2025,10:30,1480,JAKE,"Wash and Dry,Dry",paid,"Tide,Ariel",1,FALSE,FALSE,216
+,,,03/09/2025,10:40,156,KARLA,Wash and Dry,paid,"Zonrox,Ariel",1,TRUE,FALSE,160
+,,,03/09/2025,10:45,76,ARNEL,Wash Dry Fold,paid,Downy,2,TRUE,FALSE,189
+,,,03/09/2025,11:20,172,RICHARD,"Fold,Wash",paid,"Breeze,Zonrox,Surf",2,FALSE,TRUE,154
+,,,03/09/2025,11:45,310,KIT,"Wash and Dry,Fold",paid,"Breeze,Zonrox,Surf",2,FALSE,FALSE,224
+,,,03/09/2025,11:47,156,LUCKY,Fold,paid,"Surf,Tide,Breeze",1,FALSE,FALSE,78
+,,,03/09/2025,12:40,148,ADDY,Wash and Dry,paid,"Del,Surf",2,TRUE,FALSE,175
+,,,03/09/2025,12:45,156,DARYL,Wash Dry Fold,paid,"Surf,Downy,Zonrox",2,TRUE,TRUE,217
+,,,03/09/2025,13:00,148,SAM,"Fold,Wash Dry Fold",paid,"Ariel,Breeze,Surf",1,TRUE,TRUE,233
+,,,03/09/2025,13:45,172,JECK,"Wash Dry Fold,Dry",paid,"Del,Downy,Ariel",1,FALSE,TRUE,238
+,,,03/09/2025,13:46,143,LITO,Wash,paid,"Surf,Downy,Tide",1,TRUE,FALSE,117
+,,,03/09/2025,13:47,172,DONALD,Spin,paid,"Downy,Zonrox,Ariel",1,TRUE,FALSE,67
+,,,03/09/2025,13:48,143,JONATHAN,"Wash,Wash and Dry",paid,Surf,1,TRUE,TRUE,197
+,,,03/09/2025,14:09,180,MANDS,Wash,paid,Surf,1,TRUE,TRUE,77
+,,,03/09/2025,14:10,152,CHRIS,"Wash,Wash and Dry",paid,"Zonrox,Breeze",2,FALSE,FALSE,230
+,,,03/09/2025,14:15,164,PATRICIA,"Wash Dry Fold,Wash",paid,"Breeze,Del,Ariel",2,FALSE,FALSE,298
+,,,03/09/2025,14:30,176,ARIEL,"Spin,Wash and Dry",paid,"Surf,Tide",2,FALSE,FALSE,195
+,,,03/09/2025,15:30,172,JOSH,"Wash and Dry,Wash Dry Fold",paid,"Breeze,Zonrox",1,FALSE,TRUE,285
+,,,03/09/2025,15:31,136,MARK,Spin,paid,Downy,2,TRUE,TRUE,44
+,,,03/09/2025,15:35,120,SOTTO,"Wash Dry Fold,Spin",paid,Del,2,FALSE,TRUE,171
+,,,03/09/2025,16:39,312,LAURENCE,Wash and Dry,paid,Breeze,1,TRUE,FALSE,153
+,,,03/09/2025,17:16,150,CECAL,Wash and Dry,paid,"Downy,Zonrox",2,TRUE,TRUE,163
+,,,03/09/2025,18:02,156,JING,"Spin,Dry",paid,"Del,Downy",1,TRUE,FALSE,110
+,,,03/09/2025,16:26,300,BABY,Fold,paid,"Del,Ariel",2,FALSE,FALSE,82
+,,,03/09/2025,18:43,144,JOMAR,Wash and Dry,paid,Zonrox,2,FALSE,FALSE,134
+,,,03/10/2025,6:55,146,VAN,"Wash Dry Fold,Wash",paid,Surf,1,FALSE,TRUE,212
+,,,03/10/2025,7:24,162,RONALD,Wash,paid,Breeze,2,FALSE,FALSE,96
+,,,03/10/2025,7:30,153,IVY,Wash,paid,"Tide,Ariel,Breeze",1,TRUE,FALSE,129
+,,,03/10/2025,7:39,300,ALICE,Wash and Dry,paid,"Surf,Downy,Del",1,TRUE,TRUE,157
+,,,03/10/2025,7:45,162,JURIE,"Fold,Wash and Dry",paid,Surf,2,TRUE,FALSE,189
+,,,03/10/2025,8:18,146,GREG,"Wash and Dry,Wash Dry Fold",paid,Ariel,1,FALSE,TRUE,278
+,,,03/10/2025,8:19,110,KRICTY,"Wash,Spin",paid,"Zonrox,Breeze",2,FALSE,FALSE,125
+,,,03/10/2025,8:20,110,CHRISTIAN,Wash Dry Fold,paid,"Ariel,Breeze,Tide",1,FALSE,FALSE,204
+,,,03/10/2025,8:40,146,NANAY NENE,Dry,paid,"Downy,Tide,Zonrox",2,TRUE,FALSE,149
+,,,03/10/2025,9:22,150,JOJO,"Dry,Wash and Dry",paid,Downy,2,FALSE,TRUE,194
+,,,03/10/2025,10:03,172,GERALD,Wash Dry Fold,paid,"Del,Tide",2,FALSE,FALSE,202
+,,,03/10/2025,10:36,218,NICK,"Spin,Wash Dry Fold",paid,Surf,2,FALSE,FALSE,189
+,,,03/10/2025,11:22,120,DONA,Wash and Dry,paid,"Downy,Ariel",1,FALSE,TRUE,140
+,,,03/10/2025,11:59,184,ROGER,"Wash,Wash Dry Fold",paid,Tide,2,TRUE,FALSE,261
+,,,03/10/2025,12:01,160,LESTER,Wash,paid,Zonrox,2,TRUE,TRUE,79
+,,,03/10/2025,12:44,152,LARA,"Fold,Wash and Dry",paid,"Ariel,Downy",2,FALSE,FALSE,210
+,,,03/10/2025,14:15,188,MEL,Dry,paid,"Zonrox,Del,Ariel",2,FALSE,FALSE,126
+,,,03/10/2025,14:38,152,DWIGHT,"Wash Dry Fold,Spin",paid,Del,1,FALSE,TRUE,163
+,,,03/10/2025,15:44,152,JOHN,Dry,paid,"Ariel,Breeze",1,FALSE,FALSE,96
+,,,03/10/2025,15:45,60,JOSIE,"Wash Dry Fold,Spin",paid,"Del,Surf,Downy",2,FALSE,TRUE,219
+,,,03/10/2025,18:55,172,MARK,"Wash,Spin",paid,"Breeze,Downy",2,TRUE,FALSE,150
+,,,03/11/2025,6:26,134,LUCAS,Wash and Dry,paid,"Zonrox,Del,Ariel",1,TRUE,FALSE,168
+,,,03/11/2025,6:33,172,EJ,Wash,paid,"Surf,Ariel",1,FALSE,FALSE,90
+,,,03/11/2025,6:55,144,JOAN,"Dry,Spin",paid,Downy,2,FALSE,FALSE,99
+,,,03/11/2025,7:00,164,FRANCE,Dry,paid,"Tide,Del",1,FALSE,TRUE,76
+,,,03/11/2025,7:29,110,KRIS,Wash,paid,"Del,Ariel",1,FALSE,FALSE,86
+,,,03/11/2025,7:50,110,ADETH,"Fold,Wash",paid,"Surf,Breeze,Ariel",1,TRUE,TRUE,143
+,,,03/11/2025,7:52,146,JUNREY,Fold,paid,"Downy,Del",2,FALSE,TRUE,60
+,,,03/11/2025,7:55,146,KENJIE,Fold,paid,"Breeze,Downy,Zonrox",2,TRUE,FALSE,119
+,,,03/11/2025,7:56,134,NICK,"Dry,Wash Dry Fold",paid,Tide,1,TRUE,FALSE,243
+,,,03/11/2025,7:57,155,HECLES,Spin,paid,"Surf,Zonrox,Del",1,FALSE,FALSE,42
+,,,03/11/2025,8:14,146,CONAN,"Spin,Fold",paid,"Surf,Ariel,Breeze",1,FALSE,FALSE,93
+,,,03/11/2025,8:16,162,LANIE,Fold,paid,"Downy,Tide",1,FALSE,FALSE,60
+,,,03/11/2025,8:20,110,NAK,Dry,paid,"Tide,Surf",1,TRUE,TRUE,95
+,,,03/11/2025,8:36,142,BOBBY,Wash Dry Fold,paid,Surf,2,FALSE,TRUE,164
+,,,03/11/2025,9:10,96,JOHN,"Wash,Spin",paid,Tide,1,FALSE,TRUE,83
+,,,03/11/2025,9:15,210,PATRICK,Wash,paid,"Downy,Zonrox,Ariel",1,FALSE,TRUE,87
+,,,03/11/2025,9:37,120,RENATO,"Wash and Dry,Wash Dry Fold",paid,Del,1,TRUE,FALSE,293
+,,,03/11/2025,10:36,312,RUDY,"Dry,Fold",paid,"Downy,Del",2,TRUE,FALSE,145
+,,,03/11/2025,11:00,148,MAMANG,"Dry,Spin",paid,Tide,1,TRUE,FALSE,108
+,,,03/11/2025,11:50,136,KEN ,"Wash,Wash Dry Fold",paid,"Zonrox,Downy",1,TRUE,TRUE,234
+,,,03/11/2025,11:55,156,JOVIT,Wash,paid,Surf,1,TRUE,FALSE,87
+,,,03/11/2025,12:00,150,GILBERT,"Spin,Fold",paid,"Ariel,Zonrox",2,FALSE,TRUE,85
+,,,03/11/2025,12:22,156,SAM,Wash Dry Fold,paid,Surf,2,FALSE,FALSE,174
+,,,03/11/2025,12:40,724,JOSEPH,"Spin,Fold",paid,"Del,Zonrox,Breeze",1,FALSE,TRUE,68
+,,,03/11/2025,13:29,1480,JOHN WYNE,"Wash and Dry,Wash Dry Fold",paid,"Ariel,Surf,Del",1,TRUE,TRUE,313
+,,,03/11/2025,13:50,172,HAZEL,Fold,paid,Ariel,2,TRUE,FALSE,81
+,,,03/11/2025,14:00,200,JOCE,Fold,paid,Del,1,TRUE,FALSE,53
+,,,03/11/2025,14:10,70,MARVIN,"Dry,Fold",paid,"Tide,Ariel",2,TRUE,TRUE,167
+,,,03/11/2025,14:20,156,DADO,"Wash,Spin",paid,"Del,Downy,Breeze",1,FALSE,TRUE,103
+,,,03/11/2025,16:06,136,JONATHAN,Wash and Dry,paid,"Del,Surf",2,TRUE,FALSE,175
+,,,03/11/2025,16:11,156,JONG,"Fold,Dry",paid,Downy,1,FALSE,FALSE,102
+,,,03/11/2025,16:54,144,SAM,Wash Dry Fold,paid,Breeze,1,TRUE,TRUE,173
+,,,03/11/2025,17:59,80,KIM,Spin,paid,"Surf,Tide",1,FALSE,FALSE,45
+,,,03/11/2025,18:59,156,BOBIT,Wash,paid,Breeze,2,FALSE,TRUE,86
+,,,03/11/2025,19:16,168,JUN,Wash,paid,Del,2,TRUE,TRUE,81
+,,,03/12/2025,6:49,146,PAUL,"Wash and Dry,Dry",paid,Surf,1,TRUE,TRUE,197
+,,,03/12/2025,7:05,162,NINO,"Spin,Wash",paid,"Surf,Downy",1,TRUE,TRUE,104
+,,,03/12/2025,7:25,146,LANIE,"Spin,Wash",paid,"Downy,Surf",2,FALSE,TRUE,113
+,,,03/12/2025,8:00,110,DON-DON,Wash,paid,"Del,Ariel",2,TRUE,TRUE,117
+,,,03/12/2025,8:01,146,ERWIN,Dry,paid,"Zonrox,Downy",1,FALSE,FALSE,79
+,,,03/12/2025,8:15,122,BERNIE,"Wash,Wash and Dry",paid,"Breeze,Tide,Ariel",2,FALSE,FALSE,288
+,,,03/12/2025,8:51,110,ALBERT,Dry,paid,"Ariel,Downy,Breeze",2,FALSE,FALSE,156
+,,,03/12/2025,9:20,163,TRISHA,Fold,paid,"Surf,Tide,Del",2,TRUE,FALSE,121
+,,,03/12/2025,9:21,173,BRANDON,"Wash,Spin",paid,"Tide,Del,Breeze",2,FALSE,TRUE,153
+,,,03/12/2025,9:55,146,ADDY,"Wash Dry Fold,Wash",paid,"Del,Downy,Breeze",1,FALSE,FALSE,248
+,,,03/12/2025,10:29,172,ABBY,"Wash and Dry,Spin",paid,"Tide,Zonrox,Downy",1,FALSE,FALSE,172
+,,,03/12/2025,11:17,152,TATS,"Wash,Spin",paid,Breeze,1,FALSE,FALSE,93
+,,,03/12/2025,11:35,260,CALDY,Wash Dry Fold,paid,"Breeze,Zonrox,Ariel",1,FALSE,TRUE,183
+,,,03/12/2025,12:45,144,LITO,Wash Dry Fold,paid,"Zonrox,Surf",1,FALSE,FALSE,169
+,,,03/12/2025,12:49,129,PHILLIP,"Fold,Wash",paid,"Surf,Del,Downy",2,FALSE,TRUE,144
+,,,03/12/2025,13:02,166,RIZZA,"Dry,Spin",paid,"Zonrox,Surf",2,TRUE,TRUE,118
+,,,03/12/2025,13:10,144,ARVIN,"Fold,Wash and Dry",paid,"Downy,Tide",1,TRUE,FALSE,195
+,,,03/12/2025,14:29,172,WILMOR,"Spin,Wash and Dry",paid,"Ariel,Breeze",2,FALSE,FALSE,207
+,,,03/12/2025,14:34,129,MARK,"Dry,Wash",paid,"Tide,Breeze,Surf",1,FALSE,TRUE,158
+,,,03/12/2025,14:40,156,JAMES,"Wash,Dry",paid,"Surf,Tide",1,FALSE,TRUE,140
+,,,03/12/2025,14:40,136,JERVI,"Wash Dry Fold,Wash",paid,"Downy,Tide,Del",1,FALSE,FALSE,248
+,,,03/12/2025,14:48,156,RONALD,Spin,paid,Downy,1,TRUE,TRUE,32
+,,,03/12/2025,15:06,272,GIGI,"Fold,Spin",paid,"Zonrox,Surf,Breeze",1,TRUE,TRUE,87
+,,,03/12/2025,15:10,172,MANILYN,"Dry,Wash and Dry",paid,"Downy,Ariel,Breeze",1,TRUE,FALSE,243
+,,,03/12/2025,15:26,300,JOCKO,"Wash Dry Fold,Spin",paid,"Breeze,Surf,Del",2,TRUE,FALSE,256
+,,,03/12/2025,15:49,140,MOISES,"Fold,Wash",paid,Breeze,2,TRUE,TRUE,131
+,,,03/12/2025,16:51,172,NEG,Wash,paid,Ariel,2,FALSE,FALSE,96
+,,,03/12/2025,17:22,156,JUNLY,Wash Dry Fold,paid,"Ariel,Zonrox,Surf",1,TRUE,FALSE,202
+,,,03/13/2025,7:50,280,MAICA,"Wash Dry Fold,Wash",paid,Zonrox,1,TRUE,TRUE,222
+,,,03/13/2025,8:01,146,ABE,"Wash Dry Fold,Dry",paid,"Tide,Ariel,Downy",1,FALSE,TRUE,248
+,,,03/13/2025,8:10,138,TEAM,"Wash,Fold",paid,"Tide,Surf,Downy",1,TRUE,FALSE,147
+,,,03/13/2025,8:59,158,AIDA,"Fold,Wash Dry Fold",paid,Surf,1,TRUE,TRUE,197
+,,,03/13/2025,9:41,179,TOTO,"Dry,Wash",paid,"Downy,Surf,Del",1,TRUE,TRUE,157
+,,,03/13/2025,9:41,156,EDDIE,"Fold,Wash",paid,"Ariel,Tide",1,FALSE,TRUE,116
+,,,03/13/2025,9:45,172,BUBOY,Fold,paid,"Tide,Del,Surf",2,TRUE,FALSE,121
+,,,03/13/2025,10:03,240,CECIL,"Dry,Wash and Dry",paid,"Ariel,Del",1,FALSE,FALSE,206
+,,,03/13/2025,10:09,158,ROY,Dry,paid,"Surf,Tide",2,TRUE,FALSE,135
+,,,03/13/2025,10:15,192,JASON,"Wash,Wash Dry Fold",paid,Surf,2,FALSE,TRUE,224
+,,,03/13/2025,10:38,202,JAI,Fold,paid,Del,1,FALSE,TRUE,28
+,,,03/13/2025,10:38,202,JAMES,"Wash,Fold",paid,Tide,2,FALSE,FALSE,126
+,,,03/13/2025,10:45,140,GRACE,"Dry,Spin",paid,Downy,2,TRUE,TRUE,104
+,,,03/13/2025,11:00,159,EDDIE,Dry,paid,"Downy,Del",1,TRUE,TRUE,85
+,,,03/13/2025,11:04,312,VANESSA,Wash and Dry,paid,Zonrox,1,FALSE,TRUE,117
+,,,03/13/2025,11:45,156,BALTAZAR,Spin,paid,Tide,2,TRUE,FALSE,66
+,,,03/13/2025,12:09,304,YANG,"Dry,Wash",paid,Ariel,2,FALSE,TRUE,146
+,,,03/13/2025,12:29,156,LEM,"Dry,Fold",paid,"Downy,Breeze",2,TRUE,TRUE,155
+,,,03/13/2025,13:27,60,NORA,"Spin,Wash and Dry",paid,Tide,2,FALSE,FALSE,171
+,,,03/13/2025,14:23,212,AHA,Spin,paid,"Breeze,Zonrox,Tide",2,FALSE,TRUE,91
+,,,03/13/2025,15:35,296,SAM,Wash and Dry,paid,Del,2,TRUE,FALSE,151
+,,,03/13/2025,17:09,158,JAMES,Wash,paid,Downy,2,FALSE,TRUE,74
+,,,03/13/2025,17:30,186,REGINE,"Spin,Dry",paid,"Downy,Breeze",2,FALSE,TRUE,125
+,,,03/13/2025,17:30,198,EDAY,Wash and Dry,paid,"Del,Downy,Breeze",1,TRUE,TRUE,163
+,,,03/13/2025,18:44,70,KIM,"Wash Dry Fold,Dry",paid,"Zonrox,Surf,Del",1,FALSE,FALSE,237
+,,,03/13/2025,19:32,186,WILSON,Spin,paid,Downy,2,FALSE,TRUE,29
+,,,03/14/2025,8:05,146,HAZEL,"Wash,Wash Dry Fold",paid,"Ariel,Tide",1,FALSE,TRUE,236
+,,,03/14/2025,7:05,150,NAT,"Wash,Fold",paid,"Surf,Tide",2,FALSE,FALSE,150
+,,,03/14/2025,7:28,178,BENJAMIN,"Wash,Wash Dry Fold",paid,"Downy,Zonrox,Ariel",2,FALSE,TRUE,274
+,,,03/14/2025,7:49,154,JING,"Spin,Dry",paid,"Downy,Zonrox",2,TRUE,FALSE,128
+,,,03/14/2025,7:55,216,FRANCIS,"Fold,Wash and Dry",paid,Ariel,2,FALSE,TRUE,176
+,,,03/14/2025,7:59,166,RJ,Wash Dry Fold,paid,Breeze,2,FALSE,TRUE,176
+,,,03/14/2025,8:11,154,TAN-TAN,Fold,paid,Tide,1,FALSE,TRUE,38
+,,,03/14/2025,8:12,142,CEDRIC,"Spin,Wash",paid,"Zonrox,Del,Tide",1,FALSE,TRUE,98
+,,,03/14/2025,8:24,196,BRYAN,Wash and Dry,paid,Surf,2,FALSE,TRUE,134
+,,,03/14/2025,8:44,70,ATO,"Fold,Wash Dry Fold",paid,"Downy,Zonrox",1,TRUE,FALSE,214
+,,,03/14/2025,8:55,168,JOSEPH,Dry,paid,"Tide,Ariel,Surf",2,TRUE,TRUE,161
+,,,03/14/2025,10:05,152,MICHEAL,"Wash Dry Fold,Wash and Dry",paid,"Surf,Breeze",2,FALSE,FALSE,330
+,,,03/14/2025,10:20,208,KALBO,Fold,paid,"Breeze,Del",1,FALSE,FALSE,56
+,,,03/14/2025,10:35,160,JB,"Dry,Wash and Dry",paid,"Zonrox,Ariel,Tide",2,FALSE,TRUE,256
+,,,03/14/2025,10:45,320,BOK,Wash and Dry,paid,"Ariel,Surf,Zonrox",1,FALSE,TRUE,147
+,,,03/14/2025,11:45,148,LITO,"Spin,Wash Dry Fold",paid,Ariel,2,FALSE,FALSE,201
+,,,03/14/2025,13:05,176,SAMUEL,"Spin,Dry",paid,Del,1,FALSE,FALSE,83
+,,,03/14/2025,15:49,143,ALORA,Wash and Dry,paid,Ariel,2,TRUE,TRUE,161
+,,,03/14/2025,15:50,1184,JOHN WEYN,Wash,paid,"Del,Downy,Surf",1,FALSE,FALSE,92
+,,,03/14/2025,17:36,162,JAM,"Wash and Dry,Fold",paid,"Ariel,Tide",1,FALSE,FALSE,186
+,,,03/14/2025,18:04,148,CLAIRE,Wash Dry Fold,paid,"Ariel,Downy",1,FALSE,TRUE,170
+,,,03/14/2025,18:10,152,BUBOY,Dry,paid,"Ariel,Tide,Breeze",2,TRUE,FALSE,183
+,,,03/15/2025,6:45,138,ALEX,"Wash,Dry",paid,"Zonrox,Downy",1,TRUE,TRUE,144
+,,,03/15/2025,7:05,142,JR MUYCO,"Wash and Dry,Dry",paid,"Downy,Del",1,FALSE,FALSE,200
+,,,03/15/2025,7:15,190,SULTAN,"Dry,Wash",paid,"Ariel,Surf",1,TRUE,TRUE,155
+,,,03/15/2025,7:19,142,RECALA,Spin,paid,"Ariel,Breeze,Tide",2,TRUE,TRUE,128
+,,,03/15/2025,7:29,156,EDWARD,Fold,paid,"Ariel,Zonrox,Breeze",1,TRUE,TRUE,78
+,,,03/15/2025,7:30,154,RJ MUYCO,Spin,paid,Tide,1,FALSE,TRUE,23
+,,,03/15/2025,7:34,166,RJ,"Fold,Spin",paid,"Ariel,Del,Breeze",2,TRUE,TRUE,138
+,,,03/15/2025,7:35,146,JOAN S,"Fold,Wash",paid,"Breeze,Zonrox,Ariel",2,TRUE,FALSE,191
+,,,03/15/2025,7:46,138,LALAINE,Fold,paid,"Surf,Tide,Del",2,FALSE,FALSE,106
+,,,03/15/2025,8:00,142,WILLIAM,"Dry,Spin",paid,"Breeze,Surf,Tide",1,FALSE,TRUE,113
+,,,03/15/2025,8:25,166,DANIEL,"Wash Dry Fold,Spin",paid,Zonrox,1,TRUE,TRUE,177
+,,,03/15/2025,8:52,142,BUGOY,"Wash,Dry",paid,"Surf,Downy,Zonrox",1,FALSE,TRUE,141
+,,,03/15/2025,8:53,126,BRYAN,Wash Dry Fold,paid,"Del,Breeze",2,FALSE,TRUE,192
+,,,03/15/2025,8:54,210,TOTO JERIC,Wash,paid,Ariel,1,TRUE,FALSE,93
+,,,03/15/2025,10:05,138,QUEEN,Wash and Dry,paid,"Surf,Ariel,Zonrox",1,FALSE,FALSE,157
+,,,03/15/2025,10:20,120,JOMER,Dry,paid,"Ariel,Del,Tide",2,FALSE,FALSE,148
+,,,03/15/2025,10:40,176,MARIO,"Dry,Wash Dry Fold",paid,"Surf,Breeze,Tide",1,TRUE,TRUE,263
+,,,03/15/2025,10:41,148,JONATHAN,"Wash,Wash and Dry",paid,"Surf,Tide,Del",2,FALSE,TRUE,246
+,,,03/15/2025,10:43,144,ROMEO,"Wash,Wash Dry Fold",paid,"Del,Downy,Breeze",1,TRUE,TRUE,253
+,,,03/15/2025,11:35,178,JOSEPH,"Fold,Wash",paid,"Del,Downy",1,FALSE,TRUE,100
+,,,03/15/2025,12:00,148,ALICE,Wash,paid,"Ariel,Del",2,FALSE,FALSE,112
+,,,03/15/2025,12:20,304,VANESSA,"Dry,Wash and Dry",paid,"Del,Tide",1,TRUE,FALSE,221
+,,,03/15/2025,12:21,240,ZIAN,"Fold,Dry",paid,"Breeze,Surf,Zonrox",1,FALSE,FALSE,127
+,,,03/15/2025,12:26,240,JOAN,Spin,paid,"Downy,Tide",1,FALSE,TRUE,35
+,,,03/15/2025,12:30,180,MARK,"Fold,Dry",paid,Downy,2,TRUE,FALSE,129
+,,,03/15/2025,13:26,84,JONATHAN,"Wash and Dry,Dry",paid,"Downy,Surf",1,TRUE,FALSE,219
+,,,03/15/2025,13:45,164,SAM,"Wash and Dry,Wash Dry Fold",paid,Surf,2,TRUE,FALSE,309
+,,,03/15/2025,13:53,192,MEL,"Fold,Wash and Dry",paid,"Tide,Zonrox,Del",1,TRUE,FALSE,198
+,,,03/15/2025,14:58,148,NIEL,"Wash,Wash Dry Fold",paid,"Tide,Breeze,Surf",2,TRUE,TRUE,311
+,,,03/15/2025,15:23,120,ZIAN,"Wash,Wash and Dry",paid,Tide,1,TRUE,TRUE,203
+,,,03/15/2025,15:24,155,KIT,"Fold,Spin",paid,Surf,1,FALSE,TRUE,47
+,,,03/15/2025,15:30,60,JOSIE,Wash and Dry,paid,"Downy,Breeze",2,TRUE,TRUE,185
+,,,03/15/2025,15:37,148,JORDAN,"Spin,Fold",paid,Tide,1,TRUE,TRUE,68
+,,,03/15/2025,15:55,206,JOSHUA,"Wash Dry Fold,Wash",paid,"Tide,Breeze",1,FALSE,FALSE,246
+,,,03/15/2025,17:00,120,MARINA,"Wash and Dry,Wash",paid,Tide,1,FALSE,TRUE,188
+,,,03/15/2025,17:19,408,STEVE,Wash,paid,Breeze,2,TRUE,TRUE,101
+,,,03/15/2025,18:21,148,CHA,"Dry,Wash and Dry",paid,Tide,1,TRUE,TRUE,203
+,,,03/15/2025,18:39,158,GOMER,"Wash,Dry",paid,Del,1,FALSE,FALSE,128
+,,,03/15/2025,18:44,164,PATRICIA,Wash Dry Fold,paid,"Ariel,Del",1,FALSE,FALSE,176
+,,,03/15/2025,19:25,312,MARLON,Wash,paid,Del,2,TRUE,FALSE,91
+,,,03/15/2025,19:30,576,JANE,Spin,paid,"Tide,Breeze,Downy",2,FALSE,TRUE,101
+,,,03/16/2025,7:00,126,JOAN S.,"Fold,Wash Dry Fold",paid,Breeze,1,FALSE,TRUE,188
+,,,03/16/2025,7:20,129,VOULE,Wash,paid,"Downy,Breeze",1,FALSE,TRUE,80
+,,,03/16/2025,7:25,194,BHAY,Wash and Dry,paid,"Surf,Ariel,Zonrox",1,FALSE,FALSE,157
+,,,03/16/2025,7:30,142,RODEL,"Dry,Wash Dry Fold",paid,Zonrox,1,TRUE,TRUE,222
+,,,03/16/2025,7:45,100,ALFRANCE,Wash Dry Fold,paid,"Surf,Tide,Breeze",1,FALSE,FALSE,198
+,,,03/16/2025,7:55,154,RAFAEL,Fold,paid,Zonrox,2,TRUE,TRUE,49
+,,,03/16/2025,8:04,140,RAHIM,"Wash,Dry",paid,Del,2,TRUE,FALSE,151
+,,,03/16/2025,8:10,150,DARYLE,"Wash,Fold",paid,Del,1,FALSE,FALSE,98
+,,,03/16/2025,8:11,156,BENJIE,Fold,paid,Surf,2,TRUE,TRUE,59
+,,,03/16/2025,8:15,80,JAYPEE,"Wash,Fold",paid,Downy,1,FALSE,TRUE,92
+,,,03/16/2025,8:16,164,RAFAEL,"Wash Dry Fold,Wash",paid,"Zonrox,Tide",2,FALSE,TRUE,250
+,,,03/16/2025,8:30,140,ANGHEL,Fold,paid,"Breeze,Ariel",1,FALSE,TRUE,56
+,,,03/16/2025,8:35,138,ERICH,"Wash and Dry,Spin",paid,"Tide,Zonrox,Ariel",2,TRUE,FALSE,236
+,,,03/16/2025,8:40,208,ROLDAN,Dry,paid,"Zonrox,Ariel",1,TRUE,TRUE,90
+,,,03/16/2025,8:41,154,MARK,Wash,paid,Ariel,2,FALSE,TRUE,86
+,,,03/16/2025,8:48,138,JOSHUA,Fold,paid,"Ariel,Breeze",2,FALSE,TRUE,92
+,,,03/16/2025,8:52,208,TAN-TAN,Spin,paid,Surf,2,FALSE,FALSE,39
+,,,03/16/2025,9:00,176,JOAN,Wash Dry Fold,paid,Del,2,TRUE,FALSE,181
+,,,03/16/2025,9:05,148,VINCENT,"Wash and Dry,Dry",paid,"Ariel,Downy,Surf",1,TRUE,FALSE,237
+,,,03/16/2025,9:09,152,CHOC,Dry,paid,Breeze,2,TRUE,FALSE,111
+,,,03/16/2025,9:14,160,PHILIP,"Dry,Fold",paid,Downy,1,TRUE,TRUE,107
+,,,03/16/2025,9:15,150,JUN,"Wash Dry Fold,Wash and Dry",paid,"Downy,Ariel",2,FALSE,TRUE,320
+,,,03/16/2025,9:17,151,RECALA,Wash and Dry,paid,"Breeze,Del",2,FALSE,FALSE,172
+,,,03/16/2025,9:42,188,REGALA,"Wash,Fold",paid,Surf,1,TRUE,TRUE,107
+,,,03/16/2025,9:55,160,REPOLS,Fold,paid,"Ariel,Surf",1,TRUE,TRUE,65
+,,,03/16/2025,9:59,160,ALDRIN,Dry,paid,"Ariel,Del,Downy",2,TRUE,TRUE,141
+,,,03/16/2025,10:13,150,JAMES,"Wash,Dry",paid,"Breeze,Del",2,FALSE,FALSE,172
+,,,03/16/2025,10:20,148,MAMANG,Wash Dry Fold,paid,"Tide,Zonrox,Breeze",1,TRUE,FALSE,208
+,,,03/16/2025,10:26,176,REDE,Spin,paid,"Tide,Surf,Ariel",2,FALSE,TRUE,101
+,,,03/16/2025,10:30,150,WELFER,"Wash and Dry,Wash",paid,Breeze,2,TRUE,TRUE,221
+,,,03/16/2025,10:31,424,GEMMA,"Fold,Wash and Dry",paid,Breeze,2,TRUE,TRUE,191
+,,,03/16/2025,10:35,188,ARNEL,Wash,paid,"Zonrox,Downy",1,TRUE,FALSE,94
+,,,03/16/2025,10:36,180,JAMES A.,Fold,paid,Del,1,FALSE,FALSE,38
+,,,03/16/2025,10:40,148,EDDIE,Wash and Dry,paid,Tide,2,FALSE,FALSE,156
+,,,03/16/2025,10:55,70,JOVINA,"Wash and Dry,Dry",paid,"Downy,Del,Surf",2,FALSE,TRUE,234
+,,,03/16/2025,11:15,204,JHONG,Wash and Dry,paid,"Del,Zonrox,Downy",1,TRUE,FALSE,162
+,,,03/16/2025,11:50,148,ANTON,Wash Dry Fold,paid,Breeze,2,TRUE,FALSE,201
+,,,03/16/2025,11:51,150,GILBERT,"Wash Dry Fold,Wash",paid,"Surf,Del,Tide",1,FALSE,FALSE,248
+,,,03/16/2025,11:52,152,CEDRIC,Dry,paid,Surf,1,TRUE,FALSE,87
+,,,03/16/2025,11:53,60,MELAI,"Wash and Dry,Wash Dry Fold",paid,"Tide,Downy,Breeze",1,FALSE,TRUE,308
+,,,03/16/2025,12:01,150,NOMAR,"Wash,Dry",paid,"Del,Ariel,Tide",2,TRUE,TRUE,213
+,,,03/16/2025,12:05,176,DONALD,"Wash,Spin",paid,"Breeze,Tide,Surf",1,FALSE,TRUE,113
+,,,03/16/2025,12:40,148,LITO,"Wash Dry Fold,Dry",paid,Tide,1,FALSE,TRUE,218
+,,,03/16/2025,12:50,144,REN,"Dry,Wash and Dry",paid,Breeze,2,TRUE,FALSE,231
+,,,03/16/2025,13:38,136,RIZZA,Wash,paid,Tide,1,TRUE,FALSE,93
+,,,03/16/2025,14:15,148,JONATAN,"Dry,Wash",paid,Del,1,TRUE,TRUE,133
+,,,03/16/2025,14:25,152,NOJIR,"Fold,Wash Dry Fold",paid,"Zonrox,Breeze",2,FALSE,FALSE,230
+,,,03/16/2025,15:14,120,YUAN,"Wash,Wash and Dry",paid,"Zonrox,Downy",2,TRUE,FALSE,233
+,,,03/16/2025,15:35,148,BACOLOD,"Spin,Fold",paid,Tide,1,FALSE,TRUE,53
+,,,03/16/2025,15:35,152,JAMES,"Fold,Dry",paid,"Zonrox,Del,Tide",1,FALSE,FALSE,123
+,,,03/16/2025,15:38,812,ALVIN,Spin,paid,"Breeze,Surf",1,FALSE,FALSE,45
+,,,03/16/2025,15:55,160,LESTER,"Wash and Dry,Fold",paid,Del,2,FALSE,TRUE,156
+,,,03/16/2025,17:45,148,JOMAR,"Fold,Spin",paid,"Surf,Tide",1,TRUE,FALSE,90
+,,,03/16/2025,17:55,148,MALIADO,Dry,paid,"Tide,Zonrox,Ariel",1,FALSE,TRUE,93
+,,,03/16/2025,18:30,176,WILSON,Fold,paid,Tide,2,TRUE,FALSE,81
+,,,03/16/2025,19:00,120,MARIEL,Dry,paid,"Zonrox,Breeze",1,FALSE,TRUE,75
+,,,03/16/2025,19:01,163,JECK,Fold,paid,"Breeze,Surf",1,FALSE,FALSE,60
+,,,03/16/2025,20:10,288,GEMMA,Wash,paid,"Surf,Zonrox,Del",1,FALSE,FALSE,87
+,,,03/17/2025,6:00,236,GEMMA,"Spin,Wash",paid,"Ariel,Downy",1,TRUE,FALSE,120
+,,,03/17/2025,6:25,140,CECIL,"Wash Dry Fold,Wash",paid,"Zonrox,Tide",2,FALSE,TRUE,250
+,,,03/17/2025,6:52,110,CHRISTIAN,Spin,paid,"Zonrox,Ariel,Del",1,TRUE,FALSE,63
+,,,03/17/2025,7:03,146,JULIE B.,"Fold,Spin",paid,"Breeze,Downy,Tide",2,TRUE,TRUE,146
+,,,03/17/2025,7:07,150,BENJIE,"Spin,Wash",paid,"Del,Ariel",2,TRUE,FALSE,142
+,,,03/17/2025,7:25,166,JURIE,"Wash and Dry,Fold",paid,"Surf,Zonrox",1,FALSE,FALSE,169
+,,,03/17/2025,7:31,142,ALICE,Wash,paid,"Ariel,Surf",2,FALSE,FALSE,120
+,,,03/17/2025,7:48,138,GOS,Fold,paid,Del,1,TRUE,FALSE,53
+,,,03/17/2025,8:07,120,JOSIE,"Wash Dry Fold,Dry",paid,Ariel,2,FALSE,TRUE,236
+,,,03/17/2025,8:15,284,JR  ,Dry,paid,"Downy,Zonrox,Tide",2,TRUE,FALSE,149
+,,,03/17/2025,8:23,158,ALICE,Fold,paid,"Surf,Downy,Ariel",1,FALSE,FALSE,72
+,,,03/17/2025,8:38,164,JOEY,"Wash Dry Fold,Wash",paid,Zonrox,2,FALSE,TRUE,214
+,,,03/17/2025,8:42,140,WILSON ,"Spin,Wash and Dry",paid,"Surf,Zonrox,Breeze",2,TRUE,TRUE,214
+,,,03/17/2025,10:33,1776,JOHNN WYNE,"Dry,Wash and Dry",paid,Zonrox,2,TRUE,FALSE,209
+,,,03/17/2025,10:57,266,R.J.,"Wash and Dry,Spin",paid,"Surf,Ariel",2,TRUE,TRUE,200
+,,,03/17/2025,13:15,144,GRACE,"Fold,Wash and Dry",paid,"Tide,Del",1,FALSE,FALSE,176
+,,,03/17/2025,13:18,148,LITO,Wash Dry Fold,paid,Zonrox,2,TRUE,FALSE,179
+,,,03/17/2025,13:40,160,ABI,Wash,paid,"Downy,Breeze,Zonrox",2,TRUE,TRUE,139
+,,,03/17/2025,14:10,296,ELMER,"Wash Dry Fold,Wash",paid,"Ariel,Del,Downy",1,FALSE,TRUE,238
+,,,03/17/2025,17:16,152,EMMAN,"Wash Dry Fold,Wash",paid,"Downy,Ariel",2,FALSE,TRUE,260
+,,,03/17/2025,17:46,160,ALEX,"Wash,Spin",paid,Tide,1,TRUE,FALSE,108
+,,,03/17/2025,18:30,148,GILBERT,"Dry,Spin",paid,"Surf,Ariel,Tide",1,TRUE,FALSE,138
+,,,03/17/2025,18:35,240,JENNY,Wash,paid,"Ariel,Surf",2,FALSE,FALSE,120
+,,,03/18/2025,6:17,110,DENNIS,"Wash,Spin",paid,"Surf,Tide",2,TRUE,TRUE,140
+,,,03/18/2025,6:26,138,ARTHUR,Wash,paid,"Breeze,Surf",2,FALSE,TRUE,110
+,,,03/18/2025,7:05,128,DANIEL,"Wash,Dry",paid,"Downy,Breeze,Ariel",2,FALSE,FALSE,216
+,,,03/18/2025,7:18,126,DEN-DEN,Wash Dry Fold,paid,"Del,Ariel,Surf",2,TRUE,TRUE,231
+,,,03/18/2025,7:37,126,ABE,Wash and Dry,paid,"Del,Breeze",1,FALSE,FALSE,146
+,,,03/18/2025,7:38,280,WENG,Wash Dry Fold,paid,"Downy,Breeze,Zonrox",2,TRUE,TRUE,229
+,,,03/18/2025,7:45,152,ADRIAN,Wash Dry Fold,paid,"Del,Surf,Breeze",2,FALSE,TRUE,216
+,,,03/18/2025,7:46,168,FRANCE,Fold,paid,"Tide,Downy",1,TRUE,FALSE,75
+,,,03/18/2025,7:51,200,RJ,Wash Dry Fold,paid,Breeze,2,TRUE,TRUE,191
+,,,03/18/2025,7:52,170,PATRICK,Dry,paid,Tide,2,TRUE,TRUE,101
+,,,03/18/2025,8:00,110,TOP NATCH/CRISTY,Wash,paid,"Downy,Ariel,Breeze",1,FALSE,TRUE,98
+,,,03/18/2025,8:20,150,JASON,Spin,paid,Surf,2,TRUE,FALSE,54
+,,,03/18/2025,8:26,110,MACOY A.,"Spin,Dry",paid,"Breeze,Del",2,TRUE,TRUE,132
+,,,03/18/2025,9:13,148,SONNY,Wash Dry Fold,paid,"Ariel,Surf",1,FALSE,FALSE,180
+,,,03/18/2025,9:34,188,MYLEN,"Wash Dry Fold,Fold",paid,"Surf,Breeze,Downy",2,FALSE,FALSE,264
+,,,03/18/2025,10:05,136,DREW,"Dry,Wash and Dry",paid,"Ariel,Del",1,FALSE,TRUE,196
+,,,03/18/2025,10:56,136,JEFF,Wash and Dry,paid,"Del,Surf",1,FALSE,FALSE,140
+,,,03/18/2025,11:44,144,JOEL,"Fold,Wash",paid,"Downy,Del",2,TRUE,TRUE,135
+,,,03/18/2025,12:18,150,JAM,"Wash and Dry,Dry",paid,"Downy,Breeze,Tide",2,TRUE,FALSE,291
+,,,03/18/2025,12:29,300,MARIA,"Wash,Spin",paid,"Downy,Surf,Tide",2,FALSE,FALSE,159
+,,,03/18/2025,12:36,256,BERNIE,Wash Dry Fold,paid,"Zonrox,Downy,Breeze",2,TRUE,FALSE,239
+,,,03/18/2025,13:05,132,NOEL,Fold,paid,Zonrox,1,FALSE,FALSE,37
+,,,03/18/2025,14:02,70,ERICH,"Fold,Wash",paid,Zonrox,1,TRUE,TRUE,102
+,,,03/18/2025,14:56,344,DONALD,"Spin,Wash and Dry",paid,"Downy,Zonrox,Del",1,FALSE,FALSE,162
+,,,03/18/2025,16:08,149,ERICH,"Fold,Wash and Dry",paid,Ariel,2,TRUE,FALSE,201
+,,,03/18/2025,16:11,192,MEMALYN,"Wash Dry Fold,Dry",paid,"Breeze,Downy",2,FALSE,TRUE,260
+,,,03/18/2025,16:45,289,ANNA,"Wash and Dry,Wash Dry Fold",paid,"Del,Zonrox",1,TRUE,TRUE,290
+,,,03/18/2025,17:18,70,JOHN,Dry,paid,"Breeze,Ariel",2,FALSE,TRUE,122
+,,,03/18/2025,18:34,148,TOTO JERIC,"Dry,Spin",paid,"Zonrox,Del",2,TRUE,TRUE,110
+,,,03/18/2025,18:37,206,SAM,"Dry,Wash and Dry",paid,"Breeze,Ariel",2,FALSE,TRUE,242
+,,,03/18/2025,18:38,300,BAREI,Spin,paid,"Breeze,Surf,Zonrox",2,TRUE,FALSE,104
+,,,03/18/2025,19:00,150,GELBERT,"Wash and Dry,Spin",paid,Breeze,1,TRUE,TRUE,158
+,,,03/18/2025,19:35,148,GREG,Wash Dry Fold,paid,"Breeze,Tide",2,FALSE,TRUE,212
+,,,03/19/2025,6:36,138,BALATAZAR,"Fold,Spin",paid,"Del,Tide",2,TRUE,FALSE,112
+,,,03/19/2025,7:00,149,JHEN,Fold,paid,"Ariel,Breeze,Surf",1,TRUE,TRUE,83
+,,,03/19/2025,7:04,163,BRANDON,"Fold,Wash",paid,"Zonrox,Breeze,Del",1,FALSE,FALSE,123
+,,,03/19/2025,7:21,138,BOGS,Wash,paid,Tide,1,FALSE,FALSE,78
+,,,03/19/2025,7:32,110,KRIS,"Wash Dry Fold,Spin",paid,"Breeze,Del,Zonrox",2,FALSE,TRUE,221
+,,,03/19/2025,7:35,150,CONAN,"Spin,Wash and Dry",paid,"Ariel,Downy,Surf",1,TRUE,FALSE,192
+,,,03/19/2025,7:42,110,DON-DON,"Fold,Spin",paid,Del,2,TRUE,FALSE,76
+,,,03/19/2025,7:51,196,BRYAN,"Wash Dry Fold,Fold",paid,"Del,Surf",2,TRUE,FALSE,235
+,,,03/19/2025,9:50,144,GRACE,"Dry,Wash",paid,"Zonrox,Del,Downy",1,TRUE,FALSE,162
+,,,03/19/2025,10:30,60,JOSIE,"Fold,Wash",paid,Del,1,TRUE,TRUE,103
+,,,03/19/2025,11:40,160,PRIZZ,Wash,paid,Downy,2,TRUE,TRUE,89
+,,,03/19/2025,11:45,312,NEL,"Wash,Spin",paid,"Ariel,Surf,Tide",1,TRUE,TRUE,128
+,,,03/19/2025,12:25,296,ARCELLI,"Wash and Dry,Dry",paid,Del,2,TRUE,TRUE,201
+,,,03/19/2025,13:03,346,JODAY,"Wash,Spin",paid,"Breeze,Del",2,TRUE,TRUE,132
+,,,03/19/2025,13:15,148,NIEL,"Spin,Wash and Dry",paid,"Breeze,Del,Downy",2,TRUE,FALSE,226
+,,,03/19/2025,14:25,240,EDCIL,Wash Dry Fold,paid,"Del,Surf,Downy",1,FALSE,FALSE,182
+,,,03/19/2025,15:10,120,GIGI,"Wash,Wash Dry Fold",paid,"Del,Ariel",1,TRUE,TRUE,241
+,,,03/19/2025,15:19,304,JUDAY,Dry,paid,"Del,Tide",2,FALSE,FALSE,112
+,,,03/19/2025,15:49,144,TRIVIA,"Fold,Wash and Dry",paid,Surf,2,FALSE,TRUE,164
+,,,03/19/2025,17:51,320,KIT,"Dry,Wash",paid,Zonrox,2,TRUE,FALSE,149
+,,,03/19/2025,18:20,188,SULTAN,"Fold,Wash",paid,"Breeze,Ariel",2,TRUE,FALSE,177
+,,,03/19/2025,18:47,176,MARK ,Dry,paid,Zonrox,1,FALSE,FALSE,67
+,,,03/19/2025,19:31,206,TOTO JERIC,"Dry,Wash and Dry",paid,"Downy,Surf",1,TRUE,FALSE,219
+,,,03/20/2025,7:11,300,DACA,"Fold,Spin",paid,"Zonrox,Del",1,FALSE,FALSE,60
+,,,03/20/2025,7:39,154,TAN-TAN,"Wash,Fold",paid,"Ariel,Zonrox,Del",1,TRUE,FALSE,138
+,,,03/20/2025,7:49,166,NICO,Wash Dry Fold,paid,"Ariel,Breeze",2,FALSE,TRUE,212
+,,,03/20/2025,8:03,110,MARK,Wash,paid,"Zonrox,Downy,Surf",2,FALSE,FALSE,122
+,,,03/20/2025,8:39,306,BUBOY,"Spin,Fold",paid,"Breeze,Del,Tide",2,TRUE,TRUE,138
+,,,03/20/2025,9:02,148,BOBBY,"Wash Dry Fold,Fold",paid,"Del,Breeze,Tide",2,TRUE,TRUE,273
+,,,03/20/2025,9:04,144,DOMEY,Spin,paid,Del,2,FALSE,FALSE,31
+,,,03/20/2025,9:31,160,JAMES,"Wash and Dry,Wash Dry Fold",paid,Ariel,1,TRUE,TRUE,293
+,,,03/20/2025,9:55,120,JASON,Wash and Dry,paid,"Ariel,Downy",2,FALSE,TRUE,170
+,,,03/20/2025,9:58,152,RYAN,"Wash and Dry,Wash",paid,"Tide,Breeze",2,TRUE,TRUE,257
+,,,03/20/2025,10:07,312,NEL,Wash and Dry,paid,"Downy,Tide",2,TRUE,TRUE,185
+,,,03/20/2025,10:17,70,KIM,"Wash,Wash Dry Fold",paid,Del,2,TRUE,TRUE,231
+,,,03/20/2025,11:02,148,SAM,Dry,paid,"Breeze,Surf,Downy",1,TRUE,FALSE,117
+,,,03/20/2025,12:29,136,BRIXX,"Dry,Wash",paid,"Downy,Tide,Ariel",2,TRUE,FALSE,231
+,,,03/20/2025,12:34,120,DONA,"Spin,Fold",paid,Downy,2,TRUE,TRUE,74
+,,,03/20/2025,13:15,144,JHON,"Dry,Spin",paid,"Tide,Downy,Ariel",2,TRUE,FALSE,186
+,,,03/20/2025,13:20,132,BERNIE,Dry,paid,"Ariel,Tide",2,FALSE,TRUE,122
+,,,03/20/2025,14:15,164,PYUBE,Wash and Dry,paid,"Downy,Tide,Breeze",1,TRUE,TRUE,173
+,,,03/20/2025,14:20,120,TONNY,"Wash Dry Fold,Wash",paid,Surf,2,TRUE,FALSE,249
+,,,03/20/2025,16:52,148,MARUIN,Wash Dry Fold,paid,"Del,Zonrox,Tide",1,FALSE,FALSE,183
+,,,03/20/2025,17:11,186,JAM,Wash,paid,Surf,1,FALSE,FALSE,72
+,,,03/20/2025,17:35,70,KIM,"Fold,Wash Dry Fold",paid,"Breeze,Del",2,TRUE,TRUE,237
+,,,03/20/2025,17:56,136,ALLAN,"Spin,Wash Dry Fold",paid,Del,1,TRUE,TRUE,178
+,,,03/20/2025,18:00,60,JOSIE,"Dry,Spin",paid,"Ariel,Surf,Downy",2,TRUE,FALSE,174
+,,,03/20/2025,18:49,156,JUN,Spin,paid,"Tide,Zonrox,Surf",2,TRUE,FALSE,104
+,,,03/21/2025,7:14,130,AMY,Wash,paid,Breeze,2,FALSE,FALSE,96
+,,,03/21/2025,7:41,126,KAREN,Wash,paid,"Tide,Breeze",1,TRUE,FALSE,111
+,,,03/21/2025,7:48,138,APOLLO,Spin,paid,Downy,1,TRUE,TRUE,32
+,,,03/21/2025,8:11,110,DEL,"Wash Dry Fold,Dry",paid,Surf,2,TRUE,TRUE,239
+,,,03/21/2025,10:07,168,TATS,Dry,paid,Del,2,FALSE,TRUE,66
+,,,03/21/2025,10:58,148,MAMANG,Fold,paid,"Ariel,Tide,Downy",1,TRUE,TRUE,83
+,,,03/21/2025,11:01,148,GARRY,"Dry,Wash",paid,"Zonrox,Tide,Del",1,TRUE,TRUE,158
+,,,03/21/2025,11:29,1480,JOHNWYNE,"Wash and Dry,Spin",paid,"Breeze,Downy,Surf",2,TRUE,TRUE,224
+,,,03/21/2025,11:58,148,GLEM,Wash and Dry,paid,"Surf,Tide,Breeze",2,TRUE,TRUE,221
+,,,03/21/2025,12:30,192,SIGAY,"Dry,Wash Dry Fold",paid,Surf,2,TRUE,FALSE,249
+,,,03/21/2025,12:32,148,AJ,Wash and Dry,paid,"Downy,Ariel",1,TRUE,TRUE,155
+,,,03/21/2025,12:37,160,GERALD,"Wash and Dry,Wash",paid,Breeze,1,TRUE,FALSE,213
+,,,03/21/2025,2:22,144,FREDO,Dry,paid,"Del,Breeze",2,FALSE,FALSE,112
+,,,03/21/2025,2:32,144,DAVE,Fold,paid,Surf,2,TRUE,TRUE,59
+,,,03/21/2025,3:46,152,LARA,"Spin,Wash Dry Fold",paid,Zonrox,2,TRUE,FALSE,194
+,,,03/21/2025,5:48,136,ALVIN,"Spin,Wash Dry Fold",paid,"Del,Zonrox,Ariel",1,FALSE,TRUE,188
+,,,03/21/2025,6:22,138,JOHN REGALA,Wash Dry Fold,paid,"Breeze,Surf,Del",1,FALSE,FALSE,188
+,,,03/21/2025,6:31,120,MARINA,"Wash Dry Fold,Wash and Dry",paid,"Del,Tide,Surf",1,TRUE,TRUE,313
+,,,03/22/2025,6:46,138,ALEX,Fold,paid,Ariel,1,FALSE,TRUE,38
+,,,03/22/2025,6:47,150,RODEL,"Wash and Dry,Wash Dry Fold",paid,"Del,Ariel",2,FALSE,FALSE,322
+,,,03/22/2025,6:54,142,JR. MUYCO,Spin,paid,Downy,1,TRUE,TRUE,32
+,,,03/22/2025,7:03,430,JAYSON,Spin,paid,"Tide,Surf",2,TRUE,TRUE,80
+,,,03/22/2025,7:07,242,CAWY,"Wash,Dry",paid,"Del,Ariel",1,TRUE,FALSE,161
+,,,03/22/2025,7:24,140,JOSELITO,"Dry,Wash Dry Fold",paid,"Tide,Downy",1,TRUE,TRUE,245
+,,,03/22/2025,7:30,130,ALORA,Wash,paid,Surf,1,TRUE,FALSE,87
+,,,03/22/2025,7:55,138,NICK,Wash,paid,"Del,Zonrox,Breeze",2,TRUE,FALSE,141
+,,,03/22/2025,8:00,218,PEN,"Fold,Wash and Dry",paid,"Downy,Tide",2,FALSE,FALSE,210
+,,,03/22/2025,8:05,142,LARA,Wash and Dry,paid,"Zonrox,Breeze",2,FALSE,FALSE,170
+,,,03/22/2025,8:09,126,CEDRIC,"Wash and Dry,Spin",paid,"Del,Tide,Zonrox",1,FALSE,TRUE,158
+,,,03/22/2025,8:10,146,ANN,Spin,paid,"Del,Downy",1,TRUE,TRUE,40
+,,,03/22/2025,8:11,158,BUBOY,"Wash,Fold",paid,"Zonrox,Ariel",1,TRUE,TRUE,120
+,,,03/22/2025,8:23,110,LEAH,"Wash Dry Fold,Wash and Dry",paid,"Ariel,Tide",2,TRUE,FALSE,357
+,,,03/22/2025,8:28,292,EDWARD,"Spin,Fold",paid,Tide,1,FALSE,TRUE,53
+,,,03/22/2025,8:48,190,PATRICK,"Wash,Spin",paid,Downy,1,TRUE,TRUE,92
+,,,03/22/2025,9:00,138,JOHN,"Wash Dry Fold,Dry",paid,"Zonrox,Surf",2,FALSE,FALSE,248
+,,,03/22/2025,10:16,360,ZIAN,"Dry,Fold",paid,"Del,Zonrox,Surf",2,FALSE,TRUE,134
+,,,03/22/2025,10:33,166,BUGOY,"Spin,Dry",paid,"Ariel,Breeze,Zonrox",2,FALSE,FALSE,161
+,,,03/22/2025,10:52,148,JONATHAN,"Wash,Wash and Dry",paid,Zonrox,1,TRUE,FALSE,202
+,,,03/22/2025,10:55,136,GERALD,Wash Dry Fold,paid,"Del,Tide",2,FALSE,FALSE,202
+,,,03/22/2025,11:15,240,JOAN,"Dry,Wash and Dry",paid,Tide,1,TRUE,TRUE,203
+,,,03/22/2025,11:23,148,ALBERT,"Dry,Wash",paid,"Ariel,Zonrox,Downy",2,TRUE,FALSE,209
+,,,03/22/2025,11:34,120,MARJORIE,Wash,paid,Del,1,TRUE,TRUE,73
+,,,03/22/2025,11:53,300,MARK,"Wash,Wash Dry Fold",paid,"Tide,Ariel",2,TRUE,FALSE,297
+,,,03/22/2025,12:22,148,JR,Dry,paid,"Breeze,Del",2,TRUE,FALSE,127
+,,,03/22/2025,12:32,148,GIL,Wash and Dry,paid,Downy,1,FALSE,TRUE,122
+,,,03/22/2025,12:33,70,TATTOO,"Spin,Wash and Dry",paid,"Ariel,Tide,Del",2,FALSE,FALSE,223
+,,,03/22/2025,12:38,266,FRANCIS,Dry,paid,Tide,1,FALSE,FALSE,78
+,,,03/22/2025,12:45,132,BERNIE,"Spin,Wash and Dry",paid,"Ariel,Downy",1,TRUE,FALSE,180
+,,,03/22/2025,12:55,206,JAMES,Fold,paid,"Zonrox,Ariel",2,FALSE,FALSE,80
+,,,03/22/2025,12:56,206,JAIRUS,Wash and Dry,paid,Zonrox,2,TRUE,TRUE,139
+,,,03/22/2025,1:18,138,JN,Dry,paid,"Ariel,Del,Breeze",2,FALSE,FALSE,148
+,,,03/22/2025,1:50,156,GRACE,Wash Dry Fold,paid,"Del,Breeze",1,FALSE,FALSE,176
+,,,03/22/2025,2:53,420,BEBE,"Spin,Wash Dry Fold",paid,"Breeze,Downy,Surf",2,TRUE,FALSE,264
+,,,03/22/2025,3:25,164,LESTER,"Wash Dry Fold,Dry",paid,"Downy,Tide",2,FALSE,FALSE,270
+,,,03/22/2025,4:01,136,GIGI,Fold,paid,"Breeze,Del,Tide",2,FALSE,FALSE,118
+,,,03/22/2025,4:54,152,REGALA,Fold,paid,"Tide,Surf",2,FALSE,TRUE,80
+,,,03/22/2025,5:07,158,PAUL,"Dry,Wash and Dry",paid,"Zonrox,Surf,Downy",2,FALSE,TRUE,232
+,,,03/22/2025,5:34,60,MARVIN,"Wash Dry Fold,Wash",paid,"Tide,Breeze,Surf",2,FALSE,TRUE,296
+,,,03/22/2025,5:51,384,STEVE,"Wash Dry Fold,Fold",paid,Breeze,2,TRUE,FALSE,231
+,,,03/22/2025,6:53,168,MARIOH,Fold,paid,"Tide,Ariel,Del",1,FALSE,FALSE,74
+,,,03/22/2025,6:57,150,CHA,Dry,paid,"Tide,Del,Breeze",2,TRUE,FALSE,163
+,,,03/23/2025,6:24,140,CECIL,"Fold,Dry",paid,"Tide,Ariel",2,TRUE,FALSE,177
+,,,03/23/2025,6:55,150,NAK,Wash,paid,Downy,1,FALSE,FALSE,72
+,,,03/23/2025,6:56,332,LANIE,"Dry,Wash",paid,"Zonrox,Ariel,Tide",1,FALSE,FALSE,163
+,,,03/23/2025,7:01,100,ALFRANCE,"Wash and Dry,Wash Dry Fold",paid,"Ariel,Zonrox,Surf",2,FALSE,FALSE,344
+,,,03/23/2025,7:14,142,WILIAM,Wash and Dry,paid,"Breeze,Surf",2,TRUE,TRUE,185
+,,,03/23/2025,7:15,152,JONG,"Wash,Dry",paid,"Downy,Ariel,Zonrox",1,FALSE,TRUE,147
+,,,03/23/2025,7:37,200,ROY,"Wash and Dry,Wash Dry Fold",paid,"Breeze,Downy",1,TRUE,TRUE,305
+,,,03/23/2025,7:38,162,REDE,Wash Dry Fold,paid,"Surf,Ariel",1,FALSE,FALSE,180
+,,,03/23/2025,7:53,140,EFAH,"Fold,Wash",paid,"Tide,Zonrox",1,FALSE,TRUE,105
+,,,03/23/2025,8:10,182,RJ,"Dry,Wash and Dry",paid,Surf,1,TRUE,FALSE,207
+,,,03/23/2025,8:13,134,DEXTER,Spin,paid,"Ariel,Zonrox,Breeze",1,TRUE,FALSE,73
+,,,03/23/2025,8:18,149,RODMAN,Wash and Dry,paid,"Surf,Zonrox",2,FALSE,TRUE,148
+,,,03/23/2025,8:23,198,MANDS,"Wash,Spin",paid,"Downy,Tide,Breeze",2,FALSE,FALSE,171
+,,,03/23/2025,8:39,150,GELD,"Wash Dry Fold,Dry",paid,Downy,2,FALSE,TRUE,224
+,,,03/23/2025,8:59,62,JAYPEE,Wash,paid,"Ariel,Zonrox,Del",1,TRUE,FALSE,108
+,,,03/23/2025,9:04,192,MEL,"Spin,Wash",paid,"Zonrox,Tide",1,TRUE,FALSE,115
+,,,03/23/2025,9:11,160,KEN-KEN,Wash and Dry,paid,Tide,2,TRUE,FALSE,171
+,,,03/23/2025,9:15,336,JANE,"Spin,Wash Dry Fold",paid,"Downy,Ariel,Tide",1,FALSE,FALSE,213
+,,,03/23/2025,9:20,204,ARNEL,Fold,paid,"Downy,Tide,Breeze",2,FALSE,TRUE,116
+,,,03/23/2025,9:21,164,RICHARD,"Wash Dry Fold,Dry",paid,"Zonrox,Surf,Downy",1,FALSE,FALSE,241
+,,,03/23/2025,9:24,152,BRYRAN,"Wash Dry Fold,Wash",paid,"Surf,Del",2,TRUE,TRUE,255
+,,,03/23/2025,9:44,232,DEX,"Spin,Wash and Dry",paid,"Downy,Ariel",1,TRUE,FALSE,180
+,,,03/23/2025,9:45,176,JOAN,Wash,paid,"Breeze,Downy",1,TRUE,FALSE,105
+,,,03/23/2025,9:54,218,ROLDAN,Dry,paid,"Zonrox,Tide",1,TRUE,FALSE,100
+,,,03/23/2025,9:58,152,RENE,"Wash Dry Fold,Fold",paid,Tide,1,FALSE,FALSE,198
+,,,03/23/2025,10:02,160,DARYLE,Wash Dry Fold,paid,"Zonrox,Del,Tide",2,FALSE,TRUE,206
+,,,03/23/2025,10:17,204,JHONG,Wash and Dry,paid,"Zonrox,Tide,Downy",1,TRUE,TRUE,162
+,,,03/23/2025,10:25,60,MARK,Wash and Dry,paid,"Zonrox,Del,Ariel",2,TRUE,TRUE,191
+,,,03/23/2025,10:28,160,HAZEL,"Wash Dry Fold,Wash and Dry",paid,"Downy,Ariel,Zonrox",2,TRUE,TRUE,349
+,,,03/23/2025,11:00,148,EDDIE,Wash and Dry,paid,Zonrox,1,TRUE,FALSE,142
+,,,03/23/2025,11:10,151,JHEN,Wash,paid,"Tide,Downy,Ariel",2,FALSE,TRUE,146
+,,,03/23/2025,11:12,189,EDDIE,Wash and Dry,paid,"Surf,Breeze",1,FALSE,TRUE,140
+,,,03/23/2025,11:49,148,BACOLOD,"Dry,Fold",paid,"Downy,Breeze,Tide",1,FALSE,TRUE,128
+,,,03/23/2025,12:00,272,JANE,"Dry,Spin",paid,"Del,Breeze",2,TRUE,TRUE,132
+,,,03/23/2025,12:14,300,OMAR,Fold,paid,Ariel,1,FALSE,FALSE,48
+,,,03/23/2025,12:23,120,MARK,Spin,paid,Del,1,FALSE,TRUE,13
+,,,03/23/2025,12:24,120,SIMON,Wash Dry Fold,paid,"Downy,Ariel,Zonrox",1,TRUE,TRUE,192
+,,,03/23/2025,12:27,152,REGALA,"Wash and Dry,Wash Dry Fold",paid,"Del,Breeze",2,TRUE,FALSE,337
+,,,03/23/2025,1:24,136,EMAN,Wash Dry Fold,paid,"Surf,Del",2,TRUE,TRUE,195
+,,,03/23/2025,1:32,120,MARIEL,"Spin,Fold",paid,"Del,Zonrox,Downy",2,TRUE,TRUE,104
+,,,03/23/2025,1:48,190,JOSHUA,Wash,paid,"Downy,Del,Ariel",1,FALSE,TRUE,88
+,,,03/23/2025,2:08,136,MARVIN,Wash and Dry,paid,Ariel,2,FALSE,FALSE,156
+,,,03/23/2025,2:23,148,JAMES,Dry,paid,"Downy,Del",1,FALSE,FALSE,80
+,,,03/23/2025,2:53,160,JO,Dry,paid,"Tide,Downy",2,FALSE,FALSE,120
+,,,03/23/2025,2:56,168,ARIEL,Wash and Dry,paid,"Surf,Breeze,Ariel",2,TRUE,TRUE,221
+,,,03/23/2025,2:57,148,FRANCE,"Wash,Dry",paid,"Tide,Downy,Ariel",2,FALSE,TRUE,206
+,,,03/23/2025,3:00,150,WINCES LAD,"Wash Dry Fold,Spin",paid,"Ariel,Tide",2,TRUE,FALSE,252
+,,,03/23/2025,3:35,136,JANE,Spin,paid,"Zonrox,Tide",1,TRUE,TRUE,45
+,,,03/23/2025,3:50,1184,EDESON,Fold,paid,"Zonrox,Surf",2,TRUE,FALSE,83
+,,,03/23/2025,4:04,200,BALONG,Wash,paid,"Tide,Breeze,Del",2,TRUE,FALSE,163
+,,,03/23/2025,4:09,176,DONALD,"Wash,Fold",paid,"Downy,Del",2,TRUE,FALSE,145
+,,,03/23/2025,4:43,150,JOMAR,Spin,paid,Ariel,2,TRUE,FALSE,66
+,,,03/23/2025,5:06,328,LAURENCE,"Dry,Wash Dry Fold",paid,"Surf,Tide,Downy",1,FALSE,FALSE,252
+,,,03/23/2025,6:34,152,JOAN SALAS,"Wash and Dry,Spin",paid,Downy,1,TRUE,FALSE,162
+,,,03/23/2025,6:41,176,WILSON,Wash,paid,Tide,1,TRUE,TRUE,83
+,,,03/23/2025,6:57,180,SIMON,Wash Dry Fold,paid,"Zonrox,Downy",1,FALSE,TRUE,159
+,,,03/23/2025,7:26,240,YUAN,Wash,paid,"Zonrox,Ariel",2,TRUE,TRUE,115
+,,,03/23/2025,7:40,352,MARLOW,"Dry,Wash Dry Fold",paid,"Downy,Del,Breeze",2,FALSE,FALSE,286
+,,,03/24/2025,6:15,170,ROD,Wash Dry Fold,paid,Surf,2,TRUE,TRUE,179
+,,,03/24/2025,7:03,163,BRANDON,"Wash Dry Fold,Spin",paid,"Breeze,Del,Surf",1,TRUE,TRUE,208
+,,,03/24/2025,7:30,202,RJ,Wash and Dry,paid,Zonrox,2,TRUE,TRUE,139
+,,,03/24/2025,7:36,168,FRANCE,Wash Dry Fold,paid,"Tide,Zonrox,Del",1,TRUE,TRUE,188
+,,,03/24/2025,7:43,166,JURIE,Wash and Dry,paid,Breeze,2,TRUE,FALSE,171
+,,,03/24/2025,7:56,158,ANTHONY,"Wash,Wash Dry Fold",paid,"Surf,Breeze",1,TRUE,FALSE,255
+,,,03/24/2025,7:57,158,ALICE,Fold,paid,"Del,Downy,Breeze",2,FALSE,FALSE,106
+,,,03/24/2025,8:05,158,RAFAEL,"Spin,Wash Dry Fold",paid,Tide,1,TRUE,TRUE,188
+,,,03/24/2025,8:06,138,JECK,"Fold,Spin",paid,"Downy,Surf",2,TRUE,TRUE,98
+,,,03/24/2025,8:07,140,ARVI,"Wash Dry Fold,Wash",paid,"Surf,Ariel",1,FALSE,FALSE,240
+,,,03/24/2025,8:27,140,ANGHEL,Wash Dry Fold,paid,"Downy,Breeze",1,FALSE,FALSE,180
+,,,03/24/2025,8:28,110,CRISTY,"Dry,Spin",paid,"Surf,Downy",2,FALSE,FALSE,123
+,,,03/24/2025,8:45,169,MANGTOTO,"Wash,Spin",paid,"Downy,Ariel",2,TRUE,TRUE,140
+,,,03/24/2025,9:46,148,RIGINBRAX,"Dry,Fold",paid,"Ariel,Zonrox",1,TRUE,FALSE,130
+,,,03/24/2025,11:06,368,JOSIE,"Dry,Wash and Dry",paid,"Breeze,Zonrox",2,TRUE,TRUE,235
+,,,03/24/2025,11:19,304,VANESSA,"Dry,Wash",paid,Ariel,2,FALSE,FALSE,156
+,,,03/24/2025,11:41,160,CHRISTIAN,Wash and Dry,paid,"Ariel,Surf,Tide",2,TRUE,FALSE,231
+,,,03/24/2025,12:08,152,DWIGHT,"Fold,Wash Dry Fold",paid,"Del,Tide",2,TRUE,FALSE,247
+,,,03/24/2025,12:30,144,GENNIE,"Wash and Dry,Dry",paid,"Tide,Ariel,Breeze",2,TRUE,FALSE,303
+,,,03/24/2025,12:41,180,JOSEP,"Fold,Wash",paid,Zonrox,2,TRUE,TRUE,109
+,,,03/24/2025,1:10,164,KIVEN,Wash and Dry,paid,Surf,2,TRUE,FALSE,159
+,,,03/24/2025,1:16,120,BEBE,"Wash and Dry,Wash",paid,"Downy,Breeze,Surf",1,TRUE,TRUE,227
+,,,03/24/2025,1:41,270,RONALD,Fold,paid,Ariel,2,FALSE,TRUE,56
+,,,03/24/2025,1:50,160,ARVIN,Dry,paid,"Zonrox,Del",2,TRUE,TRUE,95
+,,,03/24/2025,2:51,150,JOKO,Spin,paid,"Zonrox,Breeze",1,FALSE,TRUE,30
+,,,03/24/2025,3:03,120,MARK O,Wash Dry Fold,paid,"Surf,Downy,Del",2,TRUE,FALSE,229
+,,,03/24/2025,3:35,155,JOHN C,"Fold,Dry",paid,"Zonrox,Surf",1,TRUE,TRUE,114
+,,,03/24/2025,4:02,148,KIT,Dry,paid,Ariel,1,TRUE,FALSE,93
+,,,03/24/2025,4:51,150,SAM,Spin,paid,Breeze,2,FALSE,TRUE,41
+,,,03/24/2025,6:24,148,CLAIRE,"Fold,Wash and Dry",paid,"Ariel,Surf",2,FALSE,FALSE,210
+,,,03/25/2025,7:09,140,KENJIE,Wash and Dry,paid,"Zonrox,Surf,Del",1,TRUE,FALSE,162
+,,,03/25/2025,7:12,140,NANAY VIOLY,"Fold,Wash and Dry",paid,"Tide,Del,Zonrox",2,TRUE,FALSE,231
+,,,03/25/2025,7:20,138,JOSHUA,"Wash Dry Fold,Wash and Dry",paid,"Tide,Surf,Breeze",2,TRUE,TRUE,371
+,,,03/25/2025,7:23,138,TAN-TAN,Dry,paid,"Tide,Breeze",1,FALSE,FALSE,96
+,,,03/25/2025,7:27,126,ABE,Wash,paid,"Downy,Surf",1,FALSE,TRUE,74
+,,,03/25/2025,7:30,324,JR,Wash Dry Fold,paid,"Ariel,Downy",2,TRUE,FALSE,225
+,,,03/25/2025,7:32,130,BENJIE,"Dry,Fold",paid,"Surf,Breeze",2,TRUE,TRUE,155
+,,,03/25/2025,8:13,346,MYKA,"Fold,Wash Dry Fold",paid,"Zonrox,Downy,Ariel",2,TRUE,TRUE,259
+,,,03/25/2025,8:19,156,EJ,Wash,paid,"Ariel,Tide,Surf",1,TRUE,FALSE,123
+,,,03/25/2025,8:22,110,ALBERT,Dry,paid,Ariel,1,TRUE,TRUE,83
+,,,03/25/2025,9:04,150,JOJO,"Wash,Dry",paid,Tide,1,TRUE,FALSE,153
+,,,03/25/2025,9:37,218,NICK,Spin,paid,"Ariel,Zonrox,Tide",2,TRUE,FALSE,116
+,,,03/25/2025,10:05,136,TIM,Fold,paid,"Breeze,Zonrox,Ariel",2,FALSE,FALSE,116
+,,,03/25/2025,10:15,324,EVELYN,"Spin,Dry",paid,"Surf,Downy",2,FALSE,FALSE,123
+,,,03/25/2025,11:20,240,CICEL,Spin,paid,"Downy,Tide,Zonrox",2,FALSE,FALSE,89
+,,,03/25/2025,11:26,148,BALTAZAR,"Dry,Wash and Dry",paid,Tide,2,TRUE,TRUE,221
+,,,03/25/2025,12:10,300,LITO,Wash Dry Fold,paid,"Ariel,Surf,Zonrox",2,FALSE,FALSE,224
+,,,03/25/2025,12:20,176,CLAIRE,Wash and Dry,paid,Downy,2,TRUE,FALSE,159
+,,,03/25/2025,12:39,136,RIZZA,"Wash,Spin",paid,Ariel,1,TRUE,TRUE,98
+,,,03/25/2025,1:28,150,CARL,Wash Dry Fold,paid,"Zonrox,Tide,Downy",2,FALSE,FALSE,224
+,,,03/25/2025,1:50,60,MARK,"Wash,Spin",paid,"Breeze,Zonrox,Tide",2,FALSE,FALSE,161
+,,,03/25/2025,2:09,148,VANNESA,Spin,paid,"Surf,Tide,Downy",2,TRUE,FALSE,114
+,,,03/25/2025,4:28,148,LESTER,Wash Dry Fold,paid,Downy,2,FALSE,TRUE,164
+,,,03/25/2025,6:30,176,ALEX,"Dry,Fold",paid,Surf,2,TRUE,TRUE,119
+,,,03/26/2025,7:10,133,ALORA,Dry,paid,Ariel,1,TRUE,TRUE,83
+,,,03/26/2025,7:12,170,PATRICK,Wash,paid,"Downy,Ariel",2,TRUE,TRUE,125
+,,,03/26/2025,7:17,110,DON-DON,"Spin,Wash and Dry",paid,"Zonrox,Ariel",1,TRUE,TRUE,165
+,,,03/26/2025,7:32,110,KRIS,"Dry,Wash Dry Fold",paid,"Zonrox,Downy",1,FALSE,TRUE,219
+,,,03/26/2025,7:49,190,SULTAN,Fold,paid,Surf,2,TRUE,FALSE,69
+,,,03/26/2025,7:53,137,GRACE,"Spin,Fold",paid,"Tide,Breeze",2,FALSE,TRUE,107
+,,,03/26/2025,7:55,128,DAN,"Dry,Spin",paid,"Surf,Tide",1,FALSE,FALSE,105
+,,,03/26/2025,8:05,154,MARK,Dry,paid,"Downy,Zonrox,Ariel",1,TRUE,FALSE,112
+,,,03/26/2025,8:22,50,DENNIS,"Wash Dry Fold,Spin",paid,Breeze,1,TRUE,TRUE,188
+,,,03/26/2025,9:37,156,GRACE,"Wash,Spin",paid,Zonrox,1,TRUE,FALSE,97
+,,,03/26/2025,9:52,144,BOBBY,"Wash Dry Fold,Fold",paid,Ariel,1,FALSE,TRUE,188
+,,,03/26/2025,11:34,120,AIKO,"Wash,Dry",paid,"Ariel,Breeze",2,TRUE,TRUE,197
+,,,03/26/2025,12:06,150,LITO,Wash and Dry,paid,"Zonrox,Surf,Ariel",2,FALSE,TRUE,184
+,,,03/26/2025,12:27,136,PAUL,Wash and Dry,paid,"Ariel,Zonrox,Del",1,TRUE,FALSE,168
+,,,03/26/2025,12:52,148,JELO,Wash and Dry,paid,"Ariel,Del",2,FALSE,FALSE,172
+,,,03/26/2025,1:02,176,JAMES,"Wash and Dry,Spin",paid,Ariel,1,FALSE,TRUE,143
+,,,03/26/2025,1:05,1480,JOHNWYNE,Wash Dry Fold,paid,"Tide,Del",1,FALSE,FALSE,176
+,,,03/26/2025,1:37,144,LESTER,Wash and Dry,paid,"Tide,Ariel,Surf",1,FALSE,TRUE,158
+,,,03/26/2025,1:38,138,BERNIE,"Wash and Dry,Fold",paid,"Zonrox,Downy,Tide",1,TRUE,FALSE,202
+,,,03/26/2025,1:40,152,RYAN,Wash,paid,Del,1,TRUE,FALSE,83
+,,,03/26/2025,2:29,70,KIM,Spin,paid,Zonrox,1,TRUE,TRUE,27
+,,,03/26/2025,5:02,296,SAM,"Wash Dry Fold,Dry",paid,Del,2,TRUE,TRUE,231
+,,,03/26/2025,6:25,152,ALVIN,Spin,paid,"Surf,Breeze",2,FALSE,FALSE,75
+,,,03/26/2025,7:25,328,JING,"Wash and Dry,Wash",paid,"Ariel,Tide,Surf",2,TRUE,TRUE,281
+,,,03/27/2025,7:02,218,PEN,Fold,paid,"Breeze,Downy,Tide",1,TRUE,TRUE,83
+,,,03/27/2025,7:18,178,BHAY,"Fold,Dry",paid,"Ariel,Surf,Del",1,FALSE,TRUE,118
+,,,03/27/2025,7:28,110,TOPNATCH,Dry,paid,"Del,Ariel,Tide",2,TRUE,TRUE,153
+,,,03/27/2025,7:54,134,BENJIE,"Wash,Wash Dry Fold",paid,"Downy,Surf,Zonrox",1,FALSE,FALSE,241
+,,,03/27/2025,8:37,140,JOMAR,"Wash,Dry",paid,"Breeze,Ariel,Downy",1,FALSE,TRUE,158
+,,,03/27/2025,9:09,168,ATE AIDA,Wash,paid,Downy,2,TRUE,FALSE,99
+,,,03/27/2025,9:29,148,JOEL,Wash,paid,"Downy,Tide,Breeze",1,TRUE,FALSE,123
+,,,03/27/2025,9:50,144,DENTER,"Spin,Fold",paid,Zonrox,1,FALSE,TRUE,42
+,,,03/27/2025,10:07,152,REGALA,Dry,paid,"Tide,Surf",1,TRUE,TRUE,95
+,,,03/27/2025,10:13,160,ABE,"Spin,Wash and Dry",paid,"Ariel,Del",2,TRUE,FALSE,202
+,,,03/27/2025,11:40,76,RAFAEL,Wash Dry Fold,paid,"Surf,Downy",2,TRUE,TRUE,203
+,,,03/27/2025,11:53,176,CLAIRE,"Fold,Spin",paid,"Surf,Ariel,Downy",2,TRUE,FALSE,144
+,,,03/27/2025,11:56,180,NEG,"Spin,Fold",paid,Zonrox,1,FALSE,TRUE,42
+,,,03/27/2025,12:16,150,CECIL,"Spin,Wash Dry Fold",paid,Tide,2,TRUE,TRUE,206
+,,,03/27/2025,12:21,150,DEN-DEN,"Dry,Wash",paid,Downy,1,TRUE,TRUE,137
+,,,03/27/2025,12:22,296,YAM,Wash,paid,"Surf,Zonrox",1,TRUE,TRUE,84
+,,,03/27/2025,1:35,260,GELBERT,Spin,paid,Zonrox,2,FALSE,FALSE,29
+,,,03/27/2025,2:05,144,JAY,"Wash,Wash Dry Fold",paid,"Downy,Tide,Del",2,TRUE,TRUE,291
+,,,03/27/2025,4:47,148,DAVIN,"Dry,Wash and Dry",paid,"Downy,Breeze,Tide",2,TRUE,FALSE,291
+,,,03/27/2025,5:06,176,CARL,Wash,paid,Tide,2,TRUE,FALSE,111
+,,,03/28/2025,7:30,110,BOTS,Fold,paid,"Ariel,Downy",1,TRUE,FALSE,75
+,,,03/28/2025,8:07,110,NAK,Dry,paid,"Downy,Ariel",1,TRUE,TRUE,95
+,,,03/28/2025,8:19,150,BUBOY,Fold,paid,"Zonrox,Del,Downy",2,FALSE,FALSE,84
+,,,03/28/2025,8:37,1266,AUTON,Wash and Dry,paid,Breeze,2,FALSE,TRUE,146
+,,,03/28/2025,9:06,312,DAVE,"Wash,Spin",paid,"Zonrox,Downy,Surf",2,TRUE,TRUE,142
+,,,03/28/2025,9:28,132,PHILIP,Wash,paid,Breeze,2,TRUE,FALSE,111
+,,,03/28/2025,9:35,120,BERNIE,Wash and Dry,paid,Downy,1,TRUE,TRUE,137
+,,,03/28/2025,10:22,176,TATS,Wash Dry Fold,paid,Downy,1,TRUE,FALSE,177
+,,,03/28/2025,12:10,80,KIM,"Spin,Wash",paid,"Ariel,Tide,Downy",1,FALSE,TRUE,113
+,,,03/28/2025,12:40,148,JOHN,Dry,paid,Del,2,FALSE,FALSE,76
+,,,03/28/2025,1:00,206,JERIL,"Wash and Dry,Wash Dry Fold",paid,Tide,2,TRUE,FALSE,321
+,,,03/28/2025,1:08,180,MARK,"Fold,Dry",paid,Surf,2,FALSE,FALSE,114
+,,,03/28/2025,2:16,164,WILMA,"Wash Dry Fold,Wash",paid,Zonrox,2,TRUE,FALSE,239
+,,,03/28/2025,4:00,160,CARLA,Spin,paid,"Del,Ariel,Breeze",2,TRUE,TRUE,108
+,,,03/28/2025,4:24,136,GIGI,"Dry,Wash",paid,"Zonrox,Tide",1,TRUE,TRUE,150
+,,,03/28/2025,4:47,176,ERIC,"Spin,Fold",paid,"Surf,Del,Downy",1,FALSE,FALSE,77
+,,,03/28/2025,5:46,156,CONAN,"Wash,Spin",paid,"Downy,Breeze",2,FALSE,FALSE,135
+,,,03/28/2025,6:10,120,LEAH,"Dry,Spin",paid,"Tide,Del,Surf",1,TRUE,TRUE,118
+,,,03/28/2025,6:25,136,NARD,"Dry,Wash",paid,"Tide,Zonrox",1,TRUE,FALSE,160
+,,,03/28/2025,6:30,240,ZIAN,"Wash,Wash Dry Fold",paid,"Ariel,Breeze,Surf",2,FALSE,TRUE,296
+,,,03/28/2025,6:52,156,JULLIEAN,"Spin,Wash Dry Fold",paid,"Del,Surf,Downy",2,FALSE,TRUE,219
+,,,03/28/2025,6:44,316,MANUEL,Wash and Dry,paid,"Downy,Tide",1,TRUE,FALSE,165
+,,,03/28/2025,7:45,152,BUBOY,"Wash Dry Fold,Wash and Dry",paid,Surf,1,TRUE,FALSE,297
+,,,03/29/2025,6:45,146,JAYSON,"Wash Dry Fold,Dry",paid,"Breeze,Surf,Zonrox",2,TRUE,FALSE,299
+,,,03/29/2025,6:46,146,ALEX,"Fold,Dry",paid,Zonrox,2,TRUE,TRUE,109
+,,,03/29/2025,7:00,162,REDE,"Wash,Wash and Dry",paid,"Downy,Breeze",2,TRUE,FALSE,255
+,,,03/29/2025,7:13,332,LANIE,Wash,paid,Zonrox,1,TRUE,TRUE,72
+,,,03/29/2025,7:49,140,NICK,Wash Dry Fold,paid,"Zonrox,Breeze",1,TRUE,TRUE,180
+,,,03/29/2025,7:55,148,FIOBE,Fold,paid,"Tide,Zonrox,Ariel",1,TRUE,FALSE,88
+,,,03/29/2025,8:08,158,CHA,"Spin,Wash",paid,"Breeze,Del",2,TRUE,TRUE,132
+,,,03/29/2025,8:14,150,ANN,"Dry,Wash",paid,Breeze,1,TRUE,TRUE,143
+,,,03/29/2025,8:15,126,CEDERIC,"Wash Dry Fold,Wash",paid,Ariel,2,TRUE,FALSE,261
+,,,03/29/2025,8:35,138,LESTER,"Wash Dry Fold,Wash",paid,Ariel,1,FALSE,TRUE,218
+,,,03/29/2025,8:45,60,CECIL,Wash and Dry,paid,"Breeze,Del,Ariel",2,TRUE,TRUE,213
+,,,03/29/2025,9:16,240,JOAN,Wash Dry Fold,paid,"Surf,Zonrox,Downy",1,TRUE,TRUE,186
+,,,03/29/2025,10:10,152,CHOC,Spin,paid,Del,1,FALSE,TRUE,13
+,,,03/29/2025,10:35,156,WILMOR,"Dry,Wash",paid,Tide,2,TRUE,TRUE,161
+,,,03/29/2025,10:54,60,MELAI,"Fold,Dry",paid,"Surf,Downy",1,FALSE,TRUE,104
+,,,03/29/2025,12:04,144,SAMUEL,Wash Dry Fold,paid,"Zonrox,Tide,Del",1,TRUE,TRUE,188
+,,,03/29/2025,12:14,163,JOSIE,Spin,paid,Tide,1,FALSE,FALSE,33
+,,,03/29/2025,12:20,160,KIT,"Wash,Spin",paid,"Del,Downy",1,TRUE,FALSE,110
+,,,03/29/2025,12:34,152,RODMAM,Wash,paid,"Breeze,Downy,Surf",2,FALSE,FALSE,144
+,,,03/29/2025,12:39,148,NOEL,Wash Dry Fold,paid,Downy,1,TRUE,TRUE,167
+,,,03/29/2025,12:40,270,SIMON,"Wash,Fold",paid,"Del,Tide",2,TRUE,TRUE,147
+,,,03/29/2025,1:01,188,LIDIN,"Dry,Wash",paid,"Zonrox,Ariel",1,FALSE,TRUE,135
+,,,03/29/2025,1:13,138,LYN,"Fold,Wash and Dry",paid,"Ariel,Del",1,FALSE,FALSE,176
+,,,03/29/2025,1:45,206,JERIL,Dry,paid,Breeze,2,FALSE,TRUE,86
+,,,03/29/2025,2:10,208,JOSHUA,Fold,paid,Zonrox,1,FALSE,FALSE,37
+,,,03/29/2025,3:18,136,JAMES,Wash and Dry,paid,Tide,1,TRUE,TRUE,143
+,,,03/29/2025,3:27,720,BALDO,"Fold,Dry",paid,Zonrox,2,FALSE,TRUE,94
+,,,03/29/2025,3:42,240,MOISES,Dry,paid,"Tide,Downy",1,TRUE,TRUE,95
+,,,03/29/2025,3:49,136,KC,Fold,paid,"Ariel,Zonrox",1,TRUE,TRUE,60
+,,,03/29/2025,4:17,136,JONEL,Fold,paid,Zonrox,2,FALSE,TRUE,34
+,,,03/29/2025,5:10,120,MARINA,"Spin,Dry",paid,"Surf,Breeze",2,TRUE,TRUE,140
+,,,03/29/2025,6:22,164,MARION S.,Wash Dry Fold,paid,Surf,2,TRUE,TRUE,179
+,,,03/29/2025,7:00,176,WILSON,Wash and Dry,paid,"Downy,Surf",2,TRUE,FALSE,183
+,,,03/29/2025,7:40,228,ANA,Dry,paid,"Del,Tide,Breeze",1,FALSE,FALSE,104
+,,,03/29/2025,7:45,384,STEVE,"Dry,Spin",paid,"Surf,Tide",1,TRUE,FALSE,120
+,,,03/30/2025,6:25,146,JOAN SALAS ,"Fold,Wash and Dry",paid,"Zonrox,Downy",1,FALSE,FALSE,169
+,,,03/30/2025,6:30,158,LLYOD,Fold,paid,Downy,2,TRUE,FALSE,69
+,,,03/30/2025,6:42,100,ALFRANCE,Spin,paid,Ariel,2,FALSE,FALSE,51
+,,,03/30/2025,7:15,138,LITO,"Wash Dry Fold,Fold",paid,"Zonrox,Breeze",1,FALSE,FALSE,205
+,,,03/30/2025,7:16,180,BABY,Wash,paid,"Breeze,Tide",2,FALSE,FALSE,132
+,,,03/30/2025,7:22,182,RODEL,"Wash Dry Fold,Fold",paid,Tide,2,TRUE,TRUE,221
+,,,03/30/2025,7:35,110,KRIS,"Fold,Wash",paid,"Tide,Surf",2,TRUE,TRUE,155
+,,,03/30/2025,7:37,142,BENJIE,Spin,paid,Breeze,1,TRUE,FALSE,48
+,,,03/30/2025,7:47,122,KAREN,"Wash Dry Fold,Wash",paid,"Tide,Breeze,Del",1,TRUE,FALSE,269
+,,,03/30/2025,7:48,138,ALLAN,"Wash and Dry,Wash Dry Fold",paid,Downy,2,TRUE,TRUE,299
+,,,03/30/2025,8:05,226,ELIZABETH,Fold,paid,"Del,Zonrox",2,FALSE,TRUE,50
+,,,03/30/2025,8:15,140,RAHIM,Wash,paid,Downy,1,FALSE,TRUE,62
+,,,03/30/2025,8:21,110,DEL,"Wash and Dry,Dry",paid,"Tide,Del,Surf",2,TRUE,FALSE,271
+,,,03/30/2025,8:29,162,JOAN,Wash,paid,"Tide,Del",1,FALSE,TRUE,76
+,,,03/30/2025,8:35,196,BRYAN,"Wash,Wash and Dry",paid,Breeze,2,TRUE,FALSE,231
+,,,03/30/2025,8:38,166,LARRY,Wash Dry Fold,paid,"Tide,Breeze,Downy",1,TRUE,TRUE,203
+,,,03/30/2025,9:11,148,FLOR,Dry,paid,"Del,Surf",2,FALSE,TRUE,90
+,,,03/30/2025,9:15,150,ALKENT,"Spin,Fold",paid,"Ariel,Tide,Del",1,FALSE,FALSE,89
+,,,03/30/2025,9:23,80,RIZA,Fold,paid,Downy,2,FALSE,TRUE,44
+,,,03/30/2025,9:30,206,ROLDAN,Fold,paid,Zonrox,2,FALSE,TRUE,34
+,,,03/30/2025,9:53,120,SAME,Dry,paid,"Surf,Ariel,Del",2,TRUE,TRUE,141
+,,,03/30/2025,9:54,84,JAYPEE,"Wash Dry Fold,Spin",paid,"Downy,Zonrox,Surf",2,TRUE,FALSE,242
+,,,03/30/2025,10:00,190,PHILIP,Wash and Dry,paid,Zonrox,2,FALSE,TRUE,124
+,,,03/30/2025,10:05,148,AMIN,Spin,paid,"Tide,Downy,Surf",1,TRUE,FALSE,72
+,,,03/30/2025,10:10,144,CLIFORT,"Wash,Wash Dry Fold",paid,Zonrox,2,TRUE,TRUE,229
+,,,03/30/2025,10:14,192,BOG,"Wash Dry Fold,Wash and Dry",paid,Tide,2,FALSE,FALSE,306
+,,,03/30/2025,10:19,156,ARNEL,"Wash Dry Fold,Spin",paid,"Ariel,Zonrox,Del",1,FALSE,TRUE,188
+,,,03/30/2025,10:27,156,VINCE,Fold,paid,"Tide,Ariel",1,FALSE,FALSE,66
+,,,03/30/2025,10:30,138,GERALD,"Fold,Wash",paid,Tide,2,TRUE,TRUE,131
+,,,03/30/2025,10:31,158,DEN-DEN,"Fold,Dry",paid,"Downy,Del",2,FALSE,FALSE,130
+,,,03/30/2025,10:32,120,ROMEL,"Wash,Wash and Dry",paid,Downy,1,FALSE,FALSE,192
+,,,03/30/2025,10:54,176,RICHARD,Wash and Dry,paid,"Del,Ariel,Tide",2,TRUE,FALSE,223
+,,,03/30/2025,11:01,162,DONALD,"Fold,Wash Dry Fold",paid,"Tide,Downy",2,TRUE,TRUE,245
+,,,03/30/2025,11:04,160,JUNMARK,"Dry,Wash Dry Fold",paid,"Surf,Tide",2,FALSE,TRUE,260
+,,,03/30/2025,11:07,192,JONG,"Wash Dry Fold,Wash",paid,"Downy,Breeze",2,FALSE,FALSE,270
+,,,03/30/2025,11:09,148,MANDS,Wash Dry Fold,paid,Zonrox,2,TRUE,TRUE,169
+,,,03/30/2025,11:11,188,KEN-KEN,Wash,paid,"Downy,Zonrox,Breeze",1,FALSE,TRUE,87
+,,,03/30/2025,11:22,188,SULTAN,"Wash and Dry,Wash",paid,"Del,Breeze,Surf",2,FALSE,TRUE,246
+,,,03/30/2025,11:36,150,JHONG,"Wash,Wash and Dry",paid,"Breeze,Surf",2,FALSE,FALSE,240
+,,,03/30/2025,11:58,152,RODMAN,"Wash,Fold",paid,"Surf,Ariel,Breeze",1,TRUE,TRUE,143
+,,,03/30/2025,12:12,138,CHRISTIAN,Spin,paid,Tide,1,TRUE,FALSE,48
+,,,03/30/2025,12:18,160,QUEEN,"Wash,Dry",paid,"Zonrox,Downy,Ariel",2,TRUE,TRUE,199
+,,,03/30/2025,12:32,144,DARRYL,Wash,paid,"Del,Ariel,Downy",1,FALSE,FALSE,98
+,,,03/30/2025,12:35,148,NEL,Dry,paid,"Ariel,Del",1,TRUE,TRUE,91
+,,,03/30/2025,12:57,148,DONEL,"Fold,Wash",paid,Del,1,FALSE,FALSE,98
+,,,03/30/2025,1:27,1480,JOHNWYNE,Wash and Dry,paid,"Zonrox,Del",1,FALSE,FALSE,135
+,,,03/30/2025,1:50,156,LUCKY,"Wash,Wash Dry Fold",paid,Breeze,2,FALSE,TRUE,236
+,,,03/30/2025,2:11,164,RICHARD,"Spin,Dry",paid,"Downy,Del,Breeze",2,FALSE,TRUE,141
+,,,03/30/2025,2:25,240,JONATHAN,"Dry,Fold",paid,"Tide,Breeze",1,TRUE,FALSE,141
+,,,03/30/2025,3:13,120,ZIAN,"Wash,Wash Dry Fold",paid,Breeze,1,TRUE,TRUE,233
+,,,03/30/2025,3:27,148,JAMES,Fold,paid,"Surf,Breeze,Downy",2,TRUE,FALSE,129
+,,,03/30/2025,5:03,188,DANIEL,"Wash and Dry,Dry",paid,Tide,2,TRUE,TRUE,221
+,,,03/30/2025,5:40,60,MARLON,Spin,paid,Tide,1,FALSE,FALSE,33
+,,,03/30/2025,5:42,148,SAM,Fold,paid,Zonrox,2,FALSE,TRUE,34
+,,,03/30/2025,7:14,60,JOSIE,"Wash,Spin",paid,"Downy,Breeze,Del",1,TRUE,FALSE,128
+,,,03/31/2025,7:12,145,CESAR,"Wash and Dry,Wash Dry Fold",paid,"Ariel,Downy,Del",1,FALSE,TRUE,298
+,,,03/31/2025,7:38,146,JOKE,Fold,paid,Downy,2,FALSE,TRUE,44
+,,,03/31/2025,7:41,70,TATTOO,Fold,paid,Surf,1,FALSE,FALSE,42
+,,,03/31/2025,7:59,202,RJ,"Dry,Spin",paid,Ariel,1,FALSE,FALSE,93
+,,,03/31/2025,8:00,158,ALICE,Wash and Dry,paid,Breeze,2,FALSE,TRUE,146
+,,,03/31/2025,8:23,138,DANIEL,Fold,paid,Del,1,TRUE,FALSE,53
+,,,03/31/2025,8:33,306,BUBOY,"Wash and Dry,Spin",paid,"Zonrox,Surf",2,TRUE,TRUE,178
+,,,03/31/2025,8:34,110,TOPNATCH,"Wash,Wash Dry Fold",paid,"Downy,Tide",1,FALSE,FALSE,240
+,,,03/31/2025,8:35,268,MARVIN,"Dry,Wash and Dry",paid,Tide,2,TRUE,FALSE,231
+,,,03/31/2025,8:40,146,GRACE,Dry,paid,"Breeze,Tide",1,TRUE,FALSE,111
+,,,03/31/2025,9:06,480,SIMON,"Spin,Fold",paid,Zonrox,1,TRUE,FALSE,67
+,,,03/31/2025,9:10,252,EDCEL,Spin,paid,"Breeze,Downy",2,TRUE,FALSE,90
+,,,03/31/2025,10:20,173,BRANDON,"Wash,Dry",paid,"Downy,Del,Surf",2,FALSE,TRUE,174
+,,,03/31/2025,10:40,136,ABE,Dry,paid,"Downy,Zonrox",2,TRUE,TRUE,103
+,,,03/31/2025,10:49,140,ANALYN,"Wash,Wash and Dry",paid,Tide,2,TRUE,TRUE,221
+,,,03/31/2025,11:52,341,JOHN,Wash Dry Fold,paid,"Del,Breeze",1,FALSE,FALSE,176
+,,,03/31/2025,12:03,120,DONA,Wash and Dry,paid,"Breeze,Downy,Zonrox",2,FALSE,TRUE,184
+,,,03/31/2025,3:40,400,CHRISTIAN,Wash Dry Fold,paid,"Breeze,Ariel",2,TRUE,TRUE,227
+,,,03/31/2025,3:51,258,FRANCIS,Fold,paid,"Zonrox,Ariel",1,TRUE,FALSE,70
+,,,03/31/2025,4:57,170,JOEY,Wash,paid,Del,2,TRUE,TRUE,81
+,,,03/31/2025,4:58,176,JONEL,"Wash,Spin",paid,"Surf,Downy",2,TRUE,FALSE,138
+,,,03/31/2025,5:18,176,ALEY,"Wash,Fold",paid,Tide,2,FALSE,TRUE,116
+,,,03/31/2025,5:39,194,EDAY,Wash,paid,Surf,2,FALSE,TRUE,74
+,,,04/01/2025,7:00,140,CECIL,"Wash Dry Fold,Dry",paid,"Tide,Del",2,FALSE,FALSE,262
+,,,04/01/2025,7:05,154,ALFRED,Wash and Dry,paid,"Del,Downy",2,TRUE,FALSE,175
+,,,04/01/2025,7:18,332,ARIEL,"Wash and Dry,Fold",paid,"Surf,Downy,Breeze",1,TRUE,TRUE,197
+,,,04/01/2025,7:19,138,MARVIN,"Wash and Dry,Wash Dry Fold",paid,"Breeze,Ariel,Zonrox",2,TRUE,FALSE,371
+,,,04/01/2025,7:32,190,PATRICK,"Wash and Dry,Wash",paid,Breeze,1,FALSE,TRUE,188
+,,,04/01/2025,7:40,162,ANTHONY,"Spin,Dry",paid,Zonrox,1,FALSE,FALSE,82
+,,,04/01/2025,7:41,142,PRIMO,Wash,paid,"Downy,Breeze,Zonrox",2,FALSE,TRUE,124
+,,,04/01/2025,7:42,138,JOSHUA,"Spin,Dry",paid,Breeze,1,FALSE,FALSE,93
+,,,04/01/2025,7:43,162,RJ,"Wash Dry Fold,Wash and Dry",paid,"Downy,Zonrox",1,FALSE,FALSE,289
+,,,04/01/2025,8:05,129,LOUIE,Fold,paid,"Surf,Del,Ariel",1,TRUE,TRUE,73
+,,,04/01/2025,8:08,202,CALOY,"Wash and Dry,Dry",paid,"Tide,Surf",1,TRUE,TRUE,215
+,,,04/01/2025,8:11,126,CEDRIC,Spin,paid,"Downy,Surf,Ariel",2,TRUE,FALSE,114
+,,,04/01/2025,8:15,70,TATTOO,"Wash,Wash and Dry",paid,"Ariel,Breeze",1,FALSE,FALSE,216
+,,,04/01/2025,8:17,158,RAFAEL,Dry,paid,Breeze,2,FALSE,FALSE,96
+,,,04/01/2025,8:30,142,WILLIAM,"Wash and Dry,Spin",paid,"Tide,Del,Breeze",1,TRUE,FALSE,194
+,,,04/01/2025,8:40,172,JIMBOY,Spin,paid,Ariel,1,FALSE,FALSE,33
+,,,04/01/2025,9:11,308,WILLIAM,Wash and Dry,paid,"Del,Zonrox,Surf",1,FALSE,FALSE,147
+,,,04/01/2025,9:21,178,FRANCE,"Wash,Fold",paid,"Zonrox,Tide",1,TRUE,TRUE,120
+,,,04/01/2025,9:25,162,MAC,"Fold,Dry",paid,"Zonrox,Surf",2,TRUE,TRUE,133
+,,,04/01/2025,9:39,152,JAYSON,Spin,paid,Del,1,TRUE,FALSE,38
+,,,04/01/2025,9:44,60,MARVIN,Wash Dry Fold,paid,"Surf,Del,Zonrox",1,FALSE,TRUE,167
+,,,04/01/2025,10:08,150,TRISTAN ,Fold,paid,"Ariel,Zonrox",2,FALSE,FALSE,80
+,,,04/01/2025,10:11,156,VR,"Wash Dry Fold,Wash",paid,"Ariel,Zonrox,Surf",2,FALSE,FALSE,284
+,,,04/01/2025,10:50,150,LIZA,"Wash Dry Fold,Wash and Dry",paid,"Del,Breeze,Tide",2,FALSE,FALSE,358
+,,,04/01/2025,16:34,272,MARVIN,"Fold,Spin",paid,"Zonrox,Surf",2,TRUE,FALSE,98
+,,,04/01/2025,17:51,166,LYN,Fold,paid,Zonrox,1,TRUE,TRUE,42
+,,,04/01/2025,18:07,162,BALONG,Wash and Dry,paid,Tide,1,TRUE,FALSE,153
+,,,04/01/2025,18:35,120,ZIAN,Fold,paid,Zonrox,2,TRUE,TRUE,49
+,,,04/01/2025,18:58,352,CLAIRE,"Fold,Spin",paid,"Breeze,Zonrox,Tide",2,TRUE,TRUE,136
+,,,04/01/2025,19:25,352,MARLON,"Wash Dry Fold,Dry",paid,"Del,Downy",2,FALSE,TRUE,240
+,,,04/01/2025,19:49,100,ERIC,"Fold,Wash Dry Fold",paid,"Surf,Del,Ariel",2,FALSE,FALSE,256
+,,,04/02/2025,7:17,138,ARTUR,"Wash,Wash Dry Fold",paid,"Ariel,Downy",2,TRUE,TRUE,275
+,,,04/02/2025,7:20,146,MARLON,Fold,paid,Breeze,2,TRUE,TRUE,71
+,,,04/02/2025,7:36,220,WENG,Wash and Dry,paid,"Ariel,Tide,Zonrox",2,TRUE,TRUE,211
+,,,04/02/2025,7:41,122,AMY FER,"Wash Dry Fold,Wash",paid,"Zonrox,Breeze,Del",1,FALSE,FALSE,243
+,,,04/02/2025,7:42,220,DON,Dry,paid,"Surf,Ariel",1,TRUE,FALSE,105
+,,,04/02/2025,7:47,348,JANE LAROSA,"Dry,Fold",paid,"Downy,Zonrox,Del",1,FALSE,FALSE,117
+,,,04/02/2025,8:16,110,GIGI,Wash Dry Fold,paid,Downy,2,FALSE,TRUE,164
+,,,04/02/2025,9:36,570,DAGA,"Fold,Wash Dry Fold",paid,"Tide,Downy",1,TRUE,TRUE,215
+,,,04/02/2025,10:01,152,ATOS JR,"Wash Dry Fold,Wash and Dry",paid,"Del,Downy",2,FALSE,FALSE,310
+,,,04/02/2025,11:38,143,REGALA,"Dry,Spin",paid,"Del,Ariel",2,FALSE,FALSE,127
+,,,04/02/2025,11:40,151,SHAO,"Spin,Fold",paid,"Ariel,Breeze,Downy",1,FALSE,FALSE,93
+,,,04/02/2025,11:51,140,JOHN,"Fold,Wash",paid,"Downy,Tide,Zonrox",2,FALSE,FALSE,164
+,,,04/02/2025,11:58,328,LORENCE,Wash and Dry,paid,"Breeze,Del",1,TRUE,FALSE,161
+,,,04/02/2025,12:04,158,MEL,Wash,paid,"Breeze,Del",2,TRUE,TRUE,117
+,,,04/02/2025,12:30,148,KIT,Wash and Dry,paid,"Surf,Downy",1,TRUE,FALSE,159
+,,,04/02/2025,14:10,150,BOGS,"Fold,Wash",paid,"Downy,Breeze,Zonrox",2,TRUE,FALSE,179
+,,,04/02/2025,14:14,180,PATTRECK,Dry,paid,"Del,Ariel,Tide",1,FALSE,FALSE,104
+,,,04/02/2025,15:05,206,GRACE,Dry,paid,"Ariel,Breeze,Surf",1,FALSE,TRUE,98
+,,,04/02/2025,15:10,136,ROEL,Wash Dry Fold,paid,"Tide,Ariel",2,TRUE,FALSE,237
+,,,04/02/2025,16:02,328,JENNY,Fold,paid,Downy,1,TRUE,FALSE,57
+,,,04/02/2025,18:00,168,ROD,Wash and Dry,paid,"Ariel,Zonrox",1,TRUE,FALSE,160
+,,,04/02/2025,18:32,176,WILSON,Fold,paid,"Tide,Surf",2,TRUE,TRUE,95
+,,,04/03/2025,7:00,165,BENJIE,"Spin,Fold",paid,"Surf,Tide,Downy",2,FALSE,FALSE,129
+,,,04/03/2025,7:28,324,JAYSON,"Wash,Dry",paid,Breeze,2,TRUE,FALSE,171
+,,,04/03/2025,7:34,70,TATTOO,"Dry,Wash",paid,"Tide,Del",1,TRUE,TRUE,151
+,,,04/03/2025,7:35,196,ROY,Wash and Dry,paid,"Breeze,Ariel",2,FALSE,FALSE,192
+,,,04/03/2025,7:42,138,LAGURA,"Wash and Dry,Dry",paid,"Zonrox,Downy,Breeze",1,FALSE,FALSE,217
+,,,04/03/2025,8:35,138,BOBBY,"Spin,Fold",paid,"Zonrox,Ariel",1,TRUE,FALSE,85
+,,,04/03/2025,8:48,146,RONEL,"Fold,Wash",paid,"Ariel,Downy,Breeze",2,FALSE,FALSE,186
+,,,04/03/2025,9:05,208,NICK,"Wash Dry Fold,Wash and Dry",paid,"Del,Surf,Downy",2,TRUE,TRUE,339
+,,,04/03/2025,9:12,152,REGALA,"Spin,Dry",paid,"Surf,Del",1,TRUE,TRUE,100
+,,,04/03/2025,9:25,304,VANISSA,Wash,paid,"Surf,Tide",1,FALSE,FALSE,90
+,,,04/03/2025,9:32,152,DEXTER,"Wash,Fold",paid,"Surf,Zonrox,Downy",1,TRUE,FALSE,136
+,,,04/03/2025,9:55,152,JR,Wash and Dry,paid,Surf,1,FALSE,FALSE,132
+,,,04/03/2025,10:07,168,BUBOY,"Spin,Wash",paid,Surf,2,TRUE,FALSE,114
+,,,04/03/2025,10:22,120,LAARNI,Dry,paid,Downy,2,FALSE,FALSE,84
+,,,04/03/2025,12:06,206,TOTO JERIC,"Spin,Dry",paid,"Zonrox,Breeze,Surf",1,TRUE,FALSE,127
+,,,04/03/2025,12:08,120,GANDA,Fold,paid,"Del,Tide",2,TRUE,TRUE,87
+,,,04/03/2025,13:00,136,JAMES,"Wash Dry Fold,Wash",paid,"Downy,Zonrox",1,TRUE,TRUE,234
+,,,04/03/2025,13:11,148,JOSEP,Wash Dry Fold,paid,"Del,Downy,Ariel",2,FALSE,TRUE,216
+,,,04/03/2025,13:20,376,NAK,Dry,paid,"Surf,Zonrox",2,TRUE,FALSE,113
+,,,04/03/2025,15:50,120,BERNIE,Spin,paid,Del,1,TRUE,TRUE,28
+,,,04/03/2025,16:22,120,JONATHAN,"Dry,Wash",paid,Downy,2,TRUE,FALSE,159
+,,,04/03/2025,17:55,156,CONNAN,Fold,paid,"Del,Breeze,Tide",1,FALSE,FALSE,74
+,,,04/04/2025,7:00,218,PEN,"Wash,Dry",paid,Downy,1,FALSE,TRUE,122
+,,,04/04/2025,7:11,138,BOGS,Spin,paid,"Tide,Del,Zonrox",2,TRUE,FALSE,96
+,,,04/04/2025,7:21,138,ARTHUR,Fold,paid,Tide,1,FALSE,TRUE,38
+,,,04/04/2025,7:28,142,JAYSON,"Fold,Wash",paid,"Tide,Downy",2,TRUE,TRUE,155
+,,,04/04/2025,7:34,148,ANGHEL,"Wash and Dry,Dry",paid,"Surf,Tide,Downy",1,TRUE,FALSE,237
+,,,04/04/2025,7:35,128,DAN,"Wash and Dry,Fold",paid,"Zonrox,Ariel,Breeze",1,TRUE,TRUE,198
+,,,04/04/2025,9:05,136,BACOLOD,"Spin,Wash and Dry",paid,"Surf,Ariel,Downy",1,TRUE,TRUE,182
+,,,04/04/2025,10:21,152,EMMAN,"Dry,Spin",paid,"Ariel,Tide",2,TRUE,TRUE,152
+,,,04/04/2025,11:58,148,LITO,"Wash,Wash and Dry",paid,Del,2,TRUE,TRUE,201
+,,,04/04/2025,12:10,139,JERVI,"Wash and Dry,Wash Dry Fold",paid,"Breeze,Zonrox",2,TRUE,FALSE,335
+,,,04/04/2025,12:45,120,KIM,Spin,paid,"Zonrox,Ariel,Tide",2,FALSE,TRUE,91
+,,,04/04/2025,13:04,189,EDDIE,"Wash and Dry,Wash",paid,Breeze,2,TRUE,FALSE,231
+,,,04/04/2025,13:39,272,LARA,"Fold,Dry",paid,"Surf,Tide",1,TRUE,TRUE,125
+,,,04/04/2025,13:48,1480,JOHNWYNE,"Dry,Wash",paid,"Downy,Breeze,Tide",1,FALSE,TRUE,158
+,,,04/04/2025,14:05,240,GELBERT,Fold,paid,Tide,2,FALSE,TRUE,56
+,,,04/04/2025,14:11,168,JAMES,Fold,paid,Surf,2,TRUE,TRUE,59
+,,,04/04/2025,16:08,312,BOK,"Wash,Wash and Dry",paid,"Zonrox,Ariel",1,FALSE,FALSE,205
+,,,04/04/2025,16:10,300,CHOKO,Wash,paid,"Downy,Surf,Zonrox",1,TRUE,TRUE,96
+,,,04/04/2025,16:15,120,TONNY,Wash Dry Fold,paid,"Del,Tide",1,TRUE,TRUE,181
+,,,04/04/2025,18:00,144,JOMAR,Wash and Dry,paid,Del,1,TRUE,FALSE,143
+,,,04/04/2025,18:37,300,SAM,"Wash and Dry,Fold",paid,Ariel,2,TRUE,FALSE,201
+,,,04/04/2025,19:07,138,JOHN REGALA,Spin,paid,"Surf,Breeze",1,FALSE,TRUE,35
+,,,04/04/2025,19:19,120,YINAN,"Dry,Wash",paid,"Zonrox,Ariel,Downy",1,TRUE,FALSE,172
+,,,04/04/2025,19:36,192,HAZEL,"Dry,Wash",paid,Tide,1,FALSE,TRUE,128
+,,,04/05/2025,6:22,134,JERRY,"Wash,Fold",paid,Ariel,1,TRUE,FALSE,123
+,,,04/05/2025,7:13,158,BENJIE,"Wash,Spin",paid,"Downy,Del,Breeze",2,FALSE,FALSE,151
+,,,04/05/2025,7:20,146,ALEX ,"Dry,Wash Dry Fold",paid,Breeze,1,TRUE,FALSE,243
+,,,04/05/2025,7:21,50,DENNIS,"Wash,Spin",paid,"Del,Breeze,Tide",2,TRUE,FALSE,178
+,,,04/05/2025,7:41,142,RODEL,Wash Dry Fold,paid,"Tide,Zonrox",2,TRUE,TRUE,205
+,,,04/05/2025,7:48,146,JOAN S.,Wash Dry Fold,paid,Breeze,2,FALSE,TRUE,176
+,,,04/05/2025,7:49,154,MARLON R.,"Wash,Dry",paid,Ariel,1,TRUE,FALSE,153
+,,,04/05/2025,7:54,150,JECK,Wash Dry Fold,paid,Ariel,1,FALSE,TRUE,158
+,,,04/05/2025,8:23,284,CEDRIC,"Spin,Fold",paid,Del,1,TRUE,FALSE,68
+,,,04/05/2025,8:26,136,NICK,Spin,paid,"Del,Ariel",2,TRUE,FALSE,82
+,,,04/05/2025,8:28,158,TATS,Fold,paid,Breeze,2,TRUE,FALSE,81
+,,,04/05/2025,8:44,220,JOAN ,"Spin,Fold",paid,"Surf,Downy",2,FALSE,TRUE,83
+,,,04/05/2025,9:46,120,MARWN,"Wash and Dry,Spin",paid,"Surf,Zonrox",2,FALSE,FALSE,173
+,,,04/05/2025,10:04,200,JOSIE,Wash Dry Fold,paid,Zonrox,2,FALSE,FALSE,164
+,,,04/05/2025,10:34,138,QUEEW,Wash and Dry,paid,"Del,Downy",1,TRUE,FALSE,155
+,,,04/05/2025,10:53,148,JELO,Wash and Dry,paid,Breeze,1,FALSE,FALSE,138
+,,,04/05/2025,11:26,192,SULTAN,Dry,paid,"Downy,Zonrox",1,TRUE,FALSE,94
+,,,04/05/2025,11:34,150,KENJIE,Dry,paid,"Surf,Downy,Del",2,TRUE,FALSE,139
+,,,04/05/2025,11:43,60,MARWN,"Wash,Spin",paid,Tide,1,TRUE,TRUE,98
+,,,04/05/2025,11:50,60,CECIL,Spin,paid,"Del,Tide",1,FALSE,FALSE,41
+,,,04/05/2025,13:20,172,RANDY,"Wash,Dry",paid,"Zonrox,Surf",1,FALSE,TRUE,129
+,,,04/05/2025,13:22,60,MARLON ,"Wash and Dry,Dry",paid,"Zonrox,Breeze",1,TRUE,TRUE,210
+,,,04/05/2025,13:30,300,MARK,"Wash,Dry",paid,Zonrox,2,TRUE,FALSE,149
+,,,04/05/2025,13:40,180,MARINA,"Wash Dry Fold,Wash",paid,Zonrox,1,TRUE,TRUE,222
+,,,04/05/2025,13:55,156,JC,"Wash Dry Fold,Spin",paid,Del,1,TRUE,TRUE,178
+,,,04/05/2025,14:30,240,JOSHUA,"Spin,Fold",paid,"Ariel,Downy",2,FALSE,TRUE,95
+,,,04/05/2025,14:32,156,GRACE,Wash Dry Fold,paid,"Tide,Ariel,Surf",2,FALSE,FALSE,246
+,,,04/05/2025,14:35,240,MARK,"Spin,Wash Dry Fold",paid,Ariel,2,FALSE,TRUE,191
+,,,04/05/2025,14:38,120,STEVE,Dry,paid,"Del,Downy,Tide",1,FALSE,TRUE,88
+,,,04/05/2025,16:02,154,CARLA,"Fold,Wash Dry Fold",paid,"Downy,Del,Breeze",2,TRUE,FALSE,271
+,,,04/05/2025,16:04,332,JUDAY,Spin,paid,"Ariel,Zonrox,Breeze",2,FALSE,TRUE,91
+,,,04/05/2025,16:36,158,ROMEL,Wash,paid,"Del,Zonrox",2,TRUE,FALSE,105
+,,,04/05/2025,16:45,152,KIKO,Wash,paid,Del,2,FALSE,FALSE,76
+,,,04/05/2025,16:46,156,GOMER,"Wash Dry Fold,Spin",paid,"Ariel,Breeze",2,FALSE,TRUE,227
+,,,04/05/2025,17:50,292,EDWARD,Wash and Dry,paid,Downy,2,TRUE,FALSE,159
+,,,04/05/2025,17:58,148,SAM,"Fold,Wash and Dry",paid,"Surf,Downy,Breeze",1,TRUE,FALSE,207
+,,,04/05/2025,18:38,192,SOTTO,Spin,paid,"Ariel,Surf,Downy",2,FALSE,TRUE,89
+,,,04/05/2025,18:53,164,CHA,"Wash and Dry,Wash",paid,Del,1,TRUE,TRUE,193
+,,,04/06/2025,7:06,158,ALICE,"Wash,Dry",paid,"Ariel,Tide",2,FALSE,FALSE,192
+,,,04/06/2025,7:24,162,REDE,Spin,paid,"Del,Tide",2,TRUE,TRUE,72
+,,,04/06/2025,7:31,134,BALTAZAR,"Wash Dry Fold,Spin",paid,"Tide,Downy",2,TRUE,TRUE,230
+,,,04/06/2025,7:31,138,JONDI,Dry,paid,"Ariel,Zonrox",2,TRUE,TRUE,115
+,,,04/06/2025,7:56,128,ALFRANGE,"Wash and Dry,Dry",paid,"Ariel,Breeze,Tide",1,TRUE,TRUE,239
+,,,04/06/2025,7:59,154,RICHARD,Wash Dry Fold,paid,"Ariel,Surf",1,FALSE,FALSE,180
+,,,04/06/2025,8:02,154,RYAN,Spin,paid,"Zonrox,Tide",1,TRUE,TRUE,45
+,,,04/06/2025,8:10,142,BENJIE,Wash and Dry,paid,"Ariel,Downy,Del",2,TRUE,FALSE,211
+,,,04/06/2025,8:13,146,TAN-TAN,"Spin,Wash and Dry",paid,"Ariel,Zonrox,Del",2,FALSE,FALSE,201
+,,,04/06/2025,8:26,194,ARNEL,Spin,paid,"Ariel,Breeze,Surf",2,TRUE,FALSE,126
+,,,04/06/2025,8:55,134,TAARK,Spin,paid,"Tide,Downy,Del",2,FALSE,FALSE,91
+,,,04/06/2025,9:03,292,ROLDAN,Spin,paid,"Ariel,Tide,Breeze",2,TRUE,FALSE,138
+,,,04/06/2025,9:15,86,JP,"Wash Dry Fold,Dry",paid,"Del,Ariel",1,FALSE,FALSE,236
+,,,04/06/2025,9:27,188,MEL,Wash,paid,"Downy,Breeze,Ariel",2,FALSE,FALSE,156
+,,,04/06/2025,9:32,148,GERALD,Wash,paid,"Del,Ariel",2,TRUE,TRUE,117
+,,,04/06/2025,9:56,139,CLIFFORT,Wash,paid,Zonrox,2,TRUE,TRUE,79
+,,,04/06/2025,10:21,188,CLIDE PEPETO,"Wash and Dry,Wash",paid,"Breeze,Surf,Zonrox",1,FALSE,TRUE,207
+,,,04/06/2025,10:46,176,DONALD,"Dry,Fold",paid,"Tide,Downy",2,FALSE,TRUE,140
+,,,04/06/2025,11:14,159,AFRED,Fold,paid,"Downy,Zonrox",1,FALSE,FALSE,49
+,,,04/06/2025,11:22,172,JHONG,Wash,paid,Breeze,2,FALSE,TRUE,86
+,,,04/06/2025,11:32,160,LESTER,"Dry,Fold",paid,"Ariel,Del,Breeze",1,TRUE,TRUE,139
+,,,04/06/2025,12:20,316,BALONG,Wash Dry Fold,paid,Zonrox,2,TRUE,TRUE,169
+,,,04/06/2025,12:22,138,ANNA,Wash and Dry,paid,"Downy,Zonrox,Surf",2,TRUE,TRUE,187
+,,,04/06/2025,12:32,164,DARYL,Wash,paid,"Del,Breeze",1,TRUE,FALSE,101
+,,,04/06/2025,12:33,144,FANZAL,"Wash,Wash Dry Fold",paid,"Del,Ariel",2,FALSE,TRUE,252
+,,,04/06/2025,12:41,182,EDWARD,Dry,paid,"Breeze,Zonrox",2,TRUE,TRUE,115
+,,,04/06/2025,13:10,150,LITO,"Fold,Wash Dry Fold",paid,Ariel,1,FALSE,FALSE,198
+,,,04/06/2025,13:35,192,HANDS,"Fold,Wash",paid,Zonrox,2,TRUE,FALSE,119
+,,,04/06/2025,13:51,1184,JOHNWYNE,"Fold,Dry",paid,"Del,Surf",2,FALSE,FALSE,130
+,,,04/06/2025,14:00,160,MAKUIN,Dry,paid,"Zonrox,Tide",1,FALSE,FALSE,85
+,,,04/06/2025,15:02,84,JOMAR,Wash Dry Fold,paid,"Ariel,Tide,Zonrox",2,FALSE,FALSE,236
+,,,04/06/2025,15:30,138,PAUL,"Dry,Wash Dry Fold",paid,"Breeze,Del",1,TRUE,TRUE,241
+,,,04/06/2025,15:45,136,GIGI,Fold,paid,"Tide,Surf,Breeze",1,TRUE,TRUE,83
+,,,04/06/2025,16:34,158,GRANY,"Fold,Wash",paid,Breeze,2,FALSE,TRUE,116
+,,,04/06/2025,17:15,608,ARIEL,"Wash and Dry,Wash Dry Fold",paid,"Tide,Ariel,Del",2,TRUE,TRUE,363
+,,,04/06/2025,17:56,166,JHEN,Wash Dry Fold,paid,"Tide,Breeze",2,FALSE,TRUE,212
+,,,04/06/2025,17:45,168,ALEX ,"Wash Dry Fold,Spin",paid,"Del,Breeze,Downy",2,FALSE,TRUE,231
+,,,04/07/2025,6:40,146,JOHN ,"Wash,Fold",paid,"Ariel,Breeze,Surf",1,TRUE,FALSE,153
+,,,04/07/2025,7:10,178,BHAY,Wash Dry Fold,paid,"Del,Breeze",1,FALSE,TRUE,166
+,,,04/07/2025,7:30,196,BRYAN,Fold,paid,"Ariel,Breeze",2,FALSE,TRUE,92
+,,,04/07/2025,7:32,130,KEN-KEN,Wash Dry Fold,paid,Del,2,FALSE,FALSE,166
+,,,04/07/2025,7:43,162,JURIE,Wash,paid,"Tide,Surf",2,FALSE,TRUE,110
+,,,04/07/2025,7:47,158,REY,"Wash and Dry,Wash",paid,"Zonrox,Tide,Del",2,FALSE,TRUE,236
+,,,04/07/2025,7:48,126,KAREN,Wash and Dry,paid,"Downy,Surf,Tide",1,TRUE,TRUE,167
+,,,04/07/2025,7:49,202,RJ,Dry,paid,"Tide,Surf",1,FALSE,TRUE,80
+,,,04/07/2025,8:01,110,DEL,Wash,paid,"Downy,Zonrox",2,TRUE,FALSE,113
+,,,04/07/2025,8:05,142,ALICE,Wash Dry Fold,paid,Surf,1,FALSE,TRUE,152
+,,,04/07/2025,8:06,150,MARIO,"Wash Dry Fold,Wash and Dry",paid,"Downy,Surf,Del",1,FALSE,TRUE,292
+,,,04/07/2025,8:11,110,MARIEL,"Dry,Wash Dry Fold",paid,"Breeze,Del,Downy",2,FALSE,TRUE,276
+,,,04/07/2025,8:15,154,JUN,"Wash,Spin",paid,"Ariel,Del,Surf",1,FALSE,TRUE,103
+,,,04/07/2025,8:17,138,JUSTIN,Dry,paid,"Zonrox,Downy",1,TRUE,FALSE,94
+,,,04/07/2025,8:21,136,JUN S.,Wash Dry Fold,paid,"Tide,Downy,Del",2,TRUE,TRUE,231
+,,,04/07/2025,8:28,142,CHRISTIAN,Dry,paid,Downy,2,FALSE,FALSE,84
+,,,04/07/2025,8:37,190,PATRICK,"Wash and Dry,Fold",paid,"Tide,Breeze",1,TRUE,TRUE,191
+,,,04/07/2025,9:20,183,MANG TOTO,Fold,paid,"Del,Breeze,Downy",1,TRUE,TRUE,73
+,,,04/07/2025,9:27,202,TOTO JERIC,"Wash Dry Fold,Spin",paid,Surf,1,FALSE,TRUE,167
+,,,04/07/2025,11:22,120,TOPNATCH,Dry,paid,Del,1,TRUE,TRUE,73
+,,,04/07/2025,12:17,156,ABE,Fold,paid,"Zonrox,Ariel,Surf",1,FALSE,FALSE,67
+,,,04/07/2025,12:45,172,JR,"Wash and Dry,Wash Dry Fold",paid,Tide,1,TRUE,TRUE,293
+,,,04/07/2025,12:46,148,MAMANG ,"Fold,Spin",paid,Tide,2,TRUE,FALSE,96
+,,,04/07/2025,13:15,160,JR ATOS,Dry,paid,"Downy,Ariel,Breeze",2,FALSE,TRUE,146
+,,,04/07/2025,13:36,136,CEDRICK ,Wash Dry Fold,paid,"Breeze,Zonrox,Tide",2,TRUE,TRUE,241
+,,,04/07/2025,13:40,136,BERNIE,"Wash and Dry,Dry",paid,"Tide,Ariel,Surf",1,TRUE,TRUE,233
+,,,04/07/2025,15:20,143,ALORA,Dry,paid,Zonrox,1,FALSE,FALSE,67
+,,,04/07/2025,14:36,106,LIZA,"Wash and Dry,Wash",paid,"Del,Tide",1,FALSE,TRUE,196
+,,,04/07/2025,16:44,146,OMAR,"Spin,Wash and Dry",paid,"Downy,Zonrox",1,TRUE,TRUE,159
+,,,04/07/2025,17:45,324,BALONG,"Dry,Spin",paid,Surf,2,FALSE,FALSE,99
+,,,04/07/2025,17:58,182,BRAWDON,Wash and Dry,paid,"Tide,Surf",2,FALSE,TRUE,170
+,,,04/07/2025,16:18,138,QUEEW,Fold,paid,Surf,1,TRUE,FALSE,57
+,,,04/08/2025,6:20,170,CECIL,Wash,paid,"Downy,Ariel,Breeze",1,FALSE,TRUE,98
+,,,04/08/2025,6:25,146,ADI,Dry,paid,"Surf,Ariel",1,TRUE,TRUE,95
+,,,04/08/2025,7:06,138,NICK,"Wash and Dry,Dry",paid,"Tide,Breeze,Ariel",1,TRUE,TRUE,239
+,,,04/08/2025,7:25,110,KRIS,Dry,paid,"Downy,Surf,Tide",2,FALSE,FALSE,144
+,,,04/08/2025,7:32,140,JOSELITO,"Wash and Dry,Wash Dry Fold",paid,"Zonrox,Tide,Del",1,TRUE,TRUE,308
+,,,04/08/2025,7:34,142,MAYLEN,Wash,paid,"Breeze,Tide",1,FALSE,FALSE,96
+,,,04/08/2025,7:37,168,FRANCE,"Dry,Fold",paid,"Zonrox,Tide",1,TRUE,FALSE,130
+,,,04/08/2025,7:40,148,DADO,Wash Dry Fold,paid,"Surf,Zonrox,Downy",2,FALSE,TRUE,202
+,,,04/08/2025,7:45,146,MARGA,Fold,paid,Surf,1,TRUE,TRUE,47
+,,,04/08/2025,8:00,154,RAFAEL,Fold,paid,"Breeze,Del",1,TRUE,FALSE,71
+,,,04/08/2025,8:04,148,JOSUA,"Wash and Dry,Fold",paid,"Zonrox,Del,Ariel",2,FALSE,TRUE,206
+,,,04/08/2025,8:23,134,KENNETH,Fold,paid,Del,1,TRUE,FALSE,53
+,,,04/08/2025,8:42,166,MADEL,"Wash and Dry,Wash",paid,"Surf,Breeze,Zonrox",1,TRUE,TRUE,222
+,,,04/08/2025,8:47,146,ROGER,"Wash and Dry,Wash Dry Fold",paid,"Surf,Del",1,TRUE,TRUE,295
+,,,04/08/2025,9:11,308,KIT,"Wash Dry Fold,Fold",paid,"Breeze,Downy",1,TRUE,TRUE,215
+,,,04/08/2025,9:17,160,JONG,Dry,paid,"Zonrox,Ariel,Del",2,FALSE,TRUE,116
+,,,04/08/2025,10:00,148,KEN,Wash and Dry,paid,"Del,Breeze",2,FALSE,FALSE,172
+,,,04/08/2025,11:51,202,TOTO JERIC,"Wash,Dry",paid,"Zonrox,Tide",2,FALSE,TRUE,160
+,,,04/08/2025,19:05,352,GIGI,Wash Dry Fold,paid,Del,2,TRUE,TRUE,171
+,,,04/08/2025,19:39,148,JEFF,Wash and Dry,paid,"Breeze,Downy,Ariel",1,FALSE,FALSE,168
+,,,04/09/2025,7:44,156,EJ,"Dry,Wash and Dry",paid,Surf,1,TRUE,TRUE,197
+,,,04/09/2025,7:51,200,JOSELITO,Wash,paid,Tide,2,FALSE,FALSE,96
+,,,04/09/2025,8:01,330,NAK,"Wash and Dry,Spin",paid,Downy,2,FALSE,TRUE,149
+,,,04/09/2025,8:05,412,JANE,"Fold,Wash Dry Fold",paid,"Zonrox,Surf",1,FALSE,TRUE,189
+,,,04/09/2025,8:10,244,DONEJ,"Fold,Wash and Dry",paid,"Downy,Del",2,TRUE,TRUE,195
+,,,04/09/2025,8:14,60,CECIL,"Wash Dry Fold,Fold",paid,"Del,Zonrox,Downy",1,TRUE,FALSE,222
+,,,04/09/2025,8:17,203,ROY,"Wash Dry Fold,Fold",paid,Tide,1,TRUE,TRUE,203
+,,,04/09/2025,8:36,296,EVELYN,"Wash Dry Fold,Dry",paid,"Del,Downy,Tide",2,FALSE,FALSE,286
+,,,04/09/2025,8:37,134,JACKY,"Wash and Dry,Wash",paid,"Breeze,Surf",1,TRUE,FALSE,225
+,,,04/09/2025,9:16,312,VANESSA,"Dry,Fold",paid,"Surf,Breeze,Tide",2,TRUE,TRUE,191
+,,,04/09/2025,10:20,240,ZIAN,Wash and Dry,paid,"Breeze,Tide,Surf",1,FALSE,FALSE,168
+,,,04/09/2025,11:19,156,GRACE,Spin,paid,"Breeze,Ariel",1,FALSE,FALSE,51
+,,,04/09/2025,11:20,156,RYAN,"Fold,Spin",paid,"Surf,Del,Tide",2,TRUE,FALSE,136
+,,,04/09/2025,11:22,166,LARA,Spin,paid,Ariel,2,TRUE,FALSE,66
+,,,04/09/2025,11:29,146,AUREL,Wash Dry Fold,paid,Breeze,1,FALSE,FALSE,168
+,,,04/09/2025,11:34,158,ROMEL,Spin,paid,"Del,Surf,Tide",2,TRUE,TRUE,96
+,,,04/09/2025,12:00,136,CHRISTIAN,Dry,paid,"Tide,Ariel",1,TRUE,FALSE,111
+,,,04/09/2025,12:24,152,BUBOY,"Spin,Dry",paid,"Del,Ariel",1,FALSE,TRUE,91
+,,,04/09/2025,12:31,146,SAM,"Spin,Wash and Dry",paid,Tide,2,TRUE,TRUE,176
+,,,04/09/2025,13:15,192,KIASIS,Wash,paid,"Zonrox,Downy,Del",2,FALSE,TRUE,104
+,,,04/09/2025,14:00,143,ALORA,Fold,paid,"Ariel,Downy,Zonrox",2,FALSE,TRUE,94
+,,,04/09/2025,14:45,1184,LOADS,"Wash Dry Fold,Dry",paid,Surf,2,TRUE,TRUE,239
+,,,04/09/2025,14:55,240,RONALD,"Wash,Dry",paid,"Surf,Tide",2,TRUE,FALSE,195
+,,,04/09/2025,14:57,480,NEL,Wash,paid,"Zonrox,Downy,Breeze",1,FALSE,TRUE,87
+,,,04/09/2025,15:40,312,LORENCE,Fold,paid,"Del,Breeze,Downy",1,TRUE,TRUE,73
+,,,04/09/2025,15:42,120,ZIAN,"Spin,Fold",paid,"Downy,Surf,Del",2,TRUE,TRUE,114
+,,,04/09/2025,16:12,152,WILMOR,Spin,paid,Breeze,2,FALSE,FALSE,51
+,,,04/09/2025,16:46,152,RODMAN,"Wash and Dry,Spin",paid,Zonrox,2,FALSE,FALSE,149
+,,,04/09/2025,17:16,152,DWIGHT,"Spin,Dry",paid,"Ariel,Surf",2,TRUE,FALSE,150
+,,,04/09/2025,18:21,156,VINZ,"Wash and Dry,Wash Dry Fold",paid,"Zonrox,Breeze,Surf",1,FALSE,TRUE,297
+,,,04/09/2025,19:26,320,DAGA,Wash Dry Fold,paid,Zonrox,2,FALSE,FALSE,164
+,,,04/10/2025,6:21,110,OMACAP,Fold,paid,"Del,Breeze",1,FALSE,FALSE,56
+,,,04/10/2025,6:49,340,LANIE,Spin,paid,"Zonrox,Surf,Breeze",2,TRUE,FALSE,104
+,,,04/10/2025,6:51,134,LIOYD,Dry,paid,"Zonrox,Breeze,Downy",2,TRUE,FALSE,149
+,,,04/10/2025,6:56,140,DEN-DEN,Dry,paid,Ariel,2,FALSE,FALSE,96
+,,,04/10/2025,7:26,146,RJ,"Dry,Fold",paid,Zonrox,2,FALSE,FALSE,104
+,,,04/10/2025,7:29,150,JAYSON,"Dry,Wash and Dry",paid,"Surf,Zonrox,Ariel",2,TRUE,FALSE,269
+,,,04/10/2025,7:44,146,ADRIAN,Dry,paid,"Surf,Downy,Ariel",2,TRUE,FALSE,159
+,,,04/10/2025,7:45,344,MYKA,Wash,paid,Ariel,2,TRUE,TRUE,101
+,,,04/10/2025,7:55,190,PATRICK,"Wash,Spin",paid,Zonrox,1,FALSE,TRUE,72
+,,,04/10/2025,8:00,122,KEN,"Spin,Dry",paid,Del,2,TRUE,TRUE,96
+,,,04/10/2025,8:30,60,CICIL,Wash and Dry,paid,Surf,1,TRUE,TRUE,137
+,,,04/10/2025,8:50,150,DANTE,Dry,paid,Del,2,FALSE,TRUE,66
+,,,04/10/2025,8:40,150,BUBOY,Wash and Dry,paid,"Breeze,Del,Surf",1,FALSE,TRUE,148
+,,,04/10/2025,9:09,150,JOJO,Wash,paid,Ariel,1,TRUE,FALSE,93
+,,,04/10/2025,9:52,172,JEFFREY,"Dry,Fold",paid,Tide,1,FALSE,FALSE,108
+,,,04/10/2025,11:21,152,RECALA,Wash Dry Fold,paid,"Ariel,Del,Breeze",2,TRUE,TRUE,243
+,,,04/10/2025,13:05,176,WILSOH,"Spin,Wash and Dry",paid,"Surf,Breeze,Tide",1,FALSE,TRUE,173
+,,,04/10/2025,15:00,148,CARLA,"Wash and Dry,Wash Dry Fold",paid,"Zonrox,Breeze,Downy",2,FALSE,FALSE,344
+,,,04/10/2025,15:12,164,VIOLY,"Wash and Dry,Spin",paid,"Zonrox,Downy",2,FALSE,TRUE,163
+,,,04/10/2025,15:22,120,GIGI,"Spin,Wash and Dry",paid,"Ariel,Zonrox,Downy",1,TRUE,FALSE,187
+,,,04/10/2025,15:53,148,LITO,Spin,paid,Tide,2,FALSE,FALSE,51
+,,,04/10/2025,16:21,172,JR,"Wash,Fold",paid,"Surf,Del",2,FALSE,TRUE,120
+,,,04/10/2025,16:21,160,ZENNY,"Fold,Dry",paid,"Downy,Tide",2,TRUE,FALSE,165
+,,,04/10/2025,18:03,60,JOSIE,"Spin,Dry",paid,"Surf,Del,Downy",1,TRUE,TRUE,112
+,,,04/10/2025,18:36,168,MICHAEL,Wash and Dry,paid,Surf,2,FALSE,FALSE,144
+,,,04/10/2025,18:56,136,EMMAN,"Spin,Wash Dry Fold",paid,"Tide,Del",1,FALSE,TRUE,181
+,,,04/10/2025,19:06,312,MARWN,"Wash Dry Fold,Fold",paid,"Surf,Del",1,FALSE,TRUE,190
+,,,04/11/2025,6:40,142,GRACE,"Wash,Dry",paid,"Zonrox,Ariel",1,FALSE,TRUE,135
+,,,04/11/2025,6:48,238,CALOY,"Spin,Fold",paid,"Tide,Breeze",1,FALSE,TRUE,71
+,,,04/11/2025,7:03,126,TIM ,Wash and Dry,paid,"Ariel,Surf",1,FALSE,FALSE,150
+,,,04/11/2025,7:15,140,WENG,"Wash and Dry,Spin",paid,"Downy,Zonrox",2,FALSE,TRUE,163
+,,,04/11/2025,8:34,110,BERNIE,"Wash Dry Fold,Spin",paid,"Ariel,Del,Zonrox",2,TRUE,FALSE,246
+,,,04/11/2025,8:37,130,ADDY,"Dry,Spin",paid,Zonrox,1,TRUE,TRUE,87
+,,,04/11/2025,9:03,152,SAMUEL,Fold,paid,"Downy,Surf",2,TRUE,TRUE,83
+,,,04/11/2025,9:30,156,RANDY,"Dry,Wash",paid,"Breeze,Del,Tide",1,TRUE,FALSE,179
+,,,04/11/2025,10:15,188,MEL,"Fold,Wash",paid,Ariel,2,FALSE,TRUE,116
+,,,04/11/2025,10:55,304,VANESSA,"Spin,Wash and Dry",paid,"Zonrox,Surf",2,FALSE,FALSE,173
+,,,04/11/2025,10:56,165,PAUL,Dry,paid,"Ariel,Downy,Del",2,FALSE,TRUE,126
+,,,04/11/2025,12:52,70,KIM,"Wash,Fold",paid,"Tide,Zonrox",1,FALSE,FALSE,115
+,,,04/11/2025,13:10,120,DONA,Wash Dry Fold,paid,"Breeze,Ariel,Surf",1,TRUE,FALSE,213
+,,,04/11/2025,14:24,176,ARIE,Wash Dry Fold,paid,"Zonrox,Del,Downy",1,TRUE,FALSE,192
+,,,04/11/2025,16:10,180,ANA,"Wash and Dry,Spin",paid,"Breeze,Ariel",1,TRUE,TRUE,176
+,,,04/11/2025,16:11,240,MARK,"Wash,Wash Dry Fold",paid,"Zonrox,Tide",2,FALSE,FALSE,260
+,,,04/11/2025,17:10,148,JOMAR,"Fold,Wash Dry Fold",paid,Surf,2,TRUE,FALSE,219
+,,,04/11/2025,17:13,186,JHEN,Spin,paid,"Ariel,Breeze,Tide",2,TRUE,FALSE,138
+,,,04/11/2025,17:39,248,JASON,Spin,paid,"Del,Surf",2,TRUE,TRUE,60
+,,,04/11/2025,18:15,308,SAY,Spin,paid,"Zonrox,Breeze",2,FALSE,TRUE,55
+,,,04/11/2025,18:38,172,CONNAN,"Spin,Wash",paid,"Del,Tide,Zonrox",1,FALSE,TRUE,98
+,,,04/11/2025,19:15,176,SULTAN,"Dry,Wash and Dry",paid,"Tide,Zonrox,Downy",1,TRUE,TRUE,222
+,,,04/12/2025,6:43,148,ALEX ,"Dry,Wash",paid,"Tide,Ariel",1,FALSE,TRUE,146
+,,,04/12/2025,7:18,137,JOSELITO,"Fold,Dry",paid,"Surf,Del,Breeze",2,TRUE,TRUE,171
+,,,04/12/2025,7:39,110,BOTS,Wash,paid,"Surf,Zonrox,Ariel",2,FALSE,FALSE,134
+,,,04/12/2025,7:44,202,RJ,Wash Dry Fold,paid,"Breeze,Tide,Del",1,TRUE,FALSE,209
+,,,04/12/2025,7:53,154,JECK,Fold,paid,"Zonrox,Tide",2,FALSE,FALSE,80
+,,,04/12/2025,8:00,140,RAHIM,Spin,paid,"Del,Zonrox",2,FALSE,TRUE,35
+,,,04/12/2025,8:17,284,CIDRICK,Wash,paid,Zonrox,2,TRUE,TRUE,79
+,,,04/12/2025,8:25,162,PATRICK,Fold,paid,"Breeze,Del",1,TRUE,FALSE,71
+,,,04/12/2025,8:26,140,NICK,"Fold,Wash Dry Fold",paid,"Tide,Downy,Zonrox",2,TRUE,FALSE,269
+,,,04/12/2025,8:29,190,ALBERT,"Dry,Spin",paid,"Surf,Downy",1,FALSE,TRUE,89
+,,,04/12/2025,8:46,60,MELAI,"Dry,Spin",paid,"Surf,Ariel,Zonrox",1,FALSE,TRUE,102
+,,,04/12/2025,9:11,296,RM,"Dry,Wash and Dry",paid,"Downy,Breeze,Surf",2,TRUE,FALSE,279
+,,,04/12/2025,9:19,152,CHOC,Dry,paid,"Ariel,Zonrox,Tide",2,TRUE,TRUE,151
+,,,04/12/2025,9:42,152,GERALD,"Spin,Fold",paid,"Ariel,Surf,Tide",2,FALSE,FALSE,141
+,,,04/12/2025,9:45,240,JOAN,Wash and Dry,paid,"Del,Breeze",2,FALSE,FALSE,172
+,,,04/12/2025,9:50,120,BERNIE,Wash and Dry,paid,"Del,Breeze,Ariel",1,FALSE,TRUE,154
+,,,04/12/2025,10:07,148,BALTAZAR,"Wash Dry Fold,Spin",paid,"Downy,Tide,Ariel",1,TRUE,TRUE,218
+,,,04/12/2025,10:12,236,DEXS,Wash and Dry,paid,"Del,Ariel",1,FALSE,FALSE,146
+,,,04/12/2025,10:16,148,ANDY,Spin,paid,Tide,2,FALSE,FALSE,51
+,,,04/12/2025,10:39,164,ABE,"Fold,Spin",paid,Downy,2,FALSE,TRUE,59
+,,,04/12/2025,10:56,360,JAYSON,"Wash,Wash Dry Fold",paid,"Tide,Del,Surf",1,TRUE,FALSE,263
+,,,04/12/2025,10:56,180,MEG,Spin,paid,"Breeze,Zonrox",2,TRUE,TRUE,70
+,,,04/12/2025,11:18,120,MARK,Spin,paid,"Tide,Surf",2,FALSE,TRUE,65
+,,,04/12/2025,12:18,316,LACE,"Wash,Dry",paid,Ariel,1,FALSE,FALSE,138
+,,,04/12/2025,12:37,162,CESAR,Wash,paid,"Ariel,Surf,Del",2,TRUE,TRUE,141
+,,,04/12/2025,12:48,192,SIGAY,Wash Dry Fold,paid,"Breeze,Downy,Del",2,FALSE,TRUE,216
+,,,04/12/2025,13:01,148,LITO,"Wash Dry Fold,Fold",paid,"Surf,Zonrox",1,FALSE,TRUE,189
+,,,04/12/2025,13:29,156,ADDY,Wash and Dry,paid,"Downy,Breeze",1,FALSE,FALSE,150
+,,,04/12/2025,13:37,156,JOEY,Fold,paid,"Breeze,Surf",1,TRUE,TRUE,65
+,,,04/12/2025,14:40,136,PAOLO,Wash,paid,"Downy,Surf",2,TRUE,TRUE,113
+,,,04/12/2025,15:18,164,CARLA,Fold,paid,Surf,1,TRUE,FALSE,57
+,,,04/12/2025,16:26,168,JOJO,"Fold,Wash and Dry",paid,"Breeze,Zonrox,Surf",1,TRUE,FALSE,202
+,,,04/12/2025,16:51,180,MARINA,"Spin,Wash Dry Fold",paid,"Zonrox,Tide,Downy",1,TRUE,TRUE,207
+,,,04/12/2025,17:10,152,KIKO,Wash Dry Fold,paid,"Ariel,Zonrox,Breeze",1,TRUE,FALSE,208
+,,,04/12/2025,17:34,120,BRAKE,"Wash Dry Fold,Dry",paid,"Surf,Ariel,Breeze",1,FALSE,TRUE,248
+,,,04/12/2025,18:14,168,GOMER,"Fold,Wash",paid,Zonrox,2,TRUE,TRUE,109
+,,,04/12/2025,18:17,148,RECHARD,"Fold,Dry",paid,"Zonrox,Downy,Breeze",2,TRUE,TRUE,169
+,,,04/12/2025,18:35,164,CHA,Spin,paid,"Breeze,Downy",2,FALSE,FALSE,75
+,,,04/12/2025,19:01,408,MARVIN,"Wash Dry Fold,Wash",paid,Downy,1,FALSE,TRUE,212
+,,,04/12/2025,19:12,202,ERIC,"Dry,Fold",paid,Breeze,1,TRUE,TRUE,113
+,,,04/13/2025,7:00,50,MARVIN,Wash and Dry,paid,Downy,1,TRUE,TRUE,137
+,,,04/13/2025,7:05,140,ANGHEL,Wash and Dry,paid,"Downy,Del,Tide",1,FALSE,TRUE,148
+,,,04/13/2025,7:10,158,ALACE,Spin,paid,"Zonrox,Surf,Downy",2,FALSE,FALSE,77
+,,,04/13/2025,7:12,110,ANGEL,"Wash,Fold",paid,"Zonrox,Surf,Downy",1,TRUE,TRUE,126
+,,,04/13/2025,7:20,138,DAN,"Wash,Fold",paid,"Surf,Downy,Del",2,TRUE,TRUE,159
+,,,04/13/2025,7:21,128,ALFRANCE,"Wash Dry Fold,Wash and Dry",paid,"Del,Zonrox",2,FALSE,TRUE,290
+,,,04/13/2025,7:30,138,BENJA,"Dry,Wash",paid,Ariel,1,FALSE,TRUE,128
+,,,04/13/2025,7:46,150,JAMES,"Spin,Fold",paid,"Downy,Surf,Tide",2,FALSE,FALSE,129
+,,,04/13/2025,8:00,80,JP,Wash and Dry,paid,"Breeze,Downy,Ariel",1,TRUE,FALSE,183
+,,,04/13/2025,8:01,158,RODEL,Wash and Dry,paid,Del,1,TRUE,FALSE,143
+,,,04/13/2025,8:25,414,YAM,"Wash and Dry,Wash",paid,"Breeze,Tide",1,FALSE,FALSE,216
+,,,04/13/2025,8:30,110,NAK,Spin,paid,"Breeze,Downy",1,TRUE,FALSE,60
+,,,04/13/2025,8:50,146,JOAN S.,"Wash and Dry,Wash Dry Fold",paid,Breeze,1,FALSE,FALSE,288
+,,,04/13/2025,9:10,148,MARVIN,"Wash Dry Fold,Wash and Dry",paid,Zonrox,1,FALSE,TRUE,267
+,,,04/13/2025,9:35,158,ROMEL,Wash Dry Fold,paid,"Tide,Ariel",1,FALSE,FALSE,186
+,,,04/13/2025,9:38,120,PHILIP,Spin,paid,Del,1,FALSE,TRUE,13
+,,,04/13/2025,9:42,176,JONG,"Dry,Wash",paid,"Breeze,Surf,Downy",2,FALSE,TRUE,194
+,,,04/13/2025,10:15,188,ARDEL,Fold,paid,Ariel,1,TRUE,TRUE,53
+,,,04/13/2025,10:20,164,RICHARD,"Wash,Fold",paid,Surf,1,TRUE,TRUE,107
+,,,04/13/2025,10:21,148,JUSTIN,"Fold,Wash Dry Fold",paid,"Ariel,Zonrox,Breeze",2,TRUE,FALSE,281
+,,,04/13/2025,10:30,146,CUEVAD,"Spin,Wash Dry Fold",paid,"Del,Downy",1,TRUE,FALSE,200
+,,,04/13/2025,10:31,168,NUNIE,"Wash and Dry,Spin",paid,Ariel,1,TRUE,FALSE,168
+,,,04/13/2025,10:51,266,FRANCIS,Wash and Dry,paid,"Ariel,Tide",1,TRUE,TRUE,161
+,,,04/13/2025,10:57,136,KEN,Wash Dry Fold,paid,Zonrox,2,FALSE,FALSE,164
+,,,04/13/2025,11:02,172,ALFRED,Fold,paid,Del,2,FALSE,FALSE,46
+,,,04/13/2025,11:34,160,MARK,Wash Dry Fold,paid,Del,1,FALSE,FALSE,158
+,,,04/13/2025,11:58,307,VICTORIA,Dry,paid,"Zonrox,Tide",1,FALSE,TRUE,75
+,,,04/13/2025,12:17,156,JOEL S.,Wash and Dry,paid,"Breeze,Tide,Zonrox",2,FALSE,FALSE,206
+,,,04/13/2025,12:25,162,ARIEL,"Wash and Dry,Wash Dry Fold",paid,"Breeze,Tide,Zonrox",1,TRUE,TRUE,318
+,,,04/13/2025,12:35,270,JOSHUA,"Wash and Dry,Dry",paid,Del,1,TRUE,TRUE,193
+,,,04/13/2025,12:37,150,LITO,Wash and Dry,paid,Tide,2,TRUE,FALSE,171
+,,,04/13/2025,12:40,160,DARY,"Wash Dry Fold,Wash and Dry",paid,"Tide,Surf,Ariel",2,TRUE,FALSE,381
+,,,04/13/2025,13:30,176,DODALD,Fold,paid,"Del,Zonrox,Surf",1,TRUE,TRUE,62
+,,,04/13/2025,13:40,1776,JOHNWYNE,Wash and Dry,paid,Del,1,FALSE,TRUE,118
+,,,04/13/2025,14:00,120,DONA,"Fold,Wash Dry Fold",paid,"Ariel,Breeze",1,FALSE,TRUE,206
+,,,04/13/2025,14:31,148,ERWIN,Dry,paid,"Downy,Del,Zonrox",2,TRUE,FALSE,129
+,,,04/13/2025,14:37,156,MARK,"Fold,Wash Dry Fold",paid,Zonrox,2,TRUE,TRUE,199
+,,,04/13/2025,15:05,139,KENNETH,Spin,paid,Ariel,2,FALSE,TRUE,41
+,,,04/13/2025,15:06,120,MARVEL,Wash Dry Fold,paid,"Ariel,Breeze",2,FALSE,TRUE,212
+,,,04/13/2025,15:24,140,JR ANOS,Wash and Dry,paid,"Surf,Del",1,FALSE,TRUE,130
+,,,04/13/2025,15:35,70,MARBIN,"Spin,Fold",paid,Downy,1,TRUE,FALSE,72
+,,,04/13/2025,16:25,143,ABA,"Dry,Wash and Dry",paid,"Tide,Del,Zonrox",2,TRUE,FALSE,261
+,,,04/13/2025,16:41,172,ROD,"Fold,Spin",paid,"Ariel,Del,Zonrox",2,FALSE,FALSE,111
+,,,04/13/2025,17:30,136,LUCKY,"Dry,Wash and Dry",paid,"Del,Tide,Breeze",2,FALSE,TRUE,258
+,,,04/13/2025,17:32,408,STEVE,Wash Dry Fold,paid,"Tide,Surf,Ariel",1,FALSE,TRUE,188
+,,,04/13/2025,17:50,206,JAM,"Wash Dry Fold,Spin",paid,Zonrox,2,TRUE,TRUE,184
+,,,04/13/2025,18:25,240,JOYCE,"Fold,Dry",paid,Zonrox,1,FALSE,TRUE,87
+,,,04/13/2025,18:30,163,ALEX ,Fold,paid,"Zonrox,Ariel,Breeze",1,FALSE,TRUE,63
+,,,04/13/2025,19:30,192,BHAY,"Dry,Wash and Dry",paid,"Zonrox,Tide",2,FALSE,TRUE,220
+,,,04/14/2025,7:26,180,KIM,Spin,paid,"Zonrox,Ariel",2,FALSE,FALSE,65
+,,,04/14/2025,7:30,137,MARLON ,"Wash,Spin",paid,"Ariel,Breeze",1,TRUE,FALSE,126
+,,,04/14/2025,7:50,280,SAM,Wash,paid,"Ariel,Del",1,TRUE,TRUE,91
+,,,04/14/2025,7:51,160,TATS,Dry,paid,"Del,Ariel,Tide",2,TRUE,TRUE,153
+,,,04/14/2025,7:57,142,WILIAM,"Dry,Wash",paid,Tide,2,FALSE,FALSE,156
+,,,04/14/2025,8:04,148,JAYSON,"Fold,Wash",paid,"Breeze,Ariel,Surf",1,FALSE,TRUE,128
+,,,04/14/2025,5:10,150,NICO,Wash,paid,"Tide,Ariel,Breeze",1,TRUE,FALSE,129
+,,,04/14/2025,8:50,133,AWRA,Dry,paid,"Surf,Downy",1,FALSE,TRUE,74
+,,,04/14/2025,8:51,164,JOEY,Spin,paid,"Tide,Ariel",1,FALSE,TRUE,41
+,,,04/14/2025,9:10,352,CLAIRE,"Wash Dry Fold,Spin",paid,Downy,1,FALSE,TRUE,167
+,,,04/14/2025,10:59,173,BRANDON,"Spin,Fold",paid,"Downy,Tide",2,FALSE,TRUE,95
+,,,04/14/2025,11:45,148,LOWRENCE,Dry,paid,"Ariel,Downy",2,FALSE,TRUE,110
+,,,04/14/2025,11:50,160,CRISTIAN,Dry,paid,Breeze,2,TRUE,FALSE,111
+,,,04/14/2025,11:51,60,JOSIE,"Wash,Wash and Dry",paid,"Breeze,Zonrox",2,TRUE,TRUE,235
+,,,04/14/2025,12:10,160,MARR,"Spin,Wash and Dry",paid,"Ariel,Surf,Del",2,TRUE,FALSE,226
+,,,04/14/2025,12:37,144,ERIKA,Wash and Dry,paid,"Tide,Downy",1,FALSE,FALSE,150
+,,,04/14/2025,13:39,76,JOVY,"Spin,Fold",paid,"Breeze,Tide,Zonrox",2,FALSE,FALSE,131
+,,,04/14/2025,13:41,136,LIZA,"Wash Dry Fold,Fold",paid,"Del,Breeze",1,TRUE,FALSE,221
+,,,04/14/2025,15:15,136,ADDY,"Fold,Wash",paid,Zonrox,1,FALSE,TRUE,87
+,,,04/14/2025,15:29,144,KEN,Spin,paid,"Ariel,Surf,Zonrox",2,FALSE,FALSE,89
+,,,04/14/2025,15:32,120,MANDS,Spin,paid,Surf,2,FALSE,TRUE,29
+,,,04/14/2025,19:00,150,SAM,"Fold,Wash Dry Fold",paid,"Ariel,Zonrox",1,TRUE,FALSE,220
+,,,04/14/2025,19:45,176,WILSON,Spin,paid,Downy,1,TRUE,TRUE,32
+,,,04/15/2025,7:15,146,JONG,"Wash Dry Fold,Dry",paid,Breeze,2,TRUE,FALSE,261
+,,,04/15/2025,7:30,110,KRIS,"Wash and Dry,Fold",paid,"Surf,Breeze,Ariel",1,FALSE,TRUE,188
+,,,04/15/2025,7:35,146,JOSHUA,"Wash and Dry,Fold",paid,Zonrox,1,TRUE,TRUE,162
+,,,04/15/2025,8:14,154,RAPAEL,"Spin,Wash Dry Fold",paid,"Surf,Del",1,TRUE,TRUE,190
+,,,04/15/2025,8:15,164,FRANCE,"Dry,Wash Dry Fold",paid,Downy,2,TRUE,TRUE,239
+,,,04/15/2025,8:31,190,PATRICK,"Wash,Wash and Dry",paid,"Tide,Breeze,Downy",1,TRUE,FALSE,243
+,,,04/15/2025,8:43,324,JR,Fold,paid,"Breeze,Del,Tide",2,FALSE,TRUE,108
+,,,04/15/2025,8:50,146,MAMANG,Wash,paid,"Breeze,Ariel,Tide",1,TRUE,FALSE,129
+,,,04/15/2025,11:05,444,JOSIE,Wash,paid,"Surf,Tide,Del",1,TRUE,FALSE,113
+,,,04/15/2025,11:07,158,LINO,Fold,paid,"Del,Tide",1,TRUE,TRUE,61
+,,,04/15/2025,12:20,189,EDDIE,Wash and Dry,paid,"Surf,Zonrox",2,FALSE,TRUE,148
+,,,04/15/2025,12:44,144,LITO,"Fold,Wash",paid,Downy,1,TRUE,FALSE,117
+,,,04/15/2025,14:53,168,CARL,"Wash,Fold",paid,"Del,Surf",2,TRUE,TRUE,135
+,,,04/15/2025,15:30,120,YONAH,"Wash Dry Fold,Wash",paid,Zonrox,2,FALSE,TRUE,214
+,,,04/15/2025,15:46,151,JOHN,Wash,paid,Tide,1,FALSE,TRUE,68
+,,,04/15/2025,16:22,344,ERIC,"Wash and Dry,Fold",paid,Downy,2,FALSE,FALSE,174
+,,,04/15/2025,16:39,168,JAMES,"Wash and Dry,Spin",paid,Tide,1,FALSE,FALSE,153
+,,,04/15/2025,16:40,120,GIGI,"Dry,Wash and Dry",paid,"Zonrox,Downy,Tide",2,TRUE,FALSE,269
+,,,04/15/2025,17:17,186,JHEN,"Spin,Fold",paid,Breeze,1,TRUE,FALSE,78
+,,,04/15/2025,16:36,240,JEBOY,"Dry,Wash Dry Fold",paid,Surf,2,TRUE,FALSE,249
+,,,04/15/2025,19:23,328,DANIKA,Wash and Dry,paid,"Surf,Tide",1,FALSE,FALSE,150
+,,,04/15/2025,19:33,552,JANE,"Wash,Fold",paid,"Del,Downy",1,FALSE,TRUE,100
+,,,04/16/2025,7:10,110,DONDON,Spin,paid,"Breeze,Ariel,Zonrox",2,FALSE,FALSE,101
+,,,04/16/2025,7:13,134,BOGS,"Wash Dry Fold,Wash and Dry",paid,"Surf,Tide,Breeze",1,FALSE,FALSE,318
+,,,04/16/2025,7:30,126,MICHAEL,"Spin,Fold",paid,"Breeze,Ariel",1,TRUE,TRUE,86
+,,,04/16/2025,7:31,110,KRIS,"Wash and Dry,Wash",paid,"Zonrox,Breeze,Downy",1,FALSE,TRUE,207
+,,,04/16/2025,7:32,110,BERNIE,Fold,paid,Downy,2,TRUE,FALSE,69
+,,,04/16/2025,7:40,129,LOUWIE,"Dry,Spin",paid,Downy,2,FALSE,TRUE,89
+,,,04/16/2025,7:41,60,JOSIE,Wash and Dry,paid,"Downy,Surf",2,FALSE,TRUE,158
+,,,04/16/2025,7:52,140,CECIL,"Wash Dry Fold,Dry",paid,"Downy,Zonrox,Tide",2,TRUE,TRUE,289
+,,,04/16/2025,7:59,142,NAK,Wash,paid,"Downy,Ariel,Zonrox",1,FALSE,FALSE,97
+,,,04/16/2025,8:05,110,MANG TONY,Wash and Dry,paid,"Zonrox,Del",1,TRUE,FALSE,150
+,,,04/16/2025,8:15,162,JORIE,"Wash and Dry,Fold",paid,Downy,1,TRUE,FALSE,177
+,,,04/16/2025,8:16,134,MALESIDO,Wash,paid,"Ariel,Downy,Tide",2,TRUE,TRUE,161
+,,,04/16/2025,8:19,142,CEDRIC,"Wash,Wash Dry Fold",paid,Tide,1,TRUE,FALSE,243
+,,,04/16/2025,8:20,142,JOAN,Fold,paid,"Del,Breeze,Zonrox",1,TRUE,FALSE,78
+,,,04/16/2025,8:21,155,WILIAM,"Dry,Spin",paid,Tide,1,TRUE,TRUE,98
+,,,04/16/2025,8:42,154,BUBOY,Wash and Dry,paid,Tide,2,TRUE,TRUE,161
+,,,04/16/2025,8:43,140,ANGEL,Wash Dry Fold,paid,"Breeze,Tide,Zonrox",1,TRUE,FALSE,208
+,,,04/16/2025,9:00,188,MEL,Dry,paid,Zonrox,2,TRUE,FALSE,89
+,,,04/16/2025,9:11,240,CHA,Wash Dry Fold,paid,"Tide,Surf,Breeze",2,FALSE,FALSE,246
+,,,04/16/2025,9:12,156,PAO,Dry,paid,"Surf,Del,Downy",2,FALSE,FALSE,124
+,,,04/16/2025,10:00,252,EDCEL,"Wash and Dry,Dry",paid,Breeze,1,TRUE,TRUE,203
+,,,04/16/2025,10:21,296,JHOAN,Wash Dry Fold,paid,"Breeze,Tide",1,FALSE,TRUE,176
+,,,04/16/2025,10:23,158,ALKENT,"Wash Dry Fold,Fold",paid,Ariel,2,FALSE,FALSE,216
+,,,04/16/2025,10:30,172,VR,Wash,paid,Surf,2,FALSE,FALSE,84
+,,,04/16/2025,11:36,120,ASHLEY,Dry,paid,Downy,1,TRUE,FALSE,87
+,,,04/16/2025,12:31,152,DWIGHT,"Wash,Dry",paid,"Breeze,Del",2,TRUE,FALSE,187
+,,,04/16/2025,12:34,144,REYMAR,Wash,paid,Ariel,2,TRUE,FALSE,111
+,,,04/16/2025,12:40,70,KIM,Wash,paid,"Downy,Del",1,TRUE,TRUE,85
+,,,04/16/2025,12:51,156,KIT,Wash,paid,Del,2,FALSE,FALSE,76
+,,,04/16/2025,13:15,139,LESTER,"Wash,Wash and Dry",paid,"Zonrox,Downy",2,FALSE,TRUE,208
+,,,04/16/2025,14:25,152,KENKEN,Spin,paid,"Surf,Downy,Ariel",1,TRUE,FALSE,72
+,,,04/16/2025,14:25,384,BOBOY,"Dry,Wash",paid,Breeze,2,TRUE,TRUE,161
+,,,04/16/2025,14:36,194,JOHEL,Fold,paid,Breeze,1,FALSE,FALSE,48
+,,,04/16/2025,14:44,1184,JOHNWYNE,"Wash and Dry,Wash Dry Fold",paid,"Tide,Del,Ariel",1,FALSE,TRUE,304
+,,,04/16/2025,15:40,240,XIAN,"Wash Dry Fold,Wash and Dry",paid,"Zonrox,Del",1,TRUE,FALSE,300
+,,,04/16/2025,16:54,156,CONAN,Wash and Dry,paid,"Zonrox,Downy,Ariel",2,TRUE,FALSE,209
+,,,04/16/2025,17:10,138,JOHN ,"Wash,Fold",paid,"Tide,Surf",1,TRUE,TRUE,125
+,,,04/16/2025,17:13,152,BOBOY,"Dry,Fold",paid,"Zonrox,Ariel",2,TRUE,TRUE,145
+,,,04/16/2025,17:26,188,ROY,Fold,paid,"Surf,Ariel,Zonrox",2,TRUE,FALSE,119
+,,,04/19/2025,7:37,150,MARINA,"Spin,Fold",paid,"Ariel,Zonrox,Tide",1,FALSE,FALSE,88
+,,,04/19/2025,7:40,220,TOPNATCH,Wash and Dry,paid,"Downy,Ariel",1,TRUE,TRUE,155
+,,,04/19/2025,7:44,138,KENJIE,Wash Dry Fold,paid,"Del,Tide",1,TRUE,FALSE,191
+,,,04/19/2025,7:47,206,RJ,"Wash and Dry,Dry",paid,Downy,2,FALSE,FALSE,204
+,,,04/19/2025,8:27,110,ADEL,"Fold,Wash",paid,Surf,2,FALSE,FALSE,114
+,,,04/19/2025,8:35,146,DANDY,"Dry,Wash Dry Fold",paid,"Ariel,Breeze,Surf",2,FALSE,TRUE,296
+,,,04/19/2025,8:42,166,JOAN S.,Dry,paid,"Breeze,Tide",1,FALSE,FALSE,96
+,,,04/19/2025,8:52,510,NEL,"Wash Dry Fold,Dry",paid,"Zonrox,Downy",1,TRUE,FALSE,244
+,,,04/19/2025,8:58,172,EDWARD,"Spin,Dry",paid,"Zonrox,Downy,Ariel",1,FALSE,TRUE,102
+,,,04/19/2025,9:15,120,MARK,Dry,paid,"Tide,Zonrox",2,FALSE,TRUE,100
+,,,04/19/2025,9:17,140,SHERLY,"Wash Dry Fold,Fold",paid,Zonrox,2,FALSE,FALSE,194
+,,,04/19/2025,9:32,188,KALBO,"Wash and Dry,Wash",paid,"Zonrox,Breeze,Downy",1,FALSE,TRUE,207
+,,,04/19/2025,9:33,144,BALTAZAR,Wash Dry Fold,paid,"Surf,Downy,Tide",2,FALSE,TRUE,224
+,,,04/19/2025,10:10,156,ALDRIN,Wash,paid,Downy,1,FALSE,FALSE,72
+,,,04/19/2025,10:25,240,JOAN,"Wash,Wash Dry Fold",paid,"Zonrox,Del,Downy",2,FALSE,FALSE,264
+,,,04/19/2025,10:35,178,BRYXX,"Fold,Spin",paid,"Tide,Surf",2,TRUE,TRUE,110
+,,,04/19/2025,10:40,152,REGALA,Wash and Dry,paid,"Breeze,Surf,Ariel",2,FALSE,FALSE,216
+,,,04/19/2025,10:55,60,JOSHUA,Wash Dry Fold,paid,"Breeze,Zonrox",1,FALSE,TRUE,165
+,,,04/19/2025,10:56,80,MARVIN,"Wash,Wash Dry Fold",paid,"Zonrox,Breeze",1,FALSE,FALSE,235
+,,,04/19/2025,10:57,127,JASON,Wash and Dry,paid,"Ariel,Breeze,Surf",1,TRUE,FALSE,183
+,,,04/19/2025,11:19,144,MELVIN,Dry,paid,"Surf,Tide",2,FALSE,TRUE,110
+,,,04/19/2025,11:20,296,ARCELLI,"Wash,Fold",paid,"Zonrox,Ariel",2,TRUE,FALSE,155
+,,,04/19/2025,12:00,160,JAY-R,Wash Dry Fold,paid,"Breeze,Downy,Ariel",1,TRUE,TRUE,203
+,,,04/19/2025,14:00,1480,JOHN WYNE,"Fold,Wash",paid,"Del,Ariel",2,FALSE,TRUE,132
+,,,04/19/2025,14:13,151,GRACE,Wash Dry Fold,paid,"Surf,Zonrox",2,FALSE,FALSE,188
+,,,04/19/2025,14:49,366,JUDAY,"Fold,Wash and Dry",paid,"Ariel,Downy",1,FALSE,TRUE,170
+,,,04/19/2025,14:50,272,JORICK,Dry,paid,"Tide,Breeze,Ariel",1,TRUE,TRUE,119
+,,,04/19/2025,14:58,156,LAWRINCE,"Fold,Spin",paid,"Tide,Zonrox",1,FALSE,FALSE,70
+,,,04/19/2025,15:20,316,JR,"Wash,Wash and Dry",paid,Del,2,FALSE,FALSE,196
+,,,04/19/2025,15:25,148,LITO,Wash Dry Fold,paid,Del,1,TRUE,FALSE,173
+,,,04/19/2025,15:50,176,TATTOO,Wash and Dry,paid,"Zonrox,Breeze",1,FALSE,TRUE,135
+,,,04/19/2025,16:00,412,TOTO JERIC,"Dry,Fold",paid,"Breeze,Tide,Ariel",2,FALSE,FALSE,198
+,,,04/19/2025,16:49,160,GOMER,"Wash,Wash Dry Fold",paid,"Zonrox,Surf,Breeze",1,FALSE,FALSE,247
+,,,04/19/2025,17:04,240,RYAN,Fold,paid,Downy,2,TRUE,TRUE,59
+,,,04/19/2025,17:20,120,ZIAN,"Dry,Wash and Dry",paid,Downy,1,FALSE,FALSE,192
+,,,04/19/2025,17:23,174,BALONG,Wash Dry Fold,paid,Tide,2,FALSE,TRUE,176
+,,,04/19/2025,18:17,400,EDAY,Dry,paid,"Tide,Surf",1,FALSE,TRUE,80
+,,,04/19/2025,18:32,143,ALORA,Wash,paid,"Tide,Ariel",1,TRUE,TRUE,101
+,,,04/19/2025,18:42,296,SAM,Wash,paid,"Ariel,Del",1,TRUE,FALSE,101
+,,,04/20/2025,7:05,128,ALFRANCE,Dry,paid,"Tide,Surf",2,FALSE,TRUE,110
+,,,04/20/2025,7:20,140,WENG,Wash Dry Fold,paid,"Ariel,Del,Downy",2,TRUE,TRUE,231
+,,,04/20/2025,7:25,166,TANTAN,Wash and Dry,paid,"Tide,Downy,Zonrox",2,TRUE,TRUE,199
+,,,04/20/2025,7:45,154,RAFAEL,"Wash and Dry,Spin",paid,Surf,1,FALSE,TRUE,137
+,,,04/20/2025,8:13,154,RJ,Wash Dry Fold,paid,"Downy,Zonrox,Breeze",1,TRUE,FALSE,202
+,,,04/20/2025,8:21,138,JOSELITO,"Wash,Dry",paid,Downy,1,TRUE,FALSE,147
+,,,04/20/2025,8:50,196,ROLDAN,"Wash Dry Fold,Wash and Dry",paid,"Ariel,Downy,Zonrox",2,FALSE,FALSE,344
+,,,04/20/2025,8:54,154,GERALD,"Dry,Wash",paid,Downy,2,FALSE,FALSE,144
+,,,04/20/2025,9:08,72,JAYPEE,Wash,paid,"Tide,Breeze,Del",2,FALSE,FALSE,148
+,,,04/20/2025,9:09,144,SHERLY,Wash Dry Fold,paid,"Del,Tide,Zonrox",2,TRUE,TRUE,221
+,,,04/20/2025,9:17,179,MANG TOTO,Spin,paid,"Tide,Breeze,Surf",1,TRUE,TRUE,68
+,,,04/20/2025,9:20,176,GINA,Spin,paid,Downy,1,FALSE,FALSE,27
+,,,04/20/2025,9:42,176,LARY,Wash,paid,"Breeze,Zonrox",1,TRUE,TRUE,90
+,,,04/20/2025,9:44,136,KAREN,Fold,paid,Del,2,FALSE,FALSE,46
+,,,04/20/2025,10:01,192,JHONG,"Fold,Wash Dry Fold",paid,"Surf,Tide",1,TRUE,FALSE,225
+,,,04/20/2025,10:19,164,ALFRED,Dry,paid,"Tide,Downy,Ariel",2,FALSE,TRUE,146
+,,,04/20/2025,10:46,304,VANESSA,"Fold,Wash",paid,"Zonrox,Del,Ariel",2,FALSE,FALSE,156
+,,,04/20/2025,10:47,156,ROMEL,Wash Dry Fold,paid,"Breeze,Tide,Downy",1,TRUE,FALSE,213
+,,,04/20/2025,10:58,160,DARYL ,"Spin,Fold",paid,"Downy,Zonrox,Breeze",1,FALSE,FALSE,82
+,,,04/20/2025,11:23,150,AR-JAY,Wash,paid,Zonrox,1,FALSE,TRUE,57
+,,,04/20/2025,11:31,168,R-R,Wash Dry Fold,paid,Ariel,2,FALSE,TRUE,176
+,,,04/20/2025,11:32,300,ANGEL,Fold,paid,"Downy,Surf",2,TRUE,TRUE,83
+,,,04/20/2025,11:45,206,JOSHUA,"Wash Dry Fold,Spin",paid,"Ariel,Tide",2,TRUE,TRUE,242
+,,,04/20/2025,11:52,390,STEVE,Dry,paid,Surf,1,TRUE,TRUE,77
+,,,04/20/2025,11:53,120,DONALD,Dry,paid,Breeze,1,TRUE,FALSE,93
+,,,04/20/2025,12:15,160,CHRISTIAN,Wash and Dry,paid,Tide,1,FALSE,FALSE,138
+,,,04/20/2025,13:50,158,DAN,Wash,paid,Zonrox,2,TRUE,TRUE,79
+,,,04/20/2025,14:00,176,OJ,"Wash,Dry",paid,"Surf,Downy,Zonrox",1,FALSE,FALSE,151
+,,,04/20/2025,14:01,144,SOLIDAD,"Fold,Dry",paid,"Tide,Zonrox,Surf",2,TRUE,TRUE,169
+,,,04/20/2025,15:29,176,DONALD,Spin,paid,Ariel,1,FALSE,FALSE,33
+,,,04/20/2025,16:27,144,LITO,"Dry,Wash",paid,"Tide,Downy",2,FALSE,TRUE,170
+,,,04/20/2025,16:30,136,GIGI,Wash and Dry,paid,"Del,Zonrox",1,TRUE,FALSE,150
+,,,04/20/2025,16:31,172,DENNIS,"Spin,Dry",paid,"Surf,Downy",2,TRUE,TRUE,128
+,,,04/20/2025,16:41,156,PAUL,"Wash Dry Fold,Wash",paid,"Ariel,Breeze,Downy",2,TRUE,FALSE,321
+,,,04/20/2025,17:20,240,EIAN,"Dry,Wash Dry Fold",paid,"Downy,Breeze",1,FALSE,TRUE,230
+,,,04/20/2025,17:26,152,RODMAN,"Wash,Dry",paid,"Downy,Del",1,FALSE,TRUE,130
+,,,04/20/2025,17:40,160,JO,Wash and Dry,paid,"Downy,Ariel,Tide",1,FALSE,TRUE,158
+,,,04/20/2025,18:34,60,KATLEN,Spin,paid,"Surf,Breeze,Tide",2,FALSE,TRUE,101
+,,,04/21/2025,7:20,246,FRANCIS,"Spin,Wash",paid,Zonrox,1,TRUE,TRUE,87
+,,,04/21/2025,7:23,138,MALISIDO,"Spin,Wash and Dry",paid,Surf,1,FALSE,TRUE,137
+,,,04/21/2025,7:27,138,NAK,Dry,paid,"Tide,Del,Downy",2,FALSE,TRUE,126
+,,,04/21/2025,7:32,142,ALICE,Wash,paid,"Tide,Del,Breeze",1,TRUE,TRUE,109
+,,,04/21/2025,7:51,134,JUSTIN,Spin,paid,"Breeze,Surf,Zonrox",1,FALSE,TRUE,42
+,,,04/21/2025,8:08,163,BRANDON,Fold,paid,"Surf,Ariel",2,FALSE,FALSE,90
+,,,04/21/2025,8:12,158,TATS,Wash Dry Fold,paid,"Breeze,Tide,Downy",1,TRUE,TRUE,203
+,,,04/21/2025,8:14,324,LANIE,Wash and Dry,paid,"Downy,Tide,Zonrox",1,FALSE,TRUE,147
+,,,04/21/2025,8:35,194,SONY,Wash,paid,"Downy,Breeze",2,TRUE,FALSE,135
+,,,04/21/2025,8:50,182,ATE AIDA,Wash,paid,"Ariel,Surf",2,TRUE,TRUE,125
+,,,04/21/2025,8:53,138,GARCIA,"Wash and Dry,Fold",paid,Breeze,2,TRUE,FALSE,201
+,,,04/21/2025,11:00,156,ADDY,Wash and Dry,paid,Ariel,2,TRUE,FALSE,171
+,,,04/21/2025,12:51,288,EDWARD,Wash,paid,Ariel,2,FALSE,FALSE,96
+,,,04/21/2025,13:01,150,RONALD,"Dry,Wash",paid,"Zonrox,Breeze",1,FALSE,FALSE,145
+,,,04/21/2025,15:10,240,CICIL,Dry,paid,"Del,Downy",2,TRUE,TRUE,105
+,,,04/21/2025,15:27,160,RYAN,Wash and Dry,paid,"Surf,Breeze,Tide",1,TRUE,TRUE,173
+,,,04/21/2025,16:34,276,WILMOR,"Spin,Fold",paid,Ariel,1,TRUE,TRUE,68
+,,,04/21/2025,16:49,152,KENKEN,"Wash,Spin",paid,"Tide,Surf,Breeze",2,TRUE,TRUE,176
+,,,04/21/2025,16:50,120,KIM,"Dry,Fold",paid,"Breeze,Ariel",1,FALSE,TRUE,116
+,,,04/22/2025,6:34,158,EJ,Wash and Dry,paid,"Tide,Zonrox",1,FALSE,TRUE,135
+,,,04/22/2025,6:35,226,CALOY,Wash Dry Fold,paid,"Del,Tide",1,TRUE,FALSE,191
+,,,04/22/2025,7:12,158,ALICE,Spin,paid,Zonrox,1,TRUE,FALSE,37
+,,,04/22/2025,7:20,168,FRANCE,"Wash and Dry,Spin",paid,"Downy,Del",1,FALSE,TRUE,145
+,,,04/22/2025,8:00,138,JOSHUA,Dry,paid,"Ariel,Surf,Zonrox",1,TRUE,FALSE,112
+,,,04/22/2025,8:04,190,PATRICK,"Wash and Dry,Spin",paid,Zonrox,2,FALSE,FALSE,149
+,,,04/22/2025,9:15,144,SHERLY,Wash,paid,"Ariel,Downy,Del",1,FALSE,TRUE,88
+,,,04/22/2025,9:20,60,JOSIE,"Wash Dry Fold,Wash",paid,"Ariel,Breeze,Zonrox",2,FALSE,FALSE,296
+,,,04/22/2025,9:25,164,JOEL,Spin,paid,"Ariel,Tide",1,TRUE,TRUE,56
+,,,04/22/2025,10:08,60,CECIL,Wash,paid,"Tide,Breeze",1,FALSE,FALSE,96
+,,,04/22/2025,10:21,156,KEVIN,Fold,paid,Surf,1,FALSE,FALSE,42
+,,,04/22/2025,12:11,139,MALRON,"Spin,Fold",paid,"Downy,Zonrox",2,FALSE,FALSE,83
+,,,04/22/2025,15:31,162,JOSIE,"Dry,Wash",paid,Del,2,FALSE,TRUE,126
+,,,04/22/2025,15:40,156,JING,"Dry,Wash and Dry",paid,"Del,Ariel,Tide",1,FALSE,TRUE,214
+,,,04/22/2025,15:55,148,MICHAEL ROJO,"Wash Dry Fold,Fold",paid,Downy,1,TRUE,TRUE,197
+,,,04/22/2025,16:37,328,BOKS,Spin,paid,"Del,Downy",2,TRUE,TRUE,60
+,,,04/22/2025,16:41,296,CLAIRE,Dry,paid,"Tide,Surf,Downy",2,TRUE,TRUE,149
+,,,04/22/2025,17:36,152,SIMON,Wash and Dry,paid,"Downy,Breeze",1,FALSE,TRUE,140
+,,,04/22/2025,18:18,148,ADDY,"Dry,Wash and Dry",paid,"Surf,Breeze,Downy",1,FALSE,TRUE,212
+,,,04/22/2025,18:41,176,WILSON,Spin,paid,"Breeze,Del,Ariel",1,FALSE,FALSE,59
+,,,04/23/2025,7:00,146,ANN ,"Fold,Wash",paid,Tide,1,FALSE,TRUE,98
+,,,04/23/2025,7:05,140,CECIL,"Dry,Wash and Dry",paid,"Del,Tide,Ariel",1,TRUE,FALSE,239
+,,,04/23/2025,7:34,352,MYKA,"Fold,Wash",paid,Del,2,TRUE,TRUE,111
+,,,04/23/2025,7:35,138,ANGHEL,Spin,paid,"Ariel,Zonrox,Downy",2,TRUE,FALSE,104
+,,,04/23/2025,7:48,138,BRYAN,Fold,paid,"Downy,Zonrox",2,TRUE,FALSE,83
+,,,04/23/2025,8:09,220,NAK,Dry,paid,"Ariel,Zonrox,Surf",2,FALSE,FALSE,134
+,,,04/23/2025,8:20,154,JECK,"Dry,Wash Dry Fold",paid,"Del,Zonrox,Downy",1,FALSE,FALSE,237
+,,,04/23/2025,8:45,170,LESSA,"Wash and Dry,Spin",paid,Surf,1,TRUE,TRUE,152
+,,,04/23/2025,9:36,192,MEL,Fold,paid,Del,1,FALSE,FALSE,38
+,,,04/23/2025,10:15,148,MAMANG,"Dry,Wash and Dry",paid,Surf,2,TRUE,TRUE,209
+,,,04/23/2025,11:42,150,JOMAK,"Fold,Wash and Dry",paid,Zonrox,1,TRUE,FALSE,172
+,,,04/23/2025,12:25,148,LITO,Wash Dry Fold,paid,"Del,Surf,Ariel",2,TRUE,TRUE,231
+,,,04/23/2025,12:56,136,MARK B,Spin,paid,"Zonrox,Downy",1,TRUE,TRUE,39
+,,,04/23/2025,13:20,312,MARK 23,Wash,paid,Ariel,1,TRUE,TRUE,83
+,,,04/23/2025,14:19,1480,JOHN WYNE,"Wash and Dry,Wash Dry Fold",paid,Ariel,1,FALSE,FALSE,288
+,,,04/23/2025,15:05,144,VINCENT,Dry,paid,"Downy,Surf",1,FALSE,FALSE,84
+,,,04/23/2025,15:45,176,ANTHONY,"Wash Dry Fold,Wash",paid,"Tide,Downy,Surf",1,TRUE,TRUE,257
+,,,04/23/2025,16:19,70,KIM,"Dry,Wash and Dry",paid,Surf,2,TRUE,FALSE,219
+,,,04/23/2025,16:38,176,LOVELY,Wash and Dry,paid,Surf,1,FALSE,TRUE,122
+,,,04/23/2025,17:13,152,JAMES,Wash,paid,"Zonrox,Surf,Ariel",1,TRUE,TRUE,102
+,,,04/23/2025,18:50,176,MARLON,"Fold,Wash Dry Fold",paid,"Del,Tide,Breeze",1,TRUE,FALSE,239
+,,,04/24/2025,7:01,110,DONDON,"Wash,Fold",paid,"Breeze,Tide,Del",2,FALSE,TRUE,168
+,,,04/24/2025,7:02,150,LESTER,Dry,paid,Breeze,2,TRUE,FALSE,111
+,,,04/24/2025,7:14,158,BERNIE,Wash Dry Fold,paid,"Zonrox,Surf",1,FALSE,FALSE,169
+,,,04/24/2025,7:15,136,DENDEN,"Wash,Dry",paid,Ariel,1,TRUE,TRUE,143
+,,,04/24/2025,7:20,142,JR,Wash Dry Fold,paid,"Zonrox,Del",2,FALSE,TRUE,170
+,,,04/24/2025,7:35,242,KEVIN,"Wash,Spin",paid,"Ariel,Breeze",1,FALSE,FALSE,111
+,,,04/24/2025,7:45,126,MICHAEL,"Dry,Wash and Dry",paid,Downy,2,TRUE,FALSE,219
+,,,04/24/2025,7:51,126,JOEL,Wash and Dry,paid,"Surf,Breeze",2,TRUE,TRUE,185
+,,,04/24/2025,8:00,158,BUBOY,Wash,paid,"Downy,Breeze",2,FALSE,TRUE,110
+,,,04/24/2025,8:13,138,STEPEN,"Wash and Dry,Spin",paid,Zonrox,2,FALSE,FALSE,149
+,,,04/24/2025,8:17,110,BOTS,"Fold,Wash",paid,Del,1,TRUE,TRUE,103
+,,,04/24/2025,10:24,176,CHA,"Wash,Spin",paid,Ariel,1,TRUE,FALSE,108
+,,,04/24/2025,10:43,198,REGGIE,Wash,paid,Tide,1,FALSE,FALSE,78
+,,,04/24/2025,10:44,182,JOSIE,"Wash,Dry",paid,"Zonrox,Breeze,Downy",2,FALSE,TRUE,184
+,,,04/24/2025,10:46,180,KEN,Wash,paid,"Zonrox,Downy",2,FALSE,TRUE,88
+,,,04/24/2025,11:08,189,EDDIE,Wash Dry Fold,paid,"Zonrox,Breeze",2,TRUE,FALSE,215
+,,,04/24/2025,12:00,320,DAGA,"Dry,Wash and Dry",paid,"Downy,Zonrox,Del",1,FALSE,TRUE,197
+,,,04/24/2025,13:07,164,KEVIN,Wash and Dry,paid,"Ariel,Downy,Tide",1,FALSE,FALSE,168
+,,,04/24/2025,13:35,152,REGALA,"Wash Dry Fold,Spin",paid,Downy,2,TRUE,FALSE,204
+,,,04/24/2025,13:56,136,GIGI,Fold,paid,Ariel,2,TRUE,TRUE,71
+,,,04/24/2025,14:55,80,KIM,Wash and Dry,paid,"Ariel,Surf,Breeze",2,FALSE,TRUE,206
+,,,04/24/2025,15:04,148,RANDY,Dry,paid,"Zonrox,Breeze,Surf",1,TRUE,TRUE,102
+,,,04/24/2025,15:32,168,CARLA,Dry,paid,"Surf,Ariel,Tide",2,FALSE,TRUE,146
+,,,04/24/2025,16:03,160,ZENNY,"Wash and Dry,Spin",paid,"Zonrox,Breeze",2,TRUE,TRUE,190
+,,,04/24/2025,16:09,176,ROD,"Spin,Wash and Dry",paid,Zonrox,1,FALSE,FALSE,142
+,,,04/24/2025,16:13,300,JOCO,"Spin,Wash and Dry",paid,Surf,1,FALSE,FALSE,147
+,,,04/24/2025,16:45,120,RICK ,Wash and Dry,paid,Tide,2,FALSE,TRUE,146
+,,,04/24/2025,17:46,204,ERIC,"Dry,Wash",paid,Ariel,1,FALSE,FALSE,138
+,,,04/24/2025,18:13,240,SIMON,Dry,paid,"Surf,Zonrox,Breeze",2,FALSE,TRUE,124
+,,,04/24/2025,18:19,176,ALEX,"Fold,Dry",paid,"Del,Ariel,Downy",1,FALSE,FALSE,128
+,,,04/24/2025,18:35,60,JOSIE,Dry,paid,Downy,2,TRUE,FALSE,99
+,,,04/24/2025,18:49,192,LEN,Wash and Dry,paid,"Zonrox,Tide,Del",1,TRUE,FALSE,168
+,,,04/24/2025,19:18,160,PRAYLE,Spin,paid,"Breeze,Downy",1,TRUE,TRUE,50
+,,,04/24/2025,19:25,176,SOTTO,"Spin,Wash Dry Fold",paid,"Del,Downy",2,TRUE,TRUE,210
+,,,04/25/2025,6:58,166,PATRICK,"Dry,Wash",paid,Surf,1,FALSE,TRUE,122
+,,,04/25/2025,7:34,138,JR,"Spin,Wash",paid,"Downy,Ariel",2,FALSE,TRUE,125
+,,,04/25/2025,7:35,133,ALORA,Dry,paid,Ariel,2,TRUE,TRUE,101
+,,,04/25/2025,7:45,140,JOSELITO,Dry,paid,"Tide,Zonrox",1,FALSE,TRUE,75
+,,,04/25/2025,7:46,142,JR MUYCO,"Wash and Dry,Wash Dry Fold",paid,"Tide,Zonrox,Downy",1,FALSE,TRUE,297
+,,,04/25/2025,7:49,142,WILIAM,"Dry,Wash",paid,Breeze,1,FALSE,FALSE,138
+,,,04/25/2025,7:54,150,JC,Wash,paid,"Zonrox,Breeze",2,TRUE,TRUE,115
+,,,04/25/2025,8:21,414,YAM,"Dry,Wash and Dry",paid,"Surf,Zonrox",1,TRUE,TRUE,204
+,,,04/25/2025,8:27,140,WENG,Fold,paid,"Tide,Zonrox,Ariel",1,TRUE,FALSE,88
+,,,04/25/2025,8:35,110,BERNIE,Fold,paid,"Downy,Breeze,Zonrox",1,FALSE,FALSE,67
+,,,04/25/2025,8:45,140,WENG,"Dry,Spin",paid,"Breeze,Del",2,TRUE,TRUE,132
+,,,04/25/2025,8:47,141,GRACE,Wash Dry Fold,paid,"Tide,Surf,Del",1,TRUE,FALSE,203
+,,,04/25/2025,9:31,148,ADDY,Wash,paid,"Del,Tide,Ariel",2,TRUE,TRUE,153
+,,,04/25/2025,9:53,328,JOAN SALAS,"Fold,Wash",paid,Ariel,1,FALSE,FALSE,108
+,,,04/25/2025,10:04,144,AMYFER,Wash Dry Fold,paid,"Tide,Breeze,Downy",1,TRUE,FALSE,213
+,,,04/25/2025,10:18,144,MELAN,Wash,paid,"Ariel,Del,Tide",2,TRUE,FALSE,163
+,,,04/25/2025,10:34,168,QUEEN,"Dry,Wash and Dry",paid,Breeze,1,FALSE,TRUE,188
+,,,04/25/2025,13:11,176,ROMEL,Spin,paid,"Surf,Tide,Breeze",1,FALSE,FALSE,63
+,,,04/25/2025,13:45,160,JR,Wash,paid,"Breeze,Tide,Downy",1,FALSE,FALSE,108
+,,,04/25/2025,14:26,80,GINA,"Wash Dry Fold,Fold",paid,"Breeze,Del,Downy",2,TRUE,FALSE,271
+,,,04/25/2025,14:49,296,SAM ,"Spin,Wash",paid,"Ariel,Downy",2,TRUE,FALSE,150
+,,,04/25/2025,15:17,148,KIT,"Wash Dry Fold,Wash",paid,Ariel,2,TRUE,FALSE,261
+,,,04/25/2025,15:50,240,LANIE,"Spin,Wash",paid,"Del,Surf,Tide",2,TRUE,FALSE,166
+,,,04/25/2025,16:19,120,TOPNATCH,Wash Dry Fold,paid,Downy,2,TRUE,TRUE,179
+,,,04/25/2025,16:26,136,CHRISTIAN,"Wash and Dry,Wash Dry Fold",paid,Zonrox,2,FALSE,FALSE,284
+,,,04/25/2025,16:48,234,JERICK,Wash and Dry,paid,"Ariel,Del,Tide",1,TRUE,FALSE,179
+,,,04/25/2025,17:09,174,JHEN,Fold,paid,Del,2,TRUE,TRUE,51
+,,,04/25/2025,17:34,148,MERVIN,"Spin,Wash",paid,Zonrox,1,TRUE,FALSE,97
+,,,04/25/2025,17:36,148,RICKY,Wash,paid,"Breeze,Surf,Downy",1,FALSE,FALSE,102
+,,,04/25/2025,18:05,152,FIOBE,"Fold,Wash",paid,"Del,Breeze,Zonrox",1,TRUE,TRUE,128
+,,,04/25/2025,18:08,150,SAM,"Spin,Dry",paid,Ariel,1,FALSE,TRUE,83
+,,,04/25/2025,18:40,188,SULTAN,Spin,paid,"Del,Surf,Tide",1,TRUE,FALSE,68
+,,,04/25/2025,19:35,360,JANE,Wash,paid,Zonrox,1,TRUE,TRUE,72
+,,,04/25/2025,19:57,120,SIMON,"Wash and Dry,Spin",paid,"Ariel,Zonrox,Downy",1,FALSE,FALSE,172
+,,,04/26/2025,7:26,150,ALEX,Wash Dry Fold,paid,"Breeze,Downy",1,TRUE,TRUE,185
+,,,04/26/2025,7:40,166,GERALD,Wash Dry Fold,paid,Zonrox,2,FALSE,FALSE,164
+,,,04/26/2025,7:40,150,ARGIE M,"Fold,Spin",paid,"Del,Downy",2,FALSE,TRUE,75
+,,,04/26/2025,7:57,138,VINCENT,Wash,paid,Ariel,1,FALSE,TRUE,68
+,,,04/26/2025,8:00,142,ANNE,Spin,paid,"Downy,Surf",1,TRUE,TRUE,44
+,,,04/26/2025,8:00,162,MARLON,Wash Dry Fold,paid,Zonrox,2,FALSE,TRUE,154
+,,,04/26/2025,8:02,138,NICK,"Dry,Fold",paid,"Ariel,Tide",1,FALSE,FALSE,126
+,,,04/26/2025,8:02,138,MONTANO,Spin,paid,"Del,Breeze,Surf",1,TRUE,FALSE,68
+,,,04/26/2025,8:03,110,DEL,"Fold,Dry",paid,"Surf,Zonrox",2,FALSE,FALSE,128
+,,,04/26/2025,8:05,214,RJ,"Wash,Wash Dry Fold",paid,"Tide,Downy",2,TRUE,FALSE,285
+,,,04/26/2025,8:23,252,VANESSA,"Wash and Dry,Dry",paid,Tide,1,TRUE,TRUE,203
+,,,04/26/2025,8:31,150,HAMID,"Wash and Dry,Wash Dry Fold",paid,Ariel,1,FALSE,FALSE,288
+,,,04/26/2025,8:35,162,ROSELL,Dry,paid,Surf,1,TRUE,FALSE,87
+,,,04/26/2025,8:45,278,LYN,Wash,paid,Downy,1,TRUE,TRUE,77
+,,,04/26/2025,9:02,60,MICHEAL,Dry,paid,"Downy,Zonrox",2,TRUE,FALSE,113
+,,,04/26/2025,9:34,148,BALTAZAR,"Wash and Dry,Dry",paid,Breeze,1,FALSE,FALSE,198
+,,,04/26/2025,9:50,152,WILMOR,"Dry,Fold",paid,Breeze,1,FALSE,TRUE,98
+,,,04/26/2025,9:55,240,JOAN,Wash and Dry,paid,Downy,2,TRUE,FALSE,159
+,,,04/26/2025,10:56,136,MARVIN,Wash,paid,Surf,1,TRUE,TRUE,77
+,,,04/26/2025,11:59,148,MAMANG,Wash and Dry,paid,Ariel,2,TRUE,TRUE,161
+,,,04/26/2025,13:32,164,MARK,Wash Dry Fold,paid,"Downy,Ariel",2,TRUE,TRUE,215
+,,,04/26/2025,13:33,148,ALKENT,Wash Dry Fold,paid,Downy,1,TRUE,FALSE,177
+,,,04/26/2025,13:35,120,MARK O,Dry,paid,"Ariel,Del,Zonrox",1,TRUE,TRUE,98
+,,,04/26/2025,14:09,60,JOSHUA,Wash and Dry,paid,"Surf,Breeze,Zonrox",1,FALSE,FALSE,157
+,,,04/26/2025,14:35,136,LESTER,"Wash Dry Fold,Wash and Dry",paid,"Ariel,Surf,Del",1,FALSE,TRUE,298
+,,,04/26/2025,15:10,148,ROD,"Wash,Wash Dry Fold",paid,"Tide,Surf",1,TRUE,FALSE,255
+,,,04/26/2025,16:26,180,MARINA,Wash,paid,"Breeze,Zonrox",1,FALSE,FALSE,85
+,,,04/26/2025,18:24,156,VINZ,Fold,paid,Breeze,2,FALSE,FALSE,66
+,,,04/26/2025,18:50,176,WILSON,Spin,paid,"Surf,Breeze,Downy",1,TRUE,TRUE,62
+,,,04/26/2025,18:58,160,GOMER,"Wash,Wash and Dry",paid,Surf,1,FALSE,TRUE,182
+,,,04/26/2025,19:21,176,ADRIAN,"Wash Dry Fold,Fold",paid,"Downy,Zonrox",1,FALSE,TRUE,189
+,,,04/26/2025,19:38,408,STEVE,"Spin,Wash",paid,"Ariel,Tide,Surf",2,TRUE,TRUE,176
+,,,04/27/2025,7:20,128,ALFRANCE,Fold,paid,Del,1,FALSE,TRUE,28
+,,,04/27/2025,7:25,154,ARNORLD,"Dry,Wash Dry Fold",paid,Tide,2,TRUE,FALSE,261
+,,,04/27/2025,7:28,154,JR,"Wash,Fold",paid,"Zonrox,Breeze",2,TRUE,TRUE,145
+,,,04/27/2025,7:39,300,JOAN S.,Wash and Dry,paid,"Del,Downy,Ariel",1,TRUE,TRUE,163
+,,,04/27/2025,7:40,150,RODEL,Fold,paid,"Zonrox,Ariel,Surf",2,TRUE,FALSE,119
+,,,04/27/2025,7:49,140,NICK,Wash,paid,"Tide,Del",1,FALSE,FALSE,86
+,,,04/27/2025,8:02,150,MARION,Wash Dry Fold,paid,"Zonrox,Ariel",1,FALSE,TRUE,165
+,,,04/27/2025,8:10,140,ANGEL,Spin,paid,Zonrox,2,TRUE,FALSE,44
+,,,04/27/2025,8:13,280,RAHIM,"Fold,Wash Dry Fold",paid,"Zonrox,Breeze,Tide",1,TRUE,TRUE,228
+,,,04/27/2025,8:13,110,CRISTY,Fold,paid,"Zonrox,Tide,Surf",2,TRUE,TRUE,109
+,,,04/27/2025,8:24,146,LUCKY,"Wash,Wash and Dry",paid,Zonrox,2,FALSE,TRUE,184
+,,,04/27/2025,8:28,110,KEN,Wash and Dry,paid,Downy,2,TRUE,FALSE,159
+,,,04/27/2025,8:30,158,NANAY VIOLY,Wash Dry Fold,paid,"Ariel,Surf,Breeze",2,TRUE,TRUE,251
+,,,04/27/2025,8:53,208,ROLDAN,"Wash and Dry,Wash Dry Fold",paid,Surf,2,FALSE,TRUE,284
+,,,04/27/2025,8:54,80,JAYPEE,Wash Dry Fold,paid,Tide,1,TRUE,TRUE,173
+,,,04/27/2025,8:55,140,JOJO,Spin,paid,Zonrox,2,FALSE,FALSE,29
+,,,04/27/2025,9:07,152,CHOC,Wash Dry Fold,paid,"Del,Downy,Ariel",2,FALSE,TRUE,216
+,,,04/27/2025,9:10,192,ARNEL,"Wash Dry Fold,Spin",paid,Downy,2,FALSE,FALSE,189
+,,,04/27/2025,9:14,136,KENT,Wash Dry Fold,paid,Tide,1,FALSE,FALSE,168
+,,,04/27/2025,9:42,388,JOSHUA,Fold,paid,Tide,2,TRUE,TRUE,71
+,,,04/27/2025,9:54,192,MEL,Spin,paid,"Zonrox,Del",2,FALSE,FALSE,45
+,,,04/27/2025,10:25,192,JHONG,Wash Dry Fold,paid,"Zonrox,Del",1,TRUE,FALSE,180
+,,,04/27/2025,10:31,152,RODMAN,Wash,paid,Surf,2,FALSE,FALSE,84
+,,,04/27/2025,10:57,152,SAMUEL,"Dry,Wash Dry Fold",paid,Breeze,2,FALSE,FALSE,246
+,,,04/27/2025,11:13,176,MARKY,"Wash,Dry",paid,"Tide,Breeze",2,TRUE,TRUE,197
+,,,04/27/2025,11:30,120,PHILIP,"Dry,Spin",paid,"Tide,Breeze",1,TRUE,TRUE,116
+,,,04/27/2025,11:32,164,ALFRED,"Wash,Spin",paid,"Tide,Breeze",2,FALSE,TRUE,137
+,,,04/27/2025,11:40,160,DARYLE,Fold,paid,"Downy,Tide,Zonrox",1,FALSE,TRUE,57
+,,,04/27/2025,11:42,164,MARK ,Wash and Dry,paid,"Del,Ariel,Zonrox",1,FALSE,TRUE,143
+,,,04/27/2025,12:20,120,ANTONIO,Wash,paid,"Ariel,Surf",1,FALSE,FALSE,90
+,,,04/27/2025,12:31,158,MARVIN,Spin,paid,"Breeze,Del,Downy",2,TRUE,TRUE,96
+,,,04/27/2025,12:35,160,CHRISTIAN,"Wash and Dry,Spin",paid,Tide,1,TRUE,TRUE,158
+,,,04/27/2025,12:36,60,JOSIE,Wash Dry Fold,paid,"Surf,Downy",1,FALSE,FALSE,174
+,,,04/27/2025,13:04,162,ARVI,Wash and Dry,paid,Breeze,1,FALSE,FALSE,138
+,,,04/27/2025,13:28,1480,JOHN WYNE,"Wash Dry Fold,Wash",paid,"Zonrox,Del,Tide",2,FALSE,TRUE,266
+,,,04/27/2025,14:04,168,DONALD,"Dry,Wash",paid,"Downy,Tide",2,FALSE,FALSE,180
+,,,04/27/2025,14:39,160,MACMAC,"Dry,Spin",paid,"Tide,Downy",2,TRUE,TRUE,140
+,,,04/27/2025,15:21,138,MARIELLE,"Wash Dry Fold,Dry",paid,"Breeze,Surf",1,FALSE,FALSE,240
+,,,04/27/2025,15:34,150,OMAR,"Wash and Dry,Fold",paid,Downy,1,FALSE,FALSE,162
+,,,04/27/2025,15:51,150,LINO,Wash Dry Fold,paid,Surf,2,FALSE,FALSE,174
+,,,04/27/2025,16:54,120,PUNYONG,Fold,paid,"Zonrox,Del",1,FALSE,TRUE,35
+,,,04/27/2025,16:55,240,YIUAN,Wash and Dry,paid,"Breeze,Downy",1,FALSE,FALSE,150
+,,,04/27/2025,17:30,148,RANDY,Spin,paid,Ariel,1,TRUE,FALSE,48
+,,,04/27/2025,18:05,138,JOHN REGALA,Spin,paid,Tide,2,FALSE,TRUE,41
+,,,04/27/2025,18:10,148,ADDY,Fold,paid,Downy,1,TRUE,FALSE,57
+,,,04/27/2025,18:47,240,MARK,"Spin,Fold",paid,"Tide,Breeze",1,FALSE,FALSE,81
+,,,04/27/2025,19:14,192,RIZZA,"Spin,Wash Dry Fold",paid,"Zonrox,Del",1,FALSE,FALSE,180
+,,,04/27/2025,19:40,300,JAM,Wash Dry Fold,paid,"Del,Zonrox,Surf",2,FALSE,FALSE,204
+,,,04/28/2025,6:34,140,CICIL,"Wash and Dry,Dry",paid,"Zonrox,Del,Surf",1,FALSE,FALSE,207
+,,,04/28/2025,7:25,110,KRIS,"Spin,Fold",paid,"Del,Tide,Ariel",2,TRUE,TRUE,138
+,,,04/28/2025,7:40,166,TATTOO,"Dry,Wash and Dry",paid,"Ariel,Del",2,TRUE,FALSE,247
+,,,04/28/2025,7:51,166,JORIE,Wash Dry Fold,paid,"Ariel,Tide",2,FALSE,TRUE,212
+,,,04/28/2025,8:01,129,MICHAEL,Fold,paid,Zonrox,2,FALSE,TRUE,34
+,,,04/28/2025,8:10,110,TOPNATS,"Wash Dry Fold,Dry",paid,"Breeze,Zonrox",2,FALSE,TRUE,250
+,,,04/28/2025,8:24,252,SAY,Wash Dry Fold,paid,"Surf,Downy,Breeze",2,FALSE,TRUE,224
+,,,04/28/2025,8:35,150,JOLIANNE,Fold,paid,Tide,1,FALSE,FALSE,48
+,,,04/28/2025,10:28,160,VICTORINA,"Dry,Wash",paid,"Del,Zonrox",2,FALSE,TRUE,140
+,,,04/28/2025,11:18,240,SHERLY,Wash Dry Fold,paid,"Surf,Zonrox,Downy",2,TRUE,TRUE,217
+,,,04/28/2025,12:17,152,NIL,"Dry,Wash and Dry",paid,"Del,Breeze",1,FALSE,TRUE,196
+,,,04/28/2025,12:50,240,ZIAN,"Wash Dry Fold,Spin",paid,"Tide,Downy,Breeze",2,TRUE,FALSE,276
+,,,04/28/2025,13:54,150,RONALD,Spin,paid,"Surf,Tide,Del",2,FALSE,FALSE,91
+,,,04/28/2025,15:06,120,KIM,Wash and Dry,paid,Tide,2,FALSE,TRUE,146
+,,,04/28/2025,15:30,148,ROD,"Dry,Wash Dry Fold",paid,Tide,1,TRUE,FALSE,243
+,,,04/28/2025,17:49,188,SULTAN,"Spin,Wash",paid,Zonrox,2,FALSE,TRUE,79
+,,,04/29/2025,7:20,168,FRANCE,"Wash and Dry,Dry",paid,"Surf,Downy,Breeze",1,FALSE,FALSE,222
+,,,04/29/2025,7:26,158,ALICE,"Dry,Wash Dry Fold",paid,"Downy,Zonrox",1,TRUE,FALSE,244
+,,,04/29/2025,7:32,154,REY,Fold,paid,Downy,1,FALSE,TRUE,32
+,,,04/29/2025,7:40,142,ALICE,Spin,paid,"Tide,Breeze,Del",2,TRUE,FALSE,118
+,,,04/29/2025,7:51,110,TONNY,Spin,paid,"Breeze,Downy,Ariel",2,TRUE,TRUE,116
+,,,04/29/2025,7:55,190,PATRICK,Wash,paid,"Breeze,Downy,Ariel",1,TRUE,FALSE,123
+,,,04/29/2025,8:00,150,IBY,"Wash,Dry",paid,Surf,2,FALSE,FALSE,144
+,,,04/29/2025,8:15,158,BUBOY,Wash Dry Fold,paid,Del,2,FALSE,TRUE,156
+,,,04/29/2025,8:25,134,JEASON,Wash and Dry,paid,Tide,1,TRUE,TRUE,143
+,,,04/29/2025,8:29,170,RIZZA,"Spin,Wash",paid,Del,2,TRUE,TRUE,96
+,,,04/29/2025,8:32,200,ROY,Spin,paid,"Ariel,Downy,Breeze",1,FALSE,FALSE,63
+,,,04/29/2025,8:39,158,TATS,Wash Dry Fold,paid,"Ariel,Del",2,TRUE,TRUE,207
+,,,04/29/2025,8:44,126,HYLEN,Dry,paid,"Del,Surf",2,TRUE,TRUE,105
+,,,04/29/2025,8:46,60,JOSIE,Wash,paid,Ariel,2,TRUE,TRUE,101
+,,,04/29/2025,8:50,308,AR-JAY,"Wash Dry Fold,Spin",paid,Surf,2,FALSE,TRUE,179
+,,,04/29/2025,8:55,284,VANESSA,Dry,paid,"Breeze,Del",2,FALSE,TRUE,102
+,,,04/29/2025,8:58,292,NEL,"Wash and Dry,Wash Dry Fold",paid,"Ariel,Downy,Tide",1,FALSE,FALSE,318
+,,,04/29/2025,9:41,140,CHA,"Fold,Dry",paid,"Downy,Tide",1,TRUE,TRUE,125
+,,,04/29/2025,11:23,206,JONEL,Spin,paid,"Tide,Zonrox",2,FALSE,FALSE,65
+,,,04/29/2025,13:01,168,JL,"Fold,Wash Dry Fold",paid,"Breeze,Tide",2,FALSE,TRUE,242
+,,,04/29/2025,13:35,1184,JOHN,"Dry,Wash and Dry",paid,"Ariel,Downy,Del",1,TRUE,TRUE,223
+,,,04/29/2025,13:39,136,BERNIE,Wash and Dry,paid,"Zonrox,Tide,Ariel",2,TRUE,TRUE,211
+,,,04/29/2025,2:11,136,GIGI,"Wash and Dry,Wash",paid,"Zonrox,Surf",2,TRUE,FALSE,233
+,,,04/29/2025,16:40,160,GERALD,"Wash and Dry,Fold",paid,Downy,2,FALSE,FALSE,174
+,,,04/29/2025,16:42,304,RM,"Wash and Dry,Spin",paid,"Downy,Tide,Zonrox",1,FALSE,FALSE,172
+,,,04/29/2025,17:01,188,HAO,"Wash and Dry,Wash",paid,"Breeze,Ariel,Del",2,TRUE,FALSE,283
+,,,04/29/2025,17:04,156,PAUL,Fold,paid,Surf,1,TRUE,TRUE,47
+,,,04/29/2025,17:09,159,JHEN,"Wash,Wash Dry Fold",paid,"Surf,Downy,Breeze",1,TRUE,FALSE,267
+,,,04/29/2025,18:16,148,ADDY,Wash and Dry,paid,Ariel,1,TRUE,TRUE,143
+,,,04/29/2025,18:28,192,BUBOY,Dry,paid,"Surf,Zonrox,Tide",2,TRUE,FALSE,149
+,,,04/29/2025,19:07,160,ANTHONY,Fold,paid,"Zonrox,Del,Tide",2,FALSE,FALSE,96
+,,,04/29/2025,19:27,160,JAMS,Wash Dry Fold,paid,Tide,2,FALSE,FALSE,186
+,,,04/29/2025,19:30,148,BOBET,Wash and Dry,paid,"Breeze,Tide,Del",2,TRUE,FALSE,223
+,,,04/30/2025,7:12,110,DON-DON,Wash Dry Fold,paid,Tide,2,TRUE,TRUE,191
+,,,04/30/2025,7:14,226,CALOY,"Wash and Dry,Wash",paid,Ariel,1,TRUE,FALSE,213
+,,,04/30/2025,7:16,166,LANIE,"Fold,Spin",paid,"Breeze,Ariel",1,FALSE,FALSE,81
+,,,04/30/2025,7:21,110,BRAKE,Wash,paid,Surf,1,TRUE,FALSE,87
+,,,04/30/2025,7:32,149,JR,Dry,paid,"Downy,Ariel",1,FALSE,TRUE,80
+,,,04/30/2025,7:45,122,KAREN,Fold,paid,"Surf,Del,Ariel",2,FALSE,FALSE,106
+,,,04/30/2025,7:57,173,JC,"Wash and Dry,Fold",paid,"Tide,Downy",2,TRUE,TRUE,215
+,,,04/30/2025,8:10,220,NAK,"Wash Dry Fold,Fold",paid,Del,2,TRUE,TRUE,201
+,,,04/30/2025,8:15,154,JECK,Fold,paid,"Zonrox,Tide,Surf",1,FALSE,TRUE,57
+,,,04/30/2025,8:31,126,PANTAS,Fold,paid,"Surf,Breeze",2,TRUE,TRUE,95
+,,,04/30/2025,9:10,163,GRACE,"Spin,Wash and Dry",paid,"Ariel,Zonrox",1,TRUE,FALSE,175
+,,,04/30/2025,9:18,444,TONI,Spin,paid,"Ariel,Breeze,Tide",2,TRUE,FALSE,138
+,,,04/30/2025,9:19,176,AREI,"Wash and Dry,Wash Dry Fold",paid,"Breeze,Zonrox",2,TRUE,TRUE,325
+,,,04/30/2025,11:34,198,NEG,Wash Dry Fold,paid,"Zonrox,Tide",2,FALSE,FALSE,200
+,,,04/30/2025,14:05,240,EDCEL,Fold,paid,"Zonrox,Del",2,TRUE,FALSE,75
+,,,04/30/2025,14:40,157,TRISYA,"Wash,Wash Dry Fold",paid,"Zonrox,Breeze,Del",2,TRUE,TRUE,281
+,,,04/30/2025,14:53,120,MANDS,Spin,paid,"Del,Downy,Breeze",1,FALSE,TRUE,43
+,,,04/30/2025,15:40,148,ROD,"Spin,Dry",paid,"Downy,Breeze",1,FALSE,TRUE,95
+,,,04/30/2025,15:59,120,DOWA,Wash Dry Fold,paid,"Breeze,Tide",1,FALSE,FALSE,186
+,,,04/30/2025,19:22,352,CRISTINE,Wash Dry Fold,paid,Zonrox,1,FALSE,FALSE,157

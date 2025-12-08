@@ -1,0 +1,131 @@
+CREATE DATABASE IF NOT EXISTS gambz_laundry;
+USE gambz_laundry;
+
+-- Drop tables in correct order if they exist
+DROP TABLE IF EXISTS EDIT_LOG;
+DROP TABLE IF EXISTS TRANSACTION_ADDONS;
+DROP TABLE IF EXISTS TRANSACTION_SERVICES;
+DROP TABLE IF EXISTS `TRANSACTION`;
+DROP TABLE IF EXISTS SERVICES;
+DROP TABLE IF EXISTS ADDON;
+DROP TABLE IF EXISTS CUSTOMER;
+DROP TABLE IF EXISTS STAFF;
+DROP TABLE IF EXISTS ROLES;
+
+CREATE TABLE ROLES (
+  role_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL
+) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE STAFF (
+  staff_id INT PRIMARY KEY AUTO_INCREMENT,
+  role_id INT,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  FOREIGN KEY (role_id) REFERENCES ROLES(role_id)
+) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE CUSTOMER (
+  customer_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL
+) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE ADDON (
+  addon_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  is_active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE SERVICES (
+  service_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  base_price DECIMAL(10,2) NOT NULL,
+  is_active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `TRANSACTION` (
+  transaction_id INT PRIMARY KEY AUTO_INCREMENT,
+  customer_id INT,
+  staff_id INT,
+  date DATE NOT NULL,
+  time_received TIME NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  total DECIMAL(10,2) NOT NULL,
+  customer_name VARCHAR(100),
+  status VARCHAR(50),
+  extra_service BOOLEAN DEFAULT FALSE,
+  wash_promo BOOLEAN DEFAULT FALSE,
+  quantity_addons INT DEFAULT 0,
+  FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id),
+  FOREIGN KEY (staff_id) REFERENCES STAFF(staff_id)
+) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE TRANSACTION_SERVICES (
+  transaction_service_id INT PRIMARY KEY AUTO_INCREMENT,
+  transaction_id INT NOT NULL,
+  service_id INT NOT NULL,
+  extra_dry BOOLEAN DEFAULT FALSE,
+  FOREIGN KEY (transaction_id) REFERENCES `TRANSACTION`(transaction_id) ON DELETE CASCADE,
+  FOREIGN KEY (service_id) REFERENCES SERVICES(service_id)
+) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE TRANSACTION_ADDONS (
+  transaction_addon_id INT PRIMARY KEY AUTO_INCREMENT,
+  transaction_id INT NOT NULL,
+  addon_id INT NOT NULL,
+  quantity INT DEFAULT 1,
+  FOREIGN KEY (transaction_id) REFERENCES `TRANSACTION`(transaction_id) ON DELETE CASCADE,
+  FOREIGN KEY (addon_id) REFERENCES ADDON(addon_id)
+) DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE EDIT_LOG (
+  log_id INT PRIMARY KEY AUTO_INCREMENT,
+  transaction_id INT,
+  staff_id INT,
+  action VARCHAR(50),
+  old_value TEXT,
+  new_value TEXT,
+  date_modified DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (transaction_id) REFERENCES `TRANSACTION`(transaction_id),
+  FOREIGN KEY (staff_id) REFERENCES STAFF(staff_id)
+) DEFAULT CHARSET=utf8mb4;
+
+-- Insert sample roles
+INSERT INTO ROLES (name) VALUES 
+  ('Admin'),
+  ('Staff');
+
+INSERT INTO ADDON (name, price) VALUES 
+  ('Ariel', 18.00),
+  ('Breeze', 18.00),
+  ('Tide', 18.00),
+  ('Surf', 12.00),
+  ('Downy', 12.00),
+  ('Del', 8.00),
+  ('Zonrox', 7.00);
+
+INSERT INTO SERVICES (name, base_price) VALUES 
+  ('Wash and Dry', 120.00),
+  ('Wash Dry Fold', 150.00),
+  ('Wash', 60.00),
+  ('Dry', 60.00),
+  ('Fold', 30.00),
+  ('Spin', 15.00);
+
+-- Performance optimization indexes
+CREATE INDEX idx_transaction_date ON `TRANSACTION`(date DESC, time_received DESC);
+CREATE INDEX idx_transaction_status ON `TRANSACTION`(status);
+CREATE INDEX idx_transaction_customer ON `TRANSACTION`(customer_id);
+CREATE INDEX idx_transaction_staff ON `TRANSACTION`(staff_id);
+CREATE INDEX idx_transaction_services_trans ON TRANSACTION_SERVICES(transaction_id);
+CREATE INDEX idx_transaction_services_serv ON TRANSACTION_SERVICES(service_id);
+CREATE INDEX idx_transaction_addons_trans ON TRANSACTION_ADDONS(transaction_id);
+CREATE INDEX idx_transaction_addons_addon ON TRANSACTION_ADDONS(addon_id);
+CREATE INDEX idx_edit_log_transaction ON EDIT_LOG(transaction_id);
+CREATE INDEX idx_edit_log_date ON EDIT_LOG(date_modified DESC);

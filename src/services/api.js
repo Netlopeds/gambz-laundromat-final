@@ -9,6 +9,20 @@ const api = axios.create({
   },
 });
 
+// Add authentication token to all requests
+api.interceptors.request.use((config) => {
+  const authStore = JSON.parse(localStorage.getItem('auth') || '{}');
+  
+  if (authStore.staffId && authStore.roleId) {
+    // Format: "Bearer {staff_id}:{role_id}"
+    config.headers.Authorization = `Bearer ${authStore.staffId}:${authStore.roleId}`;
+  }
+  
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
+
 export default {
   // Staff endpoints
   staff: {
@@ -27,6 +41,14 @@ export default {
     create: (data) => api.post('/transactions', data),
     update: (id, data) => api.put(`/transactions/${id}`, data),
     delete: (id) => api.delete(`/transactions/${id}`),
+    importCSV: (formData) => {
+      return axios.post(`${API_URL}/transactions/import-csv`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('auth') || '{}').staffId}:${JSON.parse(localStorage.getItem('auth') || '{}').roleId}`
+        }
+      });
+    },
   },
 
   // Customer endpoints
@@ -49,5 +71,23 @@ export default {
   editLogs: {
     getAll: () => api.get('/editlogs'),
     getByTransaction: (transactionId) => api.get(`/editlogs/transaction/${transactionId}`),
+  },
+
+  // Services endpoints
+  services: {
+    getAll: () => api.get('/services'),
+    getById: (id) => api.get(`/services/${id}`),
+    create: (data) => api.post('/services', data),
+    update: (id, data) => api.put(`/services/${id}`, data),
+    delete: (id) => api.delete(`/services/${id}`),
+  },
+
+  // Addons endpoints
+  addons: {
+    getAll: () => api.get('/addons'),
+    getById: (id) => api.get(`/addons/${id}`),
+    create: (data) => api.post('/addons', data),
+    update: (id, data) => api.put(`/addons/${id}`, data),
+    delete: (id) => api.delete(`/addons/${id}`),
   },
 };

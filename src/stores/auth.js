@@ -6,23 +6,23 @@ export const useAuthStore = defineStore('auth', () => {
   // State
   const user = ref(null)
   const staffId = ref(null)
+  const roleId = ref(null)
   const token = ref(null)
   const isAuthenticated = ref(false)
   const isAdmin = ref(false)
 
   // Initialize from localStorage
   const initAuth = () => {
-    const savedToken = localStorage.getItem('authToken')
-    const savedUser = localStorage.getItem('username')
-    const savedStaffId = localStorage.getItem('staffId')
-    const savedIsAdmin = localStorage.getItem('isAdmin') === 'true'
+    const savedAuth = localStorage.getItem('auth')
     
-    if (savedToken && savedUser) {
-      token.value = savedToken
-      user.value = savedUser
-      staffId.value = savedStaffId ? parseInt(savedStaffId) : null
+    if (savedAuth) {
+      const auth = JSON.parse(savedAuth)
+      token.value = auth.token
+      user.value = auth.username
+      staffId.value = auth.staffId
+      roleId.value = auth.roleId
       isAuthenticated.value = true
-      isAdmin.value = savedIsAdmin
+      isAdmin.value = auth.roleId === 1
     }
   }
 
@@ -36,15 +36,18 @@ export const useAuthStore = defineStore('auth', () => {
       token.value = 'staff-token-' + Date.now()
       user.value = staffData.name
       staffId.value = staffData.staff_id
+      roleId.value = staffData.role_id
       isAuthenticated.value = true
-      isAdmin.value = staffData.role_name === 'Admin'
+      isAdmin.value = staffData.role_id === 1
 
-      // Save to localStorage
-      localStorage.setItem('authToken', token.value)
-      localStorage.setItem('username', staffData.name)
-      localStorage.setItem('staffId', staffData.staff_id.toString())
-      localStorage.setItem('isLoggedIn', 'true')
-      localStorage.setItem('isAdmin', isAdmin.value.toString())
+      // Save to localStorage as single auth object
+      const authData = {
+        token: token.value,
+        username: staffData.name,
+        staffId: staffData.staff_id,
+        roleId: staffData.role_id
+      }
+      localStorage.setItem('auth', JSON.stringify(authData))
 
       return { success: true, user: staffData }
     } catch (error) {
@@ -60,15 +63,12 @@ export const useAuthStore = defineStore('auth', () => {
   const logout = () => {
     user.value = null
     staffId.value = null
+    roleId.value = null
     token.value = null
     isAuthenticated.value = false
     isAdmin.value = false
 
-    localStorage.removeItem('authToken')
-    localStorage.removeItem('username')
-    localStorage.removeItem('staffId')
-    localStorage.removeItem('isLoggedIn')
-    localStorage.removeItem('isAdmin')
+    localStorage.removeItem('auth')
     localStorage.removeItem('cartItems')
   }
 
@@ -79,6 +79,7 @@ export const useAuthStore = defineStore('auth', () => {
   return {
     user,
     staffId,
+    roleId,
     token,
     isAuthenticated,
     isAdmin,

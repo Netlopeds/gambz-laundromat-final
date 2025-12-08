@@ -37,6 +37,12 @@ const routes = [
     name: 'EditLog',
     component: () => import('../views/EditLog.vue'),
     meta: { requiresAuth: true, requiresAdmin: true }
+  },
+  {
+    path: '/edit-service',
+    name: 'EditService',
+    component: () => import('../views/EditService.vue'),
+    meta: { requiresAuth: true, requiresAdmin: true }
   }
 ]
 

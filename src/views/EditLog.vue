@@ -51,7 +51,7 @@
                   </span>
                 </td>
                 <td>{{ edit.action || 'N/A' }}</td>
-                <td>{{ formatValue(edit.old_valu) }}</td>
+                <td>{{ formatValue(edit.old_value) }}</td>
                 <td>
                   <span class="new-value">{{ formatValue(edit.new_value) }}</span>
                 </td>
@@ -87,7 +87,7 @@
             </div>
             <div class="card-row">
               <span class="card-label">Old Value:</span>
-              <span class="card-value">{{ formatValue(edit.old_valu) }}</span>
+              <span class="card-value">{{ formatValue(edit.old_value) }}</span>
             </div>
             <div class="card-row">
               <span class="card-label">New Value:</span>
