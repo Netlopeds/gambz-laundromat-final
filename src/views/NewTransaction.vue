@@ -133,6 +133,19 @@
                       +
                     </button>
                   </div>
+                  <!-- Display selected addons with remove buttons -->
+                  <div v-if="selectedAddons.length > 0" class="selected-items">
+                    <div v-for="(addon, index) in selectedAddons" :key="index" class="selected-item">
+                      <span class="item-name">{{ getAddonName(addon.type) }} (x{{ addon.qty }})</span>
+                      <button 
+                        type="button" 
+                        @click="removeAddon(index)" 
+                        class="remove-btn"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -433,6 +446,10 @@ export default {
     getServiceName(serviceId) {
       const service = this.availableServices.find(s => s.value === serviceId)
       return service ? service.label : 'Unknown Service'
+    },
+    getAddonName(addonId) {
+      const addon = this.availableAddons.find(a => a.value === addonId)
+      return addon ? addon.label : 'Unknown Add-on'
     },
     isDryService(serviceId) {
       const service = this.availableServices.find(s => s.value === serviceId)
