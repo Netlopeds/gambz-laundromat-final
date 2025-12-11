@@ -26,10 +26,10 @@ Built with enterprise-grade architecture focusing on scalable back-end developme
 For first time setup, users should run these commands
 
 **Backend**
--npm install
--npm install multer
--npm install axios pinia
+- npm install
+- npm install multer
+- npm install axios pinia
 
 **Frontend**
--npm install 
--npm install chart.js
+- npm install 
+- npm install chart.js
