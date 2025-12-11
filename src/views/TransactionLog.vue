@@ -777,6 +777,7 @@ export default {
           time: t.time_received,
           amount: parseFloat(t.total) || parseFloat(t.price) || 0,
           service_ids: t.services ? t.services.map(s => s.service_id) : [],
+          service_extra_dry: t.services ? t.services.map(s => s.extra_dry) : [],
           addon_ids: t.addons ? t.addons.map(a => a.addon_id) : [],
           addon_quantities: t.addons ? t.addons.map(a => a.quantity) : [],
           extra_service: t.extra_service || false,
@@ -969,12 +970,14 @@ export default {
       // Populate selectedServices with {serviceId, extraDry} objects
       this.selectedServices = []
       if (transaction.service_ids && transaction.service_ids.length > 0) {
-        // For now, set extraDry to false since we don't have that data yet
-        // In the future, this would come from the transaction data
-        transaction.service_ids.forEach(serviceId => {
+        transaction.service_ids.forEach((serviceId, index) => {
+          // Get the extra_dry value from service_extra_dry array if it exists
+          const extraDry = transaction.service_extra_dry && transaction.service_extra_dry[index] 
+            ? Boolean(transaction.service_extra_dry[index]) 
+            : false
           this.selectedServices.push({
             serviceId: serviceId,
-            extraDry: false
+            extraDry: extraDry
           })
         })
       }
