@@ -20,3 +20,16 @@ A full-stack laundromat management system that provides comprehensive business m
 - CSV import/export functionality
 
 Built with enterprise-grade architecture focusing on scalable back-end development, RESTful API design, and modern front-end frameworks.
+
+## Setup:
+
+For first time setup, users should run these commands
+
+**Backend**
+-npm install
+-npm install multer
+-npm install axios pinia
+
+**Frontend**
+-npm install 
+-npm install chart.js
